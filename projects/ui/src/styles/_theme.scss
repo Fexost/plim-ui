@@ -1,0 +1,18 @@
+@use './tokens';
+
+:root {
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  --plim-color-background: #ffffff;
+  --plim-color-surface: #f8f9fb;
+  --plim-color-surface-raised: #ffffff;
+
+  --plim-color-border: #e1e4e8;
+  --plim-color-border-strong: #c7ccd3;
+
+  --plim-color-text: #17191d;
+  --plim-color-text-muted: #606772;
+  --plim-color-text-subtle: #858b95;
+}

@@ -1,0 +1,52 @@
+:root {
+    // Colours
+    --plim-color-background: #0b0d12;
+    --plim-color-surface: #11141b;
+    --plim-color-surface-raised: #181c24;
+  
+    --plim-color-border: #292e39;
+    --plim-color-border-strong: #3a414f;
+  
+    --plim-color-text: #f4f5f7;
+    --plim-color-text-muted: #a3a9b5;
+    --plim-color-text-subtle: #6f7684;
+  
+    --plim-color-primary: #8b9cff;
+    --plim-color-primary-hover: #a5b2ff;
+  
+    --plim-color-success: #55d187;
+    --plim-color-warning: #e8b85c;
+    --plim-color-danger: #ed6a7a;
+  
+    // Typography
+    --plim-font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      sans-serif;
+  
+    --plim-font-size-xs: 0.75rem;
+    --plim-font-size-sm: 0.875rem;
+    --plim-font-size-md: 1rem;
+    --plim-font-size-lg: 1.125rem;
+    --plim-font-size-xl: 1.5rem;
+  
+    // Spacing
+    --plim-space-1: 0.25rem;
+    --plim-space-2: 0.5rem;
+    --plim-space-3: 0.75rem;
+    --plim-space-4: 1rem;
+    --plim-space-5: 1.25rem;
+    --plim-space-6: 1.5rem;
+    --plim-space-8: 2rem;
+  
+    // Radius
+    --plim-radius-sm: 4px;
+    --plim-radius-md: 6px;
+    --plim-radius-lg: 10px;
+  
+    // Motion
+    --plim-duration-fast: 100ms;
+    --plim-duration-normal: 150ms;
+    --plim-duration-slow: 250ms;
+  }

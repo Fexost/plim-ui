@@ -1,0 +1,17 @@
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--plim-color-background);
+  color: var(--plim-color-text);
+  font-family: var(--plim-font-family);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
