@@ -1,0 +1,9 @@
+<aside class="sidebar" [attr.aria-label]="ariaLabel()">
+	<div class="sidebar-nav">
+		<ng-content select="[plimSidebarNav]" />
+	</div>
+
+	<div class="sidebar-footer">
+		<ng-content select="[plimSidebarFooter]" />
+	</div>
+</aside>

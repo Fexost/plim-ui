@@ -12,7 +12,7 @@ export class Header {
 	});
 
 	@HostBinding('class.header--sticky')
-	public get isSticky(): boolean {
+	protected get isSticky(): boolean {
 		return this.sticky();
 	}
 }

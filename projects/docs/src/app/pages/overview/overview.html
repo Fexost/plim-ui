@@ -1,0 +1,84 @@
+<section class="docs-hero">
+	<p class="docs-eyebrow">Angular component system</p>
+	<h1>Interfaces that welcome everyone.</h1>
+	<p class="docs-lead">
+		PLIM is an accessibility-first UI library for Angular — composable primitives,
+		semantic tokens, and interaction patterns that work for keyboard, pointer, and
+		assistive technology users.
+	</p>
+	<div class="docs-hero-actions">
+		<button type="button" plimButton [routerLink]="paths.installation">Get started</button>
+		<button type="button" plimButton variant="secondary" [routerLink]="paths.button">
+			Explore components
+		</button>
+	</div>
+</section>
+
+<section class="docs-grid docs-grid--2">
+	<article class="docs-card">
+		<div class="docs-card-header">
+			<h2>Start in minutes</h2>
+			<span class="docs-badge">Angular 21+</span>
+		</div>
+		<pre class="docs-code"><code>npm install ui</code></pre>
+		<p class="docs-card-copy">Build the library locally, then import components and styles into your app.</p>
+	</article>
+
+	<article class="docs-card docs-card--accent">
+		<div class="docs-card-icon docs-card-icon--success" aria-hidden="true">✓</div>
+		<h2>Accessibility is the baseline</h2>
+		<p class="docs-card-copy">
+			Every component is built with semantic HTML, keyboard support, and visible focus
+			states. ARIA is used only when native semantics are not enough.
+		</p>
+		<a [routerLink]="paths.accessibility" class="docs-text-link">Read our principles</a>
+	</article>
+</section>
+
+<section class="docs-section">
+	<div class="docs-section-header">
+		<h2>Component categories</h2>
+		<p>Composable building blocks for product UI</p>
+	</div>
+
+	<div class="docs-grid docs-grid--3">
+		<article class="docs-card docs-card--category">
+			<div class="docs-card-icon docs-card-icon--primary" aria-hidden="true">▣</div>
+			<h3>Actions</h3>
+			<p>Buttons and links with consistent focus and disabled states.</p>
+			<a [routerLink]="paths.button" class="docs-text-link">View button</a>
+		</article>
+
+		<article class="docs-card docs-card--category">
+			<div class="docs-card-icon docs-card-icon--success" aria-hidden="true">☰</div>
+			<h3>Navigation</h3>
+			<p>Headers, tabs, and wayfinding patterns for docs and apps.</p>
+			<a [routerLink]="paths.sidebar" class="docs-text-link">View sidebar</a>
+		</article>
+
+		<article class="docs-card docs-card--category docs-card--muted">
+			<div class="docs-card-icon" aria-hidden="true">◌</div>
+			<h3>Form controls</h3>
+			<p>Inputs, selects, and checkboxes with shared field semantics.</p>
+			<span class="docs-coming-soon">Coming next</span>
+		</article>
+	</div>
+</section>
+
+<section class="docs-principles">
+	<article>
+		<span class="docs-principle-number">01</span>
+		<h3>Built for real input</h3>
+		<p>Keyboard, pointer, and assistive tech paths are designed in from the start.</p>
+	</article>
+	<article>
+		<span class="docs-principle-number">02</span>
+		<h3>Clear by default</h3>
+		<p>State, labels, and legibility stay visible without extra configuration.</p>
+	</article>
+	<article>
+		<span class="docs-principle-number">03</span>
+		<h3>Designed to adapt</h3>
+		<p>Semantic tokens and composable slots let you match your product, not ours.</p>
+	</article>
+</section>

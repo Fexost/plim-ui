@@ -1,20 +1,55 @@
 <plim-header sticky>
-  <div plimHeaderStart>
-    <strong>plim-ui</strong>
-  </div>
+	<div plimHeaderStart>
+		<a [routerLink]="homePath" class="docs-brand">
+			<span class="docs-brand-text">Plim-UI for Angular</span>
+		</a>
+	</div>
 
-  <div plimHeaderCenter>
-    <p>Docs</p>
-  </div>
+	<div plimHeaderCenter>
+		<label class="docs-search">
+			<span class="visually-hidden">Search documentation</span>
+			<input type="search" placeholder="Search documentation..." disabled />
+			<kbd class="docs-search-kbd">⌘ K</kbd>
+		</label>
+	</div>
 
-  <div plimHeaderEnd>
-    <<a href="https://github.com/Fexost/plim-ui" target="_blank" rel="noopener noreferrer">
-      GitHub
-    </a>>
-  </div>
+	<div plimHeaderEnd>
+		<nav class="docs-header-nav" aria-label="Header actions">
+			<button
+				type="button"
+				plimButton
+				variant="secondary"
+				class="docs-theme-toggle"
+				(click)="theme.toggle()"
+				[attr.aria-label]="theme.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+			>
+				{{ theme.theme() === 'dark' ? 'Light' : 'Dark' }}
+			</button>
+			<a
+				href="https://github.com/Fexost/plim-ui"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="docs-header-link"
+			>
+				GitHub
+			</a>
+		</nav>
+	</div>
 </plim-header>
 
-<main>
-  <router-outlet />
-  <div style="height: 3000px"></div>
-</main>
+<div class="docs-shell docs-shell--sidebar-push">
+	<plim-sidebar aria-label="Documentation navigation">
+		<app-docs-nav plimSidebarNav />
+		<div plimSidebarFooter class="docs-sidebar-card">
+			<span class="docs-sidebar-card-icon" aria-hidden="true">✓</span>
+			<div>
+				<strong>WCAG-minded</strong>
+				<p>Built with keyboard support and visible focus states.</p>
+			</div>
+		</div>
+	</plim-sidebar>
+
+	<main class="docs-main">
+		<router-outlet />
+	</main>
+</div>

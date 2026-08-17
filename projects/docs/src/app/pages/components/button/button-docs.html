@@ -1,0 +1,104 @@
+<app-docs-component-layout category="Actions" title="Button">
+	<p docsLead>
+		A styled native button for actions. Apply <code>plimButton</code> to keep semantic
+		behaviour, keyboard support, and visible focus.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Variants</h2>
+		<p>Choose a visual weight that matches the action priority.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<button type="button" plimButton>Primary</button>
+				<button type="button" plimButton variant="secondary">Secondary</button>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;button type="button" plimButton&gt;Primary&lt;/button&gt;
+&lt;button type="button" plimButton variant="secondary"&gt;
+  Secondary
+&lt;/button&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section">
+		<h2>States</h2>
+		<p>Disabled buttons remain in the tab order only when they stay actionable.</p>
+
+		<div class="docs-state-grid">
+			<article class="docs-state-card">
+				<div class="docs-state-card__preview">
+					<button type="button" plimButton>Save changes</button>
+				</div>
+				<h3>Default</h3>
+				<p>Use for the primary action on a surface.</p>
+			</article>
+
+			<article class="docs-state-card">
+				<div class="docs-state-card__preview">
+					<button type="button" plimButton variant="secondary">Cancel</button>
+				</div>
+				<h3>Secondary</h3>
+				<p>Use for supporting actions beside a primary button.</p>
+			</article>
+
+			<article class="docs-state-card">
+				<div class="docs-state-card__preview">
+					<button type="button" plimButton disabled>Publish</button>
+				</div>
+				<h3>Disabled</h3>
+				<p>Use when the action is unavailable. Binds to the native disabled attribute.</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					Buttons use native semantics so assistive technology gets role, state, and
+					keyboard behaviour without extra ARIA.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Enter and Space activate</li>
+					<li>Focus ring stays visible</li>
+					<li>Native disabled state</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>variant</code></td>
+						<td><code>'primary' | 'secondary'</code></td>
+						<td><code>'primary'</code></td>
+						<td>Visual style of the button.</td>
+					</tr>
+					<tr>
+						<td><code>disabled</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Disables the native button.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

@@ -15,7 +15,7 @@
 			},
 			"root": "projects/ui",
 			"sourceRoot": "projects/ui/src",
-			"prefix": "lib",
+			"prefix": "plim",
 			"architect": {
 				"build": {
 					"builder": "@angular/build:ng-packagr",

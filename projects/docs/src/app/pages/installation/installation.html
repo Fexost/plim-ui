@@ -1,0 +1,32 @@
+<header class="docs-page-header">
+	<p class="docs-eyebrow">Get started</p>
+	<h1>Installation</h1>
+	<p class="docs-lead">
+		PLIM is developed as a local Angular library in this workspace. Build the
+		library, import components, and include the global styles in your app.
+	</p>
+</header>
+
+<section class="docs-section">
+	<h2>Build the library</h2>
+	<pre class="docs-code"><code>npm run build</code></pre>
+</section>
+
+<section class="docs-section">
+	<h2>Import components</h2>
+	<pre class="docs-code"><code>import {{ '{' }} Header, Button {{ '}' }} from 'plim-ui';</code></pre>
+</section>
+
+<section class="docs-section">
+	<h2>Include styles</h2>
+	<pre class="docs-code"><code>@use 'plim-ui/styles/styles';</code></pre>
+	<p class="docs-section-copy">
+		After building, global tokens and theme variables are available from
+		<code>dist/plim-ui/styles/styles.scss</code>.
+	</p>
+</section>
+
+<section class="docs-section">
+	<h2>Run the docs app</h2>
+	<pre class="docs-code"><code>npm start</code></pre>
+</section>

@@ -17,19 +17,13 @@
 	align-items: center;
 
 	width: 100%;
-	min-height: 60px;
+	min-height: var(--plim-header-height);
 	padding: 0 var(--plim-space-6);
 
 	background: var(--plim-color-surface);
 	border-bottom: 1px solid var(--plim-color-border);
 
 	color: var(--plim-color-text);
-}
-
-.header--sticky {
-	position: sticky;
-	top: 0;
-	z-index: 100;
 }
 
 .header-start {

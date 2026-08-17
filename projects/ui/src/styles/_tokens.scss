@@ -1,52 +1,79 @@
 :root {
-    // Colours
-    --plim-color-background: #0b0d12;
-    --plim-color-surface: #11141b;
-    --plim-color-surface-raised: #181c24;
-  
-    --plim-color-border: #292e39;
-    --plim-color-border-strong: #3a414f;
-  
-    --plim-color-text: #f4f5f7;
-    --plim-color-text-muted: #a3a9b5;
-    --plim-color-text-subtle: #6f7684;
-  
-    --plim-color-primary: #8b9cff;
-    --plim-color-primary-hover: #a5b2ff;
-  
-    --plim-color-success: #55d187;
-    --plim-color-warning: #e8b85c;
-    --plim-color-danger: #ed6a7a;
-  
-    // Typography
-    --plim-font-family:
-      Inter,
-      ui-sans-serif,
-      system-ui,
-      sans-serif;
-  
-    --plim-font-size-xs: 0.75rem;
-    --plim-font-size-sm: 0.875rem;
-    --plim-font-size-md: 1rem;
-    --plim-font-size-lg: 1.125rem;
-    --plim-font-size-xl: 1.5rem;
-  
-    // Spacing
-    --plim-space-1: 0.25rem;
-    --plim-space-2: 0.5rem;
-    --plim-space-3: 0.75rem;
-    --plim-space-4: 1rem;
-    --plim-space-5: 1.25rem;
-    --plim-space-6: 1.5rem;
-    --plim-space-8: 2rem;
-  
-    // Radius
-    --plim-radius-sm: 4px;
-    --plim-radius-md: 6px;
-    --plim-radius-lg: 10px;
-  
-    // Motion
-    --plim-duration-fast: 100ms;
-    --plim-duration-normal: 150ms;
-    --plim-duration-slow: 250ms;
-  }
+	// Colours
+	--plim-color-background: #0a0c10;
+	--plim-color-surface: #11141b;
+	--plim-color-surface-raised: #181c24;
+
+	--plim-color-border: #292e39;
+	--plim-color-border-strong: #3a414f;
+
+	--plim-color-text: #f4f5f7;
+	--plim-color-text-muted: #a3a9b5;
+	--plim-color-text-subtle: #6f7684;
+
+	--plim-color-primary: #8b5cf6;
+	--plim-color-primary-hover: #a78bfa;
+
+	--plim-color-success: #55d187;
+	--plim-color-warning: #e8b85c;
+	--plim-color-danger: #ed6a7a;
+
+	// Typography
+	--plim-font-family:
+		Inter,
+		ui-sans-serif,
+		system-ui,
+		sans-serif;
+
+	--plim-font-size-xs: 0.75rem;
+	--plim-font-size-sm: 0.875rem;
+	--plim-font-size-md: 1rem;
+	--plim-font-size-lg: 1.125rem;
+	--plim-font-size-xl: 1.5rem;
+	--plim-font-size-2xl: 2.25rem;
+
+	--plim-font-weight-normal: 400;
+	--plim-font-weight-medium: 500;
+	--plim-font-weight-semibold: 600;
+
+	--plim-line-height-tight: 1.2;
+	--plim-line-height-normal: 1.5;
+
+	// Spacing
+	--plim-space-1: 0.25rem;
+	--plim-space-2: 0.5rem;
+	--plim-space-3: 0.75rem;
+	--plim-space-4: 1rem;
+	--plim-space-5: 1.25rem;
+	--plim-space-6: 1.5rem;
+	--plim-space-8: 2rem;
+	--plim-space-10: 2.5rem;
+	--plim-space-12: 3rem;
+
+	// Radius
+	--plim-radius-sm: 4px;
+	--plim-radius-md: 6px;
+	--plim-radius-lg: 10px;
+	--plim-radius-full: 9999px;
+
+	// Shadows
+	--plim-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.24);
+	--plim-shadow-md: 0 4px 12px rgb(0 0 0 / 0.32);
+	--plim-shadow-lg: 0 8px 24px rgb(0 0 0 / 0.4);
+
+	// Focus
+	--plim-focus-ring-color: var(--plim-color-primary);
+	--plim-focus-ring-width: 2px;
+	--plim-focus-ring-offset: 2px;
+
+	// Motion
+	--plim-duration-fast: 100ms;
+	--plim-duration-normal: 150ms;
+	--plim-duration-slow: 250ms;
+	--plim-ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+
+	// Component dimensions
+	--plim-header-height: 4rem;
+	--plim-sidebar-width: 16rem;
+	--plim-button-height: 2.5rem;
+}

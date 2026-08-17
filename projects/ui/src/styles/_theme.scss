@@ -1,18 +1,31 @@
 @use './tokens';
 
 :root {
-  color-scheme: dark;
+	color-scheme: dark;
 }
 
 [data-theme='light'] {
-  --plim-color-background: #ffffff;
-  --plim-color-surface: #f8f9fb;
-  --plim-color-surface-raised: #ffffff;
+	color-scheme: light;
 
-  --plim-color-border: #e1e4e8;
-  --plim-color-border-strong: #c7ccd3;
+	--plim-color-background: #ffffff;
+	--plim-color-surface: #f8f9fb;
+	--plim-color-surface-raised: #ffffff;
 
-  --plim-color-text: #17191d;
-  --plim-color-text-muted: #606772;
-  --plim-color-text-subtle: #858b95;
+	--plim-color-border: #e1e4e8;
+	--plim-color-border-strong: #c7ccd3;
+
+	--plim-color-text: #17191d;
+	--plim-color-text-muted: #606772;
+	--plim-color-text-subtle: #858b95;
+
+	--plim-color-primary: #7c3aed;
+	--plim-color-primary-hover: #6d28d9;
+
+	--plim-color-success: #16a34a;
+	--plim-color-warning: #d97706;
+	--plim-color-danger: #dc2626;
+
+	--plim-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
+	--plim-shadow-md: 0 4px 12px rgb(0 0 0 / 0.08);
+	--plim-shadow-lg: 0 8px 24px rgb(0 0 0 / 0.12);
 }

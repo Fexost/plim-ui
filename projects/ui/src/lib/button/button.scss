@@ -1,0 +1,56 @@
+:host {
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--plim-space-2);
+
+	min-height: var(--plim-button-height);
+	padding: 0 var(--plim-space-4);
+
+	border: 1px solid transparent;
+	border-radius: var(--plim-radius-md);
+
+	font-family: inherit;
+	font-size: var(--plim-font-size-sm);
+	font-weight: var(--plim-font-weight-medium);
+	line-height: var(--plim-line-height-normal);
+	text-decoration: none;
+	white-space: nowrap;
+
+	cursor: pointer;
+	transition:
+		background-color var(--plim-duration-normal) var(--plim-ease-default),
+		border-color var(--plim-duration-normal) var(--plim-ease-default),
+		color var(--plim-duration-normal) var(--plim-ease-default);
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+:host(.plim-button--primary) {
+	background: var(--plim-color-primary);
+	color: #ffffff;
+
+	&:hover:not(:disabled) {
+		background: var(--plim-color-primary-hover);
+	}
+}
+
+:host(.plim-button--secondary) {
+	background: transparent;
+	border-color: var(--plim-color-border-strong);
+	color: var(--plim-color-text);
+
+	&:hover:not(:disabled) {
+		background: var(--plim-color-surface-raised);
+		border-color: var(--plim-color-border);
+	}
+}
