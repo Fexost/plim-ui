@@ -2,31 +2,45 @@
 	<p class="docs-eyebrow">Get started</p>
 	<h1>Installation</h1>
 	<p class="docs-lead">
-		PLIM is developed as a local Angular library in this workspace. Build the
-		library, import components, and include the global styles in your app.
+		Install plim-ui from npm, import standalone components into your Angular app, and
+		include the global styles to enable design tokens and theming.
 	</p>
 </header>
 
 <section class="docs-section">
-	<h2>Build the library</h2>
-	<pre class="docs-code"><code>npm run build</code></pre>
+	<h2>Install the package</h2>
+	<pre class="docs-code"><code>npm install plim-ui</code></pre>
+	<p class="docs-section-copy">Requires Angular 21+.</p>
 </section>
 
 <section class="docs-section">
 	<h2>Import components</h2>
-	<pre class="docs-code"><code>import {{ '{' }} Header, Button {{ '}' }} from 'plim-ui';</code></pre>
+	<pre class="docs-code"><code>import {{ '{' }} Header, Button, Sidebar {{ '}' }} from 'plim-ui';</code></pre>
+	<p class="docs-section-copy">
+		All components are standalone — add them to the <code>imports</code> array of your
+		component or route.
+	</p>
 </section>
 
 <section class="docs-section">
 	<h2>Include styles</h2>
 	<pre class="docs-code"><code>@use 'plim-ui/styles/styles';</code></pre>
 	<p class="docs-section-copy">
-		After building, global tokens and theme variables are available from
-		<code>dist/plim-ui/styles/styles.scss</code>.
+		Add this once in your application styles (for example <code>styles.scss</code>) to
+		load design tokens and theme variables.
 	</p>
 </section>
 
 <section class="docs-section">
-	<h2>Run the docs app</h2>
-	<pre class="docs-code"><code>npm start</code></pre>
+	<h2>Contribute locally</h2>
+	<p class="docs-section-copy">
+		The source lives on
+		<a href="https://github.com/Fexost/plim-ui" target="_blank" rel="noopener noreferrer"
+			>GitHub</a
+		>. Clone the repo and run the docs app:
+	</p>
+	<pre class="docs-code"><code>git clone https://github.com/Fexost/plim-ui.git
+cd plim-ui
+npm install
+npm start</code></pre>
 </section>

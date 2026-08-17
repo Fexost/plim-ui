@@ -1,17 +1,12 @@
 # plim-ui
 
-Angular component library for building accessible, composable UI with a shared design token system.
+Open-source Angular component library for building accessible, composable UI with a shared design token system.
 
 ## Install
 
-This package is developed inside the `plim-ui` monorepo. Build it locally before importing:
-
 ```bash
-# from the workspace root
-npm run build
+npm install plim-ui
 ```
-
-Output is written to `dist/plim-ui`. Configure your app to resolve `plim-ui` to that path (the workspace uses a TypeScript path alias during development).
 
 Peer dependencies:
 
@@ -93,30 +88,11 @@ In `push` mode, offset main content with `margin-left: var(--plim-sidebar-width)
 import { Header, Button, Sidebar } from 'plim-ui';
 ```
 
-See `src/public-api.ts` for the full export surface.
+## Links
 
-## Development
+- [Repository](https://github.com/Fexost/plim-ui)
+- [Documentation](https://github.com/Fexost/plim-ui)
 
-Generate a new library component from the workspace root:
+## License
 
-```bash
-ng generate component my-component --project=ui
-```
-
-Build:
-
-```bash
-ng build ui
-```
-
-Run tests:
-
-```bash
-ng test ui
-```
-
-Component selectors must use the `plim` prefix (elements) or `plimCamelCase` (attributes), enforced by ESLint in `projects/ui/eslint.config.js`.
-
-## Design tokens
-
-Tokens live in `src/styles/_tokens.scss` and `src/styles/_theme.scss`. Prefer `--plim-*` variables over hard-coded values when extending or consuming the library.
+MIT

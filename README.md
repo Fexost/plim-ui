@@ -1,62 +1,35 @@
 # plim-ui
 
-An accessibility-first Angular component library with composable primitives, design tokens, and light/dark theme support. Built as a reusable package (`plim-ui`) alongside a documentation app that showcases each component.
+An open-source, accessibility-first Angular component library with composable primitives, design tokens, and light/dark theme support.
 
-## Workspace
+Install `plim-ui` in any Angular 21+ app, import standalone components, and include the global styles to get tokens and theming out of the box.
 
-| Project | Path | Description |
-| --- | --- | --- |
-| **ui** | `projects/ui` | Publishable Angular library (`plim-ui`) |
-| **docs** | `projects/docs` | Documentation site and live component previews |
+[![npm version](https://img.shields.io/npm/v/plim-ui)](https://www.npmjs.com/package/plim-ui)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-## Requirements
-
-- Node.js 22+
-- npm 10+
-- Angular CLI 21
-
-## Quick start
-
-Install dependencies, build the library, and run the docs app:
+## Install
 
 ```bash
-npm install
-npm start
+npm install plim-ui
 ```
 
-Open [http://localhost:4200](http://localhost:4200). The docs app includes overview, installation, accessibility, and component reference pages.
+Requires Angular 21+ (`@angular/common` and `@angular/core` as peer dependencies).
 
-## Scripts
+## Usage
 
-| Command | Description |
-| --- | --- |
-| `npm start` | Build the library, then serve the docs app |
-| `npm run build` | Build the library to `dist/plim-ui` |
-| `npm run watch` | Rebuild the library on file changes |
-| `npm test` | Run unit tests (Vitest) |
-| `npm run lint` | Lint the workspace |
-
-## Using the library
-
-Build the library first:
-
-```bash
-npm run build
-```
-
-Import standalone components in your Angular app:
+Import components where you need them:
 
 ```typescript
 import { Header, Button, Sidebar } from 'plim-ui';
 ```
 
-Include global styles and design tokens:
+Include global styles and design tokens once in your application styles:
 
 ```scss
 @use 'plim-ui/styles/styles';
 ```
 
-After building, styles are available at `dist/plim-ui/styles/styles.scss`.
+Toggle light mode by setting `data-theme="light"` on the document root.
 
 ## Components
 
@@ -71,14 +44,43 @@ Naming follows two patterns:
 - **Element components** — `plim-*` prefix (e.g. `<plim-header>`)
 - **Attribute directives / slot markers** — `plim` + camelCase (e.g. `plimHeaderStart`, `plimButton`)
 
+Browse the [documentation site](https://github.com/Fexost/plim-ui) for usage examples, accessibility notes, and API reference.
+
 ## Theming
 
-Design tokens use the `--plim-*` CSS variable namespace. Dark theme is the default (`:root`); light theme applies when `data-theme="light"` is set on the document root.
+Design tokens use the `--plim-*` CSS variable namespace. Dark theme is the default (`:root`); light theme overrides apply when `data-theme="light"` is set on the document root.
 
-## Project context
+## Contributing
+
+Contributions are welcome. To work on the library locally:
+
+```bash
+git clone https://github.com/Fexost/plim-ui.git
+cd plim-ui
+npm install
+npm start
+```
+
+Open [http://localhost:4200](http://localhost:4200) to browse the docs site.
+
+| Command | Description |
+| --- | --- |
+| `npm start` | Build the library, then serve the docs app |
+| `npm run build` | Build the library to `dist/plim-ui` |
+| `npm run watch` | Rebuild the library on file changes |
+| `npm test` | Run unit tests (Vitest) |
+| `npm run lint` | Lint the workspace |
+
+To publish a release, build the library and publish from `dist/plim-ui`:
+
+```bash
+npm run build
+cd dist/plim-ui
+npm publish
+```
 
 Architecture, conventions, and development guidelines are documented in [AGENTS.md](./AGENTS.md).
 
 ## License
 
-Private — not published to npm.
+[MIT](./LICENSE) © Contributors
