@@ -1,59 +1,84 @@
-# PlimUi
+# plim-ui
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.19.
+An accessibility-first Angular component library with composable primitives, design tokens, and light/dark theme support. Built as a reusable package (`plim-ui`) alongside a documentation app that showcases each component.
 
-## Development server
+## Workspace
 
-To start a local development server, run:
+| Project | Path | Description |
+| --- | --- | --- |
+| **ui** | `projects/ui` | Publishable Angular library (`plim-ui`) |
+| **docs** | `projects/docs` | Documentation site and live component previews |
 
-```bash
-ng serve
-```
+## Requirements
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Node.js 22+
+- npm 10+
+- Angular CLI 21
 
-## Code scaffolding
+## Quick start
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Install dependencies, build the library, and run the docs app:
 
 ```bash
-ng generate --help
+npm install
+npm start
 ```
 
-## Building
+Open [http://localhost:4200](http://localhost:4200). The docs app includes overview, installation, accessibility, and component reference pages.
 
-To build the project run:
+## Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm start` | Build the library, then serve the docs app |
+| `npm run build` | Build the library to `dist/plim-ui` |
+| `npm run watch` | Rebuild the library on file changes |
+| `npm test` | Run unit tests (Vitest) |
+| `npm run lint` | Lint the workspace |
+
+## Using the library
+
+Build the library first:
 
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Import standalone components in your Angular app:
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
+```typescript
+import { Header, Button, Sidebar } from 'plim-ui';
 ```
 
-## Running end-to-end tests
+Include global styles and design tokens:
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
+```scss
+@use 'plim-ui/styles/styles';
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+After building, styles are available at `dist/plim-ui/styles/styles.scss`.
 
-## Additional Resources
+## Components
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+| Component | Selector | Description |
+| --- | --- | --- |
+| Header | `<plim-header>` | Composable top bar with start, centre, and end slots; optional `sticky` |
+| Button | `button[plimButton]` | Styled native button with `primary` and `secondary` variants |
+| Sidebar | `<plim-sidebar>` | Navigation panel with nav and footer slots; `push` or `overlay` mode |
+
+Naming follows two patterns:
+
+- **Element components** — `plim-*` prefix (e.g. `<plim-header>`)
+- **Attribute directives / slot markers** — `plim` + camelCase (e.g. `plimHeaderStart`, `plimButton`)
+
+## Theming
+
+Design tokens use the `--plim-*` CSS variable namespace. Dark theme is the default (`:root`); light theme applies when `data-theme="light"` is set on the document root.
+
+## Project context
+
+Architecture, conventions, and development guidelines are documented in [AGENTS.md](./AGENTS.md).
+
+## License
+
+Private — not published to npm.
