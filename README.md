@@ -4,13 +4,27 @@ An open-source, accessibility-first Angular component library with composable pr
 
 Install `plim-ui` in any Angular 21+ app, import standalone components, and include the global stylesheet to get tokens and theming out of the box.
 
-[![Lint (ui)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=lint-ui&label=Lint%20(ui))](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
-[![Lint (docs)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=lint-docs&label=Lint%20(docs))](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
-[![Test (ui)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=test-ui&label=Test%20(ui))](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
-[![Test (docs)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=test-docs&label=Test%20(docs))](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
-[![Audit (workspace)](https://github.com/Fexost/plim-ui/actions/workflows/security.yml/badge.svg?job=audit-workspace&label=Audit%20(workspace))](https://github.com/Fexost/plim-ui/actions/workflows/security.yml)
-[![Audit (ui)](https://github.com/Fexost/plim-ui/actions/workflows/security.yml/badge.svg?job=audit-ui&label=Audit%20(ui))](https://github.com/Fexost/plim-ui/actions/workflows/security.yml)
-[![Dependency review](https://github.com/Fexost/plim-ui/actions/workflows/security.yml/badge.svg?job=dependency-review&label=Dependency%20review)](https://github.com/Fexost/plim-ui/actions/workflows/security.yml)
+### CI — Lint
+
+[![CI Lint | ui](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=lint-ui&label=CI%20Lint%20%7C%20ui)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
+[![CI Lint | docs](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=lint-docs&label=CI%20Lint%20%7C%20docs)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
+
+### CI — Test
+
+[![CI Test | ui](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=test-ui&label=CI%20Test%20%7C%20ui)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
+[![CI Test | docs](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=test-docs&label=CI%20Test%20%7C%20docs)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
+
+### Security — Audit
+
+[![Security Audit | workspace](https://github.com/Fexost/plim-ui/actions/workflows/security.yml/badge.svg?job=audit-workspace&label=Security%20Audit%20%7C%20workspace)](https://github.com/Fexost/plim-ui/actions/workflows/security.yml)
+[![Security Audit | ui](https://github.com/Fexost/plim-ui/actions/workflows/security.yml/badge.svg?job=audit-ui&label=Security%20Audit%20%7C%20ui)](https://github.com/Fexost/plim-ui/actions/workflows/security.yml)
+
+### Security — Dependency review
+
+[![Security Dependency review](https://github.com/Fexost/plim-ui/actions/workflows/security.yml/badge.svg?job=dependency-review&label=Security%20Dependency%20review)](https://github.com/Fexost/plim-ui/actions/workflows/security.yml)
+
+### Package
+
 [![npm version](https://img.shields.io/npm/v/plim-ui)](https://www.npmjs.com/package/plim-ui)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -126,7 +140,7 @@ Pull requests and pushes to `main` run automated checks per project:
 
 **Why audit both workspace and ui?** The monorepo root owns most dependencies (including dev tooling used in CI), while the published library package is a separate manifest with only its runtime deps (`tslib` today). Scanning both catches vulnerabilities in contributor tooling and in what consumers install.
 
-Status badges at the top of this README reflect the latest results on `main`.
+Status badges above reflect the latest results on `main`, grouped by check type.
 
 To require these checks before merging, enable branch protection on `main` and mark these status checks as required:
 
