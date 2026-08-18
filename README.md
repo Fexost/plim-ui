@@ -4,6 +4,9 @@ An open-source, accessibility-first Angular component library with composable pr
 
 Install `plim-ui` in any Angular 21+ app, import standalone components, and include the global stylesheet to get tokens and theming out of the box.
 
+[![CI — Lint](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=lint)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
+[![CI — Test](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=test)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
+[![Security](https://github.com/Fexost/plim-ui/actions/workflows/security.yml/badge.svg)](https://github.com/Fexost/plim-ui/actions/workflows/security.yml)
 [![npm version](https://img.shields.io/npm/v/plim-ui)](https://www.npmjs.com/package/plim-ui)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -102,6 +105,24 @@ Open [http://localhost:4200](http://localhost:4200) to browse the docs site.
 | `npm run test:docs` | Run docs unit tests |
 | `npm test` | Run all unit tests |
 | `npm run lint` | Lint the workspace |
+
+### Continuous integration
+
+Pull requests and pushes to `main` run automated checks:
+
+| Workflow | Jobs | Description |
+| --- | --- | --- |
+| [CI](.github/workflows/ci.yml) | **Lint**, **Test** | ESLint across `ui` and `docs`; unit tests after building the library |
+| [Security](.github/workflows/security.yml) | **npm audit**, **Dependency review** | High-severity vulnerability scan; PR dependency diff review (weekly scheduled audit on `main`) |
+
+Status badges at the top of this README reflect the latest results on `main`.
+
+To require these checks before merging, enable branch protection on `main` and mark these status checks as required:
+
+- `Lint`
+- `Test`
+- `npm audit`
+- `Dependency review` (pull requests only)
 
 Docs deploy to GitHub Pages automatically on push to `main` (see `.github/workflows/deploy-docs.yml`).
 
