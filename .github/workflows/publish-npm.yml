@@ -8,30 +8,18 @@ on:
         required: true
         type: string
 
-permissions:
-  contents: write
-
 concurrency:
   group: publish-npm
   cancel-in-progress: false
 
 jobs:
-  authorize:
-    name: Authorize publisher
-    runs-on: ubuntu-latest
-    steps:
-      - name: Restrict to repository owner
-        run: |
-          if [ "${{ github.actor }}" != "Fexost" ]; then
-            echo "Only the repository owner (Fexost) can publish to npm."
-            exit 1
-          fi
-
   publish:
     name: Publish (npm)
-    needs: authorize
     runs-on: ubuntu-latest
     environment: npm-publish
+    permissions:
+      contents: write
+      id-token: write
     steps:
       - name: Validate version
         run: |
@@ -53,6 +41,9 @@ jobs:
           cache: npm
           registry-url: https://registry.npmjs.org
 
+      - name: Upgrade npm for trusted publishing
+        run: npm install -g npm@latest
+
       - name: Install dependencies
         run: npm ci
 
@@ -65,9 +56,7 @@ jobs:
 
       - name: Publish to npm
         working-directory: dist/plim-ui
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --provenance --access public
 
       - name: Create release tag
         run: |
