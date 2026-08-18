@@ -1,5 +1,19 @@
 <plim-header sticky>
-	<div plimHeaderStart>
+	<div plimHeaderStart class="docs-header-start">
+		@if (isMobile()) {
+			<button
+				type="button"
+				plimButton
+				variant="secondary"
+				class="docs-nav-toggle"
+				(click)="toggleNav()"
+				[attr.aria-expanded]="navOpen()"
+				aria-controls="docs-sidebar"
+				aria-label="Toggle documentation navigation"
+			>
+				Menu
+			</button>
+		}
 		<a [routerLink]="'/' + DOCS_HOME" class="docs-brand">
 			<span class="docs-brand-text">Plim-UI for Angular</span>
 		</a>
@@ -30,7 +44,21 @@
 </plim-header>
 
 <div class="docs-shell docs-shell--sidebar-push">
-	<plim-sidebar aria-label="Documentation navigation">
+	@if (isMobile() && navOpen()) {
+		<button
+			type="button"
+			class="docs-nav-backdrop"
+			aria-label="Close navigation menu"
+			(click)="closeNav()"
+		></button>
+	}
+
+	<plim-sidebar
+		id="docs-sidebar"
+		[open]="navOpen()"
+		[mode]="sidebarMode()"
+		aria-label="Documentation navigation"
+	>
 		<app-docs-nav plimSidebarNav />
 		<div plimSidebarFooter>
 			<plim-card class="docs-sidebar-card">
