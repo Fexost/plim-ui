@@ -3,10 +3,13 @@
 	"version": "0.0.0",
 	"scripts": {
 		"ng": "ng",
-		"start": "ng build --project ui && ng serve --project docs",
-		"build": "ng build --project ui",
-		"watch": "ng build --watch --configuration development",
-		"test": "ng test",
+		"start": "npm run build:ui && ng serve docs",
+		"build:ui": "ng build ui --configuration production",
+		"build:docs": "ng build docs --configuration production --base-href /plim-ui/",
+		"build:production": "npm run build:ui && npm run build:docs",
+		"test:ui": "ng test ui --no-watch",
+		"test:docs": "ng test docs --no-watch",
+		"test": "npm run test:ui && npm run test:docs",
 		"lint": "ng lint"
 	},
 	"private": true,
@@ -20,6 +23,7 @@
 		"@angular/platform-browser": "^21.2.0",
 		"@angular/router": "^21.2.0",
 		"@stylistic/eslint-plugin": "^5.10.0",
+		"highlight.js": "^11.12.0",
 		"rxjs": "~7.8.0",
 		"tslib": "^2.3.0"
 	},

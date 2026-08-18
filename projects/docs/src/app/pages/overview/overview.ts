@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Button } from 'plim-ui';
+import { Badge, Button, Card } from 'plim-ui';
 
+import { DocsHighlightCodeDirective } from '../../directives/docs-code-highlight';
 import { DOCS_PATHS } from '../../docs-nav.config';
 
 @Component({
 	selector: 'app-overview',
-	imports: [RouterLink, Button],
+	hostDirectives: [DocsHighlightCodeDirective],
+	imports: [RouterLink, Badge, Button, Card],
 	templateUrl: './overview.html',
 	styleUrl: './overview.scss',
 })
 export class Overview {
-	protected readonly paths = DOCS_PATHS;
+	protected readonly DOCS_PATHS = DOCS_PATHS;
 }

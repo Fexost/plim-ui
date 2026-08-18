@@ -1,5 +1,4 @@
 <section class="docs-hero">
-	<p class="docs-eyebrow">Angular component system</p>
 	<h1>Interfaces that welcome everyone.</h1>
 	<p class="docs-lead">
 		PLIM is an accessibility-first UI library for Angular — composable primitives,
@@ -7,81 +6,122 @@
 		assistive technology users.
 	</p>
 	<div class="docs-hero-actions">
-		<button type="button" plimButton [routerLink]="paths.installation">Get started</button>
-		<button type="button" plimButton variant="secondary" [routerLink]="paths.button">
-			Explore components
+		<button type="button" plimButton [routerLink]="'/' + DOCS_PATHS.installation">
+			Get started
+		</button>
+		<button type="button" plimButton variant="secondary" [routerLink]="'/' + DOCS_PATHS.tokens">
+			View foundations
 		</button>
 	</div>
 </section>
 
 <section class="docs-grid docs-grid--2">
-	<article class="docs-card">
-		<div class="docs-card-header">
+	<plim-card class="overview-card">
+		<div plimCardHeader class="overview-card__header">
 			<h2>Start in minutes</h2>
-			<span class="docs-badge">Angular 21+</span>
+			<plim-badge variant="primary">Angular 21+</plim-badge>
 		</div>
 		<pre class="docs-code"><code>npm install plim-ui</code></pre>
-		<p class="docs-card-copy">
-			Install from npm, import standalone components, and add the global styles to your
-			Angular app.
+		<p class="overview-card__copy">
+			Install from npm, import standalone components, and add the global stylesheet.
 		</p>
-	</article>
+		<div plimCardFooter>
+			<a [routerLink]="'/' + DOCS_PATHS.installation" class="docs-text-link">Installation guide</a>
+		</div>
+	</plim-card>
 
-	<article class="docs-card docs-card--accent">
-		<div class="docs-card-icon docs-card-icon--success" aria-hidden="true">✓</div>
+	<plim-card class="overview-card">
+		<plim-badge variant="success" class="overview-card__icon" aria-hidden="true">✓</plim-badge>
 		<h2>Accessibility is the baseline</h2>
-		<p class="docs-card-copy">
-			Every component is built with semantic HTML, keyboard support, and visible focus
-			states. ARIA is used only when native semantics are not enough.
+		<p class="overview-card__copy">
+			Semantic HTML, keyboard support, and visible focus are built in from the start.
 		</p>
-		<a [routerLink]="paths.accessibility" class="docs-text-link">Read our principles</a>
-	</article>
+		<div plimCardFooter>
+			<a [routerLink]="'/' + DOCS_PATHS.accessibility" class="docs-text-link">
+				Accessibility principles
+			</a>
+		</div>
+	</plim-card>
 </section>
 
 <section class="docs-section">
 	<div class="docs-section-header">
-		<h2>Component categories</h2>
-		<p>Composable building blocks for product UI</p>
+		<h2>Foundations</h2>
+		<p>Design tokens, theming, and conventions that components build on</p>
 	</div>
 
-	<div class="docs-grid docs-grid--3">
-		<article class="docs-card docs-card--category">
-			<div class="docs-card-icon docs-card-icon--primary" aria-hidden="true">▣</div>
-			<h3>Actions</h3>
-			<p>Buttons and links with consistent focus and disabled states.</p>
-			<a [routerLink]="paths.button" class="docs-text-link">View button</a>
-		</article>
+	<div class="docs-grid docs-grid--categories">
+		<plim-card class="overview-card overview-card--category">
+			<h3>Tokens</h3>
+			<p>CSS variables for colour, spacing, radius, shadow, and motion.</p>
+			<div plimCardFooter>
+				<a [routerLink]="'/' + DOCS_PATHS.tokens" class="docs-text-link">View tokens</a>
+			</div>
+		</plim-card>
 
-		<article class="docs-card docs-card--category">
-			<div class="docs-card-icon docs-card-icon--success" aria-hidden="true">☰</div>
-			<h3>Navigation</h3>
-			<p>Headers, tabs, and wayfinding patterns for docs and apps.</p>
-			<a [routerLink]="paths.sidebar" class="docs-text-link">View sidebar</a>
-		</article>
+		<plim-card class="overview-card overview-card--category">
+			<h3>Theme</h3>
+			<p>Dark and light palettes via <code>data-theme</code>.</p>
+			<div plimCardFooter>
+				<a [routerLink]="'/' + DOCS_PATHS.theme" class="docs-text-link">View theme</a>
+			</div>
+		</plim-card>
 
-		<article class="docs-card docs-card--category docs-card--muted">
-			<div class="docs-card-icon" aria-hidden="true">◌</div>
-			<h3>Form controls</h3>
-			<p>Inputs, selects, and checkboxes with shared field semantics.</p>
-			<span class="docs-coming-soon">Coming next</span>
-		</article>
+		<plim-card class="overview-card overview-card--category">
+			<h3>Typography</h3>
+			<p>Font scale, weights, and line heights.</p>
+			<div plimCardFooter>
+				<a [routerLink]="'/' + DOCS_PATHS.typography" class="docs-text-link">View typography</a>
+			</div>
+		</plim-card>
 	</div>
 </section>
 
-<section class="docs-principles">
-	<article>
-		<span class="docs-principle-number">01</span>
-		<h3>Built for real input</h3>
-		<p>Keyboard, pointer, and assistive tech paths are designed in from the start.</p>
-	</article>
-	<article>
-		<span class="docs-principle-number">02</span>
-		<h3>Clear by default</h3>
-		<p>State, labels, and legibility stay visible without extra configuration.</p>
-	</article>
-	<article>
-		<span class="docs-principle-number">03</span>
-		<h3>Designed to adapt</h3>
-		<p>Semantic tokens and composable slots let you match your product, not ours.</p>
-	</article>
+<section class="docs-section">
+	<div class="docs-section-header">
+		<h2>Components</h2>
+		<p>Composable building blocks organised by category</p>
+	</div>
+
+	<div class="docs-grid docs-grid--categories">
+		<plim-card class="overview-card overview-card--category">
+			<h3>Basic</h3>
+			<p>Buttons, badges, cards, and other everyday UI primitives.</p>
+			<div plimCardFooter>
+				<a [routerLink]="'/' + DOCS_PATHS.button" class="docs-text-link">View button</a>
+			</div>
+		</plim-card>
+
+		<plim-card class="overview-card overview-card--category">
+			<h3>Form</h3>
+			<p>Inputs, selects, checkboxes, and shared field semantics.</p>
+			<div plimCardFooter>
+				<plim-badge>Coming next</plim-badge>
+			</div>
+		</plim-card>
+
+		<plim-card class="overview-card overview-card--category">
+			<h3>Navigation</h3>
+			<p>Headers, sidebars, tabs, and wayfinding patterns.</p>
+			<div plimCardFooter>
+				<a [routerLink]="'/' + DOCS_PATHS.header" class="docs-text-link">View header</a>
+			</div>
+		</plim-card>
+
+		<plim-card class="overview-card overview-card--category overview-card--muted">
+			<h3>Feedback</h3>
+			<p>Alerts, toasts, dialogs, and contextual overlays.</p>
+			<div plimCardFooter>
+				<plim-badge>Coming next</plim-badge>
+			</div>
+		</plim-card>
+
+		<plim-card class="overview-card overview-card--category overview-card--muted">
+			<h3>Data</h3>
+			<p>Tables, lists, accordions, and structured content.</p>
+			<div plimCardFooter>
+				<plim-badge>Coming next</plim-badge>
+			</div>
+		</plim-card>
+	</div>
 </section>

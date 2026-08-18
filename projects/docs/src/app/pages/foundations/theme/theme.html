@@ -1,0 +1,50 @@
+<app-docs-guide-layout section="Foundations" title="Theme">
+	<p docsLead>
+		plim-ui defaults to dark mode. Light mode overrides are applied when
+		<code>data-theme="light"</code> is set on the document root. Colour tokens in
+		<a [routerLink]="'/' + DOCS_PATHS.tokens">Tokens</a> update automatically.
+	</p>
+
+	<section class="docs-section">
+		<h2>Default (dark)</h2>
+		<p class="docs-section-copy">
+			Dark values are defined on <code>:root</code>. No attribute is required — import the
+			stylesheet and components render in dark mode.
+		</p>
+		<pre class="docs-code" data-language="scss"><code>@use 'plim-ui/styles/styles';</code></pre>
+	</section>
+
+	<section class="docs-section">
+		<h2>Light mode</h2>
+		<p class="docs-section-copy">
+			Set the attribute on <code>&lt;html&gt;</code> or <code>&lt;body&gt;</code> to swap
+			surface, text, and shadow tokens.
+		</p>
+		<pre class="docs-code"><code>&lt;html data-theme="light"&gt;
+  ...
+&lt;/html&gt;</code></pre>
+	</section>
+
+	<section class="docs-section">
+		<h2>Toggle at runtime</h2>
+		<p class="docs-section-copy">
+			Read the user preference, persist the choice, and update the attribute when the
+			selection changes.
+		</p>
+		<pre class="docs-code" data-language="typescript"><code>document.documentElement.dataset.theme = 'light';
+// or remove the attribute / set to 'dark'</code></pre>
+		<p class="docs-section-copy">
+			The docs app uses a <code>ThemeService</code> that respects
+			<code>prefers-color-scheme</code> on first visit and stores the choice in
+			<code>localStorage</code>.
+		</p>
+	</section>
+
+	<section class="docs-section">
+		<h2>Color scheme hint</h2>
+		<p class="docs-section-copy">
+			<code>color-scheme</code> is set alongside theme variables so native form controls
+			and scrollbars match the active palette.
+		</p>
+	</section>
+</app-docs-guide-layout>

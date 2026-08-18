@@ -1,0 +1,22 @@
+<article class="docs-guide">
+	<header class="docs-guide__intro">
+		<p class="docs-breadcrumbs">
+			@if (parentPath()) {
+				<a [routerLink]="parentPath()">{{ section() }}</a>
+			} @else {
+				<span>{{ section() }}</span>
+			}
+			<span> / {{ title() }}</span>
+		</p>
+
+		<h1>{{ title() }}</h1>
+
+		<div class="docs-lead">
+			<ng-content select="[docsLead]" />
+		</div>
+	</header>
+
+	<plim-separator />
+
+	<ng-content />
+</article>

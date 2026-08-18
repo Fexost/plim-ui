@@ -1,0 +1,73 @@
+<app-docs-component-layout category="Basic" title="Spinner">
+	<p docsLead>
+		Indicates that content is loading. Name the spinner with <code>aria-label</code> when
+		it appears without accompanying text.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Sizes</h2>
+		<p>Match the spinner to the control or section it accompanies.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-spinner size="sm" aria-label="Loading" />
+				<plim-spinner size="md" aria-label="Loading" />
+				<plim-spinner size="lg" aria-label="Loading" />
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-spinner size="sm" aria-label="Loading" /&gt;
+&lt;plim-spinner size="md" aria-label="Loading" /&gt;
+&lt;plim-spinner size="lg" aria-label="Loading" /&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The host uses <code>role="status"</code> and an accessible name so screen
+					readers announce loading state.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Status role on the host</li>
+					<li>Configurable aria-label</li>
+					<li>Respects reduced-motion preferences</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>size</code></td>
+						<td><code>'sm' | 'md' | 'lg'</code></td>
+						<td><code>'md'</code></td>
+						<td>Spinner dimensions.</td>
+					</tr>
+					<tr>
+						<td><code>aria-label</code></td>
+						<td><code>string</code></td>
+						<td><code>'Loading'</code></td>
+						<td>Accessible name for the loading indicator.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

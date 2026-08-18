@@ -1,0 +1,228 @@
+<app-docs-guide-layout section="Foundations" title="Tokens">
+	<p docsLead>
+		Design tokens are CSS custom properties in the <code>--plim-*</code> namespace. Use them
+		in your own styles instead of hard-coded values so surfaces stay consistent with the
+		library and respond to theme changes.
+	</p>
+
+	<section class="docs-section">
+		<h2>Colours</h2>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Token</th>
+						<th scope="col">Usage</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<span
+								class="docs-token-swatch"
+								style="background: var(--plim-color-background)"
+							></span>
+							<code>--plim-color-background</code>
+						</td>
+						<td>Page background</td>
+					</tr>
+					<tr>
+						<td>
+							<span
+								class="docs-token-swatch"
+								style="background: var(--plim-color-surface)"
+							></span>
+							<code>--plim-color-surface</code>
+						</td>
+						<td>Default surface (header, panels)</td>
+					</tr>
+					<tr>
+						<td>
+							<span
+								class="docs-token-swatch"
+								style="background: var(--plim-color-surface-raised)"
+							></span>
+							<code>--plim-color-surface-raised</code>
+						</td>
+						<td>Elevated surface (cards, previews)</td>
+					</tr>
+					<tr>
+						<td>
+							<span
+								class="docs-token-swatch docs-token-swatch--border"
+								style="background: var(--plim-color-border)"
+							></span>
+							<code>--plim-color-border</code>
+						</td>
+						<td>Default border</td>
+					</tr>
+					<tr>
+						<td>
+							<span
+								class="docs-token-swatch docs-token-swatch--border"
+								style="background: var(--plim-color-text)"
+							></span>
+							<code>--plim-color-text</code>
+						</td>
+						<td>Primary text</td>
+					</tr>
+					<tr>
+						<td>
+							<span
+								class="docs-token-swatch docs-token-swatch--border"
+								style="background: var(--plim-color-text-muted)"
+							></span>
+							<code>--plim-color-text-muted</code>
+						</td>
+						<td>Secondary text</td>
+					</tr>
+					<tr>
+						<td>
+							<span
+								class="docs-token-swatch docs-token-swatch--border"
+								style="background: var(--plim-color-text-subtle)"
+							></span>
+							<code>--plim-color-text-subtle</code>
+						</td>
+						<td>Tertiary text, labels</td>
+					</tr>
+					<tr>
+						<td>
+							<span
+								class="docs-token-swatch"
+								style="background: var(--plim-color-primary)"
+							></span>
+							<code>--plim-color-primary</code>
+						</td>
+						<td>Primary accent, links, focus</td>
+					</tr>
+					<tr>
+						<td>
+							<span
+								class="docs-token-swatch"
+								style="background: var(--plim-color-success)"
+							></span>
+							<code>--plim-color-success</code>
+						</td>
+						<td>Success states</td>
+					</tr>
+					<tr>
+						<td>
+							<span
+								class="docs-token-swatch"
+								style="background: var(--plim-color-warning)"
+							></span>
+							<code>--plim-color-warning</code>
+						</td>
+						<td>Warning states</td>
+					</tr>
+					<tr>
+						<td>
+							<span
+								class="docs-token-swatch"
+								style="background: var(--plim-color-danger)"
+							></span>
+							<code>--plim-color-danger</code>
+						</td>
+						<td>Error and destructive states</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section class="docs-section">
+		<h2>Spacing</h2>
+		<p class="docs-section-copy">
+			A rem-based scale from <code>--plim-space-1</code> (0.25rem) through
+			<code>--plim-space-12</code> (3rem).
+		</p>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Token</th>
+						<th scope="col">Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>--plim-space-1</code></td>
+						<td>0.25rem</td>
+					</tr>
+					<tr>
+						<td><code>--plim-space-2</code></td>
+						<td>0.5rem</td>
+					</tr>
+					<tr>
+						<td><code>--plim-space-3</code></td>
+						<td>0.75rem</td>
+					</tr>
+					<tr>
+						<td><code>--plim-space-4</code></td>
+						<td>1rem</td>
+					</tr>
+					<tr>
+						<td><code>--plim-space-6</code></td>
+						<td>1.5rem</td>
+					</tr>
+					<tr>
+						<td><code>--plim-space-8</code></td>
+						<td>2rem</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section class="docs-section">
+		<h2>Radius, shadow, and motion</h2>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Category</th>
+						<th scope="col">Tokens</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Radius</td>
+						<td>
+							<code>--plim-radius-sm</code>, <code>--plim-radius-md</code>,
+							<code>--plim-radius-lg</code>, <code>--plim-radius-full</code>
+						</td>
+					</tr>
+					<tr>
+						<td>Shadow</td>
+						<td>
+							<code>--plim-shadow-sm</code>, <code>--plim-shadow-md</code>,
+							<code>--plim-shadow-lg</code>
+						</td>
+					</tr>
+					<tr>
+						<td>Focus</td>
+						<td>
+							<code>--plim-focus-ring-color</code>, <code>--plim-focus-ring-width</code>,
+							<code>--plim-focus-ring-offset</code>
+						</td>
+					</tr>
+					<tr>
+						<td>Motion</td>
+						<td>
+							<code>--plim-duration-fast</code>, <code>--plim-duration-normal</code>,
+							<code>--plim-duration-slow</code>, <code>--plim-ease-default</code>
+						</td>
+					</tr>
+					<tr>
+						<td>Dimensions</td>
+						<td>
+							<code>--plim-header-height</code>, <code>--plim-sidebar-width</code>,
+							<code>--plim-button-height</code>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-guide-layout>

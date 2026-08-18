@@ -1,16 +1,8 @@
 <plim-header sticky>
 	<div plimHeaderStart>
-		<a [routerLink]="homePath" class="docs-brand">
+		<a [routerLink]="'/' + DOCS_HOME" class="docs-brand">
 			<span class="docs-brand-text">Plim-UI for Angular</span>
 		</a>
-	</div>
-
-	<div plimHeaderCenter>
-		<label class="docs-search">
-			<span class="visually-hidden">Search documentation</span>
-			<input type="search" placeholder="Search documentation..." disabled />
-			<kbd class="docs-search-kbd">⌘ K</kbd>
-		</label>
 	</div>
 
 	<div plimHeaderEnd>
@@ -40,12 +32,16 @@
 <div class="docs-shell docs-shell--sidebar-push">
 	<plim-sidebar aria-label="Documentation navigation">
 		<app-docs-nav plimSidebarNav />
-		<div plimSidebarFooter class="docs-sidebar-card">
-			<span class="docs-sidebar-card-icon" aria-hidden="true">✓</span>
-			<div>
-				<strong>WCAG-minded</strong>
-				<p>Built with keyboard support and visible focus states.</p>
-			</div>
+		<div plimSidebarFooter>
+			<plim-card class="docs-sidebar-card">
+				<div class="docs-sidebar-card__inner">
+					<plim-badge variant="success" aria-hidden="true">✓</plim-badge>
+					<div>
+						<strong>WCAG-minded</strong>
+						<p>Built with keyboard support and visible focus states.</p>
+					</div>
+				</div>
+			</plim-card>
 		</div>
 	</plim-sidebar>
 

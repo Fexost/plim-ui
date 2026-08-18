@@ -1,0 +1,39 @@
+:host {
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--plim-space-1) var(--plim-space-2);
+	border: 1px solid transparent;
+	border-radius: var(--plim-radius-full);
+	font-size: var(--plim-font-size-xs);
+	font-weight: var(--plim-font-weight-medium);
+	line-height: var(--plim-line-height-tight);
+	white-space: nowrap;
+}
+
+:host(.plim-badge--default) {
+	background: var(--plim-color-surface-raised);
+	border-color: var(--plim-color-border);
+	color: var(--plim-color-text);
+}
+
+:host(.plim-badge--primary) {
+	background: rgb(139 92 246 / 0.16);
+	color: var(--plim-color-primary);
+}
+
+:host(.plim-badge--success) {
+	background: rgb(85 209 135 / 0.16);
+	color: var(--plim-color-success);
+}
+
+:host(.plim-badge--warning) {
+	background: rgb(232 184 92 / 0.16);
+	color: var(--plim-color-warning);
+}
+
+:host(.plim-badge--danger) {
+	background: rgb(237 106 122 / 0.16);
+	color: var(--plim-color-danger);
+}

@@ -21,6 +21,6 @@ describe('App', () => {
 		const fixture = TestBed.createComponent(App);
 		await fixture.whenStable();
 		const compiled = fixture.nativeElement as HTMLElement;
-		expect(compiled.querySelector('.docs-brand-text')?.textContent).toContain('PLIM for Angular');
+		expect(compiled.querySelector('.docs-brand-text')?.textContent).toContain('Plim-UI for Angular');
 	});
 });

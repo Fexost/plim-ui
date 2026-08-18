@@ -1,0 +1,83 @@
+// Cursor / VS Code–inspired syntax colours for docs code blocks.
+// Scoped to .docs-code so this stays docs-app-only — not part of plim-ui.
+
+:root {
+	--docs-code-fg: #d4d4d4;
+	--docs-code-tag: #569cd6;
+	--docs-code-name: #4ec9b0;
+	--docs-code-attr: #9cdcfe;
+	--docs-code-string: #ce9178;
+	--docs-code-keyword: #c586c0;
+	--docs-code-comment: #6a9955;
+	--docs-code-punctuation: #808080;
+	--docs-code-number: #b5cea8;
+	--docs-code-built-in: #dcdcaa;
+}
+
+[data-theme='light'] {
+	--docs-code-fg: #000000;
+	--docs-code-tag: #800000;
+	--docs-code-name: #267f99;
+	--docs-code-attr: #e50000;
+	--docs-code-string: #0451a5;
+	--docs-code-keyword: #0000ff;
+	--docs-code-comment: #008000;
+	--docs-code-punctuation: #000000;
+	--docs-code-number: #098658;
+	--docs-code-built-in: #795e26;
+}
+
+.docs-code code.hljs {
+	color: var(--docs-code-fg);
+	background: transparent;
+
+	.hljs-tag,
+	.hljs-name,
+	.hljs-selector-tag {
+		color: var(--docs-code-tag);
+	}
+
+	.hljs-attr,
+	.hljs-attribute,
+	.hljs-variable,
+	.hljs-template-variable {
+		color: var(--docs-code-attr);
+	}
+
+	.hljs-string,
+	.hljs-meta .hljs-string {
+		color: var(--docs-code-string);
+	}
+
+	.hljs-keyword,
+	.hljs-selector-id,
+	.hljs-selector-class {
+		color: var(--docs-code-keyword);
+	}
+
+	.hljs-comment,
+	.hljs-quote {
+		color: var(--docs-code-comment);
+		font-style: italic;
+	}
+
+	.hljs-number,
+	.hljs-literal {
+		color: var(--docs-code-number);
+	}
+
+	.hljs-built_in,
+	.hljs-title,
+	.hljs-title.function_ {
+		color: var(--docs-code-built-in);
+	}
+
+	.hljs-punctuation,
+	.hljs-meta {
+		color: var(--docs-code-punctuation);
+	}
+
+	.hljs-subst {
+		color: var(--docs-code-fg);
+	}
+}

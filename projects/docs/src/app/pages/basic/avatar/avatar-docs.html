@@ -1,0 +1,79 @@
+<app-docs-component-layout category="Basic" title="Avatar">
+	<p docsLead>
+		Display a user image or initials in a circular frame. Provide <code>alt</code> text
+		when using an image.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Sizes</h2>
+		<p>Scale avatars to match surrounding text and layout density.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-avatar size="sm">ST</plim-avatar>
+				<plim-avatar size="md">ST</plim-avatar>
+				<plim-avatar size="lg">ST</plim-avatar>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-avatar size="sm"&gt;ST&lt;/plim-avatar&gt;
+&lt;plim-avatar size="md"&gt;ST&lt;/plim-avatar&gt;
+&lt;plim-avatar size="lg"&gt;ST&lt;/plim-avatar&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					When <code>src</code> is set, the image uses the provided <code>alt</code>
+					text. Initials fall back to decorative presentation when adjacent text names
+					the person.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Image alt text supported</li>
+					<li>Initials marked aria-hidden when used decoratively</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>size</code></td>
+						<td><code>'sm' | 'md' | 'lg'</code></td>
+						<td><code>'md'</code></td>
+						<td>Avatar dimensions.</td>
+					</tr>
+					<tr>
+						<td><code>src</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Optional image URL.</td>
+					</tr>
+					<tr>
+						<td><code>alt</code></td>
+						<td><code>string</code></td>
+						<td><code>''</code></td>
+						<td>Alternative text for the image.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

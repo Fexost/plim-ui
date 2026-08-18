@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, HostBinding, input } from '@angular/core';
+import { booleanAttribute, Component, input } from '@angular/core';
 
 export type SidebarMode = 'push' | 'overlay';
 
@@ -6,6 +6,11 @@ export type SidebarMode = 'push' | 'overlay';
 	selector: 'plim-sidebar',
 	templateUrl: './sidebar.html',
 	styleUrl: './sidebar.scss',
+	host: {
+		'[class.sidebar--open]': 'open()',
+		'[class.sidebar--overlay]': 'open() && mode() === "overlay"',
+		'[class.sidebar--contained]': '!fixed()',
+	},
 })
 export class Sidebar {
 	public readonly open = input(true, { transform: booleanAttribute });
@@ -15,19 +20,4 @@ export class Sidebar {
 	public readonly ariaLabel = input<string | undefined>(undefined, {
 		alias: 'aria-label',
 	});
-
-	@HostBinding('class.sidebar--open')
-	protected get isOpen(): boolean {
-		return this.open();
-	}
-
-	@HostBinding('class.sidebar--overlay')
-	protected get isOverlay(): boolean {
-		return this.open() && this.mode() === 'overlay';
-	}
-
-	@HostBinding('class.sidebar--contained')
-	protected get isContained(): boolean {
-		return !this.fixed();
-	}
 }

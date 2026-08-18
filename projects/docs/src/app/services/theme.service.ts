@@ -49,6 +49,14 @@ export class ThemeService {
 			return stored;
 		}
 
+		return this.readSystemTheme();
+	}
+
+	private readSystemTheme(): Theme {
+		if (typeof window.matchMedia !== 'function') {
+			return 'dark';
+		}
+
 		return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
 	}
 }

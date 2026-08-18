@@ -1,46 +1,51 @@
-<header class="docs-page-header">
-	<p class="docs-eyebrow">Get started</p>
-	<h1>Installation</h1>
-	<p class="docs-lead">
-		Install plim-ui from npm, import standalone components into your Angular app, and
-		include the global styles to enable design tokens and theming.
+<app-docs-guide-layout
+	section="Get started"
+	[parentPath]="'/' + DOCS_HOME"
+	title="Installation"
+>
+	<p docsLead>
+		Add plim-ui to an Angular app, import the components you need, and load the global
+		stylesheet once. Design tokens and theming are covered in
+		<a [routerLink]="'/' + DOCS_PATHS.tokens">Foundations</a>.
 	</p>
-</header>
 
-<section class="docs-section">
-	<h2>Install the package</h2>
-	<pre class="docs-code"><code>npm install plim-ui</code></pre>
-	<p class="docs-section-copy">Requires Angular 21+.</p>
-</section>
+	<section class="docs-section">
+		<h2>Install the package</h2>
+		<pre class="docs-code" data-language="bash"><code>npm install plim-ui</code></pre>
+		<p class="docs-section-copy">
+			Requires <plim-badge variant="primary">Angular 21+</plim-badge>.
+		</p>
+	</section>
 
-<section class="docs-section">
-	<h2>Import components</h2>
-	<pre class="docs-code"><code>import {{ '{' }} Header, Button, Sidebar {{ '}' }} from 'plim-ui';</code></pre>
-	<p class="docs-section-copy">
-		All components are standalone — add them to the <code>imports</code> array of your
-		component or route.
-	</p>
-</section>
+	<section class="docs-section">
+		<h2>Import components</h2>
+		<pre class="docs-code" data-language="typescript"><code>import {{ '{' }} Badge, Button, Card, Header, Sidebar {{ '}' }} from 'plim-ui';</code></pre>
+		<p class="docs-section-copy">
+			All components are standalone — add them to the <code>imports</code> array of your
+			component or route.
+		</p>
+	</section>
 
-<section class="docs-section">
-	<h2>Include styles</h2>
-	<pre class="docs-code"><code>@use 'plim-ui/styles/styles';</code></pre>
-	<p class="docs-section-copy">
-		Add this once in your application styles (for example <code>styles.scss</code>) to
-		load design tokens and theme variables.
-	</p>
-</section>
+	<section class="docs-section">
+		<h2>Include styles</h2>
+		<pre class="docs-code" data-language="scss"><code>@use 'plim-ui/styles/styles';</code></pre>
+		<p class="docs-section-copy">
+			Add this once in your application styles (for example <code>styles.scss</code>).
+			See <a [routerLink]="'/' + DOCS_PATHS.theme">Theme</a> for light and dark mode setup.
+		</p>
+	</section>
 
-<section class="docs-section">
-	<h2>Contribute locally</h2>
-	<p class="docs-section-copy">
-		The source lives on
-		<a href="https://github.com/Fexost/plim-ui" target="_blank" rel="noopener noreferrer"
-			>GitHub</a
-		>. Clone the repo and run the docs app:
-	</p>
-	<pre class="docs-code"><code>git clone https://github.com/Fexost/plim-ui.git
+	<section class="docs-section">
+		<h2>Contribute locally</h2>
+		<p class="docs-section-copy">
+			The source lives on
+			<a href="https://github.com/Fexost/plim-ui" target="_blank" rel="noopener noreferrer"
+				>GitHub</a
+			>. Clone the repo and run the docs app:
+		</p>
+		<pre class="docs-code" data-language="bash"><code>git clone https://github.com/Fexost/plim-ui.git
 cd plim-ui
 npm install
 npm start</code></pre>
-</section>
+	</section>
+</app-docs-guide-layout>

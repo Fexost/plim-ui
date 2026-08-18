@@ -1,11 +1,10 @@
 <article class="docs-component">
 	<header class="docs-component__intro">
-		<p class="docs-component__breadcrumbs">
-			<a [routerLink]="home">Components</a>
+		<p class="docs-breadcrumbs">
+			<span>{{ category() }}</span>
 			<span> / {{ title() }}</span>
 		</p>
 
-		<p class="docs-eyebrow">{{ category() }}</p>
 		<h1>{{ title() }}</h1>
 
 		<div class="docs-lead">
@@ -14,10 +13,12 @@
 	</header>
 
 	<nav class="docs-component__jump-nav" aria-label="Page sections">
-		@for (section of sections; track section.id) {
+		@for (section of jumpSections; track section.id) {
 			<a [routerLink]="'.'" [fragment]="section.id">{{ section.label }}</a>
 		}
 	</nav>
+
+	<plim-separator />
 
 	<ng-content />
 </article>

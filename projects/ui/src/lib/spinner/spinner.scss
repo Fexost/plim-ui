@@ -1,0 +1,40 @@
+:host {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.spinner {
+	box-sizing: border-box;
+	border: 2px solid var(--plim-color-border);
+	border-top-color: var(--plim-color-primary);
+	border-radius: var(--plim-radius-full);
+	animation: plim-spinner-spin var(--plim-duration-spin) linear infinite;
+}
+
+:host(.spinner--sm) .spinner {
+	width: 1rem;
+	height: 1rem;
+}
+
+:host(.spinner--md) .spinner {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+
+:host(.spinner--lg) .spinner {
+	width: 1.75rem;
+	height: 1.75rem;
+}
+
+@keyframes plim-spinner-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.spinner {
+		animation: none;
+	}
+}

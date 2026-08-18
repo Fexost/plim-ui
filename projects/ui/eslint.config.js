@@ -43,6 +43,19 @@ module.exports = (async () => {
 			},
 		},
 		{
+			files: ['**/button/button.ts'],
+			rules: {
+				'@angular-eslint/component-selector': [
+					'error',
+					{
+						type: 'attribute',
+						prefix: 'plim',
+						style: 'camelCase',
+					},
+				],
+			},
+		},
+		{
 			files: ['**/*.html'],
 			extends: [angular.configs.templateRecommended, angular.configs.templateAccessibility],
 			rules: {},

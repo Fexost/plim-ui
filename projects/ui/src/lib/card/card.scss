@@ -1,0 +1,36 @@
+:host {
+	display: block;
+}
+
+.card {
+	box-sizing: border-box;
+	overflow: hidden;
+	background: var(--plim-color-surface-raised);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-lg);
+	color: var(--plim-color-text);
+}
+
+.card-header:not(:empty) {
+	padding: var(--plim-space-5) var(--plim-space-5) 0;
+	font-size: var(--plim-font-size-md);
+	font-weight: var(--plim-font-weight-semibold);
+}
+
+.card-body:not(:empty) {
+	padding: var(--plim-space-5);
+}
+
+.card-header:not(:empty) + .card-body:not(:empty) {
+	padding-top: var(--plim-space-3);
+}
+
+.card-footer:not(:empty) {
+	padding: 0 var(--plim-space-5) var(--plim-space-5);
+}
+
+.card-body:empty,
+.card-header:empty,
+.card-footer:empty {
+	display: none;
+}

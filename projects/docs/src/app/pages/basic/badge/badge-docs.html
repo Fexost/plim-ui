@@ -1,0 +1,69 @@
+<app-docs-component-layout category="Basic" title="Badge">
+	<p docsLead>
+		A compact label for status, counts, or metadata. Use badges beside titles or inside
+		lists where a full button would be too heavy.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Variants</h2>
+		<p>Pick a variant that matches the meaning of the label.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-badge>Default</plim-badge>
+				<plim-badge variant="primary">Primary</plim-badge>
+				<plim-badge variant="success">Success</plim-badge>
+				<plim-badge variant="warning">Warning</plim-badge>
+				<plim-badge variant="danger">Danger</plim-badge>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-badge&gt;Default&lt;/plim-badge&gt;
+&lt;plim-badge variant="primary"&gt;Primary&lt;/plim-badge&gt;
+&lt;plim-badge variant="success"&gt;Success&lt;/plim-badge&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					Badges are decorative when they repeat visible text. When a badge is the only
+					indicator of status, include the meaning in nearby text or an accessible name.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Keep badge text short and readable</li>
+					<li>Do not rely on colour alone</li>
+					<li>Prefer visible labels for critical state</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>variant</code></td>
+						<td><code>'default' | 'primary' | 'success' | 'warning' | 'danger'</code></td>
+						<td><code>'default'</code></td>
+						<td>Visual style of the badge.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

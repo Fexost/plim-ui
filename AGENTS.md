@@ -608,8 +608,16 @@ The documentation application is important because the library is intended to de
 Current docs structure:
 
 * Sticky `plim-header` with brand, search placeholder, theme toggle, and GitHub link
-* Left sidebar via `plim-sidebar` with nav and footer slots
-* Routed pages: `/overview`, `/installation`, `/accessibility`, `/components/header`
+* Left sidebar via `plim-sidebar` with nav grouped by category (`docs-nav.config.ts`):
+  * **Get started** — Overview, Installation
+  * **Foundations** — Tokens, Theme, Typography, Accessibility, Icons (+ Accessibility utilities planned)
+  * **Basic** — Button (+ Badge, Card, Separator, Avatar, Spinner planned)
+  * **Form** — Input, Textarea, Select, Checkbox, Radio, Switch, Form field (planned)
+  * **Navigation** — Header, Sidebar (+ Tabs, Breadcrumb, Pagination planned)
+  * **Feedback** — Alert, Toast, Dialog, Tooltip, Popover (planned)
+  * **Data** — Table, List, Accordion, Tree (planned)
+* Shared layouts: `DocsGuideLayout` (get started + foundations), `DocsComponentLayout` (component reference pages)
+* Routed pages under `/overview`, `/installation`, `/foundations/*`, and `/components/*`
 * Theme toggle via `ThemeService`
 
 The docs should eventually also provide:
@@ -664,8 +672,9 @@ At this point:
 * Sticky behaviour is applied to the Angular host element (`:host(.header--sticky)`).
 * `Button` component exists (`plimButton` on `<button>`) with `primary` and `secondary` variants.
 * `plim-sidebar` exists with nav/footer slots and an `open` input.
+* Docs sidebar navigation is grouped by component category in `docs-nav.config.ts`; unimplemented entries render as coming-soon labels.
+* `DocsGuideLayout` covers get-started and foundations pages; `DocsComponentLayout` covers component reference pages.
 * Docs app uses `plim-sidebar`, `plim-header`, and `plimButton` on native `<button>` elements.
-* Docs sidebar navigation content remains in the docs app; the library provides the shell.
 * `npm start` runs `ng build --project ui && ng serve --project docs`.
 
 ---
@@ -691,9 +700,10 @@ Then components can be built consistently on top of those foundations.
 
 Immediate component priorities:
 
-1. Button and sidebar docs pages
-2. Button and sidebar docs pages (sidebar showcase done; button page next)
-3. Form and feedback primitives
+1. ~~Button and sidebar docs pages~~
+2. ~~Header docs page~~
+3. Form primitives — Input and Select first, then Checkbox, Radio, Switch, and Form field
+4. Foundation reference pages (Tokens, Theme, Typography)
 
 Potential component progression:
 

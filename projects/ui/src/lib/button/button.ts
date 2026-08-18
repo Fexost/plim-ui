@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, HostBinding, input } from '@angular/core';
+import { booleanAttribute, Component, input } from '@angular/core';
 
 export type ButtonVariant = 'primary' | 'secondary';
 
@@ -6,26 +6,14 @@ export type ButtonVariant = 'primary' | 'secondary';
 	selector: 'button[plimButton]',
 	templateUrl: './button.html',
 	styleUrl: './button.scss',
+	host: {
+		class: 'plim-button',
+		'[class.plim-button--primary]': 'variant() === "primary"',
+		'[class.plim-button--secondary]': 'variant() === "secondary"',
+		'[disabled]': 'disabled()',
+	},
 })
 export class Button {
 	public readonly variant = input<ButtonVariant>('primary');
 	public readonly disabled = input(false, { transform: booleanAttribute });
-
-	@HostBinding('class.plim-button')
-	protected readonly hasBaseClass = true;
-
-	@HostBinding('class.plim-button--primary')
-	protected get isPrimary(): boolean {
-		return this.variant() === 'primary';
-	}
-
-	@HostBinding('class.plim-button--secondary')
-	protected get isSecondary(): boolean {
-		return this.variant() === 'secondary';
-	}
-
-	@HostBinding('disabled')
-	protected get isDisabled(): boolean {
-		return this.disabled();
-	}
 }

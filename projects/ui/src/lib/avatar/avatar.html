@@ -1,0 +1,7 @@
+@if (src()) {
+	<img class="avatar-image" [src]="src()" [alt]="alt()" />
+} @else {
+	<span class="avatar-fallback" aria-hidden="true">
+		<ng-content />
+	</span>
+}

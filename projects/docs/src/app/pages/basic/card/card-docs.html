@@ -1,0 +1,77 @@
+<app-docs-component-layout category="Basic" title="Card">
+	<p docsLead>
+		A bordered surface for grouping related content. Project a header, body, and footer
+		with the card slots.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Layout</h2>
+		<p>Combine optional header and footer slots around the default body content.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-card>
+					<div plimCardHeader>Account</div>
+					<p>Manage your profile and security settings.</p>
+					<div plimCardFooter>
+						<button type="button" plimButton>Save</button>
+					</div>
+				</plim-card>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-card&gt;
+  &lt;div plimCardHeader&gt;Account&lt;/div&gt;
+  &lt;p&gt;Body content&lt;/p&gt;
+  &lt;div plimCardFooter&gt;...&lt;/div&gt;
+&lt;/plim-card&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					Cards are presentational containers. Use headings inside the card when the
+					grouped content needs a document outline.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Use semantic headings in the body when appropriate</li>
+					<li>Keep actions in the footer as native buttons or links</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<h3>Content slots</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Attribute</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>plimCardHeader</code></td>
+						<td>Title or summary row at the top of the card.</td>
+					</tr>
+					<tr>
+						<td><code>plimCardFooter</code></td>
+						<td>Actions or metadata at the bottom of the card.</td>
+					</tr>
+					<tr>
+						<td><em>default</em></td>
+						<td>Main card body content.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

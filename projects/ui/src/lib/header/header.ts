@@ -1,18 +1,15 @@
-import { booleanAttribute, Component, HostBinding, input } from '@angular/core';
+import { booleanAttribute, Component, input } from '@angular/core';
 
 @Component({
 	selector: 'plim-header',
-	imports: [],
 	templateUrl: './header.html',
 	styleUrl: './header.scss',
+	host: {
+		'[class.header--sticky]': 'sticky()',
+	},
 })
 export class Header {
 	public readonly sticky = input(false, {
 		transform: booleanAttribute,
 	});
-
-	@HostBinding('class.header--sticky')
-	protected get isSticky(): boolean {
-		return this.sticky();
-	}
 }

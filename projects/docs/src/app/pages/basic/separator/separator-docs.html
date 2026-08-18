@@ -1,0 +1,75 @@
+<app-docs-component-layout category="Basic" title="Separator">
+	<p docsLead>
+		A visual divider between sections of content. Defaults to horizontal; switch to
+		vertical inside flex or grid layouts.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Orientation</h2>
+		<p>Separate stacked content or inline groups.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<div class="separator-demos">
+					<div class="separator-demo">
+						<span>Above</span>
+						<plim-separator />
+						<span>Below</span>
+					</div>
+					<div class="separator-demo separator-demo--vertical">
+						<span>Left</span>
+						<plim-separator orientation="vertical" />
+						<span>Right</span>
+					</div>
+				</div>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-separator /&gt;
+&lt;plim-separator orientation="vertical" /&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The separator renders with <code>role="separator"</code> and
+					<code>aria-orientation</code> so assistive technology can distinguish it from
+					decorative borders.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Semantic separator role</li>
+					<li>Orientation exposed to assistive technology</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>orientation</code></td>
+						<td><code>'horizontal' | 'vertical'</code></td>
+						<td><code>'horizontal'</code></td>
+						<td>Direction of the divider.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>
