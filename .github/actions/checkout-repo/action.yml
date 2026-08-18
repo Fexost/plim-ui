@@ -1,0 +1,27 @@
+name: Checkout repository
+description: Check out the repository ref for the current workflow event.
+
+runs:
+  using: composite
+  steps:
+    - name: Check out code
+      shell: bash
+      env:
+        REPOSITORY: ${{ github.repository }}
+        TOKEN: ${{ github.token }}
+        EVENT_NAME: ${{ github.event_name }}
+        SHA: ${{ github.sha }}
+        PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      run: |
+        set -euo pipefail
+
+        if [ "$EVENT_NAME" = "pull_request" ]; then
+          ref="$PR_HEAD_SHA"
+        else
+          ref="$SHA"
+        fi
+
+        git init
+        git remote add origin "https://x-access-token:${TOKEN}@github.com/${REPOSITORY}.git"
+        git fetch --depth=1 origin "$ref"
+        git checkout --force "$ref"

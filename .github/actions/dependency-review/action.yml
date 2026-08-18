@@ -1,0 +1,25 @@
+name: Dependency review
+description: Fail pull requests that introduce high-severity dependency changes.
+
+runs:
+  using: composite
+  steps:
+    - name: Review dependency changes
+      shell: bash
+      env:
+        BASE_REF: ${{ github.base_ref }}
+        TOKEN: ${{ github.token }}
+        REPOSITORY: ${{ github.repository }}
+      run: |
+        set -euo pipefail
+
+        git fetch --depth=1 origin "$BASE_REF"
+        git show "origin/${BASE_REF}:package-lock.json" > /tmp/base-package-lock.json
+
+        if cmp -s package-lock.json /tmp/base-package-lock.json; then
+          echo "No dependency lockfile changes detected."
+          exit 0
+        fi
+
+        echo "Dependency lockfile changed. Running high-severity audit on the pull request revision."
+        npm audit --omit=dev --audit-level=high

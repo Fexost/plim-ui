@@ -1,0 +1,65 @@
+name: Deploy to GitHub Pages
+description: Publish a static site directory to the gh-pages branch.
+
+inputs:
+  path:
+    description: Directory containing the built static site.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Configure Pages source
+      shell: bash
+      env:
+        TOKEN: ${{ github.token }}
+        REPOSITORY: ${{ github.repository }}
+      run: |
+        set -euo pipefail
+
+        status="$(curl -sS -o /tmp/pages-config.json -w "%{http_code}" \
+          -H "Authorization: Bearer ${TOKEN}" \
+          -H "Accept: application/vnd.github+json" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          "https://api.github.com/repos/${REPOSITORY}/pages")"
+
+        if [ "$status" = "200" ]; then
+          build_type="$(jq -r '.build_type' /tmp/pages-config.json)"
+          if [ "$build_type" != "legacy" ]; then
+            curl -sS -X PUT \
+              -H "Authorization: Bearer ${TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/${REPOSITORY}/pages" \
+              -d '{"build_type":"legacy","source":{"branch":"gh-pages","path":"/"}}' \
+              >/tmp/pages-update.json || true
+          fi
+        fi
+
+    - name: Publish site
+      shell: bash
+      env:
+        INPUT_PATH: ${{ inputs.path }}
+        TOKEN: ${{ github.token }}
+        REPOSITORY: ${{ github.repository }}
+        SHA: ${{ github.sha }}
+      run: |
+        set -euo pipefail
+
+        workdir="$(mktemp -d)"
+        cp -a "${INPUT_PATH}/." "$workdir/"
+        touch "$workdir/.nojekyll"
+
+        if [ -f "$workdir/index.html" ] && [ ! -f "$workdir/404.html" ]; then
+          cp "$workdir/index.html" "$workdir/404.html"
+        fi
+
+        git -C "$workdir" init
+        git -C "$workdir" config user.name "github-actions[bot]"
+        git -C "$workdir" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git -C "$workdir" add .
+        git -C "$workdir" commit -m "Deploy docs from ${SHA}"
+
+        git -C "$workdir" push --force \
+          "https://x-access-token:${TOKEN}@github.com/${REPOSITORY}.git" \
+          HEAD:gh-pages
