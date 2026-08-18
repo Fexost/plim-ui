@@ -1,0 +1,25 @@
+name: Validate pull request
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  description:
+    name: PR description
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require pull request description
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          set -euo pipefail
+          trimmed="$(printf '%s' "$PR_BODY" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+          if [ -z "$trimmed" ]; then
+            echo "Pull requests must include a description."
+            exit 1
+          fi
