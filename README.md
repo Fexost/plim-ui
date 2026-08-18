@@ -2,10 +2,12 @@
 
 An open-source, accessibility-first Angular component library with composable primitives, design tokens, and light/dark theme support.
 
-Install `plim-ui` in any Angular 21+ app, import standalone components, and include the global styles to get tokens and theming out of the box.
+Install `plim-ui` in any Angular 21+ app, import standalone components, and include the global stylesheet to get tokens and theming out of the box.
 
 [![npm version](https://img.shields.io/npm/v/plim-ui)](https://www.npmjs.com/package/plim-ui)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
+**Documentation:** [fexost.github.io/plim-ui](https://fexost.github.io/plim-ui/)
 
 ## Install
 
@@ -20,7 +22,16 @@ Requires Angular 21+ (`@angular/common` and `@angular/core` as peer dependencies
 Import components where you need them:
 
 ```typescript
-import { Header, Button, Sidebar } from 'plim-ui';
+import {
+  Avatar,
+  Badge,
+  Button,
+  Card,
+  Header,
+  Separator,
+  Sidebar,
+  Spinner,
+} from 'plim-ui';
 ```
 
 Include global styles and design tokens once in your application styles:
@@ -33,22 +44,40 @@ Toggle light mode by setting `data-theme="light"` on the document root.
 
 ## Components
 
-| Component | Selector | Description |
+| Category | Component | Selector |
 | --- | --- | --- |
-| Header | `<plim-header>` | Composable top bar with start, centre, and end slots; optional `sticky` |
-| Button | `button[plimButton]` | Styled native button with `primary` and `secondary` variants |
-| Sidebar | `<plim-sidebar>` | Navigation panel with nav and footer slots; `push` or `overlay` mode |
+| **Basic** | Badge | `<plim-badge>` |
+| | Button | `button[plimButton]` |
+| | Card | `<plim-card>` |
+| | Separator | `<plim-separator>` |
+| | Avatar | `<plim-avatar>` |
+| | Spinner | `<plim-spinner>` |
+| **Navigation** | Header | `<plim-header>` |
+| | Sidebar | `<plim-sidebar>` |
 
 Naming follows two patterns:
 
-- **Element components** — `plim-*` prefix (e.g. `<plim-header>`)
-- **Attribute directives / slot markers** — `plim` + camelCase (e.g. `plimHeaderStart`, `plimButton`)
+- **Element components** — `plim-*` prefix (e.g. `<plim-card>`)
+- **Attribute directives / slot markers** — `plim` + camelCase (e.g. `plimButton`, `plimHeaderStart`)
 
-Browse the [documentation site](https://github.com/Fexost/plim-ui) for usage examples, accessibility notes, and API reference.
+Each component has a docs page with previews, accessibility notes, and API reference on the [documentation site](https://fexost.github.io/plim-ui/).
 
 ## Theming
 
 Design tokens use the `--plim-*` CSS variable namespace. Dark theme is the default (`:root`); light theme overrides apply when `data-theme="light"` is set on the document root.
+
+See the [Tokens](https://fexost.github.io/plim-ui/foundations/tokens) and [Theme](https://fexost.github.io/plim-ui/foundations/theme) guides for details.
+
+## Workspace
+
+This repository is an Angular monorepo:
+
+| Project | Path | Description |
+| --- | --- | --- |
+| `ui` | `projects/ui` | Publishable component library (`dist/plim-ui`) |
+| `docs` | `projects/docs` | Documentation application |
+
+Brand assets live in `projects/docs/public/brand/`.
 
 ## Contributing
 
@@ -66,15 +95,20 @@ Open [http://localhost:4200](http://localhost:4200) to browse the docs site.
 | Command | Description |
 | --- | --- |
 | `npm start` | Build the library, then serve the docs app |
-| `npm run build` | Build the library to `dist/plim-ui` |
-| `npm run watch` | Rebuild the library on file changes |
-| `npm test` | Run unit tests (Vitest) |
+| `npm run build:ui` | Build the library to `dist/plim-ui` |
+| `npm run build:docs` | Production docs build (GitHub Pages base href) |
+| `npm run build:production` | Build library and docs |
+| `npm run test:ui` | Run library unit tests |
+| `npm run test:docs` | Run docs unit tests |
+| `npm test` | Run all unit tests |
 | `npm run lint` | Lint the workspace |
 
-To publish a release, build the library and publish from `dist/plim-ui`:
+Docs deploy to GitHub Pages automatically on push to `main` (see `.github/workflows/deploy-docs.yml`).
+
+To publish the library to npm, build and publish from `dist/plim-ui`:
 
 ```bash
-npm run build
+npm run build:ui
 cd dist/plim-ui
 npm publish
 ```

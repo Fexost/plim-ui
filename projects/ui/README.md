@@ -2,6 +2,8 @@
 
 Open-source Angular component library for building accessible, composable UI with a shared design token system.
 
+**Documentation:** [fexost.github.io/plim-ui](https://fexost.github.io/plim-ui/)
+
 ## Install
 
 ```bash
@@ -27,7 +29,101 @@ Toggle light mode by setting `data-theme="light"` on the document root.
 
 All components are standalone and tree-shakeable.
 
-### Header
+### Basic
+
+#### Badge
+
+Inline label for status, categories, or metadata.
+
+```html
+<plim-badge>Default</plim-badge>
+<plim-badge variant="primary">Primary</plim-badge>
+<plim-badge variant="success">Success</plim-badge>
+```
+
+| Input | Type | Default |
+| --- | --- | --- |
+| `variant` | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger'` | `'default'` |
+
+#### Button
+
+Styles native `<button>` elements via the `plimButton` attribute.
+
+```html
+<button type="button" plimButton>Save</button>
+<button type="button" plimButton variant="secondary">Cancel</button>
+<button type="button" plimButton disabled>Publish</button>
+```
+
+| Input | Type | Default |
+| --- | --- | --- |
+| `variant` | `'primary' \| 'secondary'` | `'primary'` |
+| `disabled` | `boolean` | `false` |
+
+Pair with `routerLink` when navigation is triggered from a button.
+
+#### Card
+
+Elevated surface with optional header and footer slots.
+
+```html
+<plim-card>
+  <div plimCardHeader>Account</div>
+  <p>Body content</p>
+  <div plimCardFooter>
+    <button type="button" plimButton>Save</button>
+  </div>
+</plim-card>
+```
+
+Content slots: `plimCardHeader`, default body, `plimCardFooter`.
+
+#### Separator
+
+Visual divider between stacked or inline content.
+
+```html
+<plim-separator />
+<plim-separator orientation="vertical" />
+```
+
+| Input | Type | Default |
+| --- | --- | --- |
+| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` |
+
+#### Avatar
+
+User or entity image with initials fallback.
+
+```html
+<plim-avatar size="md" src="/avatar.jpg" alt="Steven">ST</plim-avatar>
+<plim-avatar size="sm">ST</plim-avatar>
+```
+
+| Input | Type | Default |
+| --- | --- | --- |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` |
+| `src` | `string` | — |
+| `alt` | `string` | `''` |
+
+Project initials as content when `src` is omitted.
+
+#### Spinner
+
+Loading indicator with accessible status semantics.
+
+```html
+<plim-spinner size="md" aria-label="Loading" />
+```
+
+| Input | Type | Default |
+| --- | --- | --- |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` |
+| `aria-label` | `string` | `'Loading'` |
+
+### Navigation
+
+#### Header
 
 Composable top bar with three content projection slots.
 
@@ -45,26 +141,11 @@ Composable top bar with three content projection slots.
 | --- | --- | --- | --- |
 | `sticky` | `boolean` | `false` | Keeps the header visible while scrolling |
 
-### Button
+Sticky positioning is applied to the component host, not the internal landmark.
 
-Styles native `<button>` elements via the `plimButton` attribute.
+#### Sidebar
 
-```html
-<button type="button" plimButton>Save</button>
-<button type="button" plimButton variant="secondary">Cancel</button>
-<button type="button" plimButton disabled>Publish</button>
-```
-
-| Input | Type | Default | Description |
-| --- | --- | --- | --- |
-| `variant` | `'primary' \| 'secondary'` | `'primary'` | Visual style |
-| `disabled` | `boolean` | `false` | Binds to the native `disabled` attribute |
-
-Pair with `routerLink` when navigation is triggered from a button.
-
-### Sidebar
-
-Fixed navigation panel with nav and footer slots.
+Navigation panel with nav and footer slots.
 
 ```html
 <plim-sidebar open mode="push" aria-label="Main navigation">
@@ -85,13 +166,27 @@ In `push` mode, offset main content with `margin-left: var(--plim-sidebar-width)
 ## Public API
 
 ```typescript
-import { Header, Button, Sidebar } from 'plim-ui';
+import {
+  Avatar,
+  Badge,
+  Button,
+  Card,
+  Header,
+  Separator,
+  Sidebar,
+  Spinner,
+} from 'plim-ui';
 ```
+
+## Design tokens
+
+Tokens cover colour, typography, spacing, radius, shadows, focus rings, motion, and component dimensions under the `--plim-*` namespace. See the [tokens reference](https://fexost.github.io/plim-ui/foundations/tokens) for the full list.
 
 ## Links
 
 - [Repository](https://github.com/Fexost/plim-ui)
-- [Documentation](https://github.com/Fexost/plim-ui)
+- [Documentation](https://fexost.github.io/plim-ui/)
+- [npm](https://www.npmjs.com/package/plim-ui)
 
 ## License
 
