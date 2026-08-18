@@ -137,30 +137,11 @@ Pull requests and pushes to `main` run automated checks per project:
 | [Security](.github/workflows/security.yml) | **Audit (workspace)** | High-severity scan of root production dependencies (Angular, build tooling, shared runtime deps) |
 | | **Audit (ui)** | High-severity scan of the built `dist/plim-ui` package — what ships to npm |
 | | **Dependency review** | PR-only review of dependency diffs at high severity or above |
+| [Deploy](.github/workflows/deploy-docs.yml) | **Deploy (docs)** | Deploys the Docs project to Github Pages |
 
 **Why audit both workspace and ui?** The monorepo root owns most dependencies (including dev tooling used in CI), while the published library package is a separate manifest with only its runtime deps (`tslib` today). Scanning both catches vulnerabilities in contributor tooling and in what consumers install.
 
 Status badges above reflect the latest results on `main`, grouped by check type.
-
-To require these checks before merging, enable branch protection on `main` and mark these status checks as required:
-
-- `Lint (ui)`
-- `Lint (docs)`
-- `Test (ui)`
-- `Test (docs)`
-- `Audit (workspace)`
-- `Audit (ui)`
-- `Dependency review` (pull requests only)
-
-Docs deploy to GitHub Pages automatically on push to `main` (see `.github/workflows/deploy-docs.yml`).
-
-To publish the library to npm, build and publish from `dist/plim-ui`:
-
-```bash
-npm run build:ui
-cd dist/plim-ui
-npm publish
-```
 
 Architecture, conventions, and development guidelines are documented in [AGENTS.md](./AGENTS.md).
 
