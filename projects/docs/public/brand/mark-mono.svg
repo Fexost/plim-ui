@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-label="plim-ui">
+  <rect x="9" y="8" width="12" height="32" rx="6" fill="currentColor"/>
+  <path
+    d="M21 8h11.5a9.5 9.5 0 1 1 0 19H21V8Z"
+    fill="currentColor"
+    fill-opacity="0.72"
+  />
+</svg>

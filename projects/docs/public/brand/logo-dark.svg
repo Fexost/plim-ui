@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 48" fill="none" role="img" aria-label="plim-ui">
+  <defs>
+    <linearGradient id="plim-stem" x1="14" y1="40" x2="14" y2="8" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="plim-bowl" x1="22" y1="10" x2="40" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#c4b5fd"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(0 0)">
+    <rect x="9" y="8" width="12" height="32" rx="6" fill="url(#plim-stem)"/>
+    <path d="M21 8h11.5a9.5 9.5 0 1 1 0 19H21V8Z" fill="url(#plim-bowl)"/>
+    <path d="M28.5 12.5c4.2 1.1 6.8 4.8 6.1 8.8-.5 2.8-2.8 5-5.6 5.7l-3.5-8.4c2.2-.8 3.7-2.8 3-5.1Z" fill="#ede9fe" fill-opacity="0.95"/>
+  </g>
+  <text x="56" y="31" fill="#f4f5f7" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="22" letter-spacing="-0.02em">
+    <tspan font-weight="600">plim</tspan><tspan font-weight="400" fill="#a3a9b5">ui</tspan>
+  </text>
+</svg>

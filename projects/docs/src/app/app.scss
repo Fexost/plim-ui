@@ -19,13 +19,31 @@
 }
 
 .docs-brand {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--plim-space-2);
 	color: inherit;
 	text-decoration: none;
 }
 
+.docs-brand-mark {
+	flex-shrink: 0;
+	display: block;
+}
+
 .docs-brand-text {
 	font-size: var(--plim-font-size-sm);
+	line-height: 1;
+	letter-spacing: -0.02em;
+}
+
+.docs-brand-name {
 	font-weight: var(--plim-font-weight-semibold);
+}
+
+.docs-brand-ui {
+	font-weight: var(--plim-font-weight-normal);
+	color: var(--plim-color-text-muted);
 }
 
 .docs-header-nav {
