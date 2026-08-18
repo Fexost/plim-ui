@@ -4,6 +4,13 @@ An open-source, accessibility-first Angular component library with composable pr
 
 Install `plim-ui` in any Angular 21+ app, import standalone components, and include the global stylesheet to get tokens and theming out of the box.
 
+### Package
+
+[![npm version](https://img.shields.io/npm/v/plim-ui)](https://www.npmjs.com/package/plim-ui)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
+**Documentation:** [fexost.github.io/plim-ui](https://fexost.github.io/plim-ui/)
+
 ### CI — Lint
 
 [![CI Lint | ui](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=lint-ui&label=CI%20Lint%20%7C%20ui)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
@@ -22,13 +29,6 @@ Install `plim-ui` in any Angular 21+ app, import standalone components, and incl
 ### Security — Dependency review
 
 [![Security Dependency review](https://github.com/Fexost/plim-ui/actions/workflows/security.yml/badge.svg?job=dependency-review&label=Security%20Dependency%20review)](https://github.com/Fexost/plim-ui/actions/workflows/security.yml)
-
-### Package
-
-[![npm version](https://img.shields.io/npm/v/plim-ui)](https://www.npmjs.com/package/plim-ui)
-[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
-
-**Documentation:** [fexost.github.io/plim-ui](https://fexost.github.io/plim-ui/)
 
 ## Install
 
