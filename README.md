@@ -161,8 +161,6 @@ That ruleset requires these status checks:
 - Audit (ui)
 - Dependency review
 
-Workflows use composite actions from this repository (`.github/actions/*`) so they stay compatible with the repository Actions policy that restricts third-party actions.
-
 Architecture, conventions, and development guidelines are documented in [AGENTS.md](./AGENTS.md).
 
 ## License

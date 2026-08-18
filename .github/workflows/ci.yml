@@ -4,10 +4,6 @@ on:
   pull_request:
   push:
     branches: [main]
-  workflow_dispatch:
-
-permissions:
-  contents: read
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
@@ -18,27 +14,14 @@ jobs:
     name: Lint (ui)
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        env:
-          REPOSITORY: ${{ github.repository }}
-          TOKEN: ${{ github.token }}
-          EVENT_NAME: ${{ github.event_name }}
-          SHA: ${{ github.sha }}
-          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          set -euo pipefail
-          if [ "$EVENT_NAME" = "pull_request" ]; then
-            ref="$PR_HEAD_SHA"
-          else
-            ref="$SHA"
-          fi
-          git init
-          git remote add origin "https://x-access-token:${TOKEN}@github.com/${REPOSITORY}.git"
-          git fetch --depth=1 origin "$ref"
-          git checkout --force "$ref"
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: ./.github/actions/setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -50,27 +33,14 @@ jobs:
     name: Lint (docs)
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        env:
-          REPOSITORY: ${{ github.repository }}
-          TOKEN: ${{ github.token }}
-          EVENT_NAME: ${{ github.event_name }}
-          SHA: ${{ github.sha }}
-          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          set -euo pipefail
-          if [ "$EVENT_NAME" = "pull_request" ]; then
-            ref="$PR_HEAD_SHA"
-          else
-            ref="$SHA"
-          fi
-          git init
-          git remote add origin "https://x-access-token:${TOKEN}@github.com/${REPOSITORY}.git"
-          git fetch --depth=1 origin "$ref"
-          git checkout --force "$ref"
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: ./.github/actions/setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -82,27 +52,14 @@ jobs:
     name: Test (ui)
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        env:
-          REPOSITORY: ${{ github.repository }}
-          TOKEN: ${{ github.token }}
-          EVENT_NAME: ${{ github.event_name }}
-          SHA: ${{ github.sha }}
-          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          set -euo pipefail
-          if [ "$EVENT_NAME" = "pull_request" ]; then
-            ref="$PR_HEAD_SHA"
-          else
-            ref="$SHA"
-          fi
-          git init
-          git remote add origin "https://x-access-token:${TOKEN}@github.com/${REPOSITORY}.git"
-          git fetch --depth=1 origin "$ref"
-          git checkout --force "$ref"
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: ./.github/actions/setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -114,27 +71,14 @@ jobs:
     name: Test (docs)
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        env:
-          REPOSITORY: ${{ github.repository }}
-          TOKEN: ${{ github.token }}
-          EVENT_NAME: ${{ github.event_name }}
-          SHA: ${{ github.sha }}
-          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          set -euo pipefail
-          if [ "$EVENT_NAME" = "pull_request" ]; then
-            ref="$PR_HEAD_SHA"
-          else
-            ref="$SHA"
-          fi
-          git init
-          git remote add origin "https://x-access-token:${TOKEN}@github.com/${REPOSITORY}.git"
-          git fetch --depth=1 origin "$ref"
-          git checkout --force "$ref"
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: ./.github/actions/setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
       - name: Install dependencies
         run: npm ci

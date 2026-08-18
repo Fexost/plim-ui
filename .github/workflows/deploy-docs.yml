@@ -6,38 +6,26 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    name: Deploy (docs)
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        env:
-          REPOSITORY: ${{ github.repository }}
-          TOKEN: ${{ github.token }}
-          EVENT_NAME: ${{ github.event_name }}
-          SHA: ${{ github.sha }}
-          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          set -euo pipefail
-          if [ "$EVENT_NAME" = "pull_request" ]; then
-            ref="$PR_HEAD_SHA"
-          else
-            ref="$SHA"
-          fi
-          git init
-          git remote add origin "https://x-access-token:${TOKEN}@github.com/${REPOSITORY}.git"
-          git fetch --depth=1 origin "$ref"
-          git checkout --force "$ref"
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: ./.github/actions/setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -48,7 +36,18 @@ jobs:
       - name: Configure SPA fallback
         run: cp dist/docs/browser/index.html dist/docs/browser/404.html
 
-      - name: Deploy to GitHub Pages
-        uses: ./.github/actions/deploy-github-pages
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist/docs/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
