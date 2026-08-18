@@ -143,24 +143,6 @@ Pull requests and pushes to `main` run automated checks per project:
 
 Status badges above reflect the latest results on `main`, grouped by check type.
 
-### Required checks on pull requests
-
-Pull requests targeting `main` should not merge until CI and Security checks pass. Apply the repository ruleset once from a machine with admin access:
-
-```bash
-gh api repos/Fexost/plim-ui/rulesets --method POST --input .github/rulesets/protect-main.json
-```
-
-That ruleset requires these status checks:
-
-- Lint (ui)
-- Lint (docs)
-- Test (ui)
-- Test (docs)
-- Audit (workspace)
-- Audit (ui)
-- Dependency review
-
 Architecture, conventions, and development guidelines are documented in [AGENTS.md](./AGENTS.md).
 
 ## License
