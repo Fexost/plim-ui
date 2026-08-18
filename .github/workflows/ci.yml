@@ -10,8 +10,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
-    name: Lint
+  lint-ui:
+    name: Lint (ui)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,11 +26,49 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint
-        run: npm run lint
+      - name: Lint ui
+        run: npx ng lint ui
 
-  test:
-    name: Test
+  lint-docs:
+    name: Lint (docs)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint docs
+        run: npx ng lint docs
+
+  test-ui:
+    name: Test (ui)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test ui
+        run: npm run test:ui
+
+  test-docs:
+    name: Test (docs)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -48,5 +86,5 @@ jobs:
       - name: Build library
         run: npm run build:ui
 
-      - name: Test
-        run: npm test
+      - name: Test docs
+        run: npm run test:docs

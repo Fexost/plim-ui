@@ -4,9 +4,13 @@ An open-source, accessibility-first Angular component library with composable pr
 
 Install `plim-ui` in any Angular 21+ app, import standalone components, and include the global stylesheet to get tokens and theming out of the box.
 
-[![CI — Lint](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=lint)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
-[![CI — Test](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=test)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
-[![Security](https://github.com/Fexost/plim-ui/actions/workflows/security.yml/badge.svg)](https://github.com/Fexost/plim-ui/actions/workflows/security.yml)
+[![Lint (ui)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=lint-ui&label=Lint%20(ui))](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
+[![Lint (docs)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=lint-docs&label=Lint%20(docs))](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
+[![Test (ui)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=test-ui&label=Test%20(ui))](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
+[![Test (docs)](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml/badge.svg?job=test-docs&label=Test%20(docs))](https://github.com/Fexost/plim-ui/actions/workflows/ci.yml)
+[![Audit (workspace)](https://github.com/Fexost/plim-ui/actions/workflows/security.yml/badge.svg?job=audit-workspace&label=Audit%20(workspace))](https://github.com/Fexost/plim-ui/actions/workflows/security.yml)
+[![Audit (ui)](https://github.com/Fexost/plim-ui/actions/workflows/security.yml/badge.svg?job=audit-ui&label=Audit%20(ui))](https://github.com/Fexost/plim-ui/actions/workflows/security.yml)
+[![Dependency review](https://github.com/Fexost/plim-ui/actions/workflows/security.yml/badge.svg?job=dependency-review&label=Dependency%20review)](https://github.com/Fexost/plim-ui/actions/workflows/security.yml)
 [![npm version](https://img.shields.io/npm/v/plim-ui)](https://www.npmjs.com/package/plim-ui)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -108,20 +112,30 @@ Open [http://localhost:4200](http://localhost:4200) to browse the docs site.
 
 ### Continuous integration
 
-Pull requests and pushes to `main` run automated checks:
+Pull requests and pushes to `main` run automated checks per project:
 
-| Workflow | Jobs | Description |
+| Workflow | Job | Description |
 | --- | --- | --- |
-| [CI](.github/workflows/ci.yml) | **Lint**, **Test** | ESLint across `ui` and `docs`; unit tests after building the library |
-| [Security](.github/workflows/security.yml) | **npm audit**, **Dependency review** | High-severity vulnerability scan; PR dependency diff review (weekly scheduled audit on `main`) |
+| [CI](.github/workflows/ci.yml) | **Lint (ui)** | ESLint for `projects/ui` |
+| | **Lint (docs)** | ESLint for `projects/docs` |
+| | **Test (ui)** | Unit tests for the library |
+| | **Test (docs)** | Unit tests for the docs app (after building the library) |
+| [Security](.github/workflows/security.yml) | **Audit (workspace)** | High-severity scan of root production dependencies (Angular, build tooling, shared runtime deps) |
+| | **Audit (ui)** | High-severity scan of the built `dist/plim-ui` package — what ships to npm |
+| | **Dependency review** | PR-only review of dependency diffs at high severity or above |
+
+**Why audit both workspace and ui?** The monorepo root owns most dependencies (including dev tooling used in CI), while the published library package is a separate manifest with only its runtime deps (`tslib` today). Scanning both catches vulnerabilities in contributor tooling and in what consumers install.
 
 Status badges at the top of this README reflect the latest results on `main`.
 
 To require these checks before merging, enable branch protection on `main` and mark these status checks as required:
 
-- `Lint`
-- `Test`
-- `npm audit`
+- `Lint (ui)`
+- `Lint (docs)`
+- `Test (ui)`
+- `Test (docs)`
+- `Audit (workspace)`
+- `Audit (ui)`
 - `Dependency review` (pull requests only)
 
 Docs deploy to GitHub Pages automatically on push to `main` (see `.github/workflows/deploy-docs.yml`).
