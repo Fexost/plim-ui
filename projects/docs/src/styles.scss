@@ -17,18 +17,33 @@ body {
 }
 
 app-root {
-	--docs-header-primary-height: 4rem;
+	--docs-header-row-height: 2rem;
 	--docs-header-tabs-height: 1.125rem;
 	--plim-header-height: calc(
-		var(--docs-header-primary-height) + var(--docs-header-tabs-height) + var(--plim-space-1)
+		var(--docs-header-row-height) + var(--docs-header-tabs-height) + var(--plim-space-1) +
+			var(--plim-space-4)
 	);
 }
 
 .docs-app-header .plim-header__bar {
-	align-items: start;
+	grid-template-columns: 1fr auto;
+	grid-template-rows: var(--docs-header-row-height) var(--docs-header-tabs-height);
+	align-items: center;
+	row-gap: var(--plim-space-1);
+	padding-block: var(--plim-space-2);
+	min-height: var(--plim-header-height);
 }
 
 .docs-app-header .plim-header__start {
-	align-items: center;
-	height: var(--docs-header-primary-height);
+	grid-column: 1;
+	grid-row: 1;
+	height: var(--docs-header-row-height);
+}
+
+.docs-app-header .plim-header__center {
+	display: none;
+}
+
+.docs-app-header .plim-header__end {
+	display: contents;
 }
