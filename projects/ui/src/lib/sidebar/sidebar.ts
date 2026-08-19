@@ -4,13 +4,14 @@ export type SidebarMode = 'push' | 'overlay';
 
 @Component({
 	selector: 'plim-sidebar',
+	host: {
+		class: 'plim-sidebar',
+		'[class.plim-sidebar--open]': 'open()',
+		'[class.plim-sidebar--overlay]': 'open() && mode() === "overlay"',
+		'[class.plim-sidebar--contained]': '!fixed()',
+	},
 	templateUrl: './sidebar.html',
 	styleUrl: './sidebar.scss',
-	host: {
-		'[class.sidebar--open]': 'open()',
-		'[class.sidebar--overlay]': 'open() && mode() === "overlay"',
-		'[class.sidebar--contained]': '!fixed()',
-	},
 })
 export class Sidebar {
 	public readonly open = input(true, { transform: booleanAttribute });

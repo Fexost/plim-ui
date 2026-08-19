@@ -4,15 +4,16 @@ export type SpinnerSize = 'sm' | 'md' | 'lg';
 
 @Component({
 	selector: 'plim-spinner',
-	templateUrl: './spinner.html',
-	styleUrl: './spinner.scss',
 	host: {
+		class: 'plim-spinner',
 		role: 'status',
-		'[class.spinner--sm]': 'size() === "sm"',
-		'[class.spinner--md]': 'size() === "md"',
-		'[class.spinner--lg]': 'size() === "lg"',
+		'[class.plim-spinner--sm]': 'size() === "sm"',
+		'[class.plim-spinner--md]': 'size() === "md"',
+		'[class.plim-spinner--lg]': 'size() === "lg"',
 		'[attr.aria-label]': 'ariaLabel()',
 	},
+	templateUrl: './spinner.html',
+	styleUrl: './spinner.scss',
 })
 export class Spinner {
 	public readonly size = input<SpinnerSize>('md');

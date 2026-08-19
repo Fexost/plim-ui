@@ -4,7 +4,7 @@
 	justify-content: center;
 }
 
-.spinner {
+.plim-spinner__indicator {
 	box-sizing: border-box;
 	border: 2px solid var(--plim-color-border);
 	border-top-color: var(--plim-color-primary);
@@ -12,17 +12,17 @@
 	animation: plim-spinner-spin var(--plim-duration-spin) linear infinite;
 }
 
-:host(.spinner--sm) .spinner {
+:host(.plim-spinner--sm) .plim-spinner__indicator {
 	width: 1rem;
 	height: 1rem;
 }
 
-:host(.spinner--md) .spinner {
+:host(.plim-spinner--md) .plim-spinner__indicator {
 	width: 1.25rem;
 	height: 1.25rem;
 }
 
-:host(.spinner--lg) .spinner {
+:host(.plim-spinner--lg) .plim-spinner__indicator {
 	width: 1.75rem;
 	height: 1.75rem;
 }
@@ -34,7 +34,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.spinner {
+	.plim-spinner__indicator {
 		animation: none;
 	}
 }

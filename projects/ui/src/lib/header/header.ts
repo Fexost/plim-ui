@@ -2,11 +2,12 @@ import { booleanAttribute, Component, input } from '@angular/core';
 
 @Component({
 	selector: 'plim-header',
+	host: {
+		class: 'plim-header',
+		'[class.plim-header--sticky]': 'sticky()',
+	},
 	templateUrl: './header.html',
 	styleUrl: './header.scss',
-	host: {
-		'[class.header--sticky]': 'sticky()',
-	},
 })
 export class Header {
 	public readonly sticky = input(false, {

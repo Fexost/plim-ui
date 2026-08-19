@@ -2,23 +2,23 @@
 	display: block;
 }
 
-:host(.separator--vertical) {
+:host(.plim-separator--vertical) {
 	display: inline-block;
 	align-self: stretch;
 	width: auto;
 	height: auto;
 }
 
-.separator {
+.plim-separator__line {
 	background: var(--plim-color-border);
 }
 
-:host(.separator--horizontal) .separator {
+:host(.plim-separator--horizontal) .plim-separator__line {
 	width: 100%;
 	height: 1px;
 }
 
-:host(.separator--vertical) .separator {
+:host(.plim-separator--vertical) .plim-separator__line {
 	width: 1px;
 	height: 100%;
 	min-height: 1rem;

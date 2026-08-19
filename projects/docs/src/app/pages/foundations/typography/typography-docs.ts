@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 import { DocsGuideLayout } from '../../../components/docs-guide-layout/docs-guide-layout';
 
 @Component({
-	selector: 'app-typography',
+	selector: 'app-typography-docs',
 	imports: [DocsGuideLayout],
-	templateUrl: './typography.html',
-	styleUrl: './typography.scss',
+	templateUrl: './typography-docs.html',
+	styleUrl: './typography-docs.scss',
 })
-export class Typography {}
+export class TypographyDocs {}

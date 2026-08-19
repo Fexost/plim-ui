@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 import { DocsGuideLayout } from '../../../components/docs-guide-layout/docs-guide-layout';
 
 @Component({
-	selector: 'app-tokens',
+	selector: 'app-tokens-docs',
 	imports: [DocsGuideLayout],
-	templateUrl: './tokens.html',
-	styleUrl: './tokens.scss',
+	templateUrl: './tokens-docs.html',
+	styleUrl: './tokens-docs.scss',
 })
-export class Tokens {}
+export class TokensDocs {}

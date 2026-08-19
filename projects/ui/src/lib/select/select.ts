@@ -2,7 +2,7 @@ import { booleanAttribute, Component, input } from '@angular/core';
 
 @Component({
 	selector: 'select[plimSelect]',
-	template: '',
+	templateUrl: './select.html',
 	styleUrl: './select.scss',
 	host: {
 		class: 'plim-select',

@@ -28,6 +28,45 @@
 		</div>
 	</section>
 
+	<section class="docs-component__section">
+		<h2>Fill layout</h2>
+		<p>
+			Add <code>fill</code> to stretch cards in a grid and pin footers to the bottom when body
+			content varies in length.
+		</p>
+
+		<div class="docs-preview card-docs-fill">
+			<div class="card-docs-fill__grid">
+				<plim-card fill>
+					<div plimCardHeader>Short card</div>
+					<p class="card-docs-fill__copy">Brief summary text.</p>
+					<div plimCardFooter>
+						<button type="button" plimButton variant="secondary">View</button>
+					</div>
+				</plim-card>
+
+				<plim-card fill>
+					<div plimCardHeader>Tall card</div>
+					<p class="card-docs-fill__copy">
+						A longer description that wraps across multiple lines to show how the footer
+						stays aligned at the bottom of the row.
+					</p>
+					<div plimCardFooter>
+						<button type="button" plimButton>Action</button>
+					</div>
+				</plim-card>
+			</div>
+		</div>
+
+		<pre class="docs-code"><code>&lt;plim-card fill&gt;
+  &lt;div plimCardHeader&gt;Title&lt;/div&gt;
+  &lt;p&gt;Body content&lt;/p&gt;
+  &lt;div plimCardFooter&gt;
+    &lt;button type="button" plimButton&gt;Action&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/plim-card&gt;</code></pre>
+	</section>
+
 	<section class="docs-component__section" id="accessibility">
 		<h2>Accessibility</h2>
 

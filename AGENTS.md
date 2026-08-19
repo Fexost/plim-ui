@@ -155,10 +155,10 @@ projects/
         pages/
           overview/
           installation/
-          foundations/    # tokens, theme, typography, accessibility, icons
+          foundations/    # *-docs pages: tokens, theme, typography, accessibility, icons
           basic/          # button, badge, card, separator, avatar, spinner
           form/           # input, textarea, select, checkbox, radio, switch, form-field
-          navigation/     # header, sidebar
+          navigation/     # header-docs, sidebar-docs
         services/
           theme.service.ts
           docs-responsive-nav.service.ts
@@ -311,10 +311,10 @@ Composable top bar with three projection slots: `plimHeaderStart`, `plimHeaderCe
 **Sticky behaviour belongs on the component host**, not the internal `<header>`:
 
 ```css
-:host(.header--sticky) {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+:host(.plim-header--sticky) {
+	position: sticky;
+	top: 0;
+	z-index: 100;
 }
 ```
 
@@ -492,10 +492,9 @@ overview and guide pages).
 
 **Docs SCSS:** global styles in `projects/docs/src/styles.scss` import shared partials
 (`_docs-page.scss`, `_docs-nav.scss`, `_docs-code-theme.scss`). Page-specific styles live in
-co-located `*.scss` files on page components (for example `overview.scss`, `tokens.scss`,
-`header.scss`). Component reference pages under `basic/` and `form/` use a `*-docs.ts` filename
-to distinguish docs routes from library source; `foundations/` and `navigation/` pages use the
-plain component name (`tokens.ts`, `header.ts`).
+co-located `*.scss` files on page components (for example `overview.scss`, `card-docs.scss`).
+Component and guide reference pages use a `*-docs.ts` filename (`button-docs.ts`, `tokens-docs.ts`,
+`header-docs.ts`).
 
 The docs styling uses SCSS in the docs app for layout and page structure. Reusable component
 styling remains in the library.

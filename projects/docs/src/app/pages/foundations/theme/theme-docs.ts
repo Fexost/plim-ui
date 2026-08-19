@@ -5,10 +5,10 @@ import { DocsGuideLayout } from '../../../components/docs-guide-layout/docs-guid
 import { DOCS_PATHS } from '../../../docs-nav.config';
 
 @Component({
-	selector: 'app-theme',
+	selector: 'app-theme-docs',
 	imports: [DocsGuideLayout, RouterLink],
-	templateUrl: './theme.html',
+	templateUrl: './theme-docs.html',
 })
-export class Theme {
+export class ThemeDocs {
 	protected readonly DOCS_PATHS = DOCS_PATHS;
 }

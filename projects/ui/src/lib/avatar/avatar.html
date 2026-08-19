@@ -1,7 +1,7 @@
 @if (src()) {
-	<img class="avatar-image" [src]="src()" [alt]="alt()" />
+	<img class="plim-avatar__image" [src]="src()" [alt]="alt()" />
 } @else {
-	<span class="avatar-fallback" aria-hidden="true">
+	<span class="plim-avatar__fallback" aria-hidden="true">
 		<ng-content />
 	</span>
 }

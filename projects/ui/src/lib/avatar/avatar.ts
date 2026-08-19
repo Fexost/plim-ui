@@ -4,13 +4,14 @@ export type AvatarSize = 'sm' | 'md' | 'lg';
 
 @Component({
 	selector: 'plim-avatar',
+	host: {
+		class: 'plim-avatar',
+		'[class.plim-avatar--sm]': 'size() === "sm"',
+		'[class.plim-avatar--md]': 'size() === "md"',
+		'[class.plim-avatar--lg]': 'size() === "lg"',
+	},
 	templateUrl: './avatar.html',
 	styleUrl: './avatar.scss',
-	host: {
-		'[class.avatar--sm]': 'size() === "sm"',
-		'[class.avatar--md]': 'size() === "md"',
-		'[class.avatar--lg]': 'size() === "lg"',
-	},
 })
 export class Avatar {
 	public readonly size = input<AvatarSize>('md');

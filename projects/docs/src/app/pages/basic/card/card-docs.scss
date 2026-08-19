@@ -1,0 +1,24 @@
+.card-docs-fill {
+	padding: var(--plim-space-6);
+}
+
+.card-docs-fill__grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--plim-space-4);
+	width: 100%;
+	min-height: 11rem;
+}
+
+.card-docs-fill__copy {
+	margin: 0;
+	color: var(--plim-color-text-muted);
+	font-size: var(--plim-font-size-sm);
+	line-height: var(--plim-line-height-normal);
+}
+
+@media (max-width: 960px) {
+	.card-docs-fill__grid {
+		grid-template-columns: 1fr;
+	}
+}
