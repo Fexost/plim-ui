@@ -1,0 +1,95 @@
+<app-docs-component-layout category="Form" title="Checkbox">
+	<p docsLead>
+		Custom-styled native checkbox. Pair with a <code>&lt;label&gt;</code> for clickable text.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>States</h2>
+		<p>Default, selected, disabled, and invalid states.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<label class="docs-choice">
+					<input type="checkbox" plimCheckbox />
+					<span>Option label</span>
+				</label>
+				<label class="docs-choice">
+					<input type="checkbox" plimCheckbox checked />
+					<span>Selected</span>
+				</label>
+				<label class="docs-choice">
+					<input type="checkbox" plimCheckbox disabled />
+					<span>Disabled</span>
+				</label>
+				<label class="docs-choice">
+					<input type="checkbox" plimCheckbox invalid />
+					<span>Invalid</span>
+				</label>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;label&gt;
+  &lt;input type="checkbox" plimCheckbox /&gt;
+  Option label
+&lt;/label&gt;
+&lt;label&gt;
+  &lt;input type="checkbox" plimCheckbox checked /&gt;
+  Selected
+&lt;/label&gt;
+&lt;label&gt;
+  &lt;input type="checkbox" plimCheckbox disabled /&gt;
+  Disabled
+&lt;/label&gt;
+&lt;label&gt;
+  &lt;input type="checkbox" plimCheckbox invalid /&gt;
+  Invalid
+&lt;/label&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>Checkbox role and state come from the native input.</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Wrap input and label text in <code>&lt;label&gt;</code></li>
+					<li>Space toggles when focused</li>
+					<li>Use <code>invalid</code> for validation styling</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>invalid</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Applies error styling and <code>aria-invalid</code>.</td>
+					</tr>
+					<tr>
+						<td><code>disabled</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Native attribute. Disables the checkbox.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

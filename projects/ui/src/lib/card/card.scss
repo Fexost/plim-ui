@@ -2,6 +2,34 @@
 	display: block;
 }
 
+:host(.plim-card--fill) {
+	height: 100%;
+
+	.card {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	.card-header:not(:empty) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--plim-space-3);
+		font-weight: inherit;
+	}
+
+	.card-body:not(:empty) {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
+	}
+
+	.card-footer:not(:empty) {
+		margin-top: auto;
+	}
+}
+
 .card {
 	box-sizing: border-box;
 	overflow: hidden;

@@ -15,6 +15,13 @@ export const DOCS_PATHS = {
 	spinner: 'basic/spinner',
 	header: 'navigation/header',
 	sidebar: 'navigation/sidebar',
+	input: 'form/input',
+	textarea: 'form/textarea',
+	select: 'form/select',
+	checkbox: 'form/checkbox',
+	radio: 'form/radio',
+	switch: 'form/switch',
+	formField: 'form/form-field',
 } as const;
 
 export interface DocsNavItem {
@@ -59,13 +66,13 @@ export const DOCS_NAV: DocsNavSection[] = [
 	{
 		label: 'Form',
 		items: [
-			{ label: 'Input' },
-			{ label: 'Textarea' },
-			{ label: 'Select' },
-			{ label: 'Checkbox' },
-			{ label: 'Radio' },
-			{ label: 'Switch' },
-			{ label: 'Form field' },
+			{ path: DOCS_PATHS.input, label: 'Input' },
+			{ path: DOCS_PATHS.textarea, label: 'Textarea' },
+			{ path: DOCS_PATHS.select, label: 'Select' },
+			{ path: DOCS_PATHS.checkbox, label: 'Checkbox' },
+			{ path: DOCS_PATHS.radio, label: 'Radio' },
+			{ path: DOCS_PATHS.switch, label: 'Switch' },
+			{ path: DOCS_PATHS.formField, label: 'Form field' },
 		],
 	},
 	{
@@ -90,11 +97,6 @@ export const DOCS_NAV: DocsNavSection[] = [
 	},
 	{
 		label: 'Data',
-		items: [
-			{ label: 'Table' },
-			{ label: 'List' },
-			{ label: 'Accordion' },
-			{ label: 'Tree' },
-		],
+		items: [{ label: 'Table' }, { label: 'List' }, { label: 'Accordion' }, { label: 'Tree' }],
 	},
 ];

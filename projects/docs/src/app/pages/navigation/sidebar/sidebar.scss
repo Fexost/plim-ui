@@ -1,0 +1,39 @@
+:host {
+	display: block;
+}
+
+.sidebar-demo {
+	position: relative;
+	display: block;
+	height: 16rem;
+	overflow: hidden;
+
+	&--push .sidebar-demo__content {
+		margin-left: var(--plim-sidebar-width);
+	}
+
+	&__content {
+		height: 100%;
+		padding: var(--plim-space-4);
+		background: var(--plim-color-background);
+		color: var(--plim-color-text-muted);
+		font-size: var(--plim-font-size-sm);
+	}
+
+	&__backdrop {
+		position: absolute;
+		inset: 0;
+		z-index: 100;
+		padding: 0;
+		border: 0;
+		background: var(--plim-color-backdrop);
+		cursor: pointer;
+	}
+
+	&__controls {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--plim-space-3);
+		margin: var(--plim-space-4) 0 var(--plim-space-4);
+	}
+}

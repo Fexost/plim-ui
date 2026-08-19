@@ -5,21 +5,21 @@
 .docs-hero {
 	max-width: 42rem;
 	margin-bottom: var(--plim-space-12);
-}
 
-.docs-hero h1 {
-	margin: 0 0 var(--plim-space-4);
-	font-size: var(--plim-font-size-2xl);
-	font-weight: var(--plim-font-weight-semibold);
-	line-height: var(--plim-line-height-tight);
-	letter-spacing: -0.02em;
-}
+	h1 {
+		margin: 0 0 var(--plim-space-4);
+		font-size: var(--plim-font-size-2xl);
+		font-weight: var(--plim-font-weight-semibold);
+		line-height: var(--plim-line-height-tight);
+		letter-spacing: -0.02em;
+	}
 
-.docs-lead {
-	margin: 0 0 var(--plim-space-6);
-	color: var(--plim-color-text-muted);
-	font-size: var(--plim-font-size-lg);
-	line-height: var(--plim-line-height-normal);
+	.docs-lead {
+		margin: 0 0 var(--plim-space-6);
+		color: var(--plim-color-text-muted);
+		font-size: var(--plim-font-size-lg);
+		line-height: var(--plim-line-height-normal);
+	}
 }
 
 .docs-hero-actions {
@@ -40,35 +40,6 @@
 
 .docs-grid--categories {
 	grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-}
-
-:host ::ng-deep plim-card.overview-card {
-	display: block;
-	height: 100%;
-
-	.card {
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-	}
-
-	.card-body {
-		display: flex;
-		flex-direction: column;
-		flex: 1 1 auto;
-	}
-
-	.card-header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: var(--plim-space-3);
-		font-weight: inherit;
-	}
-
-	.card-footer {
-		margin-top: auto;
-	}
 }
 
 .overview-card__header h2 {

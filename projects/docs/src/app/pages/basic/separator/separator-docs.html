@@ -1,7 +1,7 @@
 <app-docs-component-layout category="Basic" title="Separator">
 	<p docsLead>
-		A visual divider between sections of content. Defaults to horizontal; switch to
-		vertical inside flex or grid layouts.
+		A visual divider between sections of content. Defaults to horizontal; switch to vertical
+		inside flex or grid layouts.
 	</p>
 
 	<section class="docs-component__section" id="preview">
@@ -12,19 +12,24 @@
 			<div class="docs-preview docs-split__preview">
 				<div class="separator-demos">
 					<div class="separator-demo">
-						<span>Above</span>
+						<span>Section one</span>
 						<plim-separator />
-						<span>Below</span>
+						<span>Section two</span>
 					</div>
 					<div class="separator-demo separator-demo--vertical">
-						<span>Left</span>
+						<span>Item one</span>
 						<plim-separator orientation="vertical" />
-						<span>Right</span>
+						<span>Item two</span>
 					</div>
 				</div>
 			</div>
-			<pre class="docs-code docs-split__code"><code>&lt;plim-separator /&gt;
-&lt;plim-separator orientation="vertical" /&gt;</code></pre>
+			<pre class="docs-code docs-split__code"><code>&lt;span&gt;Section one&lt;/span&gt;
+&lt;plim-separator /&gt;
+&lt;span&gt;Section two&lt;/span&gt;
+
+&lt;span&gt;Item one&lt;/span&gt;
+&lt;plim-separator orientation="vertical" /&gt;
+&lt;span&gt;Item two&lt;/span&gt;</code></pre>
 		</div>
 	</section>
 

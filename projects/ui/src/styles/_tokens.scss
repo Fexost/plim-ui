@@ -13,17 +13,14 @@
 
 	--plim-color-primary: #8b5cf6;
 	--plim-color-primary-hover: #a78bfa;
+	--plim-color-on-primary: #ffffff;
 
 	--plim-color-success: #55d187;
 	--plim-color-warning: #e8b85c;
 	--plim-color-danger: #ed6a7a;
 
 	// Typography
-	--plim-font-family:
-		Inter,
-		ui-sans-serif,
-		system-ui,
-		sans-serif;
+	--plim-font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 
 	--plim-font-size-xs: 0.75rem;
 	--plim-font-size-sm: 0.875rem;
@@ -77,4 +74,21 @@
 	--plim-header-height: 4rem;
 	--plim-sidebar-width: 16rem;
 	--plim-button-height: 2.5rem;
+
+	// Form controls
+	--plim-input-height: 2.5rem;
+	--plim-input-padding-x: var(--plim-space-3);
+	--plim-input-font-size: var(--plim-font-size-sm);
+	--plim-textarea-min-height: 5rem;
+	--plim-checkbox-size: 1rem;
+	--plim-radio-size: 1rem;
+	--plim-switch-width: 2.5rem;
+	--plim-switch-height: 1.25rem;
+	--plim-form-field-gap: var(--plim-space-2);
+	--plim-color-field-background: var(--plim-color-background);
+	--plim-color-field-border: var(--plim-color-border-strong);
+	--plim-color-field-border-focus: var(--plim-color-primary);
+	--plim-color-field-border-invalid: var(--plim-color-danger);
+	--plim-color-placeholder: var(--plim-color-text-subtle);
+	--plim-color-backdrop: rgb(0 0 0 / 0.45);
 }

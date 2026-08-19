@@ -6,5 +6,6 @@ import { DocsGuideLayout } from '../../../components/docs-guide-layout/docs-guid
 	selector: 'app-typography',
 	imports: [DocsGuideLayout],
 	templateUrl: './typography.html',
+	styleUrl: './typography.scss',
 })
 export class Typography {}

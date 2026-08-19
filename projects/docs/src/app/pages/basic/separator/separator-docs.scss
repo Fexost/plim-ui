@@ -1,0 +1,26 @@
+:host {
+	display: block;
+}
+
+.separator-demos {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: var(--plim-space-6);
+	width: 100%;
+}
+
+.separator-demo {
+	display: flex;
+	flex-direction: column;
+	gap: var(--plim-space-3);
+	width: 100%;
+	color: var(--plim-color-text-muted);
+	font-size: var(--plim-font-size-sm);
+
+	&--vertical {
+		flex-direction: row;
+		align-items: center;
+		min-height: 3rem;
+	}
+}

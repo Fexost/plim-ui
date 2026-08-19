@@ -1,0 +1,119 @@
+<app-docs-component-layout category="Form" title="Form field">
+	<p docsLead>
+		Composable field wrapper for labels, controls, hints, and error messages. Keeps layout
+		concerns separate from individual controls.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Preview</h2>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview docs-split__preview--stack">
+				<plim-form-field>
+					<label plimFormFieldLabel for="demo-field">Label</label>
+					<input id="demo-field" type="text" plimInput placeholder="Enter text" />
+					<span plimFormFieldHint>Helper text</span>
+				</plim-form-field>
+
+				<plim-form-field invalid>
+					<label plimFormFieldLabel for="demo-field-error">Label</label>
+					<input
+						id="demo-field-error"
+						type="text"
+						plimInput
+						invalid
+						placeholder="Invalid"
+						aria-describedby="demo-field-error-message"
+					/>
+					<span plimFormFieldError id="demo-field-error-message">Error message</span>
+				</plim-form-field>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-form-field&gt;
+  &lt;label plimFormFieldLabel for="field"&gt;Label&lt;/label&gt;
+  &lt;input id="field" type="text" plimInput placeholder="Enter text" /&gt;
+  &lt;span plimFormFieldHint&gt;Helper text&lt;/span&gt;
+&lt;/plim-form-field&gt;
+
+&lt;plim-form-field invalid&gt;
+  &lt;label plimFormFieldLabel for="field-error"&gt;Label&lt;/label&gt;
+  &lt;input id="field-error" type="text" plimInput invalid /&gt;
+  &lt;span plimFormFieldError&gt;Error message&lt;/span&gt;
+&lt;/plim-form-field&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					Associate labels with controls using <code>for</code> and <code>id</code>. Link
+					errors with <code>aria-describedby</code> on the control.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>One label per control</li>
+					<li>Hints stay visible; errors show when <code>invalid</code> is set</li>
+					<li>Does not replace native validation semantics</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>invalid</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Reveals the error slot styling and visibility.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Content slots</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Attribute</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>plimFormFieldLabel</code></td>
+						<td>Field label.</td>
+					</tr>
+					<tr>
+						<td><code>plimFormFieldHint</code></td>
+						<td>Helper text below the control.</td>
+					</tr>
+					<tr>
+						<td><code>plimFormFieldError</code></td>
+						<td>Error message; shown when <code>invalid</code> is true.</td>
+					</tr>
+					<tr>
+						<td><em>default</em></td>
+						<td>The form control(s).</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

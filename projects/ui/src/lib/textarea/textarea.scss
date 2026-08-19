@@ -1,0 +1,14 @@
+@use '../../styles/field-control';
+
+:host {
+	@include field-control.plim-field-control-base;
+
+	display: block;
+	min-height: var(--plim-textarea-min-height);
+	padding-block: var(--plim-space-3);
+	resize: vertical;
+}
+
+:host(.plim-textarea--invalid) {
+	@include field-control.plim-field-control-invalid;
+}

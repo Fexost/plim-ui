@@ -8,5 +8,6 @@ import { DocsGuideLayout } from '../../../components/docs-guide-layout/docs-guid
 	selector: 'app-accessibility',
 	imports: [Badge, Card, DocsGuideLayout, Separator],
 	templateUrl: './accessibility.html',
+	styleUrl: './accessibility.scss',
 })
 export class Accessibility {}

@@ -1,14 +1,15 @@
 import { Component, signal } from '@angular/core';
-import { Button, Sidebar, SidebarMode } from 'plim-ui';
+import { Button, Sidebar as PlimSidebar, SidebarMode } from 'plim-ui';
 
 import { DocsComponentLayout } from '../../../components/docs-component-layout/docs-component-layout';
 
 @Component({
-	selector: 'app-sidebar-docs',
-	imports: [DocsComponentLayout, Sidebar, Button],
-	templateUrl: './sidebar-docs.html',
+	selector: 'app-sidebar',
+	imports: [DocsComponentLayout, PlimSidebar, Button],
+	templateUrl: './sidebar.html',
+	styleUrl: './sidebar.scss',
 })
-export class SidebarDocs {
+export class Sidebar {
 	protected readonly open = signal(true);
 	protected readonly mode = signal<SidebarMode>('push');
 

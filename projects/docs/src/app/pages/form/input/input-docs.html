@@ -1,0 +1,86 @@
+<app-docs-component-layout category="Form" title="Input">
+	<p docsLead>
+		Styles native text inputs with shared field tokens. Apply <code>plimInput</code> to keep
+		semantic behaviour and Angular forms compatibility.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>States</h2>
+		<p>Default, disabled, and invalid states.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview docs-split__preview--stack">
+				<input type="text" plimInput placeholder="Enter text" />
+				<input type="text" plimInput disabled placeholder="Disabled" />
+				<input
+					type="text"
+					plimInput
+					invalid
+					placeholder="Invalid"
+					aria-describedby="input-error"
+				/>
+			</div>
+			<pre
+				class="docs-code docs-split__code"
+			><code>&lt;input type="text" plimInput placeholder="Enter text" /&gt;
+&lt;input type="text" plimInput disabled placeholder="Disabled" /&gt;
+&lt;input type="text" plimInput invalid placeholder="Invalid" /&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					Inputs remain native elements, so labels, autocomplete, and validation work
+					without extra ARIA when paired correctly.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>
+						Pair with a visible <code>&lt;label&gt;</code> or
+						<code>plim-form-field</code>
+					</li>
+					<li>
+						Use <code>invalid</code> with <code>aria-describedby</code> for error text
+					</li>
+					<li>Native disabled and readonly states</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>invalid</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Applies error styling and <code>aria-invalid</code>.</td>
+					</tr>
+					<tr>
+						<td><code>disabled</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Native attribute. Disables the input.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

@@ -43,7 +43,15 @@ module.exports = (async () => {
 			},
 		},
 		{
-			files: ['**/button/button.ts'],
+			files: [
+				'**/button/button.ts',
+				'**/input/input.ts',
+				'**/textarea/textarea.ts',
+				'**/select/select.ts',
+				'**/checkbox/checkbox.ts',
+				'**/radio/radio.ts',
+				'**/switch/switch.ts',
+			],
 			rules: {
 				'@angular-eslint/component-selector': [
 					'error',

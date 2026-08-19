@@ -1,0 +1,34 @@
+:host {
+	display: block;
+}
+
+.docs-principles {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--plim-space-4);
+	margin-bottom: var(--plim-space-8);
+
+	h2,
+	h3 {
+		margin: 0 0 var(--plim-space-2);
+		font-size: var(--plim-font-size-md);
+		font-weight: var(--plim-font-weight-semibold);
+	}
+
+	p {
+		margin: 0;
+		color: var(--plim-color-text-muted);
+		font-size: var(--plim-font-size-sm);
+		line-height: var(--plim-line-height-normal);
+	}
+
+	plim-badge {
+		margin-bottom: var(--plim-space-3);
+	}
+}
+
+@media (max-width: 960px) {
+	.docs-principles {
+		grid-template-columns: 1fr;
+	}
+}

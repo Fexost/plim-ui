@@ -126,9 +126,18 @@ projects/
         separator/
         sidebar/
         spinner/
+        input/
+        textarea/
+        select/
+        checkbox/
+        radio/
+        switch/
+        form-field/
       styles/
         _tokens.scss
         _theme.scss
+        _field-control.scss
+        _toggle-control.scss
         styles.scss
       public-api.ts
   docs/
@@ -148,12 +157,14 @@ projects/
           installation/
           foundations/    # tokens, theme, typography, accessibility, icons
           basic/          # button, badge, card, separator, avatar, spinner
+          form/           # input, textarea, select, checkbox, radio, switch, form-field
           navigation/     # header, sidebar
         services/
           theme.service.ts
           docs-responsive-nav.service.ts
         styles/
-          _docs-page.scss
+          _docs-page.scss   # shared layout, preview/split/code, form preview helpers
+          _docs-nav.scss    # sidebar nav link styles (shell + sidebar demo)
           _docs-code-theme.scss
         docs-nav.config.ts
         app.routes.ts
@@ -413,7 +424,7 @@ All live under `projects/ui/src/lib/` and are exported from `public-api.ts`.
 | Component | Selector | Notes |
 | --- | --- | --- |
 | Badge | `<plim-badge>` | `variant`: default, primary, success, warning, danger |
-| Card | `<plim-card>` | Slots: `plimCardHeader`, default body, `plimCardFooter` |
+| Card | `<plim-card>` | `fill`; slots: `plimCardHeader`, default body, `plimCardFooter` |
 | Separator | `<plim-separator>` | `orientation`: horizontal \| vertical; `role="separator"` |
 | Avatar | `<plim-avatar>` | `size`, optional `src`/`alt`; projects initials as fallback |
 | Spinner | `<plim-spinner>` | `size`, `aria-label`; respects `prefers-reduced-motion` |
@@ -477,7 +488,14 @@ overview and guide pages).
 **Brand assets:** `projects/docs/public/brand/` — `mark.svg`, `logo-dark.svg`, `logo-light.svg`,
 `favicon.svg`, `app-icon.svg`.
 
-**Not yet implemented:** search, form components, most Feedback/Data/Navigation entries.
+**Not yet implemented:** search, most Feedback/Data nav entries.
+
+**Docs SCSS:** global styles in `projects/docs/src/styles.scss` import shared partials
+(`_docs-page.scss`, `_docs-nav.scss`, `_docs-code-theme.scss`). Page-specific styles live in
+co-located `*.scss` files on page components (for example `overview.scss`, `tokens.scss`,
+`header.scss`). Component reference pages under `basic/` and `form/` use a `*-docs.ts` filename
+to distinguish docs routes from library source; `foundations/` and `navigation/` pages use the
+plain component name (`tokens.ts`, `header.ts`).
 
 The docs styling uses SCSS in the docs app for layout and page structure. Reusable component
 styling remains in the library.
@@ -589,7 +607,7 @@ When implementing new components:
 * Library built with ng-packagr → `dist/plim-ui`; styles at `dist/plim-ui/styles/`.
 * Design tokens: colour, typography, spacing, radius, shadow, focus, motion (`--plim-duration-spin`), component dimensions.
 * Light/dark themes via CSS variables; docs `ThemeService` persists choice.
-* **Published components:** Header, Sidebar, Button, Badge, Card, Separator, Avatar, Spinner.
+* **Published components:** Header, Sidebar, Button, Badge, Card, Separator, Avatar, Spinner; Form: Input, Textarea, Select, Checkbox, Radio, Switch, Form field.
 * Docs: all Basic + Navigation component pages, Foundations guides, overview, installation.
 * Docs: syntax-highlighted code blocks, equal-height preview/code splits, mobile nav overlay.
 * GitHub Actions: CI (`ci.yml`), docs deploy (`deploy-docs.yml`), npm publish (`publish-npm.yml`), security audits (`security.yml`).
@@ -619,8 +637,8 @@ Immediate priorities:
 1. ~~Basic primitives~~ (Button, Badge, Card, Separator, Avatar, Spinner)
 2. ~~Foundation reference pages~~ (Tokens, Theme, Typography, Accessibility)
 3. ~~Header and Sidebar docs~~
-4. **Form primitives** — Input and Select first, then Checkbox, Radio, Switch, Form field
-5. Site search; remaining Navigation / Feedback / Data components
+4. ~~Form primitives~~ — Input, Textarea, Select, Checkbox, Radio, Switch, Form field (native elements; no CDK yet)
+5. Site search; custom combobox/select; remaining Navigation / Feedback / Data components
 
 Potential component progression:
 

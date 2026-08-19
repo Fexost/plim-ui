@@ -1,0 +1,99 @@
+<app-docs-component-layout category="Form" title="Switch">
+	<p docsLead>
+		Toggle styled as a switch. Built on a native checkbox with <code>role="switch"</code> for
+		on/off settings.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>States</h2>
+		<p>Default, on, disabled, and invalid states.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<label class="docs-choice">
+					<input type="checkbox" plimSwitch />
+					<span>Off</span>
+				</label>
+				<label class="docs-choice">
+					<input type="checkbox" plimSwitch checked />
+					<span>On</span>
+				</label>
+				<label class="docs-choice">
+					<input type="checkbox" plimSwitch disabled />
+					<span>Disabled</span>
+				</label>
+				<label class="docs-choice">
+					<input type="checkbox" plimSwitch invalid />
+					<span>Invalid</span>
+				</label>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;label&gt;
+  &lt;input type="checkbox" plimSwitch /&gt;
+  Off
+&lt;/label&gt;
+&lt;label&gt;
+  &lt;input type="checkbox" plimSwitch checked /&gt;
+  On
+&lt;/label&gt;
+&lt;label&gt;
+  &lt;input type="checkbox" plimSwitch disabled /&gt;
+  Disabled
+&lt;/label&gt;
+&lt;label&gt;
+  &lt;input type="checkbox" plimSwitch invalid /&gt;
+  Invalid
+&lt;/label&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The control uses <code>role="switch"</code> and keeps checkbox form semantics
+					for reactive forms.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Label describes what toggles on or off</li>
+					<li><code>aria-checked</code> reflects state</li>
+					<li>Space toggles when focused</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>invalid</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Applies error styling and <code>aria-invalid</code>.</td>
+					</tr>
+					<tr>
+						<td><code>disabled</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Native attribute. Disables the switch.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

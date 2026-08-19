@@ -6,7 +6,9 @@
 				@for (item of section.items; track item.label) {
 					<li>
 						@if (item.path) {
-							<a [routerLink]="'/' + item.path" routerLinkActive="is-active">{{ item.label }}</a>
+							<a [routerLink]="'/' + item.path" routerLinkActive="is-active">{{
+								item.label
+							}}</a>
 						} @else {
 							<span class="docs-nav-item docs-nav-item--soon">{{ item.label }}</span>
 						}

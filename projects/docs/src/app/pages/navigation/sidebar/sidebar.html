@@ -1,7 +1,7 @@
 <app-docs-component-layout category="Navigation" title="Sidebar">
 	<p docsLead>
-		A fixed navigation panel with nav and footer slots. Use push mode to offset content
-		or overlay mode to float above it.
+		A fixed navigation panel with nav and footer slots. Use push mode to offset content or
+		overlay mode to float above it.
 	</p>
 
 	<section class="docs-component__section" id="preview">
@@ -17,39 +17,42 @@
 					type="button"
 					class="sidebar-demo__backdrop"
 					(click)="open.set(false)"
-					aria-label="Close demo sidebar"
+					aria-label="Close sidebar"
 				></button>
 			}
 
-			<plim-sidebar
-				[open]="open()"
-				[mode]="mode()"
-				[fixed]="false"
-				aria-label="Demo navigation"
-			>
+			<plim-sidebar [open]="open()" [mode]="mode()" [fixed]="false" aria-label="Navigation">
 				<nav plimSidebarNav class="docs-nav">
-					<p class="docs-nav-label">Example</p>
+					<p class="docs-nav-label">Section</p>
 					<ul>
-						<li><a href="#">Overview</a></li>
-						<li><a href="#">Components</a></li>
+						<li><a href="#">Item one</a></li>
+						<li><a href="#">Item two</a></li>
 					</ul>
 				</nav>
 			</plim-sidebar>
 
-			<div class="sidebar-demo__content">Main content area</div>
+			<div class="sidebar-demo__content">Main content</div>
 		</div>
 
 		<div class="sidebar-demo__controls">
 			<button type="button" plimButton (click)="toggleOpen()">Toggle open</button>
-			<button type="button" plimButton variant="secondary" (click)="setMode('push')">Push</button>
+			<button type="button" plimButton variant="secondary" (click)="setMode('push')">
+				Push
+			</button>
 			<button type="button" plimButton variant="secondary" (click)="setMode('overlay')">
 				Overlay
 			</button>
 		</div>
 
-		<pre class="docs-code"><code>&lt;plim-sidebar aria-label="Navigation"&gt;
-  &lt;nav plimSidebarNav&gt;...&lt;/nav&gt;
-  &lt;div plimSidebarFooter&gt;...&lt;/div&gt;
+		<pre class="docs-code"><code>&lt;plim-sidebar
+  [open]="open"
+  [mode]="mode"
+  aria-label="Navigation"
+&gt;
+  &lt;nav plimSidebarNav&gt;
+    &lt;a href="#"&gt;Item one&lt;/a&gt;
+    &lt;a href="#"&gt;Item two&lt;/a&gt;
+  &lt;/nav&gt;
 &lt;/plim-sidebar&gt;</code></pre>
 	</section>
 
@@ -104,6 +107,12 @@
 						<td><code>boolean</code></td>
 						<td><code>true</code></td>
 						<td>Fixes to the viewport. Set false for contained demos.</td>
+					</tr>
+					<tr>
+						<td><code>aria-label</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Names the aside landmark for screen readers.</td>
 					</tr>
 				</tbody>
 			</table>

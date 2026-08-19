@@ -7,5 +7,6 @@ import { DocsComponentLayout } from '../../../components/docs-component-layout/d
 	selector: 'app-separator-docs',
 	imports: [DocsComponentLayout, Separator],
 	templateUrl: './separator-docs.html',
+	styleUrl: './separator-docs.scss',
 })
 export class SeparatorDocs {}

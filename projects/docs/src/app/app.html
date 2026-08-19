@@ -30,7 +30,9 @@
 				variant="secondary"
 				class="docs-header-action"
 				(click)="theme.toggle()"
-				[attr.aria-label]="theme.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+				[attr.aria-label]="
+					theme.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+				"
 			>
 				{{ theme.theme() === 'dark' ? 'Light' : 'Dark' }}
 			</button>

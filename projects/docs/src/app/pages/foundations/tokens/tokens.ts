@@ -6,5 +6,6 @@ import { DocsGuideLayout } from '../../../components/docs-guide-layout/docs-guid
 	selector: 'app-tokens',
 	imports: [DocsGuideLayout],
 	templateUrl: './tokens.html',
+	styleUrl: './tokens.scss',
 })
 export class Tokens {}

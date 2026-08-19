@@ -1,0 +1,36 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	gap: var(--plim-form-field-gap);
+	width: 100%;
+}
+
+.form-field-label:not(:empty) {
+	color: var(--plim-color-text);
+	font-size: var(--plim-font-size-sm);
+	font-weight: var(--plim-font-weight-medium);
+	line-height: var(--plim-line-height-normal);
+}
+
+.form-field-control {
+	display: flex;
+	flex-direction: column;
+	gap: var(--plim-space-2);
+	min-width: 0;
+}
+
+.form-field-hint:not(:empty) {
+	color: var(--plim-color-text-muted);
+	font-size: var(--plim-font-size-xs);
+	line-height: var(--plim-line-height-normal);
+}
+
+.form-field-error:not(:empty) {
+	color: var(--plim-color-danger);
+	font-size: var(--plim-font-size-xs);
+	line-height: var(--plim-line-height-normal);
+}
+
+:host:not(.plim-form-field--invalid) .form-field-error:not(:empty) {
+	display: none;
+}

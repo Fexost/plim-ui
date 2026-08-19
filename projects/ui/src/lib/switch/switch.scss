@@ -1,0 +1,41 @@
+@use '../../styles/toggle-control';
+
+:host {
+	@include toggle-control.plim-toggle-control-base;
+
+	position: relative;
+	display: inline-block;
+	width: var(--plim-switch-width);
+	height: var(--plim-switch-height);
+	border-radius: var(--plim-radius-full);
+	background: var(--plim-color-surface);
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0.125rem;
+		width: calc(var(--plim-switch-height) - 0.375rem);
+		height: calc(var(--plim-switch-height) - 0.375rem);
+		border-radius: var(--plim-radius-full);
+		background: var(--plim-color-text-muted);
+		transform: translateY(-50%);
+		transition:
+			transform var(--plim-duration-normal) var(--plim-ease-default),
+			background-color var(--plim-duration-normal) var(--plim-ease-default);
+	}
+
+	&:checked {
+		background: var(--plim-color-primary);
+		border-color: var(--plim-color-primary);
+
+		&::before {
+			background: var(--plim-color-on-primary);
+			transform: translate(calc(var(--plim-switch-width) - var(--plim-switch-height)), -50%);
+		}
+	}
+}
+
+:host(.plim-switch--invalid) {
+	@include toggle-control.plim-toggle-control-invalid;
+}

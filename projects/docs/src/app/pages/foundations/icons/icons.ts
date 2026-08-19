@@ -8,5 +8,6 @@ import { DocsGuideLayout } from '../../../components/docs-guide-layout/docs-guid
 	selector: 'app-icons',
 	imports: [Badge, DocsGuideLayout],
 	templateUrl: './icons.html',
+	styleUrl: './icons.scss',
 })
 export class Icons {}

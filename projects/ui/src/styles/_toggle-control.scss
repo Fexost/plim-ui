@@ -1,0 +1,26 @@
+@mixin plim-toggle-control-base {
+	box-sizing: border-box;
+	flex-shrink: 0;
+	margin: 0;
+	border: 1px solid var(--plim-color-field-border);
+	appearance: none;
+	cursor: pointer;
+	transition:
+		background-color var(--plim-duration-normal) var(--plim-ease-default),
+		border-color var(--plim-duration-normal) var(--plim-ease-default),
+		box-shadow var(--plim-duration-normal) var(--plim-ease-default);
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+@mixin plim-toggle-control-invalid {
+	border-color: var(--plim-color-field-border-invalid);
+}

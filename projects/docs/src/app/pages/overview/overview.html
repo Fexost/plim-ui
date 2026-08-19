@@ -1,9 +1,9 @@
 <section class="docs-hero">
 	<h1>Interfaces that welcome everyone.</h1>
 	<p class="docs-lead">
-		PLIM is an accessibility-first UI library for Angular — composable primitives,
-		semantic tokens, and interaction patterns that work for keyboard, pointer, and
-		assistive technology users.
+		PLIM is an accessibility-first UI library for Angular — composable primitives, semantic
+		tokens, and interaction patterns that work for keyboard, pointer, and assistive technology
+		users.
 	</p>
 	<div class="docs-hero-actions">
 		<button type="button" plimButton [routerLink]="'/' + DOCS_PATHS.installation">
@@ -16,7 +16,7 @@
 </section>
 
 <section class="docs-grid docs-grid--2">
-	<plim-card class="overview-card">
+	<plim-card fill class="overview-card">
 		<div plimCardHeader class="overview-card__header">
 			<h2>Start in minutes</h2>
 			<plim-badge variant="primary">Angular 21+</plim-badge>
@@ -26,11 +26,13 @@
 			Install from npm, import standalone components, and add the global stylesheet.
 		</p>
 		<div plimCardFooter>
-			<a [routerLink]="'/' + DOCS_PATHS.installation" class="docs-text-link">Installation guide</a>
+			<a [routerLink]="'/' + DOCS_PATHS.installation" class="docs-text-link"
+				>Installation guide</a
+			>
 		</div>
 	</plim-card>
 
-	<plim-card class="overview-card">
+	<plim-card fill class="overview-card">
 		<plim-badge variant="success" class="overview-card__icon" aria-hidden="true">✓</plim-badge>
 		<h2>Accessibility is the baseline</h2>
 		<p class="overview-card__copy">
@@ -51,7 +53,7 @@
 	</div>
 
 	<div class="docs-grid docs-grid--categories">
-		<plim-card class="overview-card overview-card--category">
+		<plim-card fill class="overview-card overview-card--category">
 			<h3>Tokens</h3>
 			<p>CSS variables for colour, spacing, radius, shadow, and motion.</p>
 			<div plimCardFooter>
@@ -59,7 +61,7 @@
 			</div>
 		</plim-card>
 
-		<plim-card class="overview-card overview-card--category">
+		<plim-card fill class="overview-card overview-card--category">
 			<h3>Theme</h3>
 			<p>Dark and light palettes via <code>data-theme</code>.</p>
 			<div plimCardFooter>
@@ -67,11 +69,13 @@
 			</div>
 		</plim-card>
 
-		<plim-card class="overview-card overview-card--category">
+		<plim-card fill class="overview-card overview-card--category">
 			<h3>Typography</h3>
 			<p>Font scale, weights, and line heights.</p>
 			<div plimCardFooter>
-				<a [routerLink]="'/' + DOCS_PATHS.typography" class="docs-text-link">View typography</a>
+				<a [routerLink]="'/' + DOCS_PATHS.typography" class="docs-text-link"
+					>View typography</a
+				>
 			</div>
 		</plim-card>
 	</div>
@@ -84,7 +88,7 @@
 	</div>
 
 	<div class="docs-grid docs-grid--categories">
-		<plim-card class="overview-card overview-card--category">
+		<plim-card fill class="overview-card overview-card--category">
 			<h3>Basic</h3>
 			<p>Buttons, badges, cards, and other everyday UI primitives.</p>
 			<div plimCardFooter>
@@ -92,15 +96,15 @@
 			</div>
 		</plim-card>
 
-		<plim-card class="overview-card overview-card--category">
+		<plim-card fill class="overview-card overview-card--category">
 			<h3>Form</h3>
 			<p>Inputs, selects, checkboxes, and shared field semantics.</p>
 			<div plimCardFooter>
-				<plim-badge>Coming next</plim-badge>
+				<a [routerLink]="'/' + DOCS_PATHS.input" class="docs-text-link">View input</a>
 			</div>
 		</plim-card>
 
-		<plim-card class="overview-card overview-card--category">
+		<plim-card fill class="overview-card overview-card--category">
 			<h3>Navigation</h3>
 			<p>Headers, sidebars, tabs, and wayfinding patterns.</p>
 			<div plimCardFooter>
@@ -108,7 +112,7 @@
 			</div>
 		</plim-card>
 
-		<plim-card class="overview-card overview-card--category overview-card--muted">
+		<plim-card fill class="overview-card overview-card--category overview-card--muted">
 			<h3>Feedback</h3>
 			<p>Alerts, toasts, dialogs, and contextual overlays.</p>
 			<div plimCardFooter>
@@ -116,7 +120,7 @@
 			</div>
 		</plim-card>
 
-		<plim-card class="overview-card overview-card--category overview-card--muted">
+		<plim-card fill class="overview-card overview-card--category overview-card--muted">
 			<h3>Data</h3>
 			<p>Tables, lists, accordions, and structured content.</p>
 			<div plimCardFooter>

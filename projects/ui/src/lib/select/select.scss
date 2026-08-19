@@ -1,0 +1,35 @@
+@use '../../styles/field-control';
+
+:host {
+	@include field-control.plim-field-control-base;
+
+	position: relative;
+	display: block;
+	padding-right: calc(var(--plim-input-padding-x) + 1.25rem);
+	appearance: none;
+	cursor: pointer;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: var(--plim-space-3);
+		width: 1rem;
+		height: 1rem;
+		background-color: var(--plim-color-text-subtle);
+		transform: translateY(-50%);
+		pointer-events: none;
+		mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+		mask-repeat: no-repeat;
+		mask-position: center;
+		mask-size: contain;
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
+:host(.plim-select--invalid) {
+	@include field-control.plim-field-control-invalid;
+}

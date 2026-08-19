@@ -1,0 +1,10 @@
+:host {
+	display: block;
+}
+
+.docs-section-title--inline {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--plim-space-2);
+}
