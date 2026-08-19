@@ -73,7 +73,7 @@ Current stack:
 
 * Angular 21
 * TypeScript
-* Angular CDK 21
+* Angular CDK 21 (workspace dependency; see below — not yet used by library components)
 * SCSS for the component library
 * npm
 * Angular CLI
@@ -89,6 +89,24 @@ Environment previously used:
 
 The project is an Angular workspace containing a library project called `ui`.
 
+### Angular CDK
+
+The [Angular Component Dev Kit](https://material.angular.dev/cdk/overview) (CDK) is a library of
+behaviour-focused, largely unstyled primitives — overlays, focus management, accessibility
+utilities, scrolling, drag-and-drop, and more. Angular Material builds on top of it; plim-ui can
+use the same primitives without adopting Material’s visual design.
+
+**Current status:** `@angular/cdk` is listed in the root `package.json` but **no component or
+service in `projects/` imports it yet**. Published primitives (Button, Badge, Card, Header,
+Sidebar, etc.) are implemented with native HTML, SCSS, and Angular APIs. CDK is **not** a
+peer dependency of the published `plim-ui` package.
+
+**When to reach for CDK:** prefer it when a component needs non-trivial interaction behaviour
+that is easy to get wrong by hand — for example Dialog (focus trap, restore focus, escape to
+close), Overlay / Portal (Tooltip, Popover, Select panel), Listbox / Combobox patterns (Select,
+Autocomplete), Tabs keyboard roving, or DragDrop. Do not add CDK to simple presentational
+components where native semantics suffice.
+
 ---
 
 # 4. Workspace Structure
@@ -100,24 +118,45 @@ projects/
   ui/
     src/
       lib/
+        avatar/
+        badge/
         button/
+        card/
         header/
+        separator/
         sidebar/
+        spinner/
       styles/
         _tokens.scss
         _theme.scss
         styles.scss
       public-api.ts
   docs/
+    public/
+      brand/          # SVG logo assets (mark, favicon, app-icon)
     src/
       app/
+        components/
+          docs-component-layout/
+          docs-guide-layout/
+          docs-nav/
+        directives/
+          docs-code-highlight.ts
+          docs-highlight-languages.ts
         pages/
           overview/
           installation/
-          accessibility/
-          components/
+          foundations/    # tokens, theme, typography, accessibility, icons
+          basic/          # button, badge, card, separator, avatar, spinner
+          navigation/     # header, sidebar
         services/
           theme.service.ts
+          docs-responsive-nav.service.ts
+        styles/
+          _docs-page.scss
+          _docs-code-theme.scss
+        docs-nav.config.ts
+        app.routes.ts
 ```
 
 The `ui` project is configured as an Angular library and uses:
@@ -149,8 +188,10 @@ shadows, focus rings, motion, and component dimensions (for example `--plim-head
 Tokens still to expand or formalise further:
 
 * Elevation scale beyond basic shadow tokens
-* Icon sizing
+* Icon sizing (`--plim-icon-size-*` planned; see Icons docs page)
 * Additional component dimension tokens as components are added
+
+Motion tokens include `--plim-duration-spin` (1s) for loading indicators.
 
 The exact token naming convention should remain consistent with the existing `plim-*` namespace.
 
@@ -231,206 +272,32 @@ Do not add ARIA attributes unnecessarily when native HTML semantics already prov
 
 ---
 
-# 9. Current Header Component
+# 9. Component Host Conventions
 
-The first significant component being developed is a reusable header/navigation component.
+Library components use signal `input()` for public APIs. Host state (CSS classes, ARIA, native
+attributes) is declared in the component `host` metadata rather than `@HostBinding` getters:
 
-The desired API is intentionally composable.
-
-Example usage:
-
-```html
-<plim-header sticky>
-  <div plimHeaderStart>
-    <strong>plim-ui</strong>
-  </div>
-
-  <div plimHeaderCenter>
-    <p>Docs</p>
-  </div>
-
-  <div plimHeaderEnd>
-    <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-      GitHub
-    </a>
-  </div>
-</plim-header>
+```typescript
+@Component({
+  selector: 'plim-badge',
+  host: {
+    class: 'plim-badge',
+    '[class.plim-badge--primary]': 'variant() === "primary"',
+  },
+})
 ```
 
-The component provides three content slots:
-
-```text
-plimHeaderStart
-plimHeaderCenter
-plimHeaderEnd
-```
-
-This allows users of the component to control the content without the header becoming tightly coupled to a particular navigation structure.
-
-The header layout uses three grid columns:
-
-```css
-grid-template-columns: 1fr auto 1fr;
-```
-
-This allows the centre content to remain visually centred while start/end content occupy the available space.
+`button[plimButton]` is an exception: ESLint allows an attribute selector override in
+`projects/ui/eslint.config.js` because the component styles native buttons.
 
 ---
 
-# 10. Header Structure
+# 10. Header Component
 
-The current internal structure is:
+Composable top bar with three projection slots: `plimHeaderStart`, `plimHeaderCenter`,
+`plimHeaderEnd`. Grid layout: `grid-template-columns: 1fr auto 1fr`.
 
-```html
-<header class="header">
-  <div class="header-start">
-    <ng-content select="[plimHeaderStart]" />
-  </div>
-
-  <div class="header-center">
-    <ng-content select="[plimHeaderCenter]" />
-  </div>
-
-  <div class="header-end">
-    <ng-content select="[plimHeaderEnd]" />
-  </div>
-</header>
-```
-
-The header itself uses:
-
-```css
-.header {
-  box-sizing: border-box;
-
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-
-  width: 100%;
-  min-height: var(--plim-header-height);
-  padding: 0 var(--plim-space-6);
-
-  background: var(--plim-color-surface);
-  border-bottom: 1px solid var(--plim-color-border);
-
-  color: var(--plim-color-text);
-}
-```
-
-The individual content areas are flex containers:
-
-```css
-.header-start {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  min-width: 0;
-}
-
-.header-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-}
-
-.header-end {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  min-width: 0;
-}
-```
-
----
-
-# 11. Important Sticky Header Finding
-
-The header initially attempted to implement sticky behaviour by putting:
-
-```css
-.header--sticky {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-```
-
-on the internal `<header>` element.
-
-Angular was correctly applying the class:
-
-```html
-<header class="header header--sticky">
-```
-
-but the header did not remain sticky during page scrolling.
-
-The page itself was tested with:
-
-```html
-<main>
-  <router-outlet />
-  <div style="height: 3000px"></div>
-</main>
-```
-
-so there was definitely enough content to scroll.
-
-The global stylesheet was also tested with:
-
-```css
-html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-}
-```
-
-and the stylesheet contained no other relevant scrolling rules.
-
-The important discovery was that moving the sticky positioning to the Angular component host fixed the problem.
-
-Therefore the preferred implementation is for the **`<plim-header>`** host itself to become sticky, rather than making its internal `<header>` sticky.
-
-Conceptually:
-
-```html
-<plim-header class="header--sticky">
-  <header class="header">
-    ...
-  </header>
-</plim-header>
-```
-
-rather than:
-
-```html
-<plim-header>
-  <header class="header header--sticky">
-    ...
-  </header>
-</plim-header>
-```
-
-This means the sticky behaviour belongs to the component as a whole.
-
----
-
-# 12. Recommended Header Sticky Implementation
-
-The host currently has:
-
-```css
-:host {
-  display: block;
-  width: 100%;
-}
-```
-
-The sticky state should therefore be implemented on the host:
+**Sticky behaviour belongs on the component host**, not the internal `<header>`:
 
 ```css
 :host(.header--sticky) {
@@ -440,67 +307,24 @@ The sticky state should therefore be implemented on the host:
 }
 ```
 
-The internal `.header` should not itself need `position: sticky`.
+Public API: `<plim-header sticky>`. Verified in browser — internal `.header` must not be sticky.
 
-The public API should remain:
+Example:
 
 ```html
 <plim-header sticky>
+  <div plimHeaderStart><strong>plim-ui</strong></div>
+  <div plimHeaderCenter>Docs</div>
+  <div plimHeaderEnd><a href="…">GitHub</a></div>
+</plim-header>
 ```
-
-The component should translate the `sticky` input into the host class.
-
-If using classic Angular inputs:
-
-```ts
-@Input() sticky = false;
-```
-
-with an appropriate host binding.
-
-If using modern Angular signal inputs:
-
-```ts
-sticky = input(false);
-```
-
-the implementation should use the signal correctly.
-
-The important architectural principle is:
-
-> `sticky` is a behaviour of the `plim-header` component, so the host element should own the sticky positioning.
 
 ---
 
-# 13. Current Header Host
-
-The base host styling should remain:
-
-```css
-:host {
-  display: block;
-  width: 100%;
-}
-```
-
-and the sticky state:
-
-```css
-:host(.header--sticky) {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-```
-
-This implementation has been manually tested and confirmed to make the header stick while scrolling.
-
----
-
-# 14. Current Button Component
+# 11. Button Component
 
 The `Button` component styles native `<button>` elements via the `plimButton` attribute.
-It follows the same file and host-binding pattern as `Header`.
+It follows the same file and `host` metadata pattern as `Header`.
 
 Example usage:
 
@@ -531,15 +355,14 @@ Inputs:
 * `variant` — `'primary' | 'secondary'` (default: `'primary'`)
 * `disabled` — boolean (default: `false`); binds to the native `disabled` attribute
 
-Styles live in `projects/ui/src/lib/button/button.scss` and are applied to the host via encapsulation.
-Host classes use `@HostBinding`, matching the header pattern.
+Styles live in `projects/ui/src/lib/button/button.scss`. Host classes are set via `host` metadata.
 
 Always use `<button type="button" plimButton>` for actions. Pair with `routerLink` when
 navigation is triggered from a button.
 
 ---
 
-# 15. Current Sidebar Component
+# 12. Sidebar Component
 
 The `plim-sidebar` component follows the same composable slot pattern as the header.
 
@@ -583,7 +406,23 @@ Toggle behaviour is controlled by the parent. A typical pattern:
 
 ---
 
-# 16. Style Packaging
+# 13. Basic Components
+
+All live under `projects/ui/src/lib/` and are exported from `public-api.ts`.
+
+| Component | Selector | Notes |
+| --- | --- | --- |
+| Badge | `<plim-badge>` | `variant`: default, primary, success, warning, danger |
+| Card | `<plim-card>` | Slots: `plimCardHeader`, default body, `plimCardFooter` |
+| Separator | `<plim-separator>` | `orientation`: horizontal \| vertical; `role="separator"` |
+| Avatar | `<plim-avatar>` | `size`, optional `src`/`alt`; projects initials as fallback |
+| Spinner | `<plim-spinner>` | `size`, `aria-label`; respects `prefers-reduced-motion` |
+
+Docs pages for each live under `projects/docs/src/app/pages/basic/`.
+
+---
+
+# 14. Style Packaging
 
 Global library styles are built with ng-packagr and copied to `dist/plim-ui/styles/` via
 `projects/ui/ng-package.json` assets configuration.
@@ -594,48 +433,133 @@ Consumers should import:
 @use 'plim-ui/styles/styles';
 ```
 
-after building the library (`npm run build`).
+after building the library (`npm run build:ui`).
 
 Component-specific styles that must apply globally (such as design tokens) belong in
 `projects/ui/src/styles/`. Component and directive styles belong next to their source files.
 
 ---
 
-# 17. Documentation Application
+# 15. Documentation Application
 
-The documentation application is important because the library is intended to demonstrate component quality.
+Live site: [fexost.github.io/plim-ui](https://fexost.github.io/plim-ui/) (GitHub Pages, base href `/plim-ui/`).
 
-Current docs structure:
+**Shell:** sticky `plim-header` (brand mark + wordmark, theme toggle, GitHub), `plim-sidebar` nav,
+responsive overlay menu below 960px (`DocsResponsiveNavService`).
 
-* Sticky `plim-header` with brand, search placeholder, theme toggle, and GitHub link
-* Left sidebar via `plim-sidebar` with nav grouped by category (`docs-nav.config.ts`):
-  * **Get started** — Overview, Installation
-  * **Foundations** — Tokens, Theme, Typography, Accessibility, Icons (+ Accessibility utilities planned)
-  * **Basic** — Button (+ Badge, Card, Separator, Avatar, Spinner planned)
-  * **Form** — Input, Textarea, Select, Checkbox, Radio, Switch, Form field (planned)
-  * **Navigation** — Header, Sidebar (+ Tabs, Breadcrumb, Pagination planned)
-  * **Feedback** — Alert, Toast, Dialog, Tooltip, Popover (planned)
-  * **Data** — Table, List, Accordion, Tree (planned)
-* Shared layouts: `DocsGuideLayout` (get started + foundations), `DocsComponentLayout` (component reference pages)
-* Routed pages under `/overview`, `/installation`, `/foundations/*`, and `/components/*`
-* Theme toggle via `ThemeService`
+**Nav config:** `docs-nav.config.ts` — categories: Get started, Foundations, Basic, Form,
+Navigation, Feedback, Data. Unimplemented items render as coming-soon labels.
 
-The docs should eventually also provide:
+**Page routes:**
 
-* Component previews for all public components
-* Usage examples and API tables for each component
-* Accessibility notes per component
-* Design/token reference pages
-* Interactive controls where useful
-* Search (`⌘ K` placeholder exists but is not yet functional)
+```text
+overview, installation
+foundations/tokens, theme, typography, accessibility, icons
+basic/button, badge, card, separator, avatar, spinner
+navigation/header, sidebar
+```
 
-The documentation should feel similar to a modern component-library documentation site rather than a generic Angular starter page.
+Legacy redirects: `/components/*` → `/basic/*` or `/navigation/*`; `/accessibility` → `/foundations/accessibility`.
 
-The docs styling uses SCSS in the docs app for layout and page structure. Reusable component styling remains in the library.
+**Layouts:**
+
+* `DocsGuideLayout` — get started + foundations (intro, separator, sections)
+* `DocsComponentLayout` — component reference (breadcrumbs, jump nav, preview / a11y / API sections)
+
+Both layouts use `hostDirectives: [DocsHighlightCodeDirective]` (`selector: [appHighlightCode]`) for syntax highlighting. Standalone pages such as Overview attach the same directive on the page component.
+
+**Docs-only dependencies:** `highlight.js` (not part of the published library). Theme colours
+for code blocks in `_docs-code-theme.scss` (Cursor / VS Code–style light and dark).
+
+**Docs consume library components** wherever practical (cards, badges, buttons, separators on
+overview and guide pages).
+
+**Brand assets:** `projects/docs/public/brand/` — `mark.svg`, `logo-dark.svg`, `logo-light.svg`,
+`favicon.svg`, `app-icon.svg`.
+
+**Not yet implemented:** search, form components, most Feedback/Data/Navigation entries.
+
+The docs styling uses SCSS in the docs app for layout and page structure. Reusable component
+styling remains in the library.
 
 ---
 
-# 18. Development Principles
+# 16. CI, Deployment, and GitHub Actions
+
+**npm scripts** (root `package.json`):
+
+| Script | Purpose |
+| --- | --- |
+| `start` | `build:ui` then `ng serve docs` |
+| `build:ui` | Production library build → `dist/plim-ui` |
+| `build:docs` | Production docs build (`--base-href /plim-ui/`) |
+| `build:production` | Both builds |
+| `test` / `test:ui` / `test:docs` | Vitest (docs tests require a prior `build:ui`) |
+| `lint` | ESLint for `ui` and `docs` |
+
+All workflows use **Node.js 22**, `npm ci`, and npm cache via `actions/setup-node@v4`.
+
+### `ci.yml` — CI
+
+| | |
+| --- | --- |
+| **Triggers** | Pull requests; pushes to `main` |
+| **Concurrency** | One run per ref; newer runs cancel in-progress |
+
+Four parallel jobs:
+
+| Job | Command | Notes |
+| --- | --- | --- |
+| `lint-ui` | `npx ng lint ui` | ESLint for the library |
+| `lint-docs` | `npx ng lint docs` | ESLint for the docs app |
+| `test-ui` | `npm run test:ui` | Vitest, library unit tests |
+| `test-docs` | `npm run build:ui` then `npm run test:docs` | Docs imports `dist/plim-ui` via tsconfig path |
+
+### `deploy-docs.yml` — Deploy docs to GitHub Pages
+
+| | |
+| --- | --- |
+| **Triggers** | Push to `main`; manual `workflow_dispatch` |
+| **Concurrency** | `group: pages` — cancel in-progress deploys |
+| **Permissions** | `contents: read`, `pages: write`, `id-token: write` |
+| **Live URL** | https://fexost.github.io/plim-ui/ |
+
+Two sequential jobs:
+
+1. **`build`** — `npm run build:production`; copies `index.html` → `404.html` for SPA routing; uploads `dist/docs/browser` as a Pages artifact.
+2. **`deploy`** — deploys the artifact via `actions/deploy-pages@v4` to the `github-pages` environment.
+
+### `publish-npm.yml` — Publish library to npm
+
+| | |
+| --- | --- |
+| **Triggers** | Manual `workflow_dispatch` only (requires semver `version` input) |
+| **Concurrency** | `group: publish-npm` — do not cancel in-progress publishes |
+| **Environment** | `npm-publish` (trusted publishing / OIDC) |
+| **Permissions** | `contents: write`, `id-token: write` |
+
+Steps: validate semver → checkout (full history) → set version in `projects/ui/package.json` →
+`npm run build:ui` → `npm publish --provenance --access public` from `dist/plim-ui` → create and
+push git tag `v{version}`.
+
+### `security.yml` — Security audits
+
+| | |
+| --- | --- |
+| **Triggers** | Pull requests; pushes to `main`; weekly cron (Mon 06:00 UTC); manual `workflow_dispatch` |
+| **Concurrency** | One run per ref; cancel in-progress |
+
+Three jobs:
+
+| Job | Purpose |
+| --- | --- |
+| `audit-workspace` | `npm audit --omit=dev --audit-level=high` on root lockfile |
+| `audit-ui` | Build library, generate lockfile in `dist/plim-ui`, audit the **published** package (`--omit=peer`) |
+| `dependency-review` | PRs only — `dependency-review-action` fails on high-severity dependency changes |
+
+---
+
+# 17. Development Principles
 
 When implementing new components:
 
@@ -657,53 +581,46 @@ When implementing new components:
 
 ---
 
-# 19. Current State
+# 18. Current State
 
-At this point:
-
-* Angular workspace is configured with `ui` (library) and `docs` (application) projects.
-* Angular CDK is installed but not yet used by any component.
-* ESLint/angular-eslint is configured and linting successfully.
-* The library is built with ng-packagr; global styles are copied to `dist/plim-ui/styles/`.
-* The `ui` project uses the `plim` schematic prefix and ESLint selector rules.
-* Design tokens exist for colours, typography, spacing, radius, shadows, focus, motion, and header height.
-* Light/dark themes are defined via CSS variables; docs app toggles theme via `ThemeService`.
-* `plim-header` exists with start, centre, and end content projection and a `sticky` input.
-* Sticky behaviour is applied to the Angular host element (`:host(.header--sticky)`).
-* `Button` component exists (`plimButton` on `<button>`) with `primary` and `secondary` variants.
-* `plim-sidebar` exists with nav/footer slots and an `open` input.
-* Docs sidebar navigation is grouped by component category in `docs-nav.config.ts`; unimplemented entries render as coming-soon labels.
-* `DocsGuideLayout` covers get-started and foundations pages; `DocsComponentLayout` covers component reference pages.
-* Docs app uses `plim-sidebar`, `plim-header`, and `plimButton` on native `<button>` elements.
-* `npm start` runs `ng build --project ui && ng serve --project docs`.
+* Angular 21 workspace: `ui` (library) + `docs` (application).
+* Angular CDK installed; not yet used by components.
+* ESLint / angular-eslint; Vitest for unit tests.
+* Library built with ng-packagr → `dist/plim-ui`; styles at `dist/plim-ui/styles/`.
+* Design tokens: colour, typography, spacing, radius, shadow, focus, motion (`--plim-duration-spin`), component dimensions.
+* Light/dark themes via CSS variables; docs `ThemeService` persists choice.
+* **Published components:** Header, Sidebar, Button, Badge, Card, Separator, Avatar, Spinner.
+* Docs: all Basic + Navigation component pages, Foundations guides, overview, installation.
+* Docs: syntax-highlighted code blocks, equal-height preview/code splits, mobile nav overlay.
+* GitHub Actions: CI (`ci.yml`), docs deploy (`deploy-docs.yml`), npm publish (`publish-npm.yml`), security audits (`security.yml`).
+* `npm start` → `build:ui` + `ng serve docs`.
 
 ---
 
-# 20. Direction Going Forward
+# 19. Direction Going Forward
 
 The library should now be developed systematically rather than creating isolated components without a shared design system.
 
 Before adding many components, establish the foundations:
 
 1. ~~Finalise design tokens.~~ (initial scale in place; expand as needed)
-2. ~~Establish typography.~~ (initial scale in place)
-3. ~~Establish spacing scale.~~ (in place)
-4. ~~Establish radius scale.~~ (in place)
-5. ~~Establish elevation/shadow tokens.~~ (initial tokens in place)
-6. ~~Establish focus-ring behaviour.~~ (initial tokens in place)
-7. ~~Establish light/dark theme architecture.~~ (in place via CSS variables + docs toggle)
-8. Establish common component conventions (header and button patterns established; sidebar next).
-9. Establish accessibility conventions.
-10. Establish documentation conventions.
+2. ~~Establish typography.~~
+3. ~~Establish spacing scale.~~
+4. ~~Establish radius scale.~~
+5. ~~Establish elevation/shadow tokens.~~
+6. ~~Establish focus-ring behaviour.~~
+7. ~~Establish light/dark theme architecture.~~
+8. ~~Establish common component conventions.~~ (host metadata, composable slots, docs layouts)
+9. ~~Establish documentation conventions.~~ (component page template, highlight.js, mobile shell)
+10. Expand accessibility conventions and icon sizing tokens.
 
-Then components can be built consistently on top of those foundations.
+Immediate priorities:
 
-Immediate component priorities:
-
-1. ~~Button and sidebar docs pages~~
-2. ~~Header docs page~~
-3. Form primitives — Input and Select first, then Checkbox, Radio, Switch, and Form field
-4. Foundation reference pages (Tokens, Theme, Typography)
+1. ~~Basic primitives~~ (Button, Badge, Card, Separator, Avatar, Spinner)
+2. ~~Foundation reference pages~~ (Tokens, Theme, Typography, Accessibility)
+3. ~~Header and Sidebar docs~~
+4. **Form primitives** — Input and Select first, then Checkbox, Radio, Switch, Form field
+5. Site search; remaining Navigation / Feedback / Data components
 
 Potential component progression:
 
@@ -757,7 +674,7 @@ This ordering is not mandatory, but the general principle is to establish reusab
 
 ---
 
-# 21. How Cursor Should Work on This Project
+# 20. How Cursor Should Work on This Project
 
 When making changes, Cursor should preserve the existing architectural direction rather than treating this as a generic Angular application.
 
@@ -787,7 +704,7 @@ Do not immediately work around a problem in the documentation application if the
 
 ---
 
-# 22. Overall Goal
+# 21. Overall Goal
 
 The finished project should feel like a component library that could realistically be published and used, while simultaneously demonstrating the engineering and design decisions behind it.
 

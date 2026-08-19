@@ -1,13 +1,13 @@
 <plim-header sticky>
 	<div plimHeaderStart class="docs-header-start">
-		@if (isMobile()) {
+		@if (nav.isMobile()) {
 			<button
 				type="button"
 				plimButton
 				variant="secondary"
 				class="docs-nav-toggle"
-				(click)="toggleNav()"
-				[attr.aria-expanded]="navOpen()"
+				(click)="nav.toggleNav()"
+				[attr.aria-expanded]="nav.navOpen()"
 				aria-controls="docs-sidebar"
 				aria-label="Toggle documentation navigation"
 			>
@@ -28,17 +28,25 @@
 				type="button"
 				plimButton
 				variant="secondary"
-				class="docs-theme-toggle"
+				class="docs-header-action"
 				(click)="theme.toggle()"
 				[attr.aria-label]="theme.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
 			>
 				{{ theme.theme() === 'dark' ? 'Light' : 'Dark' }}
 			</button>
 			<a
+				href="https://www.npmjs.com/package/plim-ui"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="docs-header-action"
+			>
+				npm
+			</a>
+			<a
 				href="https://github.com/Fexost/plim-ui"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="docs-header-link"
+				class="docs-header-action"
 			>
 				GitHub
 			</a>
@@ -47,19 +55,19 @@
 </plim-header>
 
 <div class="docs-shell docs-shell--sidebar-push">
-	@if (isMobile() && navOpen()) {
+	@if (nav.isMobile() && nav.navOpen()) {
 		<button
 			type="button"
 			class="docs-nav-backdrop"
 			aria-label="Close navigation menu"
-			(click)="closeNav()"
+			(click)="nav.closeNav()"
 		></button>
 	}
 
 	<plim-sidebar
 		id="docs-sidebar"
-		[open]="navOpen()"
-		[mode]="sidebarMode()"
+		[open]="nav.navOpen()"
+		[mode]="nav.sidebarMode()"
 		aria-label="Documentation navigation"
 	>
 		<app-docs-nav plimSidebarNav />
