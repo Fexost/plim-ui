@@ -1,4 +1,4 @@
-<plim-header sticky>
+<plim-header sticky class="docs-app-header">
 	<div plimHeaderStart class="docs-header-start">
 		@if (nav.isMobile()) {
 			<button
@@ -22,8 +22,8 @@
 		</a>
 	</div>
 
-	<div plimHeaderEnd>
-		<nav class="docs-header-nav" aria-label="Header actions">
+	<div plimHeaderEnd class="docs-header-end">
+		<div class="docs-header-end__primary">
 			<button
 				type="button"
 				plimButton
@@ -36,24 +36,24 @@
 			>
 				{{ theme.theme() === 'dark' ? 'Light' : 'Dark' }}
 			</button>
-			<div class="docs-header-tabs">
-				<a
-					href="https://www.npmjs.com/package/plim-ui"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="docs-header-tab"
-				>
-					npm
-				</a>
-				<a
-					href="https://github.com/Fexost/plim-ui"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="docs-header-tab"
-				>
-					GitHub
-				</a>
-			</div>
+		</div>
+		<nav class="docs-header-tabs" aria-label="External links">
+			<a
+				href="https://www.npmjs.com/package/plim-ui"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="docs-header-tab"
+			>
+				npm
+			</a>
+			<a
+				href="https://github.com/Fexost/plim-ui"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="docs-header-tab"
+			>
+				GitHub
+			</a>
 		</nav>
 	</div>
 </plim-header>
