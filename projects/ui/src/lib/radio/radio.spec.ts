@@ -15,6 +15,12 @@ class RadioHost {}
 })
 class InvalidRadioHost {}
 
+@Component({
+	template: `<input type="radio" plimRadio disabled name="group" />`,
+	imports: [Radio],
+})
+class DisabledRadioHost {}
+
 describe('Radio', () => {
 	let fixture: ComponentFixture<RadioHost>;
 	let radio: HTMLInputElement;
@@ -23,7 +29,7 @@ describe('Radio', () => {
 		await TestBed.configureTestingModule({ imports: [RadioHost] }).compileComponents();
 		fixture = TestBed.createComponent(RadioHost);
 		fixture.detectChanges();
-		radio = fixture.nativeElement.querySelector('input');
+		radio = fixture.nativeElement.querySelector('input')!;
 	});
 
 	it('should create', () => {
@@ -38,8 +44,15 @@ describe('Radio', () => {
 		const invalidFixture = TestBed.createComponent(InvalidRadioHost);
 		invalidFixture.detectChanges();
 		await invalidFixture.whenStable();
-		const invalidRadio = invalidFixture.nativeElement.querySelector('input');
+		const invalidRadio = invalidFixture.nativeElement.querySelector('input')!;
 		expect(invalidRadio.classList.contains('plim-radio--invalid')).toBe(true);
 		expect(invalidRadio.getAttribute('aria-invalid')).toBe('true');
+	});
+
+	it('should disable the native radio', () => {
+		const disabledFixture = TestBed.createComponent(DisabledRadioHost);
+		disabledFixture.detectChanges();
+		const disabledRadio = disabledFixture.nativeElement.querySelector('input')!;
+		expect(disabledRadio.disabled).toBe(true);
 	});
 });

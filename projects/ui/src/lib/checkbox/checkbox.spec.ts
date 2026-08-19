@@ -15,6 +15,12 @@ class CheckboxHost {}
 })
 class InvalidCheckboxHost {}
 
+@Component({
+	template: `<input type="checkbox" plimCheckbox disabled />`,
+	imports: [Checkbox],
+})
+class DisabledCheckboxHost {}
+
 describe('Checkbox', () => {
 	let fixture: ComponentFixture<CheckboxHost>;
 	let checkbox: HTMLInputElement;
@@ -23,7 +29,7 @@ describe('Checkbox', () => {
 		await TestBed.configureTestingModule({ imports: [CheckboxHost] }).compileComponents();
 		fixture = TestBed.createComponent(CheckboxHost);
 		fixture.detectChanges();
-		checkbox = fixture.nativeElement.querySelector('input');
+		checkbox = fixture.nativeElement.querySelector('input')!;
 	});
 
 	it('should create', () => {
@@ -38,8 +44,15 @@ describe('Checkbox', () => {
 		const invalidFixture = TestBed.createComponent(InvalidCheckboxHost);
 		invalidFixture.detectChanges();
 		await invalidFixture.whenStable();
-		const invalidCheckbox = invalidFixture.nativeElement.querySelector('input');
+		const invalidCheckbox = invalidFixture.nativeElement.querySelector('input')!;
 		expect(invalidCheckbox.classList.contains('plim-checkbox--invalid')).toBe(true);
 		expect(invalidCheckbox.getAttribute('aria-invalid')).toBe('true');
+	});
+
+	it('should disable the native checkbox', () => {
+		const disabledFixture = TestBed.createComponent(DisabledCheckboxHost);
+		disabledFixture.detectChanges();
+		const disabledCheckbox = disabledFixture.nativeElement.querySelector('input')!;
+		expect(disabledCheckbox.disabled).toBe(true);
 	});
 });

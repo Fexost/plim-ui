@@ -29,7 +29,7 @@ describe('Button', () => {
 		await TestBed.configureTestingModule({ imports: [PrimaryButtonHost] }).compileComponents();
 		fixture = TestBed.createComponent(PrimaryButtonHost);
 		fixture.detectChanges();
-		button = fixture.nativeElement.querySelector('button');
+		button = fixture.nativeElement.querySelector('button')!;
 	});
 
 	it('should create', () => {
@@ -40,19 +40,23 @@ describe('Button', () => {
 		expect(button.classList.contains('plim-button')).toBe(true);
 	});
 
+	it('should project button label content', () => {
+		expect(button.textContent?.trim()).toBe('Save');
+	});
+
 	it('should apply variant modifier class', () => {
 		expect(button.classList.contains('plim-button--primary')).toBe(true);
 
 		const secondaryFixture = TestBed.createComponent(SecondaryButtonHost);
 		secondaryFixture.detectChanges();
-		const secondaryButton = secondaryFixture.nativeElement.querySelector('button');
+		const secondaryButton = secondaryFixture.nativeElement.querySelector('button')!;
 		expect(secondaryButton.classList.contains('plim-button--secondary')).toBe(true);
 	});
 
 	it('should disable the native button', () => {
 		const disabledFixture = TestBed.createComponent(DisabledButtonHost);
 		disabledFixture.detectChanges();
-		const disabledButton = disabledFixture.nativeElement.querySelector('button');
+		const disabledButton = disabledFixture.nativeElement.querySelector('button')!;
 		expect(disabledButton.disabled).toBe(true);
 	});
 });

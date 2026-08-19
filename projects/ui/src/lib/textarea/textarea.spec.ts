@@ -4,7 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Textarea } from './textarea';
 
 @Component({
-	template: `<textarea plimTextarea></textarea>`,
+	template: `<textarea plimTextarea placeholder="Enter text"></textarea>`,
 	imports: [Textarea],
 })
 class TextareaHost {}
@@ -15,6 +15,12 @@ class TextareaHost {}
 })
 class InvalidTextareaHost {}
 
+@Component({
+	template: `<textarea plimTextarea disabled></textarea>`,
+	imports: [Textarea],
+})
+class DisabledTextareaHost {}
+
 describe('Textarea', () => {
 	let fixture: ComponentFixture<TextareaHost>;
 	let textarea: HTMLTextAreaElement;
@@ -23,7 +29,7 @@ describe('Textarea', () => {
 		await TestBed.configureTestingModule({ imports: [TextareaHost] }).compileComponents();
 		fixture = TestBed.createComponent(TextareaHost);
 		fixture.detectChanges();
-		textarea = fixture.nativeElement.querySelector('textarea');
+		textarea = fixture.nativeElement.querySelector('textarea')!;
 	});
 
 	it('should create', () => {
@@ -38,8 +44,15 @@ describe('Textarea', () => {
 		const invalidFixture = TestBed.createComponent(InvalidTextareaHost);
 		invalidFixture.detectChanges();
 		await invalidFixture.whenStable();
-		const invalidTextarea = invalidFixture.nativeElement.querySelector('textarea');
+		const invalidTextarea = invalidFixture.nativeElement.querySelector('textarea')!;
 		expect(invalidTextarea.classList.contains('plim-textarea--invalid')).toBe(true);
 		expect(invalidTextarea.getAttribute('aria-invalid')).toBe('true');
+	});
+
+	it('should disable the native textarea', () => {
+		const disabledFixture = TestBed.createComponent(DisabledTextareaHost);
+		disabledFixture.detectChanges();
+		const disabledTextarea = disabledFixture.nativeElement.querySelector('textarea')!;
+		expect(disabledTextarea.disabled).toBe(true);
 	});
 });

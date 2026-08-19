@@ -21,6 +21,12 @@ class CheckedSwitchHost {}
 })
 class InvalidSwitchHost {}
 
+@Component({
+	template: `<input type="checkbox" plimSwitch disabled />`,
+	imports: [Switch],
+})
+class DisabledSwitchHost {}
+
 describe('Switch', () => {
 	let fixture: ComponentFixture<SwitchHost>;
 	let switchInput: HTMLInputElement;
@@ -29,7 +35,7 @@ describe('Switch', () => {
 		await TestBed.configureTestingModule({ imports: [SwitchHost] }).compileComponents();
 		fixture = TestBed.createComponent(SwitchHost);
 		fixture.detectChanges();
-		switchInput = fixture.nativeElement.querySelector('input');
+		switchInput = fixture.nativeElement.querySelector('input')!;
 	});
 
 	it('should create', () => {
@@ -48,7 +54,7 @@ describe('Switch', () => {
 		checkedFixture.detectChanges();
 		await checkedFixture.whenStable();
 
-		const checkedInput = checkedFixture.nativeElement.querySelector('input');
+		const checkedInput = checkedFixture.nativeElement.querySelector('input')!;
 		expect(checkedInput.getAttribute('aria-checked')).toBe('true');
 	});
 
@@ -56,8 +62,15 @@ describe('Switch', () => {
 		const invalidFixture = TestBed.createComponent(InvalidSwitchHost);
 		invalidFixture.detectChanges();
 		await invalidFixture.whenStable();
-		const invalidInput = invalidFixture.nativeElement.querySelector('input');
+		const invalidInput = invalidFixture.nativeElement.querySelector('input')!;
 		expect(invalidInput.classList.contains('plim-switch--invalid')).toBe(true);
 		expect(invalidInput.getAttribute('aria-invalid')).toBe('true');
+	});
+
+	it('should disable the native switch', () => {
+		const disabledFixture = TestBed.createComponent(DisabledSwitchHost);
+		disabledFixture.detectChanges();
+		const disabledInput = disabledFixture.nativeElement.querySelector('input')!;
+		expect(disabledInput.disabled).toBe(true);
 	});
 });
