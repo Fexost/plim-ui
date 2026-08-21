@@ -73,7 +73,7 @@ Current stack:
 
 * Angular 21
 * TypeScript
-* Angular CDK 21 (workspace dependency; see below — not yet used by library components)
+* Angular CDK 21 (workspace dependency; used by `plim-select`; peer dependency of published package)
 * SCSS for the component library
 * npm
 * Angular CLI
@@ -96,10 +96,9 @@ behaviour-focused, largely unstyled primitives — overlays, focus management, a
 utilities, scrolling, drag-and-drop, and more. Angular Material builds on top of it; plim-ui can
 use the same primitives without adopting Material’s visual design.
 
-**Current status:** `@angular/cdk` is listed in the root `package.json` but **no component or
-service in `projects/` imports it yet**. Published primitives (Button, Badge, Card, Header,
-Sidebar, etc.) are implemented with native HTML, SCSS, and Angular APIs. CDK is **not** a
-peer dependency of the published `plim-ui` package.
+**Current status:** `@angular/cdk` is used by **`plim-select`** (overlay positioning and
+panel behaviour). Other published components remain native HTML, SCSS, and Angular APIs. CDK is a
+**peer dependency** of the published `plim-ui` package alongside `@angular/forms`.
 
 **When to reach for CDK:** prefer it when a component needs non-trivial interaction behaviour
 that is easy to get wrong by hand — for example Dialog (focus trap, restore focus, escape to
@@ -601,7 +600,7 @@ When implementing new components:
 # 18. Current State
 
 * Angular 21 workspace: `ui` (library) + `docs` (application).
-* Angular CDK installed; not yet used by components.
+* Angular CDK installed; **`plim-select`** uses CDK Overlay (peer dependency).
 * ESLint / angular-eslint; Vitest for unit tests.
 * Library built with ng-packagr → `dist/plim-ui`; styles at `dist/plim-ui/styles/`.
 * Design tokens: colour, typography, spacing, radius, shadow, focus, motion (`--plim-duration-spin`), component dimensions.
@@ -636,8 +635,8 @@ Immediate priorities:
 1. ~~Basic primitives~~ (Button, Badge, Card, Separator, Avatar, Spinner)
 2. ~~Foundation reference pages~~ (Tokens, Theme, Typography, Accessibility)
 3. ~~Header and Sidebar docs~~
-4. ~~Form primitives~~ — Input, Textarea, Select, Checkbox, Radio, Switch, Form field (native elements; no CDK yet)
-5. Site search; custom combobox/select; remaining Navigation / Feedback / Data components
+4. ~~Form primitives~~ — Input, Textarea, Select, Checkbox, Radio, Switch, Form field (Select uses CDK overlay; others are native elements)
+5. Site search; remaining Navigation / Feedback / Data components
 
 Potential component progression:
 

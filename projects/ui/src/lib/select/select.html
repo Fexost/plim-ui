@@ -1,1 +1,75 @@
+<div
+	class="plim-select"
+	[class.plim-select--open]="open()"
+	[class.plim-select--invalid]="invalid()"
+	[class.plim-select--disabled]="isDisabled()"
+>
+	<button
+		#trigger
+		type="button"
+		class="plim-select__trigger"
+		cdkOverlayOrigin
+		#origin="cdkOverlayOrigin"
+		[id]="triggerId"
+		role="combobox"
+		aria-autocomplete="list"
+		[attr.aria-expanded]="open()"
+		[attr.aria-controls]="open() ? panelId : null"
+		[attr.aria-activedescendant]="activeDescendantId()"
+		[attr.aria-invalid]="invalid() ? true : null"
+		[attr.aria-label]="ariaLabel() ?? null"
+		[attr.aria-labelledby]="ariaLabelledBy() ?? null"
+		aria-haspopup="listbox"
+		[disabled]="isDisabled()"
+		(click)="togglePanel()"
+		(keydown)="onTriggerKeydown($event)"
+	>
+		<span
+			class="plim-select__value"
+			[class.plim-select__value--placeholder]="showPlaceholder()"
+		>
+			{{ displayText() }}
+		</span>
+	</button>
+
+	<ng-template
+		cdkConnectedOverlay
+		[cdkConnectedOverlayOrigin]="origin"
+		[cdkConnectedOverlayOpen]="open()"
+		[cdkConnectedOverlayPositions]="overlayPositions"
+		[cdkConnectedOverlayMatchWidth]="true"
+		[cdkConnectedOverlayHasBackdrop]="true"
+		[cdkConnectedOverlayBackdropClass]="'plim-select__backdrop'"
+		(overlayOutsideClick)="closePanel()"
+		(detach)="closePanel()"
+	>
+		<div
+			[id]="panelId"
+			class="plim-select__panel"
+			role="listbox"
+			[attr.aria-labelledby]="ariaLabelledBy() ?? null"
+			[attr.aria-label]="ariaLabel() ?? null"
+		>
+			@for (option of selectableOptions(); track optionId($index); let index = $index) {
+				<button
+					type="button"
+					[id]="optionId(index)"
+					class="plim-select__option"
+					role="option"
+					tabindex="-1"
+					[attr.aria-selected]="isSelected(option.value)"
+					[class.plim-select__option--active]="activeIndex() === index"
+					[class.plim-select__option--selected]="isSelected(option.value)"
+					(click)="selectOption(option.value)"
+					(keydown.enter)="selectOption(option.value)"
+					(keydown.space)="selectOption(option.value); $event.preventDefault()"
+					(mouseenter)="setActiveIndex(index)"
+				>
+					{{ option.label }}
+				</button>
+			}
+		</div>
+	</ng-template>
+</div>
+
 <ng-content />

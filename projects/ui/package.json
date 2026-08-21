@@ -19,8 +19,10 @@
     "design-system"
   ],
   "peerDependencies": {
+    "@angular/cdk": "^21.2.0",
     "@angular/common": "^21.2.0",
-    "@angular/core": "^21.2.0"
+    "@angular/core": "^21.2.0",
+    "@angular/forms": "^21.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

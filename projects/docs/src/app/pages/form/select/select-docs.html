@@ -1,7 +1,7 @@
 <app-docs-component-layout category="Form" title="Select">
 	<p docsLead>
-		Styled native <code>&lt;select&gt;</code> for accessible single-choice fields without a
-		custom overlay.
+		Accessible single-choice select with a themed dropdown panel. Built with Angular CDK overlay
+		and listbox keyboard semantics.
 	</p>
 
 	<section class="docs-component__section" id="preview">
@@ -10,45 +10,45 @@
 
 		<div class="docs-split">
 			<div class="docs-preview docs-split__preview docs-split__preview--stack">
-				<select plimSelect>
-					<option value="" disabled>Select an item</option>
-					<option value="1">Item 1</option>
-					<option value="2" selected>Item 2</option>
-					<option value="3">Item 3</option>
-				</select>
-				<select plimSelect disabled>
-					<option value="" disabled>Select an item</option>
-					<option value="1" selected>Item 1</option>
-					<option value="2">Item 2</option>
-					<option value="3">Item 3</option>
-				</select>
-				<select plimSelect invalid>
-					<option value="" disabled selected>Select an item</option>
-					<option value="1">Item 1</option>
-					<option value="2">Item 2</option>
-					<option value="3">Item 3</option>
-				</select>
+				<plim-select>
+					<plim-select-option value="" disabled>Select an item</plim-select-option>
+					<plim-select-option value="1">Item 1</plim-select-option>
+					<plim-select-option value="2" selected>Item 2</plim-select-option>
+					<plim-select-option value="3">Item 3</plim-select-option>
+				</plim-select>
+				<plim-select disabled>
+					<plim-select-option value="" disabled>Select an item</plim-select-option>
+					<plim-select-option value="1" selected>Item 1</plim-select-option>
+					<plim-select-option value="2">Item 2</plim-select-option>
+					<plim-select-option value="3">Item 3</plim-select-option>
+				</plim-select>
+				<plim-select invalid>
+					<plim-select-option value="" disabled selected>Select an item</plim-select-option>
+					<plim-select-option value="1">Item 1</plim-select-option>
+					<plim-select-option value="2">Item 2</plim-select-option>
+					<plim-select-option value="3">Item 3</plim-select-option>
+				</plim-select>
 			</div>
-			<pre class="docs-code docs-split__code"><code>&lt;select plimSelect&gt;
-  &lt;option value="" disabled&gt;Select an item&lt;/option&gt;
-  &lt;option value="1"&gt;Item 1&lt;/option&gt;
-  &lt;option value="2" selected&gt;Item 2&lt;/option&gt;
-  &lt;option value="3"&gt;Item 3&lt;/option&gt;
-&lt;/select&gt;
+			<pre class="docs-code docs-split__code"><code>&lt;plim-select&gt;
+  &lt;plim-select-option value="" disabled&gt;Select an item&lt;/plim-select-option&gt;
+  &lt;plim-select-option value="1"&gt;Item 1&lt;/plim-select-option&gt;
+  &lt;plim-select-option value="2" selected&gt;Item 2&lt;/plim-select-option&gt;
+  &lt;plim-select-option value="3"&gt;Item 3&lt;/plim-select-option&gt;
+&lt;/plim-select&gt;
 
-&lt;select plimSelect disabled&gt;
-  &lt;option value="" disabled&gt;Select an item&lt;/option&gt;
-  &lt;option value="1" selected&gt;Item 1&lt;/option&gt;
-  &lt;option value="2"&gt;Item 2&lt;/option&gt;
-  &lt;option value="3"&gt;Item 3&lt;/option&gt;
-&lt;/select&gt;
+&lt;plim-select disabled&gt;
+  &lt;plim-select-option value="" disabled&gt;Select an item&lt;/plim-select-option&gt;
+  &lt;plim-select-option value="1" selected&gt;Item 1&lt;/plim-select-option&gt;
+  &lt;plim-select-option value="2"&gt;Item 2&lt;/plim-select-option&gt;
+  &lt;plim-select-option value="3"&gt;Item 3&lt;/plim-select-option&gt;
+&lt;/plim-select&gt;
 
-&lt;select plimSelect invalid&gt;
-  &lt;option value="" disabled selected&gt;Select an item&lt;/option&gt;
-  &lt;option value="1"&gt;Item 1&lt;/option&gt;
-  &lt;option value="2"&gt;Item 2&lt;/option&gt;
-  &lt;option value="3"&gt;Item 3&lt;/option&gt;
-&lt;/select&gt;</code></pre>
+&lt;plim-select invalid&gt;
+  &lt;plim-select-option value="" disabled selected&gt;Select an item&lt;/plim-select-option&gt;
+  &lt;plim-select-option value="1"&gt;Item 1&lt;/plim-select-option&gt;
+  &lt;plim-select-option value="2"&gt;Item 2&lt;/plim-select-option&gt;
+  &lt;plim-select-option value="3"&gt;Item 3&lt;/plim-select-option&gt;
+&lt;/plim-select&gt;</code></pre>
 		</div>
 	</section>
 
@@ -60,13 +60,18 @@
 			<div>
 				<h3>Accessibility guidance</h3>
 				<p>
-					Native selects expose platform picker behaviour and full keyboard support. Use a
-					custom combobox only when native options are insufficient.
+					The trigger uses <code>role="combobox"</code> with an associated
+					<code>role="listbox"</code> panel. Arrow keys, Enter, Space, Home, End, and Escape
+					are supported while the panel is open.
 				</p>
 				<ul class="docs-a11y-callout__features">
-					<li>Label the select element</li>
-					<li>Group related options with <code>&lt;optgroup&gt;</code></li>
+					<li>Pair with a visible label or <code>plim-form-field</code></li>
+					<li>
+						Provide <code>ariaLabel</code> or <code>ariaLabelledBy</code> when no visible
+						label is present
+					</li>
 					<li>Mark placeholder options as disabled</li>
+					<li>Use <code>invalid</code> for validation styling and <code>aria-invalid</code></li>
 				</ul>
 			</div>
 		</div>
@@ -87,6 +92,24 @@
 				</thead>
 				<tbody>
 					<tr>
+						<td><code>placeholder</code></td>
+						<td><code>string</code></td>
+						<td><code>''</code></td>
+						<td>Fallback label when no option is selected.</td>
+					</tr>
+					<tr>
+						<td><code>ariaLabel</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Accessible name when no visible label is associated.</td>
+					</tr>
+					<tr>
+						<td><code>ariaLabelledBy</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>References the id of the element that labels the select.</td>
+					</tr>
+					<tr>
 						<td><code>invalid</code></td>
 						<td><code>boolean</code></td>
 						<td><code>false</code></td>
@@ -96,7 +119,42 @@
 						<td><code>disabled</code></td>
 						<td><code>boolean</code></td>
 						<td><code>false</code></td>
-						<td>Native attribute. Disables the select.</td>
+						<td>Disables the select trigger and panel.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Select option</h3>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>value</code></td>
+						<td><code>string</code></td>
+						<td><code>''</code></td>
+						<td>Option value emitted by the select.</td>
+					</tr>
+					<tr>
+						<td><code>disabled</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Excludes the option from keyboard and pointer selection.</td>
+					</tr>
+					<tr>
+						<td><code>selected</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Sets the initial selected option.</td>
 					</tr>
 				</tbody>
 			</table>

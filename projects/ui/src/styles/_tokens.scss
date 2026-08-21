@@ -91,4 +91,10 @@
 	--plim-color-field-border-invalid: var(--plim-color-danger);
 	--plim-color-placeholder: var(--plim-color-text-subtle);
 	--plim-color-backdrop: rgb(0 0 0 / 0.45);
+
+	// Select
+	--plim-select-panel-max-height: 16rem;
+	--plim-color-select-option-highlight: var(--plim-color-surface);
+	--plim-color-select-option-active: color-mix(in srgb, var(--plim-color-primary) 16%, transparent);
+	--plim-color-select-option-selected: var(--plim-color-primary);
 }
