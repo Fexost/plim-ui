@@ -7,5 +7,6 @@ import { DocsComponentLayout } from '../../../components/docs-component-layout/d
 	selector: 'app-select-docs',
 	imports: [DocsComponentLayout, Select],
 	templateUrl: './select-docs.html',
+	styleUrl: './select-docs.scss',
 })
 export class SelectDocs {}

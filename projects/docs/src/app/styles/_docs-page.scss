@@ -347,6 +347,15 @@
 	cursor: pointer;
 }
 
+.docs-choice-group {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-start;
+	gap: var(--plim-space-3);
+	width: 100%;
+}
+
 .docs-fieldset {
 	width: 100%;
 	margin: 0;
