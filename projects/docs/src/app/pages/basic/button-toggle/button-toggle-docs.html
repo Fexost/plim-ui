@@ -1,0 +1,144 @@
+<app-docs-component-layout category="Basic" title="Button toggle">
+	<p docsLead>
+		A segmented control for choosing one or many options. Wrap toggles in
+		<code>plim-button-toggle-group</code> and bind the selected value or values.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Single selection</h2>
+		<p>Only one toggle stays selected at a time.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-button-toggle-group [(value)]="view">
+					<button type="button" plimButtonToggle="list">List</button>
+					<button type="button" plimButtonToggle="grid">Grid</button>
+					<button type="button" plimButtonToggle="table">Table</button>
+				</plim-button-toggle-group>
+			</div>
+			<pre
+				class="docs-code docs-split__code"
+			><code>&lt;plim-button-toggle-group [(value)]="view"&gt;
+  &lt;button type="button" plimButtonToggle="list"&gt;List&lt;/button&gt;
+  &lt;button type="button" plimButtonToggle="grid"&gt;Grid&lt;/button&gt;
+  &lt;button type="button" plimButtonToggle="table"&gt;Table&lt;/button&gt;
+&lt;/plim-button-toggle-group&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section">
+		<h2>Multiple selection</h2>
+		<p>Add <code>multiple</code> to allow more than one active toggle.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-button-toggle-group multiple [(values)]="ingredients">
+					<button type="button" plimButtonToggle="flour">Flour</button>
+					<button type="button" plimButtonToggle="eggs">Eggs</button>
+					<button type="button" plimButtonToggle="sugar">Sugar</button>
+				</plim-button-toggle-group>
+			</div>
+			<pre
+				class="docs-code docs-split__code"
+			><code>&lt;plim-button-toggle-group multiple [(values)]="ingredients"&gt;
+  &lt;button type="button" plimButtonToggle="flour"&gt;Flour&lt;/button&gt;
+  &lt;button type="button" plimButtonToggle="eggs"&gt;Eggs&lt;/button&gt;
+  &lt;button type="button" plimButtonToggle="sugar"&gt;Sugar&lt;/button&gt;
+&lt;/plim-button-toggle-group&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					Each toggle is a native button with <code>aria-pressed</code> reflecting
+					selection state.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Group uses role="group"</li>
+					<li>aria-pressed on each toggle</li>
+					<li>Native button keyboard support</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<h3>Button toggle group</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>multiple</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Allows more than one selected toggle.</td>
+					</tr>
+					<tr>
+						<td><code>value</code></td>
+						<td><code>string</code></td>
+						<td><code>''</code></td>
+						<td>Selected value in single-select mode. Supports two-way binding.</td>
+					</tr>
+					<tr>
+						<td><code>values</code></td>
+						<td><code>string[]</code></td>
+						<td><code>[]</code></td>
+						<td>Selected values in multiple mode. Supports two-way binding.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Button toggle</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>plimButtonToggle</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Value reported to the group when selected.</td>
+					</tr>
+					<tr>
+						<td><code>disabled</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Disables the toggle.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

@@ -1,0 +1,44 @@
+:host {
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: calc(var(--plim-button-height) - var(--plim-space-2));
+	padding: 0 var(--plim-space-4);
+	border: 0;
+	border-radius: var(--plim-radius-full);
+	background: transparent;
+	color: var(--plim-color-text-muted);
+	font-family: inherit;
+	font-size: var(--plim-font-size-sm);
+	font-weight: var(--plim-font-weight-medium);
+	line-height: var(--plim-line-height-normal);
+	white-space: nowrap;
+	cursor: pointer;
+	transition:
+		background-color var(--plim-duration-normal) var(--plim-ease-default),
+		color var(--plim-duration-normal) var(--plim-ease-default),
+		box-shadow var(--plim-duration-normal) var(--plim-ease-default);
+
+	&:hover:not(.plim-button-toggle--selected):not(:disabled) {
+		background: var(--plim-color-surface-raised);
+		color: var(--plim-color-text);
+	}
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+		z-index: 1;
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+:host(.plim-button-toggle--selected) {
+	background: var(--plim-color-primary-surface);
+	color: var(--plim-color-primary);
+	box-shadow: inset 0 0 0 1px var(--plim-color-primary-surface-border);
+}

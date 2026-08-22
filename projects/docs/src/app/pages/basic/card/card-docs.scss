@@ -1,3 +1,7 @@
+.card-docs-layout {
+	width: 100%;
+}
+
 .card-docs-fill {
 	padding: var(--plim-space-6);
 }
@@ -5,9 +9,14 @@
 .card-docs-fill__grid {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
+	align-items: stretch;
 	gap: var(--plim-space-4);
 	width: 100%;
-	min-height: 11rem;
+	min-height: 10rem;
+
+	plim-card {
+		height: 100%;
+	}
 }
 
 .card-docs-fill__copy {

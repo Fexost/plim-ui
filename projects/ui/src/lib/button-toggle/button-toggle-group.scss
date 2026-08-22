@@ -1,0 +1,9 @@
+.plim-button-toggle-group {
+	display: inline-flex;
+	align-items: stretch;
+	gap: var(--plim-space-1);
+	padding: var(--plim-space-1);
+	background: var(--plim-color-surface);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-full);
+}

@@ -49,9 +49,10 @@ module.exports = (async () => {
 		'**/textarea/textarea.ts',
 		'**/checkbox/checkbox.ts',
 				'**/radio/radio.ts',
-				'**/switch/switch.ts',
-				'**/select/native-select.ts',
-			],
+		'**/switch/switch.ts',
+		'**/select/native-select.ts',
+		'**/button-toggle/button-toggle.ts',
+	],
 			rules: {
 				'@angular-eslint/component-selector': [
 					'error',

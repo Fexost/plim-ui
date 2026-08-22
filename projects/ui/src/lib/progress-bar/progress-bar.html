@@ -1,0 +1,6 @@
+<div class="plim-progress-bar__track">
+	<div
+		class="plim-progress-bar__fill"
+		[style.transform]="mode() === 'determinate' ? 'scaleX(' + clampedValue() / 100 + ')' : null"
+	></div>
+</div>

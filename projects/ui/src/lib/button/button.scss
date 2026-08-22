@@ -37,7 +37,7 @@
 
 :host(.plim-button--primary) {
 	background: var(--plim-color-primary);
-	color: #ffffff;
+	color: var(--plim-color-on-primary);
 
 	&:hover:not(:disabled) {
 		background: var(--plim-color-primary-hover);
@@ -52,5 +52,17 @@
 	&:hover:not(:disabled) {
 		background: var(--plim-color-surface-raised);
 		border-color: var(--plim-color-border);
+	}
+}
+
+:host(.plim-button--text) {
+	background: transparent;
+	border-color: transparent;
+	color: var(--plim-color-primary);
+	padding-inline: var(--plim-space-3);
+
+	&:hover:not(:disabled) {
+		background: var(--plim-color-primary-surface);
+		color: var(--plim-color-primary-hover);
 	}
 }

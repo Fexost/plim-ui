@@ -1,0 +1,41 @@
+.docs-choice {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--plim-space-3);
+	color: var(--plim-color-text);
+	font-size: var(--plim-font-size-sm);
+	cursor: pointer;
+}
+
+.docs-choice-group {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-start;
+	gap: var(--plim-space-3);
+	width: 100%;
+}
+
+.docs-fieldset {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+
+	legend {
+		width: 100%;
+		margin-bottom: var(--plim-space-3);
+		padding: 0;
+		color: var(--plim-color-text);
+		font-size: var(--plim-font-size-sm);
+		font-weight: var(--plim-font-weight-medium);
+	}
+
+	&__options {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-start;
+		gap: var(--plim-space-3);
+	}
+}

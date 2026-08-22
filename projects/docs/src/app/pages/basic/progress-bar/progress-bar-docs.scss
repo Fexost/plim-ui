@@ -1,0 +1,7 @@
+:host {
+	display: block;
+}
+
+.docs-split__preview--stack plim-progress-bar + plim-progress-bar {
+	margin-top: var(--plim-space-4);
+}

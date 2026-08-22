@@ -4,6 +4,8 @@
 
 export * from './lib/badge/badge';
 export * from './lib/button/button';
+export * from './lib/button-toggle/button-toggle';
+export * from './lib/button-toggle/button-toggle-group';
 export * from './lib/card/card';
 export * from './lib/avatar/avatar';
 export * from './lib/checkbox/checkbox';
@@ -17,5 +19,6 @@ export * from './lib/select/native-select';
 export * from './lib/separator/separator';
 export * from './lib/sidebar/sidebar';
 export * from './lib/spinner/spinner';
+export * from './lib/progress-bar/progress-bar';
 export * from './lib/switch/switch';
 export * from './lib/textarea/textarea';

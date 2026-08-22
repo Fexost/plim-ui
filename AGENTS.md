@@ -365,7 +365,7 @@ button/
 
 Inputs:
 
-* `variant` — `'primary' | 'secondary'` (default: `'primary'`)
+* `variant` — `'primary' | 'secondary' | 'text'` (default: `'primary'`)
 * `disabled` — boolean (default: `false`); binds to the native `disabled` attribute
 
 Styles live in `projects/ui/src/lib/button/button.scss`. Host classes are set via `host` metadata.

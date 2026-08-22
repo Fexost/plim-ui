@@ -1,6 +1,6 @@
 import { booleanAttribute, Component, input } from '@angular/core';
 
-export type ButtonVariant = 'primary' | 'secondary';
+export type ButtonVariant = 'primary' | 'secondary' | 'text';
 
 @Component({
 	selector: 'button[plimButton]',
@@ -10,6 +10,7 @@ export type ButtonVariant = 'primary' | 'secondary';
 		class: 'plim-button',
 		'[class.plim-button--primary]': 'variant() === "primary"',
 		'[class.plim-button--secondary]': 'variant() === "secondary"',
+		'[class.plim-button--text]': 'variant() === "text"',
 		'[disabled]': 'disabled()',
 	},
 })

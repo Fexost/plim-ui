@@ -1,0 +1,88 @@
+<app-docs-component-layout category="Basic" title="Progress bar">
+	<p docsLead>
+		Shows task completion for determinate work, or ongoing activity when progress is unknown.
+		Name the bar with <code>aria-label</code> when no visible label is present.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Modes</h2>
+		<p>Set a percentage for determinate progress, or switch to indeterminate for loading.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview docs-split__preview--stack">
+				<plim-progress-bar [value]="60" aria-label="Upload progress" />
+				<plim-progress-bar mode="indeterminate" aria-label="Loading content" />
+			</div>
+			<pre
+				class="docs-code docs-split__code"
+			><code>&lt;plim-progress-bar [value]="60" aria-label="Upload progress" /&gt;
+
+&lt;plim-progress-bar mode="indeterminate" aria-label="Loading content" /&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The host uses <code>role="progressbar"</code>. Determinate bars expose
+					<code>aria-valuenow</code>; indeterminate bars omit it.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Progressbar role on the host</li>
+					<li>Configurable aria-label</li>
+					<li>Respects reduced-motion preferences</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>value</code></td>
+						<td><code>number</code></td>
+						<td><code>0</code></td>
+						<td>Completion percentage for determinate mode (0–100).</td>
+					</tr>
+					<tr>
+						<td><code>mode</code></td>
+						<td><code>'determinate' | 'indeterminate'</code></td>
+						<td><code>'determinate'</code></td>
+						<td>Determinate shows fill amount; indeterminate animates activity.</td>
+					</tr>
+					<tr>
+						<td><code>aria-label</code></td>
+						<td><code>string</code></td>
+						<td><code>'Progress'</code></td>
+						<td>Accessible name for the progress bar.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

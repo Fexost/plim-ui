@@ -21,6 +21,12 @@ class SecondaryButtonHost {}
 })
 class DisabledButtonHost {}
 
+@Component({
+	template: `<button type="button" plimButton variant="text">Link</button>`,
+	imports: [Button],
+})
+class TextButtonHost {}
+
 describe('Button', () => {
 	let fixture: ComponentFixture<PrimaryButtonHost>;
 	let button: HTMLButtonElement;
@@ -51,6 +57,11 @@ describe('Button', () => {
 		secondaryFixture.detectChanges();
 		const secondaryButton = secondaryFixture.nativeElement.querySelector('button')!;
 		expect(secondaryButton.classList.contains('plim-button--secondary')).toBe(true);
+
+		const textFixture = TestBed.createComponent(TextButtonHost);
+		textFixture.detectChanges();
+		const textButton = textFixture.nativeElement.querySelector('button')!;
+		expect(textButton.classList.contains('plim-button--text')).toBe(true);
 	});
 
 	it('should disable the native button', () => {

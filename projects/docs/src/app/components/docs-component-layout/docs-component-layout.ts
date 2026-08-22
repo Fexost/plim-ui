@@ -9,6 +9,7 @@ import { DocsHighlightCodeDirective } from '../../directives/docs-code-highlight
 	hostDirectives: [DocsHighlightCodeDirective],
 	imports: [RouterLink, Separator],
 	templateUrl: './docs-component-layout.html',
+	styleUrl: './docs-component-layout.scss',
 })
 export class DocsComponentLayout {
 	public readonly category = input.required<string>();
@@ -19,6 +20,7 @@ export class DocsComponentLayout {
 	protected readonly jumpSections = [
 		{ id: 'preview', label: 'Preview' },
 		{ id: 'accessibility', label: 'Accessibility' },
+		{ id: 'tokens', label: 'Design tokens' },
 		{ id: 'api', label: 'API reference' },
 	];
 }

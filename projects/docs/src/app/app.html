@@ -5,7 +5,7 @@
 				type="button"
 				plimButton
 				variant="secondary"
-				class="docs-nav-toggle"
+				class="docs-header-control"
 				(click)="nav.toggleNav()"
 				[attr.aria-expanded]="nav.navOpen()"
 				aria-controls="docs-sidebar"
@@ -29,7 +29,7 @@
 					type="button"
 					plimButton
 					variant="secondary"
-					class="docs-header-action"
+					class="docs-header-control"
 					(click)="theme.toggle()"
 					[attr.aria-label]="
 						theme.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'

@@ -4,11 +4,13 @@ import { DOCS_HOME, DOCS_PATHS } from './docs-nav.config';
 
 const LEGACY_COMPONENT_REDIRECTS: Routes = [
 	{ path: 'components/button', redirectTo: DOCS_PATHS.button, pathMatch: 'full' },
+	{ path: 'components/button-toggle', redirectTo: DOCS_PATHS.buttonToggle, pathMatch: 'full' },
 	{ path: 'components/badge', redirectTo: DOCS_PATHS.badge, pathMatch: 'full' },
 	{ path: 'components/card', redirectTo: DOCS_PATHS.card, pathMatch: 'full' },
 	{ path: 'components/separator', redirectTo: DOCS_PATHS.separator, pathMatch: 'full' },
 	{ path: 'components/avatar', redirectTo: DOCS_PATHS.avatar, pathMatch: 'full' },
 	{ path: 'components/spinner', redirectTo: DOCS_PATHS.spinner, pathMatch: 'full' },
+	{ path: 'components/progress-bar', redirectTo: DOCS_PATHS.progressBar, pathMatch: 'full' },
 	{ path: 'components/header', redirectTo: DOCS_PATHS.header, pathMatch: 'full' },
 	{ path: 'components/sidebar', redirectTo: DOCS_PATHS.sidebar, pathMatch: 'full' },
 	{ path: 'components/input', redirectTo: DOCS_PATHS.input, pathMatch: 'full' },
@@ -65,6 +67,11 @@ export const routes: Routes = [
 		loadComponent: () => import('./pages/basic/button/button-docs').then((m) => m.ButtonDocs),
 	},
 	{
+		path: DOCS_PATHS.buttonToggle,
+		loadComponent: () =>
+			import('./pages/basic/button-toggle/button-toggle-docs').then((m) => m.ButtonToggleDocs),
+	},
+	{
 		path: DOCS_PATHS.badge,
 		loadComponent: () => import('./pages/basic/badge/badge-docs').then((m) => m.BadgeDocs),
 	},
@@ -85,6 +92,11 @@ export const routes: Routes = [
 		path: DOCS_PATHS.spinner,
 		loadComponent: () =>
 			import('./pages/basic/spinner/spinner-docs').then((m) => m.SpinnerDocs),
+	},
+	{
+		path: DOCS_PATHS.progressBar,
+		loadComponent: () =>
+			import('./pages/basic/progress-bar/progress-bar-docs').then((m) => m.ProgressBarDocs),
 	},
 	{
 		path: DOCS_PATHS.header,
