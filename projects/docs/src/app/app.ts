@@ -17,4 +17,8 @@ export class App {
 	protected readonly theme = inject(ThemeService);
 	protected readonly nav = inject(DocsResponsiveNavService);
 	protected readonly DOCS_HOME = DOCS_HOME;
+
+	protected openExternal(url: string): void {
+		window.open(url, '_blank', 'noopener,noreferrer');
+	}
 }

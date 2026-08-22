@@ -1,0 +1,32 @@
+<div
+	[id]="panelId()"
+	class="plim-select__panel"
+	role="listbox"
+	(mousedown)="panelMouseDown.emit()"
+	[attr.aria-labelledby]="ariaLabelledBy() ?? null"
+	[attr.aria-label]="ariaLabel() ?? null"
+>
+	@if (options().length === 0) {
+		<div class="plim-select__empty">No matches</div>
+	} @else {
+		@for (option of options(); track optionId(index); let index = $index) {
+			<button
+				type="button"
+				[id]="optionId(index)"
+				class="plim-select__option"
+				role="option"
+				tabindex="-1"
+				[attr.aria-selected]="selectedValue() === option.value"
+				[class.plim-select__option--active]="activeIndex() === index"
+				[class.plim-select__option--selected]="selectedValue() === option.value"
+				[disabled]="option.disabled"
+				(click)="optionSelected.emit(option.value)"
+				(keydown.enter)="optionSelected.emit(option.value)"
+				(keydown.space)="optionSelected.emit(option.value); $event.preventDefault()"
+				(mouseenter)="optionActive.emit(index)"
+			>
+				{{ option.label }}
+			</button>
+		}
+	}
+</div>

@@ -15,7 +15,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { SelectOption } from './select-option';
+import { Option } from '../option/option';
 
 interface SelectOptionView {
 	value: string;
@@ -49,7 +49,7 @@ export class Select implements ControlValueAccessor, AfterContentInit {
 	protected readonly overlayPositions = STANDARD_DROPDOWN_BELOW_POSITIONS;
 
 	private readonly triggerRef = viewChild<ElementRef<HTMLButtonElement>>('trigger');
-	private readonly optionComponents = contentChildren(SelectOption);
+	private readonly optionComponents = contentChildren(Option);
 
 	private readonly valueState = signal<string | null>(null);
 	private readonly openState = signal(false);

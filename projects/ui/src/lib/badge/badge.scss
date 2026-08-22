@@ -19,21 +19,25 @@
 }
 
 :host(.plim-badge--primary) {
-	background: rgb(139 92 246 / 0.16);
+	background: var(--plim-color-primary-surface);
+	border-color: var(--plim-color-primary-surface-border);
 	color: var(--plim-color-primary);
 }
 
 :host(.plim-badge--success) {
-	background: rgb(85 209 135 / 0.16);
+	background: var(--plim-color-success-surface);
+	border-color: var(--plim-color-success-surface-border);
 	color: var(--plim-color-success);
 }
 
 :host(.plim-badge--warning) {
-	background: rgb(232 184 92 / 0.16);
+	background: var(--plim-color-warning-surface);
+	border-color: var(--plim-color-warning-surface-border);
 	color: var(--plim-color-warning);
 }
 
 :host(.plim-badge--danger) {
-	background: rgb(237 106 122 / 0.16);
+	background: var(--plim-color-danger-surface);
+	border-color: var(--plim-color-danger-surface-border);
 	color: var(--plim-color-danger);
 }

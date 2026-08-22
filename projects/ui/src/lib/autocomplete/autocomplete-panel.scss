@@ -1,0 +1,18 @@
+@use '../../styles/option-list';
+
+:host {
+	display: block;
+	width: 100%;
+}
+
+.plim-select__panel {
+	@include option-list.plim-option-list-panel;
+}
+
+.plim-select__empty {
+	@include option-list.plim-option-list-empty;
+}
+
+.plim-select__option {
+	@include option-list.plim-option-list-item;
+}

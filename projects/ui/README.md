@@ -12,8 +12,11 @@ npm install plim-ui
 
 Peer dependencies:
 
+- `@angular/cdk` ^21.2.0
 - `@angular/common` ^21.2.0
 - `@angular/core` ^21.2.0
+- `@angular/forms` ^21.2.0
+- `@angular/platform-browser` ^21.2.0
 
 ## Styles
 
@@ -57,10 +60,11 @@ Styles native `<button>` elements via the `plimButton` attribute.
 
 | Input | Type | Default |
 | --- | --- | --- |
-| `variant` | `'primary' \| 'secondary'` | `'primary'` |
+| `variant` | `'primary' \| 'secondary' \| 'text'` | `'primary'` |
 | `disabled` | `boolean` | `false` |
 
-Pair with `routerLink` when navigation is triggered from a button.
+Pair with `routerLink` when navigation is triggered from a button. Use `variant="text"` for
+link-like actions. The selector is `button[plimButton]` only.
 
 #### Card
 
@@ -121,6 +125,74 @@ Loading indicator with accessible status semantics.
 | `size` | `'sm' \| 'md' \| 'lg'` | `'md'` |
 | `aria-label` | `string` | `'Loading'` |
 
+#### Button toggle
+
+Grouped toggles for exclusive or multiple selection.
+
+```html
+<plim-button-toggle-group>
+  <plim-button-toggle value="day">Day</plim-button-toggle>
+  <plim-button-toggle value="week">Week</plim-button-toggle>
+</plim-button-toggle-group>
+```
+
+#### Progress bar
+
+Determinate or indeterminate progress.
+
+```html
+<plim-progress-bar [value]="40" />
+<plim-progress-bar mode="indeterminate" />
+```
+
+### Form
+
+#### Input, textarea, and form field
+
+```html
+<plim-form-field>
+  <label for="name">Name</label>
+  <input id="name" type="text" plimInput />
+</plim-form-field>
+
+<textarea plimTextarea rows="4"></textarea>
+```
+
+#### Select and autocomplete
+
+```html
+<plim-select placeholder="Choose fruit">
+  <plim-option value="apple">Apple</plim-option>
+  <plim-option value="banana">Banana</plim-option>
+</plim-select>
+
+<plim-autocomplete placeholder="Search fruit">
+  <plim-option value="apple">Apple</plim-option>
+  <plim-option value="banana">Banana</plim-option>
+</plim-autocomplete>
+```
+
+Both project options with `<plim-option>`.
+
+#### Datepicker and timepicker
+
+```html
+<plim-datepicker />
+<input type="date" plimDatepicker />
+
+<plim-timepicker />
+<input type="time" plimTimepicker />
+```
+
+#### Checkbox, radio, switch, and slider
+
+```html
+<input type="checkbox" plimCheckbox />
+<input type="radio" name="plan" plimRadio value="pro" />
+<input type="checkbox" plimSwitch />
+<input type="range" plimSlider />
+```
+
 ### Navigation
 
 #### Header
@@ -167,14 +239,32 @@ In `push` mode, offset main content with `margin-left: var(--plim-sidebar-width)
 
 ```typescript
 import {
+  Autocomplete,
   Avatar,
   Badge,
   Button,
+  ButtonToggle,
+  ButtonToggleGroup,
   Card,
+  Checkbox,
+  Datepicker,
+  FormField,
   Header,
+  Input,
+  NativeDatepicker,
+  NativeSelect,
+  NativeTimepicker,
+  Option,
+  ProgressBar,
+  Radio,
+  Select,
   Separator,
   Sidebar,
+  Slider,
   Spinner,
+  Switch,
+  Textarea,
+  Timepicker,
 } from 'plim-ui';
 ```
 

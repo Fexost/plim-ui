@@ -1,4 +1,5 @@
 @use '../../styles/field-control';
+@use '../../styles/option-list';
 
 :host.plim-select-host {
 	display: block;
@@ -57,66 +58,9 @@
 }
 
 .plim-select__panel {
-	box-sizing: border-box;
-	width: 100%;
-	min-width: 100%;
-	max-height: var(--plim-select-panel-max-height);
-	overflow-y: auto;
-	padding: var(--plim-space-1);
-	background: var(--plim-color-surface-raised);
-	border: 1px solid var(--plim-color-border);
-	border-radius: var(--plim-radius-md);
-	box-shadow: var(--plim-shadow-md);
+	@include option-list.plim-option-list-panel;
 }
 
 .plim-select__option {
-	display: flex;
-	align-items: center;
-	box-sizing: border-box;
-	width: 100%;
-	min-height: var(--plim-input-height);
-	padding: 0 var(--plim-space-3);
-	border: 0;
-	border-radius: var(--plim-radius-sm);
-	background: transparent;
-	color: var(--plim-color-text);
-	font: inherit;
-	font-size: var(--plim-input-font-size);
-	line-height: var(--plim-line-height-normal);
-	text-align: left;
-	cursor: pointer;
-	transition:
-		background-color var(--plim-duration-normal) var(--plim-ease-default),
-		color var(--plim-duration-normal) var(--plim-ease-default),
-		outline-color var(--plim-duration-normal) var(--plim-ease-default);
-
-	@media (prefers-reduced-motion: reduce) {
-		transition: none;
-	}
-
-	&--active {
-		background: var(--plim-color-select-option-highlight);
-		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
-		outline-offset: calc(var(--plim-focus-ring-offset) * -1);
-	}
-
-	&--selected {
-		color: var(--plim-color-select-option-selected);
-	}
-
-	&--active.plim-select__option--selected {
-		background: var(--plim-color-select-option-active);
-	}
-
-	@media (forced-colors: active) {
-		&--active {
-			background: Highlight;
-			color: HighlightText;
-			outline-color: HighlightText;
-		}
-
-		&--selected {
-			color: LinkText;
-		}
-	}
+	@include option-list.plim-option-list-item;
 }

@@ -9,14 +9,14 @@ import {
 } from '@angular/core';
 
 @Component({
-	selector: 'plim-select-option',
-	templateUrl: './select-option.html',
+	selector: 'plim-option',
+	templateUrl: './option.html',
 	host: {
-		class: 'plim-select-option',
+		class: 'plim-option',
 		hidden: '',
 	},
 })
-export class SelectOption implements AfterContentInit {
+export class Option implements AfterContentInit {
 	private readonly elementRef = inject(ElementRef<HTMLElement>);
 
 	public readonly value = input<string>('');

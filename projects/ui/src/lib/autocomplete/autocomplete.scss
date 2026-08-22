@@ -1,0 +1,31 @@
+@use '../../styles/field-control';
+
+:host.plim-autocomplete-host {
+	display: block;
+	width: 100%;
+}
+
+.plim-autocomplete {
+	position: relative;
+	width: 100%;
+}
+
+.plim-autocomplete__input {
+	@include field-control.plim-field-control-base;
+
+	display: block;
+	width: 100%;
+}
+
+.plim-autocomplete--open .plim-autocomplete__input {
+	border-color: var(--plim-color-field-border-focus);
+}
+
+.plim-autocomplete--invalid .plim-autocomplete__input {
+	@include field-control.plim-field-control-invalid;
+}
+
+.plim-autocomplete--disabled .plim-autocomplete__input {
+	opacity: 0.5;
+	cursor: not-allowed;
+}

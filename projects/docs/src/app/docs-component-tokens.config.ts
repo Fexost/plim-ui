@@ -32,10 +32,10 @@ export const BADGE_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-font-size-xs', usage: 'Label size' },
 	{ token: '--plim-radius-full', usage: 'Pill shape' },
 	{ token: '--plim-color-surface-raised', usage: 'Default variant background' },
-	{ token: '--plim-color-primary', usage: 'Primary variant accent' },
-	{ token: '--plim-color-success', usage: 'Success variant accent' },
-	{ token: '--plim-color-warning', usage: 'Warning variant accent' },
-	{ token: '--plim-color-danger', usage: 'Danger variant accent' },
+	{ token: '--plim-color-primary-surface*', usage: 'Primary variant tint' },
+	{ token: '--plim-color-success-surface*', usage: 'Success variant tint' },
+	{ token: '--plim-color-warning-surface*', usage: 'Warning variant tint' },
+	{ token: '--plim-color-danger-surface*', usage: 'Danger variant tint' },
 ];
 
 export const CARD_DOCS_TOKENS: DocsComponentToken[] = [
@@ -128,9 +128,21 @@ export const SLIDER_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-focus-ring-*', usage: 'Keyboard focus outline' },
 ];
 
-export const DATEPICKER_DOCS_TOKENS: DocsComponentToken[] = [...INPUT_DOCS_TOKENS];
+export const DATEPICKER_DOCS_TOKENS: DocsComponentToken[] = [
+	...INPUT_DOCS_TOKENS,
+	{ token: '--plim-color-surface-raised', usage: 'Calendar panel background' },
+	{ token: '--plim-shadow-md', usage: 'Calendar panel elevation' },
+	{ token: '--plim-color-primary', usage: 'Selected day highlight' },
+];
 
-export const TIMEPICKER_DOCS_TOKENS: DocsComponentToken[] = [...INPUT_DOCS_TOKENS];
+export const TIMEPICKER_DOCS_TOKENS: DocsComponentToken[] = [
+	...INPUT_DOCS_TOKENS,
+	{ token: '--plim-color-surface-raised', usage: 'Time panel background' },
+	{ token: '--plim-shadow-md', usage: 'Time panel elevation' },
+	{ token: '--plim-color-primary', usage: 'Selected hour/minute highlight' },
+];
+
+export const AUTOCOMPLETE_DOCS_TOKENS: DocsComponentToken[] = [...SELECT_DOCS_TOKENS];
 
 export const FORM_FIELD_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-form-field-gap', usage: 'Gap between label, control, and hint' },

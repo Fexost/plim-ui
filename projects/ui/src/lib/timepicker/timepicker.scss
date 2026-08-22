@@ -1,12 +1,149 @@
 @use '../../styles/field-control';
 
-:host {
-	@include field-control.plim-field-control-base;
-
+:host.plim-timepicker-host {
 	display: block;
-	color-scheme: dark light;
+	width: 100%;
 }
 
-:host(.plim-timepicker--invalid) {
+.plim-timepicker {
+	position: relative;
+	width: 100%;
+}
+
+.plim-timepicker__field {
+	position: relative;
+	display: flex;
+	align-items: stretch;
+	width: 100%;
+}
+
+.plim-timepicker__input {
+	@include field-control.plim-field-control-base;
+
+	flex: 1 1 auto;
+	min-width: 0;
+	padding-right: calc(var(--plim-input-padding-x) + 1.75rem);
+}
+
+.plim-timepicker__toggle {
+	position: absolute;
+	top: 50%;
+	right: var(--plim-space-2);
+	width: 1.75rem;
+	height: 1.75rem;
+	padding: 0;
+	border: 0;
+	border-radius: var(--plim-radius-sm);
+	background-color: transparent;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M8 4v4l2.5 1.5M8 2.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Z' stroke='%236f7684' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 1rem;
+	transform: translateY(-50%);
+	cursor: pointer;
+
+	&:hover:not(:disabled) {
+		background-color: var(--plim-color-surface);
+	}
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
+.plim-timepicker--open .plim-timepicker__input {
+	border-color: var(--plim-color-field-border-focus);
+}
+
+.plim-timepicker--invalid .plim-timepicker__input {
 	@include field-control.plim-field-control-invalid;
+}
+
+.plim-timepicker--disabled .plim-timepicker__input,
+.plim-timepicker--disabled .plim-timepicker__toggle {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.plim-timepicker__panel {
+	box-sizing: border-box;
+	width: 100%;
+	padding: var(--plim-space-3);
+	background: var(--plim-color-surface-raised);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-lg);
+	box-shadow: var(--plim-shadow-md);
+}
+
+.plim-timepicker__columns {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--plim-space-2);
+}
+
+.plim-timepicker__column-label {
+	margin: 0 0 var(--plim-space-1);
+	color: var(--plim-color-text-subtle);
+	font-size: var(--plim-font-size-xs);
+	font-weight: var(--plim-font-weight-semibold);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+.plim-timepicker__options {
+	display: flex;
+	flex-direction: column;
+	gap: var(--plim-space-1);
+	max-height: 10rem;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	scrollbar-color: var(--plim-color-border) transparent;
+
+	&::-webkit-scrollbar {
+		width: 0.375rem;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: var(--plim-radius-full);
+		background: var(--plim-color-border);
+	}
+}
+
+.plim-timepicker__option {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 1.75rem;
+	padding: 0 var(--plim-space-2);
+	border: 0;
+	border-radius: var(--plim-radius-md);
+	background: transparent;
+	color: var(--plim-color-text);
+	font: inherit;
+	font-size: var(--plim-font-size-sm);
+	cursor: pointer;
+
+	&:hover {
+		background: var(--plim-color-primary-surface);
+	}
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+	}
+
+	&--selected {
+		box-shadow: inset 0 0 0 2px var(--plim-color-primary);
+		color: var(--plim-color-primary);
+		font-weight: var(--plim-font-weight-semibold);
+	}
 }

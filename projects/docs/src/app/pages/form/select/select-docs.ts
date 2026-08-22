@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NativeSelect, Select, SelectOption } from 'plim-ui';
+import { NativeSelect, Option, Select } from 'plim-ui';
 
 import { DocsComponentLayout } from '../../../components/docs-component-layout/docs-component-layout';
 import { DocsTokenTable } from '../../../components/docs-token-table/docs-token-table';
@@ -7,7 +7,7 @@ import { SELECT_DOCS_TOKENS } from '../../../docs-component-tokens.config';
 
 @Component({
 	selector: 'app-select-docs',
-	imports: [DocsComponentLayout, DocsTokenTable, NativeSelect, Select, SelectOption],
+	imports: [DocsComponentLayout, DocsTokenTable, NativeSelect, Option, Select],
 	templateUrl: './select-docs.html',
 	styleUrl: './select-docs.scss',
 })

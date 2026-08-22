@@ -35,6 +35,10 @@
 		var(--plim-color-success) 22%
 	);
 	--plim-color-success-surface-icon: color-mix(in srgb, var(--plim-color-success) 18%, transparent);
+	--plim-color-warning-surface: color-mix(in srgb, var(--plim-color-warning) 12%, var(--plim-color-surface));
+	--plim-color-warning-surface-border: color-mix(in srgb, var(--plim-color-warning) 28%, transparent);
+	--plim-color-danger-surface: color-mix(in srgb, var(--plim-color-danger) 12%, var(--plim-color-surface));
+	--plim-color-danger-surface-border: color-mix(in srgb, var(--plim-color-danger) 28%, transparent);
 
 	// Typography
 	--plim-font-family: Inter, ui-sans-serif, system-ui, sans-serif;

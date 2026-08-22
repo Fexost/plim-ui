@@ -1,38 +1,38 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { Option } from '../option/option';
 import { Select } from './select';
-import { SelectOption } from './select-option';
 
 @Component({
 	template: `
 		<plim-select ariaLabel="Choose an item">
-			<plim-select-option value="1">Item 1</plim-select-option>
-			<plim-select-option value="2" selected>Item 2</plim-select-option>
-			<plim-select-option value="3">Item 3</plim-select-option>
+			<plim-option value="1">Item 1</plim-option>
+			<plim-option value="2" selected>Item 2</plim-option>
+			<plim-option value="3">Item 3</plim-option>
 		</plim-select>
 	`,
-	imports: [Select, SelectOption],
+	imports: [Select, Option],
 })
 class SelectHost {}
 
 @Component({
 	template: `
 		<plim-select invalid>
-			<plim-select-option value="1">Item 1</plim-select-option>
+			<plim-option value="1">Item 1</plim-option>
 		</plim-select>
 	`,
-	imports: [Select, SelectOption],
+	imports: [Select, Option],
 })
 class InvalidSelectHost {}
 
 @Component({
 	template: `
 		<plim-select disabled>
-			<plim-select-option value="1">Item 1</plim-select-option>
+			<plim-option value="1">Item 1</plim-option>
 		</plim-select>
 	`,
-	imports: [Select, SelectOption],
+	imports: [Select, Option],
 })
 class DisabledSelectHost {}
 

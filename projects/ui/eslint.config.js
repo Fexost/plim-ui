@@ -50,10 +50,11 @@ module.exports = (async () => {
 		'**/checkbox/checkbox.ts',
 				'**/radio/radio.ts',
 		'**/slider/slider.ts',
-		'**/datepicker/datepicker.ts',
-		'**/timepicker/timepicker.ts',
+		'**/datepicker/native-datepicker.ts',
+		'**/timepicker/native-timepicker.ts',
 		'**/switch/switch.ts',
 		'**/select/native-select.ts',
+		'**/autocomplete/native-autocomplete.ts',
 		'**/button-toggle/button-toggle.ts',
 	],
 			rules: {

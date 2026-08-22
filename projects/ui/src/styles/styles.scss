@@ -1,6 +1,9 @@
 @use './tokens';
 @use './theme';
 
-.plim-select__backdrop {
+.plim-select__backdrop,
+.plim-autocomplete__backdrop,
+.plim-datepicker__backdrop,
+.plim-timepicker__backdrop {
 	background: transparent;
 }

@@ -79,17 +79,6 @@
 	}
 }
 
-.docs-text-link {
-	color: var(--plim-color-primary);
-	font-size: var(--plim-font-size-sm);
-	font-weight: var(--plim-font-weight-medium);
-	text-decoration: none;
-
-	&:hover {
-		color: var(--plim-color-primary-hover);
-	}
-}
-
 .docs-section-header {
 	margin-bottom: var(--plim-space-6);
 }

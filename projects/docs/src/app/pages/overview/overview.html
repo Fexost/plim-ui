@@ -1,7 +1,7 @@
 <section class="docs-hero">
 	<h1>Interfaces that welcome everyone.</h1>
 	<p class="docs-lead">
-		PLIM is an accessibility-first UI library for Angular — composable primitives, semantic
+		plim-ui is an accessibility-first UI library for Angular — composable primitives, semantic
 		tokens, and interaction patterns that work for keyboard, pointer, and assistive technology
 		users.
 	</p>
@@ -26,9 +26,9 @@
 			Install from npm, import standalone components, and add the global stylesheet.
 		</p>
 		<div plimCardFooter>
-			<a [routerLink]="'/' + DOCS_PATHS.installation" class="docs-text-link"
-				>Installation guide</a
-			>
+			<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.installation">
+				Installation guide
+			</button>
 		</div>
 	</plim-card>
 
@@ -39,9 +39,9 @@
 			Semantic HTML, keyboard support, and visible focus are built in from the start.
 		</p>
 		<div plimCardFooter>
-			<a [routerLink]="'/' + DOCS_PATHS.accessibility" class="docs-text-link">
+			<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.accessibility">
 				Accessibility principles
-			</a>
+			</button>
 		</div>
 	</plim-card>
 </section>
@@ -57,7 +57,9 @@
 			<h3>Tokens</h3>
 			<p>CSS variables for colour, spacing, radius, shadow, and motion.</p>
 			<div plimCardFooter>
-				<a [routerLink]="'/' + DOCS_PATHS.tokens" class="docs-text-link">View tokens</a>
+				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.tokens">
+					View tokens
+				</button>
 			</div>
 		</plim-card>
 
@@ -65,7 +67,9 @@
 			<h3>Theme</h3>
 			<p>Dark and light palettes via <code>data-theme</code>.</p>
 			<div plimCardFooter>
-				<a [routerLink]="'/' + DOCS_PATHS.theme" class="docs-text-link">View theme</a>
+				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.theme">
+					View theme
+				</button>
 			</div>
 		</plim-card>
 
@@ -73,9 +77,9 @@
 			<h3>Typography</h3>
 			<p>Font scale, weights, and line heights.</p>
 			<div plimCardFooter>
-				<a [routerLink]="'/' + DOCS_PATHS.typography" class="docs-text-link"
-					>View typography</a
-				>
+				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.typography">
+					View typography
+				</button>
 			</div>
 		</plim-card>
 	</div>
@@ -92,7 +96,9 @@
 			<h3>Basic</h3>
 			<p>Buttons, badges, cards, and other everyday UI primitives.</p>
 			<div plimCardFooter>
-				<a [routerLink]="'/' + DOCS_PATHS.button" class="docs-text-link">View button</a>
+				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.button">
+					View button
+				</button>
 			</div>
 		</plim-card>
 
@@ -100,7 +106,9 @@
 			<h3>Form</h3>
 			<p>Inputs, selects, checkboxes, and shared field semantics.</p>
 			<div plimCardFooter>
-				<a [routerLink]="'/' + DOCS_PATHS.input" class="docs-text-link">View input</a>
+				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.input">
+					View input
+				</button>
 			</div>
 		</plim-card>
 
@@ -108,7 +116,9 @@
 			<h3>Navigation</h3>
 			<p>Header, sidenav, tabs, menus, paginator, and toolbar patterns.</p>
 			<div plimCardFooter>
-				<a [routerLink]="'/' + DOCS_PATHS.header" class="docs-text-link">View header</a>
+				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.header">
+					View header
+				</button>
 			</div>
 		</plim-card>
 

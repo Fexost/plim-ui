@@ -36,7 +36,8 @@ Install `plim-ui` in any Angular 21+ app, import standalone components, and incl
 npm install plim-ui
 ```
 
-Requires Angular 21+ (`@angular/common` and `@angular/core` as peer dependencies).
+Requires Angular 21+ (`@angular/common`, `@angular/core`, `@angular/forms`, `@angular/cdk`,
+and `@angular/platform-browser` as peer dependencies).
 
 ## Usage
 
@@ -44,14 +45,11 @@ Import components where you need them:
 
 ```typescript
 import {
-  Avatar,
-  Badge,
+  Autocomplete,
   Button,
-  Card,
-  Header,
-  Separator,
-  Sidebar,
-  Spinner,
+  Datepicker,
+  Option,
+  Select,
 } from 'plim-ui';
 ```
 
@@ -67,12 +65,25 @@ Toggle light mode by setting `data-theme="light"` on the document root.
 
 | Category | Component | Selector |
 | --- | --- | --- |
-| **Basic** | Badge | `<plim-badge>` |
+| **Basic** | Avatar | `<plim-avatar>` |
+| | Badge | `<plim-badge>` |
 | | Button | `button[plimButton]` |
+| | Button toggle | `<plim-button-toggle-group>` |
 | | Card | `<plim-card>` |
+| | Progress bar | `<plim-progress-bar>` |
 | | Separator | `<plim-separator>` |
-| | Avatar | `<plim-avatar>` |
 | | Spinner | `<plim-spinner>` |
+| **Form** | Autocomplete | `<plim-autocomplete>` |
+| | Checkbox | `input[plimCheckbox]` |
+| | Datepicker | `<plim-datepicker>` / `input[type=date][plimDatepicker]` |
+| | Form field | `<plim-form-field>` |
+| | Input | `input[plimInput]` |
+| | Radio | `input[plimRadio]` |
+| | Select | `<plim-select>` / `select[plimSelect]` |
+| | Slider | `input[type=range][plimSlider]` |
+| | Switch | `input[plimSwitch]` |
+| | Textarea | `textarea[plimTextarea]` |
+| | Timepicker | `<plim-timepicker>` / `input[type=time][plimTimepicker]` |
 | **Navigation** | Header | `<plim-header>` |
 | | Sidebar | `<plim-sidebar>` |
 

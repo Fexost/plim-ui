@@ -1,13 +1,13 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Separator } from 'plim-ui';
+import { Button, Separator } from 'plim-ui';
 
 import { DocsHighlightCodeDirective } from '../../directives/docs-code-highlight';
 
 @Component({
 	selector: 'app-docs-component-layout',
 	hostDirectives: [DocsHighlightCodeDirective],
-	imports: [RouterLink, Separator],
+	imports: [RouterLink, Button, Separator],
 	templateUrl: './docs-component-layout.html',
 	styleUrl: './docs-component-layout.scss',
 })

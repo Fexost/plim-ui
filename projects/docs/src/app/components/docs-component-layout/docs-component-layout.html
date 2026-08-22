@@ -24,7 +24,15 @@
 
 	<nav class="docs-component__jump-nav" aria-label="Page sections">
 		@for (section of jumpSections; track section.id) {
-			<a [routerLink]="'.'" [fragment]="section.id">{{ section.label }}</a>
+			<button
+				type="button"
+				plimButton
+				variant="text"
+				[routerLink]="'.'"
+				[fragment]="section.id"
+			>
+				{{ section.label }}
+			</button>
 		}
 	</nav>
 

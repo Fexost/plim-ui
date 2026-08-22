@@ -39,22 +39,22 @@
 				</button>
 			</div>
 			<div class="docs-header-actions__links">
-				<a
-					href="https://www.npmjs.com/package/plim-ui"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="docs-header-link"
+				<button
+					type="button"
+					plimButton
+					variant="text"
+					(click)="openExternal('https://www.npmjs.com/package/plim-ui')"
 				>
 					Npm
-				</a>
-				<a
-					href="https://github.com/Fexost/plim-ui"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="docs-header-link"
+				</button>
+				<button
+					type="button"
+					plimButton
+					variant="text"
+					(click)="openExternal('https://github.com/Fexost/plim-ui')"
 				>
 					GitHub
-				</a>
+				</button>
 			</div>
 		</nav>
 	</div>

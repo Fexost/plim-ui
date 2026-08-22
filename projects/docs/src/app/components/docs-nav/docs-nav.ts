@@ -7,6 +7,7 @@ import { DOCS_NAV } from '../../docs-nav.config';
 	selector: 'app-docs-nav',
 	imports: [RouterLink, RouterLinkActive],
 	templateUrl: './docs-nav.html',
+	styleUrl: './docs-nav.scss',
 })
 export class DocsNav {
 	protected readonly sections = DOCS_NAV;

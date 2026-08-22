@@ -1,0 +1,58 @@
+<div
+	class="plim-autocomplete"
+	[class.plim-autocomplete--open]="open()"
+	[class.plim-autocomplete--invalid]="invalid()"
+	[class.plim-autocomplete--disabled]="isDisabled()"
+>
+	<input
+		#input
+		type="text"
+		class="plim-autocomplete__input"
+		cdkOverlayOrigin
+		#origin="cdkOverlayOrigin"
+		[id]="inputId"
+		role="combobox"
+		aria-autocomplete="list"
+		[attr.aria-expanded]="open()"
+		[attr.aria-controls]="open() ? panelId : null"
+		[attr.aria-activedescendant]="activeDescendantId()"
+		[attr.aria-invalid]="invalid() ? true : null"
+		[attr.aria-label]="ariaLabel() ?? null"
+		[attr.aria-labelledby]="ariaLabelledBy() ?? null"
+		aria-haspopup="listbox"
+		[disabled]="isDisabled()"
+		[placeholder]="placeholder()"
+		[value]="inputText()"
+		(input)="onInput($event)"
+		(pointerdown)="onInputPointerDown()"
+		(focus)="onInputFocus()"
+		(keydown)="onInputKeydown($event)"
+		(blur)="onInputBlur()"
+	/>
+
+	<ng-template
+		cdkConnectedOverlay
+		[cdkConnectedOverlayOrigin]="origin"
+		[cdkConnectedOverlayOpen]="open()"
+		[cdkConnectedOverlayPositions]="overlayPositions"
+		[cdkConnectedOverlayMatchWidth]="true"
+		[cdkConnectedOverlayHasBackdrop]="false"
+		(overlayOutsideClick)="onOverlayOutsideClick($event)"
+		(detach)="onOverlayDetach()"
+	>
+		<plim-autocomplete-panel
+			[panelId]="panelId"
+			[optionIdPrefix]="panelId"
+			[options]="visibleOptions()"
+			[activeIndex]="activeIndex()"
+			[selectedValue]="selectedValue()"
+			[ariaLabel]="ariaLabel()"
+			[ariaLabelledBy]="ariaLabelledBy()"
+			(optionSelected)="selectOption($event)"
+			(optionActive)="setActiveIndex($event)"
+			(panelMouseDown)="onPanelMouseDown()"
+		/>
+	</ng-template>
+</div>
+
+<ng-content />

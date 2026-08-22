@@ -11,29 +11,29 @@
 		<div class="docs-split">
 			<div class="docs-preview docs-split__preview docs-split__preview--stack">
 				<plim-select placeholder="Choose an option">
-					<plim-select-option value="1">Item 1</plim-select-option>
-					<plim-select-option value="2" selected>Item 2</plim-select-option>
-					<plim-select-option value="3">Item 3</plim-select-option>
+					<plim-option value="1">Item 1</plim-option>
+					<plim-option value="2" selected>Item 2</plim-option>
+					<plim-option value="3">Item 3</plim-option>
 				</plim-select>
 				<plim-select disabled placeholder="Choose an option">
-					<plim-select-option value="1" selected>Item 1</plim-select-option>
-					<plim-select-option value="2">Item 2</plim-select-option>
-					<plim-select-option value="3">Item 3</plim-select-option>
+					<plim-option value="1" selected>Item 1</plim-option>
+					<plim-option value="2">Item 2</plim-option>
+					<plim-option value="3">Item 3</plim-option>
 				</plim-select>
 				<plim-select invalid placeholder="Choose an option">
-					<plim-select-option value="1">Item 1</plim-select-option>
-					<plim-select-option value="2">Item 2</plim-select-option>
-					<plim-select-option value="3">Item 3</plim-select-option>
+					<plim-option value="1">Item 1</plim-option>
+					<plim-option value="2">Item 2</plim-option>
+					<plim-option value="3">Item 3</plim-option>
 				</plim-select>
 			</div>
 			<pre class="docs-code docs-split__code"><code>&lt;plim-select placeholder="Choose an option"&gt;
-  &lt;plim-select-option value="1"&gt;Item 1&lt;/plim-select-option&gt;
-  &lt;plim-select-option value="2" selected&gt;Item 2&lt;/plim-select-option&gt;
-  &lt;plim-select-option value="3"&gt;Item 3&lt;/plim-select-option&gt;
+  &lt;plim-option value="1"&gt;Item 1&lt;/plim-option&gt;
+  &lt;plim-option value="2" selected&gt;Item 2&lt;/plim-option&gt;
+  &lt;plim-option value="3"&gt;Item 3&lt;/plim-option&gt;
 &lt;/plim-select&gt;
 
 &lt;plim-select disabled placeholder="Choose an option"&gt;
-  &lt;plim-select-option value="1" selected&gt;Item 1&lt;/plim-select-option&gt;
+  &lt;plim-option value="1" selected&gt;Item 1&lt;/plim-option&gt;
   ...
 &lt;/plim-select&gt;
 
@@ -51,8 +51,8 @@
 			<code>required</code> only when you also want muted placeholder styling via CSS.
 		</p>
 
-		<div class="docs-split">
-			<div class="docs-preview docs-split__preview docs-split__preview--stack">
+		<div class="docs-example">
+			<div class="docs-preview docs-preview--native docs-example__preview">
 				<div class="docs-native-demo">
 					<select plimSelect required>
 						<option value="" disabled selected>Choose an option</option>
@@ -62,7 +62,7 @@
 					</select>
 				</div>
 			</div>
-			<pre class="docs-code docs-split__code"><code>&lt;select plimSelect required&gt;
+			<pre class="docs-code"><code>&lt;select plimSelect required&gt;
   &lt;option value="" disabled selected&gt;Choose an option&lt;/option&gt;
   &lt;option value="1"&gt;Item 1&lt;/option&gt;
   &lt;option value="2"&gt;Item 2&lt;/option&gt;
@@ -181,7 +181,8 @@
 			</table>
 		</div>
 
-		<h3>Select option</h3>
+		<h3>Option</h3>
+		<p>Project options with <code>plim-option</code>. Same component as autocomplete.</p>
 
 		<div class="docs-table-wrap">
 			<table class="docs-table">

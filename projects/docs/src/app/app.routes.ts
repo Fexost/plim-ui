@@ -2,29 +2,6 @@ import { Routes } from '@angular/router';
 
 import { DOCS_HOME, DOCS_PATHS } from './docs-nav.config';
 
-const LEGACY_COMPONENT_REDIRECTS: Routes = [
-	{ path: 'components/button', redirectTo: DOCS_PATHS.button, pathMatch: 'full' },
-	{ path: 'components/button-toggle', redirectTo: DOCS_PATHS.buttonToggle, pathMatch: 'full' },
-	{ path: 'components/badge', redirectTo: DOCS_PATHS.badge, pathMatch: 'full' },
-	{ path: 'components/card', redirectTo: DOCS_PATHS.card, pathMatch: 'full' },
-	{ path: 'components/separator', redirectTo: DOCS_PATHS.separator, pathMatch: 'full' },
-	{ path: 'components/avatar', redirectTo: DOCS_PATHS.avatar, pathMatch: 'full' },
-	{ path: 'components/spinner', redirectTo: DOCS_PATHS.spinner, pathMatch: 'full' },
-	{ path: 'components/progress-bar', redirectTo: DOCS_PATHS.progressBar, pathMatch: 'full' },
-	{ path: 'components/header', redirectTo: DOCS_PATHS.header, pathMatch: 'full' },
-	{ path: 'components/sidebar', redirectTo: DOCS_PATHS.sidebar, pathMatch: 'full' },
-	{ path: 'components/input', redirectTo: DOCS_PATHS.input, pathMatch: 'full' },
-	{ path: 'components/textarea', redirectTo: DOCS_PATHS.textarea, pathMatch: 'full' },
-	{ path: 'components/select', redirectTo: DOCS_PATHS.select, pathMatch: 'full' },
-	{ path: 'components/checkbox', redirectTo: DOCS_PATHS.checkbox, pathMatch: 'full' },
-	{ path: 'components/radio', redirectTo: DOCS_PATHS.radio, pathMatch: 'full' },
-	{ path: 'components/slider', redirectTo: DOCS_PATHS.slider, pathMatch: 'full' },
-	{ path: 'components/datepicker', redirectTo: DOCS_PATHS.datepicker, pathMatch: 'full' },
-	{ path: 'components/timepicker', redirectTo: DOCS_PATHS.timepicker, pathMatch: 'full' },
-	{ path: 'components/switch', redirectTo: DOCS_PATHS.switch, pathMatch: 'full' },
-	{ path: 'components/form-field', redirectTo: DOCS_PATHS.formField, pathMatch: 'full' },
-];
-
 export const routes: Routes = [
 	{ path: '', redirectTo: DOCS_HOME, pathMatch: 'full' },
 	{
@@ -36,8 +13,6 @@ export const routes: Routes = [
 		loadComponent: () =>
 			import('./pages/installation/installation').then((m) => m.Installation),
 	},
-	{ path: 'accessibility', redirectTo: DOCS_PATHS.accessibility, pathMatch: 'full' },
-	...LEGACY_COMPONENT_REDIRECTS,
 	{
 		path: DOCS_PATHS.tokens,
 		loadComponent: () =>
@@ -110,6 +85,11 @@ export const routes: Routes = [
 		path: DOCS_PATHS.sidebar,
 		loadComponent: () =>
 			import('./pages/navigation/sidebar/sidebar-docs').then((m) => m.SidebarDocs),
+	},
+	{
+		path: DOCS_PATHS.autocomplete,
+		loadComponent: () =>
+			import('./pages/form/autocomplete/autocomplete-docs').then((m) => m.AutocompleteDocs),
 	},
 	{
 		path: DOCS_PATHS.input,

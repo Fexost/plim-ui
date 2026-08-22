@@ -8,6 +8,7 @@
 		var(--plim-space-3) * 2 + var(--docs-header-control-height) + var(--plim-space-1) +
 			var(--plim-font-size-sm) * var(--plim-line-height-normal)
 	);
+	--docs-scroll-offset: calc(var(--plim-header-height) + var(--plim-space-6));
 }
 
 :host ::ng-deep plim-header .plim-header__bar {
@@ -51,27 +52,14 @@
 .docs-header-actions__links {
 	display: flex;
 	align-items: center;
-	gap: var(--plim-space-6);
+	gap: var(--plim-space-2);
 	padding-top: var(--plim-space-2);
+	padding-right: var(--plim-space-1);
 }
 
-.docs-header-link {
-	color: var(--plim-color-text);
-	font-size: var(--plim-font-size-sm);
-	font-weight: var(--plim-font-weight-medium);
-	line-height: var(--plim-line-height-normal);
-	text-decoration: none;
-	white-space: nowrap;
-
-	&:hover {
-		color: var(--plim-color-text-muted);
-	}
-
-	&:focus-visible {
-		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
-		outline-offset: var(--plim-focus-ring-offset);
-		border-radius: var(--plim-radius-sm);
-	}
+.docs-header-actions__links .plim-button {
+	min-height: 0;
+	padding-block: 0;
 }
 
 .docs-brand {

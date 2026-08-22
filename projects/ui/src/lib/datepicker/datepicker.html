@@ -1,0 +1,148 @@
+<div
+	class="plim-datepicker"
+	[class.plim-datepicker--open]="open()"
+	[class.plim-datepicker--invalid]="invalid()"
+	[class.plim-datepicker--disabled]="isDisabled()"
+>
+	<button
+		#trigger
+		type="button"
+		class="plim-datepicker__trigger"
+		cdkOverlayOrigin
+		#origin="cdkOverlayOrigin"
+		[id]="triggerId"
+		[attr.aria-expanded]="open()"
+		[attr.aria-controls]="open() ? panelId : null"
+		[attr.aria-invalid]="invalid() ? true : null"
+		[attr.aria-label]="ariaLabel() ?? null"
+		[attr.aria-labelledby]="ariaLabelledBy() ?? null"
+		aria-haspopup="dialog"
+		[disabled]="isDisabled()"
+		(click)="togglePanel()"
+		(keydown)="onTriggerKeydown($event)"
+	>
+		<span
+			class="plim-datepicker__value"
+			[class.plim-datepicker__value--placeholder]="showPlaceholder()"
+		>
+			{{ displayText() }}
+		</span>
+	</button>
+
+	<ng-template
+		cdkConnectedOverlay
+		[cdkConnectedOverlayOrigin]="origin"
+		[cdkConnectedOverlayOpen]="open()"
+		[cdkConnectedOverlayPositions]="overlayPositions"
+		[cdkConnectedOverlayMatchWidth]="false"
+		[cdkConnectedOverlayHasBackdrop]="true"
+		[cdkConnectedOverlayBackdropClass]="'plim-datepicker__backdrop'"
+		(overlayOutsideClick)="closePanel()"
+		(detach)="closePanel()"
+	>
+		<div [id]="panelId" class="plim-datepicker__panel" role="dialog" aria-modal="true">
+			<div class="plim-datepicker__header">
+				<button
+					type="button"
+					class="plim-datepicker__nav"
+					[attr.aria-label]="previousPageLabel()"
+					(click)="previousPage()"
+				>
+					‹
+				</button>
+				<button
+					type="button"
+					class="plim-datepicker__label"
+					[attr.aria-label]="
+						panelView() === 'calendar'
+							? 'Choose month and year, ' + headerLabel()
+							: panelView() === 'month'
+								? 'Choose year, ' + headerLabel()
+								: headerLabel()
+					"
+					(click)="onHeaderLabelClick()"
+				>
+					{{ headerLabel() }}
+				</button>
+				<button
+					type="button"
+					class="plim-datepicker__nav"
+					[attr.aria-label]="nextPageLabel()"
+					(click)="nextPage()"
+				>
+					›
+				</button>
+			</div>
+
+			@if (panelView() === 'calendar') {
+				<div class="plim-datepicker__weekdays" aria-hidden="true">
+					@for (label of weekdays(); track label) {
+						<span>{{ label }}</span>
+					}
+				</div>
+
+				<div class="plim-datepicker__grid" role="grid">
+					@for (day of calendarDays(); track day.iso) {
+						<button
+							type="button"
+							class="plim-datepicker__day"
+							role="gridcell"
+							[class.plim-datepicker__day--outside]="!day.inMonth"
+							[class.plim-datepicker__day--today]="day.isToday"
+							[class.plim-datepicker__day--selected]="day.isSelected"
+							[disabled]="day.isDisabled"
+							[attr.aria-selected]="day.isSelected"
+							[attr.aria-label]="day.iso"
+							(click)="selectDate(day.iso)"
+						>
+							{{ day.date }}
+						</button>
+					}
+				</div>
+
+				<div class="plim-datepicker__footer">
+					<button
+						type="button"
+						class="plim-datepicker__today"
+						[disabled]="todayDisabled()"
+						(click)="selectToday()"
+					>
+						Today
+					</button>
+				</div>
+			} @else if (panelView() === 'month') {
+				<div class="plim-datepicker__grid plim-datepicker__grid--months" role="grid">
+					@for (label of monthLabels(); track label; let index = $index) {
+						<button
+							type="button"
+							class="plim-datepicker__cell"
+							role="gridcell"
+							[class.plim-datepicker__cell--selected]="isSelectedMonth(index)"
+							[class.plim-datepicker__cell--today]="isCurrentMonth(index)"
+							[attr.aria-selected]="isSelectedMonth(index)"
+							(click)="selectMonth(index)"
+						>
+							{{ label }}
+						</button>
+					}
+				</div>
+			} @else {
+				<div class="plim-datepicker__grid plim-datepicker__grid--years" role="grid">
+					@for (year of yearOptions(); track year) {
+						<button
+							type="button"
+							class="plim-datepicker__cell"
+							role="gridcell"
+							[class.plim-datepicker__cell--selected]="isSelectedYear(year)"
+							[class.plim-datepicker__cell--today]="isCurrentYear(year)"
+							[attr.aria-selected]="isSelectedYear(year)"
+							(click)="selectYear(year)"
+						>
+							{{ year }}
+						</button>
+					}
+				</div>
+			}
+		</div>
+	</ng-template>
+</div>

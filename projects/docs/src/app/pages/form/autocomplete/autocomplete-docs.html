@@ -1,0 +1,165 @@
+<app-docs-component-layout category="Form" title="Autocomplete">
+	<p docsLead>
+		Filterable text input with a themed suggestion panel. Built with Angular CDK overlay and
+		combobox keyboard semantics.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>States</h2>
+		<p>Focus shows the first suggestions. Type to filter.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview docs-split__preview--stack">
+				<plim-autocomplete placeholder="Search fruit">
+					<plim-option value="apple">Apple</plim-option>
+					<plim-option value="banana">Banana</plim-option>
+					<plim-option value="cherry">Cherry</plim-option>
+					<plim-option value="grape">Grape</plim-option>
+					<plim-option value="kiwi">Kiwi</plim-option>
+					<plim-option value="mango">Mango</plim-option>
+					<plim-option value="orange">Orange</plim-option>
+					<plim-option value="pear">Pear</plim-option>
+					<plim-option value="plum">Plum</plim-option>
+				</plim-autocomplete>
+				<plim-autocomplete disabled placeholder="Search fruit">
+					<plim-option value="apple">Apple</plim-option>
+					<plim-option value="banana">Banana</plim-option>
+				</plim-autocomplete>
+				<plim-autocomplete invalid placeholder="Search fruit">
+					<plim-option value="apple">Apple</plim-option>
+					<plim-option value="banana">Banana</plim-option>
+				</plim-autocomplete>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-autocomplete placeholder="Search fruit"&gt;
+  &lt;plim-option value="apple"&gt;Apple&lt;/plim-option&gt;
+  &lt;plim-option value="banana"&gt;Banana&lt;/plim-option&gt;
+  ...
+&lt;/plim-autocomplete&gt;
+
+&lt;plim-autocomplete disabled placeholder="Search fruit"&gt;
+  ...
+&lt;/plim-autocomplete&gt;
+
+&lt;plim-autocomplete invalid placeholder="Search fruit"&gt;
+  ...
+&lt;/plim-autocomplete&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The input uses <code>role="combobox"</code> with an associated
+					<code>role="listbox"</code> panel. Arrow keys, Enter, Home, End, and Escape are
+					supported while the panel is open.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Pair with a visible label or <code>plim-form-field</code></li>
+					<li>
+						Provide <code>ariaLabel</code> or <code>ariaLabelledBy</code> when no visible
+						label is present
+					</li>
+					<li>Use <code>invalid</code> for validation styling and <code>aria-invalid</code></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>placeholder</code></td>
+						<td><code>string</code></td>
+						<td><code>'Search…'</code></td>
+						<td>Placeholder shown when the input is empty.</td>
+					</tr>
+					<tr>
+						<td><code>maxSuggestions</code></td>
+						<td><code>number</code></td>
+						<td><code>8</code></td>
+						<td>How many options to show on open and after filtering.</td>
+					</tr>
+					<tr>
+						<td><code>ariaLabel</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Accessible name when no visible label is associated.</td>
+					</tr>
+					<tr>
+						<td><code>ariaLabelledBy</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>References the id of the element that labels the autocomplete.</td>
+					</tr>
+					<tr>
+						<td><code>invalid</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Applies error styling and <code>aria-invalid</code>.</td>
+					</tr>
+					<tr>
+						<td><code>disabled</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Disables the input and suggestion panel.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Option</h3>
+		<p>Project options with <code>plim-option</code>. Same component as select.</p>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>value</code></td>
+						<td><code>string</code></td>
+						<td><code>''</code></td>
+						<td>Option value emitted by the autocomplete.</td>
+					</tr>
+					<tr>
+						<td><code>disabled</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Excludes the option from keyboard and pointer selection.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

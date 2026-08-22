@@ -1,7 +1,7 @@
-<app-docs-component-layout category="Form" title="Timepicker" nativeElement="<input type=&quot;time&quot;>">
+<app-docs-component-layout category="Form" title="Timepicker">
 	<p docsLead>
-		Styles native time inputs with shared field tokens. Apply <code>plimTimepicker</code> to
-		keep semantic behaviour and Angular forms compatibility.
+		Custom time picker with scrollable hour and minute columns. Built with Angular CDK overlay.
+		Use the native variant below when browser time inputs are enough.
 	</p>
 
 	<section class="docs-component__section" id="preview">
@@ -10,13 +10,32 @@
 
 		<div class="docs-split">
 			<div class="docs-preview docs-split__preview docs-split__preview--stack">
-				<input type="time" plimTimepicker />
-				<input type="time" plimTimepicker disabled />
-				<input type="time" plimTimepicker invalid />
+				<plim-timepicker placeholder="Select time" />
+				<plim-timepicker disabled placeholder="Select time" />
+				<plim-timepicker invalid placeholder="Select time" />
 			</div>
-			<pre
-				class="docs-code docs-split__code"
-			><code>&lt;input type="time" plimTimepicker /&gt;
+			<pre class="docs-code docs-split__code"><code>&lt;plim-timepicker placeholder="Select time" /&gt;
+&lt;plim-timepicker disabled placeholder="Select time" /&gt;
+&lt;plim-timepicker invalid placeholder="Select time" /&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section">
+		<h2>Native HTML</h2>
+		<p class="docs-section-copy">
+			Apply <code>plimTimepicker</code> to a native <code>&lt;input type="time"&gt;</code> for
+			matching field styling with browser-provided clock UI.
+		</p>
+
+		<div class="docs-example">
+			<div class="docs-preview docs-preview--native docs-example__preview">
+				<div class="docs-native-demo">
+					<input type="time" plimTimepicker />
+					<input type="time" plimTimepicker disabled />
+					<input type="time" plimTimepicker invalid />
+				</div>
+			</div>
+			<pre class="docs-code"><code>&lt;input type="time" plimTimepicker /&gt;
 &lt;input type="time" plimTimepicker disabled /&gt;
 &lt;input type="time" plimTimepicker invalid /&gt;</code></pre>
 		</div>
@@ -30,14 +49,15 @@
 			<div>
 				<h3>Accessibility guidance</h3>
 				<p>
-					Time inputs remain native elements. Pair with a label and use
-					<code>min</code>/<code>max</code>/<code>step</code> when the allowed range
-					matters.
+					The custom timepicker exposes expanded/collapsed state and supports keyboard
+					selection in the hour and minute columns. Pair with a visible label or
+					<code>plim-form-field</code>.
 				</p>
 				<ul class="docs-a11y-callout__features">
-					<li>Native time picker semantics</li>
-					<li>Browser-provided clock UI</li>
-					<li>Visible focus ring</li>
+					<li>Arrow keys move between options while the panel is open</li>
+					<li>Enter confirms the focused hour or minute</li>
+					<li>Use <code>minuteStep</code> to control minute increments</li>
+					<li>Native inputs keep standard time semantics and browser UI</li>
 				</ul>
 			</div>
 		</div>
@@ -66,10 +86,64 @@
 				</thead>
 				<tbody>
 					<tr>
+						<td><code>placeholder</code></td>
+						<td><code>string</code></td>
+						<td><code>'Select time'</code></td>
+						<td>Fallback label when no time is selected.</td>
+					</tr>
+					<tr>
+						<td><code>minuteStep</code></td>
+						<td><code>number</code></td>
+						<td><code>1</code></td>
+						<td>Minute increment in the custom picker columns. Typed values still accept any minute from 00–59.</td>
+					</tr>
+					<tr>
+						<td><code>ariaLabel</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Accessible name when no visible label is associated.</td>
+					</tr>
+					<tr>
+						<td><code>ariaLabelledBy</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>References the id of the element that labels the timepicker.</td>
+					</tr>
+					<tr>
 						<td><code>invalid</code></td>
 						<td><code>boolean</code></td>
 						<td><code>false</code></td>
-						<td>Applies invalid styling and sets aria-invalid.</td>
+						<td>Applies error styling and <code>aria-invalid</code>.</td>
+					</tr>
+					<tr>
+						<td><code>disabled</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Disables the trigger and time panel.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Native time input</h3>
+		<p>Apply <code>plimTimepicker</code> to a native <code>&lt;input type="time"&gt;</code>.</p>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>invalid</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Applies error styling and <code>aria-invalid</code>.</td>
 					</tr>
 				</tbody>
 			</table>

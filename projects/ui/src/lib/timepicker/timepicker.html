@@ -1,0 +1,99 @@
+<div
+	class="plim-timepicker"
+	[class.plim-timepicker--open]="open()"
+	[class.plim-timepicker--invalid]="invalid()"
+	[class.plim-timepicker--disabled]="isDisabled()"
+>
+	<div class="plim-timepicker__field" cdkOverlayOrigin #origin="cdkOverlayOrigin">
+		<input
+			#input
+			[id]="inputId"
+			type="text"
+			class="plim-timepicker__input"
+			inputmode="numeric"
+			maxlength="5"
+			role="combobox"
+			aria-autocomplete="none"
+			[attr.aria-expanded]="open()"
+			[attr.aria-controls]="open() ? panelId : null"
+			[attr.aria-invalid]="invalid() ? true : null"
+			[attr.aria-label]="ariaLabel() ?? null"
+			[attr.aria-labelledby]="ariaLabelledBy() ?? null"
+			aria-haspopup="dialog"
+			[disabled]="isDisabled()"
+			[placeholder]="placeholder()"
+			(input)="onInput($event)"
+			(focus)="onInputFocus()"
+			(keydown)="onInputKeydown($event)"
+			(blur)="onInputBlur()"
+		/>
+		<button
+			[id]="toggleId"
+			type="button"
+			class="plim-timepicker__toggle"
+			aria-label="Open time picker"
+			[disabled]="isDisabled()"
+			[attr.aria-expanded]="open()"
+			[attr.aria-controls]="open() ? panelId : null"
+			(click)="togglePanel()"
+		></button>
+	</div>
+
+	<ng-template
+		cdkConnectedOverlay
+		[cdkConnectedOverlayOrigin]="origin"
+		[cdkConnectedOverlayOpen]="open()"
+		[cdkConnectedOverlayPositions]="overlayPositions"
+		[cdkConnectedOverlayMatchWidth]="true"
+		[cdkConnectedOverlayHasBackdrop]="true"
+		[cdkConnectedOverlayBackdropClass]="'plim-timepicker__backdrop'"
+		(overlayOutsideClick)="onOverlayOutsideClick($event)"
+		(detach)="closePanel()"
+	>
+		<div
+			[id]="panelId"
+			class="plim-timepicker__panel"
+			role="dialog"
+			aria-modal="true"
+			(mousedown)="onPanelMouseDown()"
+		>
+			<div class="plim-timepicker__columns">
+				<div class="plim-timepicker__column">
+					<p class="plim-timepicker__column-label">Hour</p>
+					<div class="plim-timepicker__options" role="listbox" aria-label="Hour">
+						@for (hour of hours(); track hour) {
+							<button
+								type="button"
+								class="plim-timepicker__option"
+								role="option"
+								[attr.aria-selected]="selectedHour() === hour"
+								[class.plim-timepicker__option--selected]="selectedHour() === hour"
+								(click)="selectHour(hour)"
+							>
+								{{ hourLabel(hour) }}
+							</button>
+						}
+					</div>
+				</div>
+
+				<div class="plim-timepicker__column">
+					<p class="plim-timepicker__column-label">Minute</p>
+					<div class="plim-timepicker__options" role="listbox" aria-label="Minute">
+						@for (minute of minutes(); track minute) {
+							<button
+								type="button"
+								class="plim-timepicker__option"
+								role="option"
+								[attr.aria-selected]="selectedMinute() === minute"
+								[class.plim-timepicker__option--selected]="selectedMinute() === minute"
+								(click)="selectMinute(minute)"
+							>
+								{{ minuteLabel(minute) }}
+							</button>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</ng-template>
+</div>

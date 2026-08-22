@@ -368,6 +368,15 @@ When implementing or reviewing plim-ui:
 **Do not** introduce arbitrary hex/rgb values in components when a token exists
 or a new token should be added to `_tokens.scss`.
 
+### Style file ownership
+
+- One SCSS file next to the component, directive, or page that uses it (`styleUrl`).
+- Shared tokens, theme, and mixins stay in `projects/ui/src/styles/`.
+- Shared docs primitives stay in `projects/docs/src/app/styles/` (`_docs-page.scss`,
+  `_docs-code-theme.scss`). Form preview helpers stay in `pages/form/_form-docs-preview.scss`.
+- App shell chrome belongs in `app.scss`. Do not split one-owner styles into extra shared
+  partials.
+
 ---
 
 ## 10. Agent checklist (before shipping UI)
