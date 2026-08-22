@@ -19,6 +19,23 @@
 	--plim-color-warning: #e8b85c;
 	--plim-color-danger: #ed6a7a;
 
+	// Semantic tinted surfaces (callouts, notes — see DESIGN-AGENTS.md)
+	--plim-color-primary-surface: color-mix(in srgb, var(--plim-color-primary) 12%, var(--plim-color-surface));
+	--plim-color-primary-surface-border: color-mix(in srgb, var(--plim-color-primary) 28%, transparent);
+	--plim-color-primary-surface-text: color-mix(
+		in srgb,
+		var(--plim-color-text) 72%,
+		var(--plim-color-primary) 28%
+	);
+	--plim-color-success-surface: color-mix(in srgb, var(--plim-color-success) 10%, var(--plim-color-surface));
+	--plim-color-success-surface-border: color-mix(in srgb, var(--plim-color-success) 26%, transparent);
+	--plim-color-success-surface-text: color-mix(
+		in srgb,
+		var(--plim-color-text) 78%,
+		var(--plim-color-success) 22%
+	);
+	--plim-color-success-surface-icon: color-mix(in srgb, var(--plim-color-success) 18%, transparent);
+
 	// Typography
 	--plim-font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 

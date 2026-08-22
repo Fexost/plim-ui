@@ -10,45 +10,64 @@
 
 		<div class="docs-split">
 			<div class="docs-preview docs-split__preview docs-split__preview--stack">
-				<plim-select>
-					<plim-select-option value="" disabled>Select an item</plim-select-option>
+				<plim-select placeholder="Choose an option">
 					<plim-select-option value="1">Item 1</plim-select-option>
 					<plim-select-option value="2" selected>Item 2</plim-select-option>
 					<plim-select-option value="3">Item 3</plim-select-option>
 				</plim-select>
-				<plim-select disabled>
-					<plim-select-option value="" disabled>Select an item</plim-select-option>
+				<plim-select disabled placeholder="Choose an option">
 					<plim-select-option value="1" selected>Item 1</plim-select-option>
 					<plim-select-option value="2">Item 2</plim-select-option>
 					<plim-select-option value="3">Item 3</plim-select-option>
 				</plim-select>
-				<plim-select invalid>
-					<plim-select-option value="" disabled selected>Select an item</plim-select-option>
+				<plim-select invalid placeholder="Choose an option">
 					<plim-select-option value="1">Item 1</plim-select-option>
 					<plim-select-option value="2">Item 2</plim-select-option>
 					<plim-select-option value="3">Item 3</plim-select-option>
 				</plim-select>
 			</div>
-			<pre class="docs-code docs-split__code"><code>&lt;plim-select&gt;
-  &lt;plim-select-option value="" disabled&gt;Select an item&lt;/plim-select-option&gt;
+			<pre class="docs-code docs-split__code"><code>&lt;plim-select placeholder="Choose an option"&gt;
   &lt;plim-select-option value="1"&gt;Item 1&lt;/plim-select-option&gt;
   &lt;plim-select-option value="2" selected&gt;Item 2&lt;/plim-select-option&gt;
   &lt;plim-select-option value="3"&gt;Item 3&lt;/plim-select-option&gt;
 &lt;/plim-select&gt;
 
-&lt;plim-select disabled&gt;
-  &lt;plim-select-option value="" disabled&gt;Select an item&lt;/plim-select-option&gt;
+&lt;plim-select disabled placeholder="Choose an option"&gt;
   &lt;plim-select-option value="1" selected&gt;Item 1&lt;/plim-select-option&gt;
-  &lt;plim-select-option value="2"&gt;Item 2&lt;/plim-select-option&gt;
-  &lt;plim-select-option value="3"&gt;Item 3&lt;/plim-select-option&gt;
+  ...
 &lt;/plim-select&gt;
 
-&lt;plim-select invalid&gt;
-  &lt;plim-select-option value="" disabled selected&gt;Select an item&lt;/plim-select-option&gt;
-  &lt;plim-select-option value="1"&gt;Item 1&lt;/plim-select-option&gt;
-  &lt;plim-select-option value="2"&gt;Item 2&lt;/plim-select-option&gt;
-  &lt;plim-select-option value="3"&gt;Item 3&lt;/plim-select-option&gt;
+&lt;plim-select invalid placeholder="Choose an option"&gt;
+  ...
 &lt;/plim-select&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section">
+		<h2>Native HTML</h2>
+		<p class="docs-section-copy">
+			Use <code>plimSelect</code> on a native <code>&lt;select&gt;</code> for matching field
+			styling with standard <code>&lt;option&gt;</code> children. Add
+			<code>required</code> only when you also want muted placeholder styling via CSS.
+		</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview docs-split__preview--stack">
+				<div class="docs-native-demo">
+					<select plimSelect required>
+						<option value="" disabled selected>Choose an option</option>
+						<option value="1">Item 1</option>
+						<option value="2">Item 2</option>
+						<option value="3">Item 3</option>
+					</select>
+				</div>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;select plimSelect required&gt;
+  &lt;option value="" disabled selected&gt;Choose an option&lt;/option&gt;
+  &lt;option value="1"&gt;Item 1&lt;/option&gt;
+  &lt;option value="2"&gt;Item 2&lt;/option&gt;
+  &lt;option value="3"&gt;Item 3&lt;/option&gt;
+&lt;/select&gt;</code></pre>
 		</div>
 	</section>
 
@@ -70,7 +89,6 @@
 						Provide <code>ariaLabel</code> or <code>ariaLabelledBy</code> when no visible
 						label is present
 					</li>
-					<li>Mark placeholder options as disabled</li>
 					<li>Use <code>invalid</code> for validation styling and <code>aria-invalid</code></li>
 				</ul>
 			</div>
@@ -120,6 +138,36 @@
 						<td><code>boolean</code></td>
 						<td><code>false</code></td>
 						<td>Disables the select trigger and panel.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Native select</h3>
+		<p>Apply <code>plimSelect</code> to a native <code>&lt;select&gt;</code> for field styling.</p>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>invalid</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Applies error styling and <code>aria-invalid</code>.</td>
+					</tr>
+					<tr>
+						<td><code>disabled</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Native attribute. Disables the select.</td>
 					</tr>
 				</tbody>
 			</table>

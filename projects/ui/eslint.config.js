@@ -50,6 +50,7 @@ module.exports = (async () => {
 		'**/checkbox/checkbox.ts',
 				'**/radio/radio.ts',
 				'**/switch/switch.ts',
+				'**/select/native-select.ts',
 			],
 			rules: {
 				'@angular-eslint/component-selector': [

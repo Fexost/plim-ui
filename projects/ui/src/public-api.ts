@@ -13,6 +13,7 @@ export * from './lib/input/input';
 export * from './lib/radio/radio';
 export * from './lib/select/select';
 export * from './lib/select/select-option';
+export * from './lib/select/native-select';
 export * from './lib/separator/separator';
 export * from './lib/sidebar/sidebar';
 export * from './lib/spinner/spinner';

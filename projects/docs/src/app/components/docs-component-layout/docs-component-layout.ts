@@ -13,6 +13,8 @@ import { DocsHighlightCodeDirective } from '../../directives/docs-code-highlight
 export class DocsComponentLayout {
 	public readonly category = input.required<string>();
 	public readonly title = input.required<string>();
+	/** When set, shows that the component builds on a native HTML element. */
+	public readonly nativeElement = input<string>();
 
 	protected readonly jumpSections = [
 		{ id: 'preview', label: 'Preview' },

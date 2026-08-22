@@ -72,7 +72,11 @@
 }
 
 .overview-card--muted {
-	opacity: 0.72;
+	h3,
+	p,
+	.overview-card__copy {
+		color: var(--plim-color-text-subtle);
+	}
 }
 
 .docs-text-link {

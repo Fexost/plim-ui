@@ -10,6 +10,9 @@ document rather than blindly following outdated information.
 Do not make broad architectural changes without first explaining why they
 are necessary.
 
+For visual design decisions (hierarchy, spacing, colour, depth, typography),
+see [`DESIGN-AGENTS.md`](./DESIGN-AGENTS.md).
+
 # Plim UI — Project Context & Development Guidelines
 
 ## 1. Project Overview
@@ -458,7 +461,9 @@ Live site: [fexost.github.io/plim-ui](https://fexost.github.io/plim-ui/) (GitHub
 responsive overlay menu below 960px (`DocsResponsiveNavService`).
 
 **Nav config:** `docs-nav.config.ts` — categories: Get started, Foundations, Basic, Form,
-Navigation, Feedback, Data. Unimplemented items render as coming-soon labels.
+Navigation, Feedback, Data. The sidebar lists the full Material-aligned component inventory
+(35 entries); unimplemented items render as coming-soon labels. See `COMPONENT_INVENTORY`
+in the same file for roadmap status.
 
 **Page routes:**
 
@@ -477,6 +482,13 @@ Legacy redirects: `/components/*` → `/basic/*` or `/navigation/*`; `/accessibi
 * `DocsComponentLayout` — component reference (breadcrumbs, jump nav, preview / a11y / API sections)
 
 Both layouts use `hostDirectives: [DocsHighlightCodeDirective]` (`selector: [appHighlightCode]`) for syntax highlighting. Standalone pages such as Overview attach the same directive on the page component.
+
+**Native HTML in docs:** Set `nativeElement` on `DocsComponentLayout` when a component is an
+attribute directive on a native element (shows the intro badge). Add a **Native HTML** preview
+section only when a native alternative can carry the same content — for example
+<code>&lt;plim-select&gt;</code> options mapped to a native <code>&lt;select&gt;</code>. Do not
+add native preview sections to directive-only controls such as <code>plimInput</code> or
+<code>plimButton</code>.
 
 **Docs-only dependencies:** `highlight.js` (not part of the published library). Theme colours
 for code blocks in `_docs-code-theme.scss` (Cursor / VS Code–style light and dark).
@@ -603,7 +615,7 @@ When implementing new components:
 * Angular CDK installed; **`plim-select`** uses CDK Overlay (peer dependency).
 * ESLint / angular-eslint; Vitest for unit tests.
 * Library built with ng-packagr → `dist/plim-ui`; styles at `dist/plim-ui/styles/`.
-* Design tokens: colour, typography, spacing, radius, shadow, focus, motion (`--plim-duration-spin`), component dimensions.
+* Design tokens: colour, typography, spacing, radius, shadow, focus, motion (`--plim-duration-spin`), component dimensions, semantic tinted surfaces (`--plim-color-*-surface*`).
 * Light/dark themes via CSS variables; docs `ThemeService` persists choice.
 * **Published components:** Header, Sidebar, Button, Badge, Card, Separator, Avatar, Spinner; Form: Input, Textarea, Select, Checkbox, Radio, Switch, Form field.
 * Docs: all Basic + Navigation component pages, Foundations guides, overview, installation.
@@ -636,57 +648,58 @@ Immediate priorities:
 2. ~~Foundation reference pages~~ (Tokens, Theme, Typography, Accessibility)
 3. ~~Header and Sidebar docs~~
 4. ~~Form primitives~~ — Input, Textarea, Select, Checkbox, Radio, Switch, Form field (Select uses CDK overlay; others are native elements)
-5. Site search; remaining Navigation / Feedback / Data components
+5. Site search; remaining inventory entries (see below)
 
-Potential component progression:
+### Component inventory
 
-```text
-Foundations
-├── Tokens
-├── Theme
-├── Typography
-├── Icons
-└── Accessibility utilities
+The docs sidebar and `COMPONENT_INVENTORY` in `docs-nav.config.ts` track a
+Material-aligned catalogue. Names below use familiar Material labels; **plim name**
+is shown where the library uses a different public API.
 
-Basic
-├── Button
-├── Badge
-├── Card
-├── Separator
-├── Avatar
-└── Spinner
+| Component | Category | Status | plim name / docs |
+| --- | --- | --- | --- |
+| Autocomplete | Form | planned | — |
+| Badge | Basic | **implemented** | `<plim-badge>` |
+| Bottom sheet | Feedback | planned | — |
+| Button | Basic | **implemented** | `button[plimButton]` |
+| Button toggle | Basic | planned | — |
+| Card | Basic | **implemented** | `<plim-card>` |
+| Checkbox | Form | **implemented** | `input[plimCheckbox]` |
+| Chips | Data | planned | — |
+| Datepicker | Form | planned | — |
+| Dialog | Feedback | planned | — |
+| Divider | Basic | **implemented** | `<plim-separator>` |
+| Expansion panel | Data | planned | — |
+| Form field | Form | **implemented** | `<plim-form-field>` |
+| Grid list | Data | planned | — |
+| Icon | Foundations | partial | Icons guide (`foundations/icons`) |
+| Input | Form | **implemented** | `input[plimInput]` |
+| List | Data | planned | — |
+| Menu | Navigation | planned | — |
+| Paginator | Navigation | planned | — |
+| Progress bar | Basic | planned | — |
+| Progress spinner | Basic | **implemented** | `<plim-spinner>` |
+| Radio button | Form | **implemented** | `input[plimRadio]` |
+| Select | Form | **implemented** | `<plim-select>` (CDK overlay); native `select[plimSelect]` |
+| Sidenav | Navigation | **implemented** | `<plim-sidebar>` |
+| Slide toggle | Form | **implemented** | `input[plimSwitch]` |
+| Slider | Form | planned | — |
+| Snackbar | Feedback | planned | — |
+| Sort header | Data | planned | — |
+| Stepper | Data | planned | — |
+| Table | Data | planned | — |
+| Tabs | Navigation | planned | — |
+| Timepicker | Form | planned | — |
+| Toolbar | Navigation | planned | — |
+| Tooltip | Feedback | planned | — |
+| Tree | Data | planned | — |
 
-Form
-├── Input
-├── Textarea
-├── Select
-├── Checkbox
-├── Radio
-├── Switch
-└── Form field
+**Also shipped (not in Material list):** Avatar (`<plim-avatar>`), Textarea
+(`textarea[plimTextarea]`), Header (`<plim-header>`).
 
-Navigation
-├── Header
-├── Tabs
-├── Breadcrumb
-├── Pagination
-└── Sidebar
-
-Feedback
-├── Alert
-├── Toast
-├── Dialog
-├── Tooltip
-└── Popover
-
-Data
-├── Table
-├── List
-├── Accordion
-└── Tree
-```
-
-This ordering is not mandatory, but the general principle is to establish reusable primitives before building more complicated components.
+Inventory ordering in the sidebar is alphabetical within each category. This
+ordering is not mandatory for implementation priority — establish reusable
+primitives before building more complicated components.
 
 ---
 

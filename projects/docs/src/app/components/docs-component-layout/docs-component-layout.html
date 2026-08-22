@@ -10,6 +10,16 @@
 		<div class="docs-lead">
 			<ng-content select="[docsLead]" />
 		</div>
+
+		@if (nativeElement()) {
+			<aside class="docs-native-note" role="note">
+				<span class="docs-native-note__label">Native HTML</span>
+				<p class="docs-native-note__text">
+					Built on <code>{{ nativeElement() }}</code> — semantics and form compatibility stay
+					on the element.
+				</p>
+			</aside>
+		}
 	</header>
 
 	<nav class="docs-component__jump-nav" aria-label="Page sections">
