@@ -18,6 +18,9 @@ const LEGACY_COMPONENT_REDIRECTS: Routes = [
 	{ path: 'components/select', redirectTo: DOCS_PATHS.select, pathMatch: 'full' },
 	{ path: 'components/checkbox', redirectTo: DOCS_PATHS.checkbox, pathMatch: 'full' },
 	{ path: 'components/radio', redirectTo: DOCS_PATHS.radio, pathMatch: 'full' },
+	{ path: 'components/slider', redirectTo: DOCS_PATHS.slider, pathMatch: 'full' },
+	{ path: 'components/datepicker', redirectTo: DOCS_PATHS.datepicker, pathMatch: 'full' },
+	{ path: 'components/timepicker', redirectTo: DOCS_PATHS.timepicker, pathMatch: 'full' },
 	{ path: 'components/switch', redirectTo: DOCS_PATHS.switch, pathMatch: 'full' },
 	{ path: 'components/form-field', redirectTo: DOCS_PATHS.formField, pathMatch: 'full' },
 ];
@@ -129,6 +132,20 @@ export const routes: Routes = [
 	{
 		path: DOCS_PATHS.radio,
 		loadComponent: () => import('./pages/form/radio/radio-docs').then((m) => m.RadioDocs),
+	},
+	{
+		path: DOCS_PATHS.slider,
+		loadComponent: () => import('./pages/form/slider/slider-docs').then((m) => m.SliderDocs),
+	},
+	{
+		path: DOCS_PATHS.datepicker,
+		loadComponent: () =>
+			import('./pages/form/datepicker/datepicker-docs').then((m) => m.DatepickerDocs),
+	},
+	{
+		path: DOCS_PATHS.timepicker,
+		loadComponent: () =>
+			import('./pages/form/timepicker/timepicker-docs').then((m) => m.TimepickerDocs),
 	},
 	{
 		path: DOCS_PATHS.switch,

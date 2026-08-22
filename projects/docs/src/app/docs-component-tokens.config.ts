@@ -121,6 +121,17 @@ export const SWITCH_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-focus-ring-*', usage: 'Keyboard focus outline' },
 ];
 
+export const SLIDER_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-slider-thumb-size', usage: 'Minimum control height' },
+	{ token: '--plim-color-primary', usage: 'Track fill and thumb accent' },
+	{ token: '--plim-color-danger', usage: 'Invalid accent colour' },
+	{ token: '--plim-focus-ring-*', usage: 'Keyboard focus outline' },
+];
+
+export const DATEPICKER_DOCS_TOKENS: DocsComponentToken[] = [...INPUT_DOCS_TOKENS];
+
+export const TIMEPICKER_DOCS_TOKENS: DocsComponentToken[] = [...INPUT_DOCS_TOKENS];
+
 export const FORM_FIELD_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-form-field-gap', usage: 'Gap between label, control, and hint' },
 	{ token: '--plim-color-text', usage: 'Label text' },

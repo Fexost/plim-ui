@@ -1,0 +1,78 @@
+<app-docs-component-layout category="Form" title="Slider" nativeElement="<input type=&quot;range&quot;>">
+	<p docsLead>
+		Styles native range inputs for selecting a value from a continuous range. Apply
+		<code>plimSlider</code> and use native <code>min</code>, <code>max</code>, and
+		<code>step</code> attributes.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>States</h2>
+		<p>Default, disabled, and invalid states.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview docs-split__preview--stack">
+				<input type="range" plimSlider min="0" max="100" value="40" aria-label="Volume" />
+				<input type="range" plimSlider min="0" max="100" value="60" disabled aria-label="Volume" />
+				<input type="range" plimSlider min="0" max="100" value="20" invalid aria-label="Volume" />
+			</div>
+			<pre
+				class="docs-code docs-split__code"
+			><code>&lt;input type="range" plimSlider min="0" max="100" value="40" /&gt;
+&lt;input type="range" plimSlider min="0" max="100" disabled /&gt;
+&lt;input type="range" plimSlider min="0" max="100" invalid /&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					Range inputs remain native elements. Pair with a visible label or
+					<code>aria-label</code> when the purpose is not clear from context.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Native slider semantics</li>
+					<li>Keyboard arrow key support</li>
+					<li>Visible focus ring</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>invalid</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Applies invalid styling and sets aria-invalid.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

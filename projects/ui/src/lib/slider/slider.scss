@@ -1,0 +1,28 @@
+:host {
+	display: block;
+	width: 100%;
+	min-height: var(--plim-slider-thumb-size);
+	margin: 0;
+	cursor: pointer;
+	accent-color: var(--plim-color-primary);
+	background: transparent;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+		border-radius: var(--plim-radius-sm);
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+:host(.plim-slider--invalid) {
+	accent-color: var(--plim-color-danger);
+}
