@@ -13,6 +13,9 @@
 
 	--plim-color-primary: #8b5cf6;
 	--plim-color-primary-hover: #a78bfa;
+	// Filled controls (primary buttons, checked toggles) need a darker accent for white text.
+	--plim-color-primary-strong: #8048f2;
+	--plim-color-primary-strong-hover: #7240e8;
 	--plim-color-on-primary: #ffffff;
 
 	--plim-color-success: #55d187;
