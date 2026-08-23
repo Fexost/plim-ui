@@ -9,7 +9,6 @@
 				(click)="nav.toggleNav()"
 				[attr.aria-expanded]="nav.navOpen()"
 				aria-controls="docs-sidebar"
-				aria-label="Toggle documentation navigation"
 			>
 				Menu
 			</button>
@@ -31,11 +30,8 @@
 					variant="secondary"
 					class="docs-header-control"
 					(click)="theme.toggle()"
-					[attr.aria-label]="
-						theme.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
-					"
 				>
-					{{ theme.theme() === 'dark' ? 'Light' : 'Dark' }}
+					{{ theme.theme() === 'dark' ? 'Light theme' : 'Dark theme' }}
 				</button>
 			</div>
 			<div class="docs-header-actions__links">

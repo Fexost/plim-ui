@@ -42,6 +42,8 @@ describe('Sidebar', () => {
 		});
 
 		it('should project header, nav, and footer slots', () => {
+			const panel = host.querySelector('.plim-sidebar__panel');
+			expect(panel).toBeTruthy();
 			expect(host.querySelector('.plim-sidebar__header')?.textContent?.trim()).toBe('Header');
 			expect(host.querySelector('.plim-sidebar__nav')?.textContent?.trim()).toBe('Nav');
 			expect(host.querySelector('.plim-sidebar__footer')?.textContent?.trim()).toBe('Footer');

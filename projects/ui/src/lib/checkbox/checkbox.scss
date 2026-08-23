@@ -29,8 +29,8 @@
 	}
 
 	&:checked {
-		background: var(--plim-color-primary);
-		border-color: var(--plim-color-primary);
+		background: var(--plim-color-primary-strong);
+		border-color: var(--plim-color-primary-strong);
 
 		&::before {
 			transform: translate(-50%, -60%) rotate(45deg) scale(1);

@@ -2,11 +2,11 @@ import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Separator } from 'plim-ui';
 
-import { DocsHighlightCodeDirective } from '../../directives/docs-code-highlight';
+import { DOCS_PAGE_HOST_DIRECTIVES } from '../../directives/docs-page-host-directives';
 
 @Component({
 	selector: 'app-docs-guide-layout',
-	hostDirectives: [DocsHighlightCodeDirective],
+	hostDirectives: DOCS_PAGE_HOST_DIRECTIVES,
 	imports: [RouterLink, Separator],
 	templateUrl: './docs-guide-layout.html',
 })

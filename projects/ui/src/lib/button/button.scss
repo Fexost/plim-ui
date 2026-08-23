@@ -50,11 +50,11 @@
 }
 
 :host(.plim-button--primary) {
-	background: var(--plim-color-primary);
+	background: var(--plim-color-primary-strong);
 	color: var(--plim-color-on-primary);
 
 	&:hover:not(:disabled) {
-		background: var(--plim-color-primary-hover);
+		background: var(--plim-color-primary-strong-hover);
 	}
 
 	@media (forced-colors: active) {

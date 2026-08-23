@@ -30,8 +30,8 @@
 	}
 
 	&:checked {
-		background: var(--plim-color-primary);
-		border-color: var(--plim-color-primary);
+		background: var(--plim-color-primary-strong);
+		border-color: var(--plim-color-primary-strong);
 
 		&::before {
 			background: var(--plim-color-on-primary);

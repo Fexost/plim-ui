@@ -99,8 +99,8 @@
 }
 
 .plim-stepper__item--active .plim-stepper__index {
-	background: var(--plim-color-primary);
-	border-color: var(--plim-color-primary);
+	background: var(--plim-color-primary-strong);
+	border-color: var(--plim-color-primary-strong);
 	color: var(--plim-color-on-primary);
 }
 
@@ -152,11 +152,11 @@
 }
 
 .plim-stepper__next {
-	background: var(--plim-color-primary);
+	background: var(--plim-color-primary-strong);
 	border-color: transparent;
 	color: var(--plim-color-on-primary);
 
 	&:hover:not(:disabled) {
-		background: var(--plim-color-primary-hover);
+		background: var(--plim-color-primary-strong-hover);
 	}
 }
