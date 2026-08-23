@@ -36,9 +36,9 @@ describe('Sidebar', () => {
 			expect(host.classList.contains('plim-sidebar--open')).toBe(true);
 		});
 
-		it('should forward aria-label to the aside landmark', () => {
-			const panel = host.querySelector('aside.plim-sidebar__panel');
-			expect(panel?.getAttribute('aria-label')).toBe('Main navigation');
+		it('should forward aria-label to the host landmark', () => {
+			expect(host.getAttribute('aria-label')).toBe('Main navigation');
+			expect(host.getAttribute('role')).toBe('complementary');
 		});
 
 		it('should project header, nav, and footer slots', () => {
@@ -63,6 +63,7 @@ describe('Sidebar', () => {
 			fixture.componentRef.setInput('open', false);
 			fixture.detectChanges();
 			expect(host.classList.contains('plim-sidebar--open')).toBe(false);
+			expect(host.hasAttribute('inert')).toBe(true);
 		});
 
 		it('should apply overlay modifier when open in overlay mode', () => {

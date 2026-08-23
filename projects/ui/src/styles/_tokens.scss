@@ -9,11 +9,13 @@
 
 	--plim-color-text: #f4f5f7;
 	--plim-color-text-muted: #a3a9b5;
-	--plim-color-text-subtle: #6f7684;
+	--plim-color-text-subtle: #7a828f;
 
 	--plim-color-primary: #8b5cf6;
 	--plim-color-primary-hover: #a78bfa;
 	--plim-color-on-primary: #ffffff;
+	--plim-color-link: #a78bfa;
+	--plim-color-link-hover: #c4b5fd;
 
 	--plim-color-success: #55d187;
 	--plim-color-warning: #e8b85c;
@@ -37,8 +39,18 @@
 	--plim-color-success-surface-icon: color-mix(in srgb, var(--plim-color-success) 18%, transparent);
 	--plim-color-warning-surface: color-mix(in srgb, var(--plim-color-warning) 12%, var(--plim-color-surface));
 	--plim-color-warning-surface-border: color-mix(in srgb, var(--plim-color-warning) 28%, transparent);
+	--plim-color-warning-surface-text: color-mix(
+		in srgb,
+		var(--plim-color-text) 78%,
+		var(--plim-color-warning) 22%
+	);
 	--plim-color-danger-surface: color-mix(in srgb, var(--plim-color-danger) 12%, var(--plim-color-surface));
 	--plim-color-danger-surface-border: color-mix(in srgb, var(--plim-color-danger) 28%, transparent);
+	--plim-color-danger-surface-text: color-mix(
+		in srgb,
+		var(--plim-color-text) 78%,
+		var(--plim-color-danger) 22%
+	);
 
 	// Typography
 	--plim-font-family: Inter, ui-sans-serif, system-ui, sans-serif;

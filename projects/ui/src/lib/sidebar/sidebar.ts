@@ -6,9 +6,12 @@ export type SidebarMode = 'push' | 'overlay';
 	selector: 'plim-sidebar',
 	host: {
 		class: 'plim-sidebar',
+		role: 'complementary',
 		'[class.plim-sidebar--open]': 'open()',
 		'[class.plim-sidebar--overlay]': 'open() && mode() === "overlay"',
 		'[class.plim-sidebar--contained]': '!fixed()',
+		'[attr.aria-label]': 'ariaLabel() ?? null',
+		'[attr.inert]': 'open() ? null : ""',
 	},
 	templateUrl: './sidebar.html',
 	styleUrl: './sidebar.scss',

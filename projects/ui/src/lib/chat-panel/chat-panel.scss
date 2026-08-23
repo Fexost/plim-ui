@@ -42,6 +42,14 @@
 	padding-block-end: var(--plim-space-1);
 	overflow: hidden auto;
 	@include scrollbar.thin;
+
+	> * {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		width: 100%;
+		min-width: 0;
+	}
 }
 
 .plim-chat-panel__composer:not(:empty) {

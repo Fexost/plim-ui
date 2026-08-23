@@ -8,8 +8,9 @@
 	<section class="docs-component__section" id="preview">
 		<h2>Inline panel</h2>
 		<p>
-			Project each region with slot markers. User prompts read as bubbles; assistant replies
-			stay plain text. Offer starter prompts with <code>plim-chat-panel__prompt</code> buttons.
+			Project each region with slot markers. Use <code>plim-chat-message</code>,
+			<code>plim-chat-intro</code>, and <code>plim-chat-prompt</code> for conversation content
+			instead of styling projected markup by hand.
 		</p>
 
 		<div class="docs-split">
@@ -22,23 +23,15 @@
 
 					<div plimChatPanelMessages>
 						@if (messages().length === 0) {
-							<p class="plim-chat-panel__intro">How can I help?</p>
-							<div class="plim-chat-panel__prompts">
+							<plim-chat-intro>How can I help?</plim-chat-intro>
+							<plim-chat-prompt-set aria-label="Suggested prompts">
 								@for (prompt of prompts; track prompt) {
-									<button type="button" class="plim-chat-panel__prompt" (click)="onSubmitted(prompt)">
-										{{ prompt }}
-									</button>
+									<plim-chat-prompt (selected)="onSubmitted(prompt)">{{ prompt }}</plim-chat-prompt>
 								}
-							</div>
+							</plim-chat-prompt-set>
 						} @else {
 							@for (message of messages(); track $index) {
-								<p
-									class="plim-chat-panel__message"
-									[class.plim-chat-panel__message--user]="message.role === 'user'"
-									[class.plim-chat-panel__message--assistant]="message.role === 'assistant'"
-								>
-									{{ message.text }}
-								</p>
+								<plim-chat-message [role]="message.role">{{ message.text }}</plim-chat-message>
 							}
 						}
 					</div>
@@ -59,25 +52,22 @@
   &lt;/div&gt;
 
   &lt;div plimChatPanelMessages&gt;
-    &lt;p class="plim-chat-panel__intro"&gt;How can I help?&lt;/p&gt;
-    &lt;div class="plim-chat-panel__prompts"&gt;
-      &lt;button type="button" class="plim-chat-panel__prompt"&gt;
+    &lt;plim-chat-intro&gt;How can I help?&lt;/plim-chat-intro&gt;
+    &lt;plim-chat-prompt-set aria-label="Suggested prompts"&gt;
+      &lt;plim-chat-prompt (selected)="onSubmitted('How do I use plimButton?')"&gt;
         How do I use plimButton?
-      &lt;/button&gt;
-      &lt;button type="button" class="plim-chat-panel__prompt"&gt;
+      &lt;/plim-chat-prompt&gt;
+      &lt;plim-chat-prompt (selected)="onSubmitted('Which tokens control theme colours?')"&gt;
         Which tokens control theme colours?
-      &lt;/button&gt;
-      &lt;button type="button" class="plim-chat-panel__prompt"&gt;
-        How do I install plim-ui?
-      &lt;/button&gt;
-    &lt;/div&gt;
+      &lt;/plim-chat-prompt&gt;
+    &lt;/plim-chat-prompt-set&gt;
 
-    &lt;p class="plim-chat-panel__message plim-chat-panel__message--user"&gt;
+    &lt;plim-chat-message role="user"&gt;
       How do I use plimButton?
-    &lt;/p&gt;
-    &lt;p class="plim-chat-panel__message plim-chat-panel__message--assistant"&gt;
+    &lt;/plim-chat-message&gt;
+    &lt;plim-chat-message role="assistant"&gt;
       Use the plimButton attribute on a native button.
-    &lt;/p&gt;
+    &lt;/plim-chat-message&gt;
   &lt;/div&gt;
 
   &lt;div plimChatPanelComposer&gt;
@@ -123,7 +113,7 @@
 	<section class="docs-component__section" id="api">
 		<h2>API reference</h2>
 
-		<h3>Inputs</h3>
+		<h3>Panel inputs</h3>
 		<div class="docs-table-wrap">
 			<table plimTable class="docs-table">
 				<thead>
@@ -167,7 +157,7 @@
 					</tr>
 					<tr>
 						<td><code>plimChatPanelMessages</code></td>
-						<td>Scrollable conversation history, intro copy, or starter prompts.</td>
+						<td>Scrollable conversation history, intro copy, prompts, and turns.</td>
 					</tr>
 					<tr>
 						<td><code>plimChatPanelComposer</code></td>
@@ -181,38 +171,38 @@
 			</table>
 		</div>
 
-		<h3>Message utilities</h3>
+		<h3>Conversation elements</h3>
 		<p class="docs-section-copy">
-			Style projected content inside <code>plimChatPanelMessages</code> with these classes.
+			Project these elements inside <code>plimChatPanelMessages</code> for empty states and
+			turns.
 		</p>
 		<div class="docs-table-wrap">
 			<table plimTable class="docs-table">
 				<thead>
 					<tr>
-						<th scope="col">Class</th>
-						<th scope="col">Description</th>
+						<th scope="col">Element</th>
+						<th scope="col">Notes</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td><code>plim-chat-panel__intro</code></td>
+						<td><code>plim-chat-intro</code></td>
 						<td>Short heading above starter prompts or an empty state.</td>
 					</tr>
 					<tr>
-						<td><code>plim-chat-panel__prompts</code></td>
-						<td>Vertical stack wrapper for suggested prompt buttons.</td>
+						<td><code>plim-chat-prompt-set</code></td>
+						<td>Vertical stack wrapper for suggested prompts. Optional <code>aria-label</code>.</td>
 					</tr>
 					<tr>
-						<td><code>plim-chat-panel__prompt</code></td>
-						<td>Pill button for a suggested prompt. Wire <code>(click)</code> to submit or prefill.</td>
+						<td><code>plim-chat-prompt</code></td>
+						<td>Pill button for a suggested prompt. Emits <code>selected</code> when clicked.</td>
 					</tr>
 					<tr>
-						<td><code>plim-chat-panel__message--user</code></td>
-						<td>User turn — right-aligned bubble on a raised surface.</td>
-					</tr>
-					<tr>
-						<td><code>plim-chat-panel__message--assistant</code></td>
-						<td>Assistant turn — plain text without a bubble.</td>
+						<td><code>plim-chat-message</code></td>
+						<td>
+							Conversation turn. Set <code>role="user"</code> for a right-aligned bubble or
+							<code>role="assistant"</code> for plain assistant text.
+						</td>
 					</tr>
 				</tbody>
 			</table>
