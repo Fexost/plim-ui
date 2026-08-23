@@ -212,5 +212,10 @@ export const routes: Routes = [
 		loadComponent: () =>
 			import('./pages/form/form-field/form-field-docs').then((m) => m.FormFieldDocs),
 	},
+	{
+		path: DOCS_PATHS.chatPanel,
+		loadComponent: () =>
+			import('./pages/advanced/chat-panel/chat-panel-docs').then((m) => m.ChatPanelDocs),
+	},
 	{ path: '**', redirectTo: DOCS_HOME },
 ];

@@ -44,6 +44,7 @@ export const DOCS_PATHS = {
 	timepicker: 'form/timepicker',
 	switch: 'form/switch',
 	formField: 'form/form-field',
+	chatPanel: 'advanced/chat-panel',
 } as const;
 
 export interface DocsNavItem {
@@ -136,6 +137,16 @@ export const DOCS_NAV: DocsNavSection[] = [
 			{ path: DOCS_PATHS.stepper, label: 'Stepper' },
 			{ path: DOCS_PATHS.table, label: 'Table' },
 			{ path: DOCS_PATHS.tree, label: 'Tree' },
+		],
+	},
+	{
+		label: 'Advanced',
+		items: [
+			{
+				path: DOCS_PATHS.chatPanel,
+				label: 'Chat panel',
+				keywords: ['assistant', 'chat', 'widget', 'messages'],
+			},
 		],
 	},
 ];

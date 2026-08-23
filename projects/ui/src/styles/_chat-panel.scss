@@ -1,0 +1,107 @@
+// Projected message markup and prompt buttons are not covered by the ChatPanel
+// component's emulated encapsulation — keep conversation utilities global.
+[plimChatPanelMessages] {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	width: 100%;
+	min-width: 0;
+}
+
+.plim-chat-panel__intro {
+	margin: 0 0 var(--plim-space-4);
+	font-size: var(--plim-font-size-md);
+	font-weight: var(--plim-font-weight-semibold);
+	line-height: var(--plim-line-height-tight);
+	color: var(--plim-color-text);
+}
+
+.plim-chat-panel__prompts {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--plim-space-2);
+}
+
+.plim-chat-panel__prompt {
+	box-sizing: border-box;
+	display: inline-flex;
+	appearance: none;
+	max-width: 100%;
+	margin: 0;
+	padding: var(--plim-space-2) var(--plim-space-4);
+	border: 1px solid var(--plim-color-primary-surface-border);
+	border-radius: var(--plim-radius-full);
+	background: var(--plim-color-primary-surface);
+	color: var(--plim-color-primary-surface-text);
+	font-family: inherit;
+	font-size: var(--plim-font-size-sm);
+	font-weight: var(--plim-font-weight-normal);
+	line-height: var(--plim-line-height-normal);
+	text-align: start;
+	cursor: pointer;
+	transition:
+		background-color var(--plim-duration-normal) var(--plim-ease-default),
+		border-color var(--plim-duration-normal) var(--plim-ease-default);
+
+	&:hover:not(:disabled) {
+		background: color-mix(in srgb, var(--plim-color-primary) 18%, var(--plim-color-surface));
+		border-color: color-mix(in srgb, var(--plim-color-primary) 36%, transparent);
+	}
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.6;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+}
+
+.plim-chat-panel__message {
+	max-width: 85%;
+	margin: 0;
+	font-size: var(--plim-font-size-sm);
+	line-height: var(--plim-line-height-normal);
+	white-space: pre-wrap;
+}
+
+.plim-chat-panel__message--user {
+	margin-inline-start: auto;
+	margin-bottom: var(--plim-space-2);
+	padding: var(--plim-space-2) var(--plim-space-3);
+	background: var(--plim-color-surface);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-lg);
+	color: var(--plim-color-text);
+}
+
+.plim-chat-panel__message--assistant {
+	margin-inline-end: auto;
+	margin-bottom: var(--plim-space-3);
+	padding: 0;
+	background: transparent;
+	border: 0;
+	color: var(--plim-color-text);
+}
+
+.plim-chat-panel__empty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 5rem;
+	margin: 0;
+	padding: var(--plim-space-4);
+	border: 1px dashed var(--plim-color-border);
+	border-radius: var(--plim-radius-md);
+	color: var(--plim-color-text-muted);
+	font-size: var(--plim-font-size-sm);
+	line-height: var(--plim-line-height-normal);
+	text-align: center;
+}

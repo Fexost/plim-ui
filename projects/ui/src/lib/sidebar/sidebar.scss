@@ -1,3 +1,5 @@
+@use '../../styles/scrollbar' as scrollbar;
+
 :host {
 	position: fixed;
 	top: var(--plim-header-height);
@@ -45,6 +47,7 @@
 	flex: 1 1 auto;
 	overflow: hidden auto;
 	padding-top: var(--plim-space-4);
+	@include scrollbar.thin;
 }
 
 .plim-sidebar__footer {

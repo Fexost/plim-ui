@@ -1,0 +1,23 @@
+<section class="plim-chat-panel__surface" [attr.aria-label]="ariaLabel() ?? null">
+	<div class="plim-chat-panel__header">
+		<ng-content select="[plimChatPanelHeader]" />
+	</div>
+
+	<div
+		#messagesRegion
+		class="plim-chat-panel__messages"
+		role="log"
+		aria-live="polite"
+		[attr.aria-label]="messagesLabel()"
+	>
+		<ng-content select="[plimChatPanelMessages]" />
+	</div>
+
+	<div class="plim-chat-panel__composer">
+		<ng-content select="[plimChatPanelComposer]" />
+	</div>
+
+	<div class="plim-chat-panel__footer">
+		<ng-content select="[plimChatPanelFooter]" />
+	</div>
+</section>

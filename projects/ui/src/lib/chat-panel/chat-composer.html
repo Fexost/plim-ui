@@ -1,0 +1,23 @@
+<div class="plim-chat-composer__surface">
+	@if (label()) {
+		<label class="plim-chat-composer__label" [for]="inputId">{{ label() }}</label>
+	}
+
+	<div class="plim-chat-composer__editor">
+		<input
+			[id]="inputId"
+			type="text"
+			class="plim-chat-composer__input"
+			plimInput
+			[value]="value()"
+			[attr.aria-label]="label() || placeholder() || null"
+			[placeholder]="placeholder()"
+			(input)="onInput($event)"
+			(keydown)="onKeydown($event)"
+		/>
+
+		<button type="button" plimButton variant="text" [disabled]="!canSend()" (click)="submit()">
+			{{ sendLabel() }}
+		</button>
+	</div>
+</div>

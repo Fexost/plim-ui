@@ -1,0 +1,24 @@
+.chat-panel-docs-preview {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.chat-panel-docs-preview__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--plim-space-3);
+	width: 100%;
+}
+
+.chat-panel-docs-preview__title {
+	margin: 0;
+	font-size: var(--plim-font-size-md);
+	font-weight: var(--plim-font-weight-semibold);
+	line-height: var(--plim-line-height-tight);
+}
+
+.chat-panel-docs-preview plim-chat-panel {
+	width: 100%;
+}

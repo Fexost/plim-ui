@@ -10,6 +10,8 @@ export * from './lib/button/button';
 export * from './lib/button-toggle/button-toggle';
 export * from './lib/button-toggle/button-toggle-group';
 export * from './lib/card/card';
+export * from './lib/chat-panel/chat-panel';
+export * from './lib/chat-panel/chat-composer';
 export * from './lib/avatar/avatar';
 export * from './lib/checkbox/checkbox';
 export * from './lib/chip/chip';

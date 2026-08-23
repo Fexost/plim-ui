@@ -1,0 +1,62 @@
+:host {
+	display: block;
+}
+
+.plim-chat-composer__surface {
+	display: flex;
+	flex-direction: column;
+	gap: var(--plim-space-2);
+}
+
+.plim-chat-composer__label {
+	color: var(--plim-color-text);
+	font-size: var(--plim-font-size-sm);
+	font-weight: var(--plim-font-weight-medium);
+	line-height: var(--plim-line-height-normal);
+}
+
+.plim-chat-composer__editor {
+	display: flex;
+	align-items: center;
+	gap: var(--plim-space-2);
+	padding: var(--plim-space-2) var(--plim-space-3);
+	background: var(--plim-color-surface);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-lg);
+	transition: border-color var(--plim-duration-normal) var(--plim-ease-default);
+
+	&:focus-within {
+		border-color: var(--plim-color-field-border-focus);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+}
+
+.plim-chat-composer__input {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+:host ::ng-deep .plim-chat-composer__input.plim-input {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	box-shadow: none;
+	font-size: var(--plim-font-size-sm);
+
+	&::placeholder {
+		color: var(--plim-color-text-subtle);
+	}
+
+	&:hover:not(:disabled):not([readonly]) {
+		border-color: transparent;
+	}
+
+	&:focus-visible {
+		outline: none;
+		border-color: transparent;
+		box-shadow: none;
+	}
+}

@@ -1,0 +1,271 @@
+<app-docs-component-layout category="Advanced" title="Chat panel">
+	<p docsLead>
+		A composable assistant panel shell with header, scrollable messages, composer, and footer
+		slots. plim-ui provides layout and accessibility — wire up your own chat backend in the
+		host app.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Inline panel</h2>
+		<p>
+			Project each region with slot markers. User prompts read as bubbles; assistant replies
+			stay plain text. Offer starter prompts with <code>plim-chat-panel__prompt</code> buttons.
+		</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview chat-panel-docs-preview">
+				<plim-chat-panel aria-label="Documentation assistant">
+					<div plimChatPanelHeader class="chat-panel-docs-preview__header">
+						<h2 class="chat-panel-docs-preview__title">plim-ui assistant</h2>
+						<button type="button" plimButton variant="text" aria-label="Close">Close</button>
+					</div>
+
+					<div plimChatPanelMessages>
+						@if (messages().length === 0) {
+							<p class="plim-chat-panel__intro">How can I help?</p>
+							<div class="plim-chat-panel__prompts">
+								@for (prompt of prompts; track prompt) {
+									<button type="button" class="plim-chat-panel__prompt" (click)="onSubmitted(prompt)">
+										{{ prompt }}
+									</button>
+								}
+							</div>
+						} @else {
+							@for (message of messages(); track $index) {
+								<p
+									class="plim-chat-panel__message"
+									[class.plim-chat-panel__message--user]="message.role === 'user'"
+									[class.plim-chat-panel__message--assistant]="message.role === 'assistant'"
+								>
+									{{ message.text }}
+								</p>
+							}
+						}
+					</div>
+
+					<div plimChatPanelComposer>
+						<plim-chat-composer
+							label=""
+							placeholder="Ask about plim-ui…"
+							(submitted)="onSubmitted($event)"
+						/>
+					</div>
+				</plim-chat-panel>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-chat-panel aria-label="Documentation assistant"&gt;
+  &lt;div plimChatPanelHeader&gt;
+    &lt;h2&gt;plim-ui assistant&lt;/h2&gt;
+    &lt;button type="button" plimButton variant="text"&gt;Close&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div plimChatPanelMessages&gt;
+    &lt;p class="plim-chat-panel__intro"&gt;How can I help?&lt;/p&gt;
+    &lt;div class="plim-chat-panel__prompts"&gt;
+      &lt;button type="button" class="plim-chat-panel__prompt"&gt;
+        How do I use plimButton?
+      &lt;/button&gt;
+      &lt;button type="button" class="plim-chat-panel__prompt"&gt;
+        Which tokens control theme colours?
+      &lt;/button&gt;
+      &lt;button type="button" class="plim-chat-panel__prompt"&gt;
+        How do I install plim-ui?
+      &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;p class="plim-chat-panel__message plim-chat-panel__message--user"&gt;
+      How do I use plimButton?
+    &lt;/p&gt;
+    &lt;p class="plim-chat-panel__message plim-chat-panel__message--assistant"&gt;
+      Use the plimButton attribute on a native button.
+    &lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div plimChatPanelComposer&gt;
+    &lt;plim-chat-composer
+      label=""
+      placeholder="Ask about plim-ui…"
+      (submitted)="onSubmitted($event)"
+    /&gt;
+  &lt;/div&gt;
+&lt;/plim-chat-panel&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<app-docs-a11y-callout>
+			<h3>Accessibility guidance</h3>
+			<p>
+				Name the panel with <code>aria-label</code> when the header does not expose a visible
+				title. The messages region uses <code>role="log"</code> with a polite live region for
+				incoming replies.
+			</p>
+			<ul class="docs-a11y-callout__features">
+				<li>Named panel landmark</li>
+				<li>Polite live region for messages</li>
+				<li>Starter prompts are native buttons with visible focus</li>
+				<li>Send button disabled until there is a draft</li>
+				<li>Enter or Send submits</li>
+				<li>Messages region scrolls to the latest turn automatically</li>
+			</ul>
+		</app-docs-a11y-callout>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<h3>Inputs</h3>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>ariaLabel</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Accessible name for the panel when the header lacks a visible title.</td>
+					</tr>
+					<tr>
+						<td><code>messagesLabel</code></td>
+						<td><code>string</code></td>
+						<td><code>'Messages'</code></td>
+						<td>Accessible name for the scrollable messages region.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Content slots</h3>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Attribute</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>plimChatPanelHeader</code></td>
+						<td>Title row, actions such as close or open full page.</td>
+					</tr>
+					<tr>
+						<td><code>plimChatPanelMessages</code></td>
+						<td>Scrollable conversation history, intro copy, or starter prompts.</td>
+					</tr>
+					<tr>
+						<td><code>plimChatPanelComposer</code></td>
+						<td>Question input — typically <code>plim-chat-composer</code>.</td>
+					</tr>
+					<tr>
+						<td><code>plimChatPanelFooter</code></td>
+						<td>Optional supporting note below the composer.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Message utilities</h3>
+		<p class="docs-section-copy">
+			Style projected content inside <code>plimChatPanelMessages</code> with these classes.
+		</p>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Class</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>plim-chat-panel__intro</code></td>
+						<td>Short heading above starter prompts or an empty state.</td>
+					</tr>
+					<tr>
+						<td><code>plim-chat-panel__prompts</code></td>
+						<td>Vertical stack wrapper for suggested prompt buttons.</td>
+					</tr>
+					<tr>
+						<td><code>plim-chat-panel__prompt</code></td>
+						<td>Pill button for a suggested prompt. Wire <code>(click)</code> to submit or prefill.</td>
+					</tr>
+					<tr>
+						<td><code>plim-chat-panel__message--user</code></td>
+						<td>User turn — right-aligned bubble on a raised surface.</td>
+					</tr>
+					<tr>
+						<td><code>plim-chat-panel__message--assistant</code></td>
+						<td>Assistant turn — plain text without a bubble.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Composer</h3>
+		<p class="docs-section-copy">
+			<code>plim-chat-composer</code> wraps a single-line input and Send action in one rounded
+			row. Enter or Send submits and clears the field.
+		</p>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input / output</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>label</code></td>
+						<td><code>string</code></td>
+						<td><code>'Your question'</code></td>
+						<td>Visible label for the input. Omit with an empty string for a placeholder-only prompt.</td>
+					</tr>
+					<tr>
+						<td><code>placeholder</code></td>
+						<td><code>string</code></td>
+						<td><code>''</code></td>
+						<td>Placeholder text.</td>
+					</tr>
+					<tr>
+						<td><code>sendLabel</code></td>
+						<td><code>string</code></td>
+						<td><code>'Send'</code></td>
+						<td>Label for the submit button.</td>
+					</tr>
+					<tr>
+						<td><code>value</code></td>
+						<td><code>string</code></td>
+						<td><code>''</code></td>
+						<td>Two-way model for the draft message.</td>
+					</tr>
+					<tr>
+						<td><code>submitted</code></td>
+						<td><code>Output&lt;string&gt;</code></td>
+						<td>—</td>
+						<td>Emits trimmed text when Send is clicked or Enter is pressed. Clears the field after emit.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

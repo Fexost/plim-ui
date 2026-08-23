@@ -127,6 +127,7 @@ projects/
         button/
         button-toggle/
         card/
+        chat-panel/
         header/
         separator/
         sidebar/
@@ -193,6 +194,7 @@ projects/
           navigation/     # header, menu, paginator, sidebar, tabs, toolbar
           feedback/       # bottom-sheet, dialog, snackbar, tooltip
           data/           # chips, expansion-panel, grid-list, list, sort-header, stepper, table, tree
+          advanced/       # chat-panel (chat-launcher, chat-widget planned)
         services/
           theme.service.ts
           docs-responsive-nav.service.ts
@@ -528,8 +530,7 @@ Live site: [plim-ui.fexost.dev](https://plim-ui.fexost.dev/) (Vercel, root base 
 responsive overlay menu below 960px (`DocsResponsiveNavService`).
 
 **Nav config:** `docs-nav.config.ts` — categories: Get started, Foundations, Basic, Form,
-Navigation, Feedback, Data. All inventory entries currently have docs routes. Roadmap status
-is maintained in this document (see Component inventory below), not in code.
+Navigation, Feedback, Data, Advanced.
 
 **Page routes:**
 
@@ -542,6 +543,7 @@ form/input, textarea, select, autocomplete, checkbox, radio, switch, slider,
 navigation/header, menu, paginator, sidebar, tabs, toolbar
 feedback/bottom-sheet, dialog, snackbar, tooltip
 data/chips, expansion-panel, grid-list, list, sort-header, stepper, table, tree
+advanced/chat-panel
 ```
 
 **Layouts:**
@@ -688,13 +690,13 @@ When implementing new components:
 * Angular 21 workspace: `ui` (library) + `docs` (application).
 * Angular CDK installed; overlay components (**select, autocomplete, datepicker, timepicker,
   menu, dialog, bottom sheet, snackbar, tooltip**) use CDK Overlay (peer dependency).
-* ESLint / angular-eslint; Vitest for unit tests (134+ library tests).
+* ESLint / angular-eslint; Vitest for unit tests (139+ library tests).
 * Library built with ng-packagr → `dist/plim-ui`; styles at `dist/plim-ui/styles/`.
 * Design tokens: colour, typography, spacing, radius, shadow, focus, motion (`--plim-duration-spin`), component dimensions, semantic tinted surfaces (`--plim-color-*-surface*`).
 * Light/dark themes via CSS variables; docs `ThemeService` persists choice.
 * **Published components:** Basic, Form, Navigation (Header, Menu, Paginator, Sidebar, Tabs,
   Toolbar), Feedback (Bottom sheet, Dialog, Snackbar, Tooltip), Data (Chips, Expansion panel,
-  Grid list, List, Sort, Table, Stepper, Tree); shared `plim-option`.
+  Grid list, List, Sort, Table, Stepper, Tree), Advanced (Chat panel); shared `plim-option`.
 * Docs: all component categories documented; Foundations guides; overview, installation.
 * Docs: syntax-highlighted code blocks, equal-height preview/code splits, mobile nav overlay.
 * GitHub Actions: CI (`ci.yml`), npm publish (`publish-npm.yml`), security audits (`security.yml`). Docs deploy on Vercel from `main`.
@@ -731,6 +733,7 @@ Immediate priorities:
 6. ~~Data components and docs~~ — Chips, Expansion panel, Grid list, List, Sort header,
    Stepper, Table, Tree
 7. ~~Site search~~; polish and expand accessibility/icon token guidance
+8. Advanced patterns — ~~Chat panel~~; Chat launcher; Chat widget; command palette; empty state
 
 ### Component inventory
 
@@ -747,6 +750,7 @@ different public API.
 | Button | Basic | **implemented** | `button[plimButton]` |
 | Button toggle | Basic | **implemented** | `<plim-button-toggle-group>` |
 | Card | Basic | **implemented** | `<plim-card>` |
+| Chat panel | Advanced | **implemented** | `<plim-chat-panel>` |
 | Checkbox | Form | **implemented** | `input[plimCheckbox]` |
 | Chips | Data | **implemented** | `<plim-chip-set>` / `<plim-chip>` |
 | Datepicker | Form | **implemented** | `<plim-datepicker>` / `input[type=date][plimDatepicker]` |

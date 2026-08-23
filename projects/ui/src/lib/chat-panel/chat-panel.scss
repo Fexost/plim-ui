@@ -1,0 +1,63 @@
+@use '../../styles/scrollbar' as scrollbar;
+
+:host {
+	display: block;
+	max-width: var(--plim-chat-panel-max-width);
+}
+
+.plim-chat-panel__surface {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: var(--plim-space-4);
+	min-height: var(--plim-chat-panel-min-height);
+	max-height: 100%;
+	padding: var(--plim-space-4);
+	overflow: hidden;
+	background: var(--plim-color-surface-raised);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-lg);
+	color: var(--plim-color-text);
+}
+
+.plim-chat-panel__header:not(:empty),
+.plim-chat-panel__messages:not(:empty),
+.plim-chat-panel__composer:not(:empty),
+.plim-chat-panel__footer:not(:empty) {
+	min-width: 0;
+}
+
+.plim-chat-panel__header:not(:empty) {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--plim-space-3);
+}
+
+.plim-chat-panel__messages:not(:empty) {
+	display: block;
+	flex: 1 1 auto;
+	min-height: var(--plim-chat-panel-messages-min-height);
+	max-height: var(--plim-chat-panel-messages-max-height);
+	padding-block-end: var(--plim-space-1);
+	overflow: hidden auto;
+	@include scrollbar.thin;
+}
+
+.plim-chat-panel__composer:not(:empty) {
+	flex-shrink: 0;
+}
+
+.plim-chat-panel__footer:not(:empty) {
+	flex-shrink: 0;
+	color: var(--plim-color-text-subtle);
+	font-size: var(--plim-font-size-xs);
+	line-height: var(--plim-line-height-normal);
+}
+
+.plim-chat-panel__header:empty,
+.plim-chat-panel__messages:empty,
+.plim-chat-panel__composer:empty,
+.plim-chat-panel__footer:empty {
+	display: none;
+}

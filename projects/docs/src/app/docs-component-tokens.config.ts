@@ -305,3 +305,19 @@ export const TOOLTIP_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-font-size-xs', usage: 'Tooltip text size' },
 ];
 
+export const CHAT_PANEL_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-chat-panel-max-width', usage: 'Maximum panel width' },
+	{ token: '--plim-chat-panel-min-height', usage: 'Minimum panel height' },
+	{ token: '--plim-chat-panel-messages-min-height', usage: 'Minimum scrollable messages region height' },
+	{ token: '--plim-chat-panel-messages-max-height', usage: 'Scrollable messages region height cap' },
+	{ token: '--plim-color-surface-raised', usage: 'Panel surface background' },
+	{ token: '--plim-color-surface', usage: 'User message bubble background' },
+	{ token: '--plim-color-border', usage: 'Panel outline and user message border' },
+	{ token: '--plim-color-primary-surface', usage: 'Suggested prompt pill background' },
+	{ token: '--plim-color-primary-surface-border', usage: 'Suggested prompt pill border' },
+	{ token: '--plim-color-primary-surface-text', usage: 'Suggested prompt text' },
+	{ token: '--plim-radius-lg', usage: 'Panel and user bubble corner radius' },
+	{ token: '--plim-radius-full', usage: 'Suggested prompt pill shape' },
+	{ token: '--plim-color-text-subtle', usage: 'Composer placeholder colour' },
+];
+
