@@ -1,13 +1,14 @@
 import { Component, signal } from '@angular/core';
-import { Button, Snackbar, SnackbarVariant } from 'plim-ui';
+import { Button, Snackbar, SnackbarVariant, Table } from 'plim-ui';
 
 import { DocsComponentLayout } from '../../../components/docs-component-layout/docs-component-layout';
+import { DocsA11yCallout } from '../../../components/docs-a11y-callout/docs-a11y-callout';
 import { DocsTokenTable } from '../../../components/docs-token-table/docs-token-table';
 import { SNACKBAR_DOCS_TOKENS } from '../../../docs-component-tokens.config';
 
 @Component({
 	selector: 'app-snackbar-docs',
-	imports: [DocsComponentLayout, DocsTokenTable, Button, Snackbar],
+	imports: [DocsA11yCallout, DocsComponentLayout, DocsTokenTable, Button, Snackbar, Table],
 	templateUrl: './snackbar-docs.html',
 	styleUrl: './snackbar-docs.scss',
 })

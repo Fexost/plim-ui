@@ -22,12 +22,14 @@
 			name when the icon is the only label.
 		</p>
 
-		<div class="icons-docs__preview">
-			<span class="material-symbols-outlined icons-docs__icon" aria-hidden="true">menu</span>
-			<span class="material-symbols-outlined icons-docs__icon" aria-hidden="true"
+		<div class="icons-docs-preview">
+			<span class="material-symbols-outlined icons-docs-preview__icon" aria-hidden="true"
+				>menu</span
+			>
+			<span class="material-symbols-outlined icons-docs-preview__icon" aria-hidden="true"
 				>dark_mode</span
 			>
-			<span class="material-symbols-outlined icons-docs__icon" aria-hidden="true"
+			<span class="material-symbols-outlined icons-docs-preview__icon" aria-hidden="true"
 				>check_circle</span
 			>
 		</div>
@@ -42,13 +44,42 @@
 	<section class="docs-section">
 		<h2>Sizing</h2>
 		<p class="docs-section-copy">
-			Match icon size to adjacent text with <code>font-size</code>. Align icons inside buttons
-			and navigation rows with flexbox.
+			Prefer <code>--plim-icon-size-*</code> tokens so icons align with adjacent text and
+			controls. Set <code>font-size</code> on the symbol element (Material Symbols are an icon
+			font). Align icons inside buttons and navigation rows with flexbox.
 		</p>
-		<ul class="docs-list">
-			<li><code>1rem</code> — inline with body text</li>
-			<li><code>1.25rem</code> — buttons and compact controls</li>
-			<li><code>1.5rem</code> — section headings or empty states</li>
-		</ul>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Token</th>
+						<th scope="col">Value</th>
+						<th scope="col">Use</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>--plim-icon-size-sm</code></td>
+						<td>1rem</td>
+						<td>Inline with body text, field adornments</td>
+					</tr>
+					<tr>
+						<td><code>--plim-icon-size-md</code></td>
+						<td>1.25rem</td>
+						<td>Buttons and compact controls</td>
+					</tr>
+					<tr>
+						<td><code>--plim-icon-size-xl</code></td>
+						<td>1.5rem</td>
+						<td>Section headings, empty states</td>
+					</tr>
+					<tr>
+						<td><code>--plim-icon-size-lg</code></td>
+						<td>1.75rem</td>
+						<td>Large spinners and prominent icons</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</section>
 </app-docs-guide-layout>

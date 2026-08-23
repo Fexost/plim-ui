@@ -41,4 +41,42 @@
 			<li>Each component docs page includes accessibility notes for that primitive.</li>
 		</ul>
 	</section>
+
+	<section class="docs-section">
+		<h2>Motion</h2>
+		<p class="docs-section-copy">
+			Transitions use <code>--plim-duration-*</code> and <code>--plim-ease-default</code>.
+			Components respect <code>prefers-reduced-motion: reduce</code> by disabling non-essential
+			animation — for example spinner rotation, sidebar slide transitions, and toggle control
+			scale effects.
+		</p>
+		<p class="docs-section-copy">
+			When adding motion, keep it functional (open/close feedback, loading state) rather than
+			ornamental. If meaning depends on animation, provide a static alternative.
+		</p>
+	</section>
+
+	<section class="docs-section">
+		<h2>High contrast</h2>
+		<p class="docs-section-copy">
+			Interactive states include <code>@media (forced-colors: active)</code> rules where colour
+			carries meaning — for example primary buttons, badges, tabs, sliders, and option list
+			highlight/selected states. Prefer system colours such as <code>Highlight</code>,
+			<code>HighlightText</code>, and <code>ButtonBorder</code> rather than hard-coded palette
+			values.
+		</p>
+		<p class="docs-section-copy">
+			Never rely on colour alone for status or selection. Pair semantic colours with text,
+			icons, weight, or borders.
+		</p>
+	</section>
+
+	<section class="docs-section">
+		<h2>Disabled and muted content</h2>
+		<p class="docs-section-copy">
+			Disabled controls use <code>--plim-opacity-disabled</code>. Subtle or de-emphasized UI
+			can use <code>--plim-opacity-muted</code>. Prefer these tokens over scattered opacity
+			literals so contrast stays predictable in both themes.
+		</p>
+	</section>
 </app-docs-guide-layout>

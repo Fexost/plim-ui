@@ -6,6 +6,7 @@ import { Sidebar } from './sidebar';
 @Component({
 	template: `
 		<plim-sidebar aria-label="Main navigation">
+			<div plimSidebarHeader>Header</div>
 			<nav plimSidebarNav>Nav</nav>
 			<div plimSidebarFooter>Footer</div>
 		</plim-sidebar>
@@ -40,7 +41,8 @@ describe('Sidebar', () => {
 			expect(panel?.getAttribute('aria-label')).toBe('Main navigation');
 		});
 
-		it('should project nav and footer slots', () => {
+		it('should project header, nav, and footer slots', () => {
+			expect(host.querySelector('.plim-sidebar__header')?.textContent?.trim()).toBe('Header');
 			expect(host.querySelector('.plim-sidebar__nav')?.textContent?.trim()).toBe('Nav');
 			expect(host.querySelector('.plim-sidebar__footer')?.textContent?.trim()).toBe('Footer');
 		});

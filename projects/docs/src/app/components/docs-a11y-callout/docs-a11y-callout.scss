@@ -1,0 +1,50 @@
+:host ::ng-deep plim-card.docs-a11y-callout {
+	display: block;
+
+	.plim-card__surface {
+		background: var(--plim-color-success-surface);
+		border-color: var(--plim-color-success-surface-border);
+		border-left: 3px solid var(--plim-color-success);
+	}
+
+	.plim-card__body {
+		display: flex;
+		flex-direction: column;
+		gap: var(--plim-space-2);
+	}
+}
+
+.docs-a11y-callout__label {
+	align-self: flex-start;
+}
+
+.docs-a11y-callout__content {
+	min-width: 0;
+
+	h3 {
+		margin: 0 0 var(--plim-space-2);
+		font-size: var(--plim-font-size-md);
+		font-weight: var(--plim-font-weight-semibold);
+	}
+
+	p {
+		margin: 0 0 var(--plim-space-4);
+		color: var(--plim-color-success-surface-text);
+		font-size: var(--plim-font-size-sm);
+		line-height: var(--plim-line-height-normal);
+	}
+}
+
+.docs-a11y-callout__features {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--plim-space-4);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		color: var(--plim-color-success-surface-text);
+		font-size: var(--plim-font-size-xs);
+	}
+}

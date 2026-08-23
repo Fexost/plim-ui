@@ -29,38 +29,36 @@
 		<p>Disabled buttons remain in the tab order only when they stay actionable.</p>
 
 		<div class="docs-state-grid">
-			<article class="docs-state-card">
+			<plim-card fill class="docs-state-card">
 				<div class="docs-state-card__preview">
 					<button type="button" plimButton>Primary action</button>
 				</div>
 				<h3>Default</h3>
 				<p>Use for the primary action on a surface.</p>
-			</article>
+			</plim-card>
 
-			<article class="docs-state-card">
+			<plim-card fill class="docs-state-card">
 				<div class="docs-state-card__preview">
 					<button type="button" plimButton variant="secondary">Secondary</button>
 				</div>
 				<h3>Secondary</h3>
 				<p>Use for supporting actions beside a primary button.</p>
-			</article>
+			</plim-card>
 
-			<article class="docs-state-card">
+			<plim-card fill class="docs-state-card">
 				<div class="docs-state-card__preview">
 					<button type="button" plimButton disabled>Disabled action</button>
 				</div>
 				<h3>Disabled</h3>
 				<p>Use when the action is unavailable. Binds to the native disabled attribute.</p>
-			</article>
+			</plim-card>
 		</div>
 	</section>
 
 	<section class="docs-component__section" id="accessibility">
 		<h2>Accessibility</h2>
 
-		<div class="docs-a11y-callout">
-			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
-			<div>
+		<app-docs-a11y-callout>
 				<h3>Accessibility guidance</h3>
 				<p>
 					Buttons use native semantics so assistive technology gets role, state, and
@@ -71,8 +69,7 @@
 					<li>Focus ring stays visible</li>
 					<li>Native disabled state</li>
 				</ul>
-			</div>
-		</div>
+			</app-docs-a11y-callout>
 	</section>
 
 	<section class="docs-component__section" id="tokens">
@@ -87,7 +84,7 @@
 		<h2>API reference</h2>
 
 		<div class="docs-table-wrap">
-			<table class="docs-table">
+			<table plimTable class="docs-table">
 				<thead>
 					<tr>
 						<th scope="col">Input</th>

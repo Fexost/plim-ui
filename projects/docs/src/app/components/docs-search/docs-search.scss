@@ -1,0 +1,28 @@
+.docs-search {
+	display: flex;
+	flex-direction: column;
+	gap: var(--plim-space-2);
+}
+
+.docs-search__label {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.docs-search__input {
+	width: 100%;
+}
+
+.docs-search__empty {
+	margin: 0;
+	color: var(--plim-color-text-muted);
+	font-size: var(--plim-font-size-xs);
+	line-height: var(--plim-line-height-normal);
+}

@@ -37,10 +37,17 @@
 	<section class="docs-section">
 		<h2>Contribute locally</h2>
 		<p class="docs-section-copy">
-			The source lives on
-			<a href="https://github.com/Fexost/plim-ui" target="_blank" rel="noopener noreferrer"
-				>GitHub</a
-			>. Clone the repo and run the docs app:
+			The source lives on GitHub. Clone the repo and run the docs app:
+		</p>
+		<p class="docs-section-copy">
+			<button
+				type="button"
+				plimButton
+				variant="text"
+				(click)="openExternal('https://github.com/Fexost/plim-ui')"
+			>
+				View on GitHub
+			</button>
 		</p>
 		<pre
 			class="docs-code"

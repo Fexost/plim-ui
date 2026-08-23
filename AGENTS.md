@@ -436,6 +436,7 @@ Example usage:
 Content slots:
 
 ```text
+plimSidebarHeader
 plimSidebarNav
 plimSidebarFooter
 ```
@@ -568,7 +569,8 @@ overview and guide pages).
 **Brand assets:** `projects/docs/public/brand/` — `mark.svg`, `logo-dark.svg`, `logo-light.svg`,
 `favicon.svg`, `app-icon.svg`.
 
-**Not yet implemented:** site search.
+**Docs search:** client-side filter in the sidebar header slot (`app-docs-search` +
+`DocsSearchService`), driven by `DOCS_NAV` labels, paths, and optional keywords.
 
 **Docs SCSS:**
 
@@ -730,7 +732,7 @@ Immediate priorities:
 5. ~~Feedback components and docs~~ — Bottom sheet, Dialog, Snackbar, Tooltip
 6. ~~Data components and docs~~ — Chips, Expansion panel, Grid list, List, Sort header,
    Stepper, Table, Tree
-7. Site search; polish and expand accessibility/icon token guidance
+7. ~~Site search~~; polish and expand accessibility/icon token guidance
 
 ### Component inventory
 

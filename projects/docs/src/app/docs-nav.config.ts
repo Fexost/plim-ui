@@ -49,6 +49,7 @@ export const DOCS_PATHS = {
 export interface DocsNavItem {
 	label: string;
 	path?: string;
+	keywords?: string[];
 }
 
 export interface DocsNavSection {
@@ -71,8 +72,8 @@ export const DOCS_NAV: DocsNavSection[] = [
 			{ path: DOCS_PATHS.tokens, label: 'Tokens' },
 			{ path: DOCS_PATHS.theme, label: 'Theme' },
 			{ path: DOCS_PATHS.typography, label: 'Typography' },
-			{ path: DOCS_PATHS.accessibility, label: 'Accessibility' },
-			{ path: DOCS_PATHS.icons, label: 'Icon' },
+			{ path: DOCS_PATHS.accessibility, label: 'Accessibility', keywords: ['a11y', 'wcag'] },
+			{ path: DOCS_PATHS.icons, label: 'Icon', keywords: ['icons', 'material symbols'] },
 		],
 	},
 	{
@@ -84,8 +85,8 @@ export const DOCS_NAV: DocsNavSection[] = [
 			{ path: DOCS_PATHS.buttonToggle, label: 'Button toggle' },
 			{ path: DOCS_PATHS.card, label: 'Card' },
 			{ path: DOCS_PATHS.progressBar, label: 'Progress bar' },
-			{ path: DOCS_PATHS.spinner, label: 'Progress spinner' },
-			{ path: DOCS_PATHS.separator, label: 'Divider' },
+			{ path: DOCS_PATHS.spinner, label: 'Progress spinner', keywords: ['spinner', 'loading'] },
+			{ path: DOCS_PATHS.separator, label: 'Divider', keywords: ['separator'] },
 		],
 	},
 	{
@@ -99,7 +100,7 @@ export const DOCS_NAV: DocsNavSection[] = [
 			{ path: DOCS_PATHS.radio, label: 'Radio button' },
 			{ path: DOCS_PATHS.select, label: 'Select' },
 			{ path: DOCS_PATHS.slider, label: 'Slider' },
-			{ path: DOCS_PATHS.switch, label: 'Slide toggle' },
+			{ path: DOCS_PATHS.switch, label: 'Slide toggle', keywords: ['switch', 'toggle'] },
 			{ path: DOCS_PATHS.textarea, label: 'Textarea' },
 			{ path: DOCS_PATHS.timepicker, label: 'Timepicker' },
 		],
@@ -110,7 +111,7 @@ export const DOCS_NAV: DocsNavSection[] = [
 			{ path: DOCS_PATHS.header, label: 'Header' },
 			{ path: DOCS_PATHS.menu, label: 'Menu' },
 			{ path: DOCS_PATHS.paginator, label: 'Paginator' },
-			{ path: DOCS_PATHS.sidebar, label: 'Sidenav' },
+			{ path: DOCS_PATHS.sidebar, label: 'Sidenav', keywords: ['sidebar', 'navigation'] },
 			{ path: DOCS_PATHS.tabs, label: 'Tabs' },
 			{ path: DOCS_PATHS.toolbar, label: 'Toolbar' },
 		],

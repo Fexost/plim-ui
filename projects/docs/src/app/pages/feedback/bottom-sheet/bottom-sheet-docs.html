@@ -16,7 +16,7 @@
 					ariaLabel="Share options"
 					(closed)="open.set(false)"
 				>
-					<div class="bottom-sheet-docs__content">
+					<div class="bottom-sheet-docs-preview__content">
 						<p>Share this page with a link or export.</p>
 						<button type="button" plimButton (click)="open.set(false)">Done</button>
 					</div>
@@ -34,9 +34,7 @@
 	<section class="docs-component__section" id="accessibility">
 		<h2>Accessibility</h2>
 
-		<div class="docs-a11y-callout">
-			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
-			<div>
+		<app-docs-a11y-callout>
 				<h3>Accessibility guidance</h3>
 				<p>
 					The sheet is presented as a modal dialog. Provide an
@@ -47,8 +45,7 @@
 					<li>Escape and backdrop dismiss</li>
 					<li>Focus trapped while open</li>
 				</ul>
-			</div>
-		</div>
+			</app-docs-a11y-callout>
 	</section>
 
 	<section class="docs-component__section" id="tokens">
@@ -63,7 +60,7 @@
 		<h2>API reference</h2>
 
 		<div class="docs-table-wrap">
-			<table class="docs-table">
+			<table plimTable class="docs-table">
 				<thead>
 					<tr>
 						<th scope="col">Input</th>
@@ -91,7 +88,7 @@
 
 		<h3>Outputs</h3>
 		<div class="docs-table-wrap">
-			<table class="docs-table">
+			<table plimTable class="docs-table">
 				<thead>
 					<tr>
 						<th scope="col">Output</th>

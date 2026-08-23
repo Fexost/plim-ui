@@ -27,9 +27,7 @@
 	<section class="docs-component__section" id="accessibility">
 		<h2>Accessibility</h2>
 
-		<div class="docs-a11y-callout">
-			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
-			<div>
+		<app-docs-a11y-callout>
 				<h3>Accessibility guidance</h3>
 				<p>
 					The header is a native button with <code>aria-expanded</code>. Enter and Space
@@ -40,8 +38,7 @@
 					<li><code>aria-expanded</code> reflects open state</li>
 					<li>Body uses the native <code>hidden</code> attribute when closed</li>
 				</ul>
-			</div>
-		</div>
+			</app-docs-a11y-callout>
 	</section>
 
 	<section class="docs-component__section" id="tokens">
@@ -56,7 +53,7 @@
 		<h2>API reference</h2>
 
 		<div class="docs-table-wrap">
-			<table class="docs-table">
+			<table plimTable class="docs-table">
 				<thead>
 					<tr>
 						<th scope="col">Input</th>
@@ -78,7 +75,7 @@
 
 		<h3>Content slots</h3>
 		<div class="docs-table-wrap">
-			<table class="docs-table">
+			<table plimTable class="docs-table">
 				<thead>
 					<tr>
 						<th scope="col">Attribute</th>

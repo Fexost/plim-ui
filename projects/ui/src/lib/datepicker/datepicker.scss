@@ -63,7 +63,7 @@
 
 .plim-datepicker__header {
 	display: grid;
-	grid-template-columns: 2rem 1fr 2rem;
+	grid-template-columns: var(--plim-datepicker-nav-size) 1fr var(--plim-datepicker-nav-size);
 	align-items: center;
 	gap: var(--plim-space-1);
 	margin-bottom: var(--plim-space-3);
@@ -99,8 +99,8 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 2rem;
-	height: 2rem;
+	width: var(--plim-datepicker-nav-size);
+	height: var(--plim-datepicker-nav-size);
 	padding: 0;
 	border: 0;
 	border-radius: var(--plim-radius-md);
@@ -124,7 +124,7 @@
 .plim-datepicker__weekdays,
 .plim-datepicker__grid {
 	display: grid;
-	grid-template-columns: repeat(7, 2.5rem);
+	grid-template-columns: repeat(7, var(--plim-datepicker-day-size));
 	justify-content: center;
 	gap: 0;
 }
@@ -140,7 +140,7 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		height: 1.5rem;
+		height: var(--plim-datepicker-weekday-height);
 	}
 }
 
@@ -148,8 +148,8 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 2.5rem;
-	height: 2.5rem;
+	width: var(--plim-datepicker-day-size);
+	height: var(--plim-datepicker-day-size);
 	padding: 0;
 	border: 0;
 	border-radius: var(--plim-radius-full);
@@ -185,14 +185,14 @@
 	}
 
 	&:disabled {
-		opacity: 0.35;
+		opacity: var(--plim-opacity-muted);
 		cursor: not-allowed;
 	}
 }
 
 .plim-datepicker__grid--months,
 .plim-datepicker__grid--years {
-	grid-template-columns: repeat(4, 4.5rem);
+	grid-template-columns: repeat(4, var(--plim-datepicker-cell-width));
 	gap: var(--plim-space-1);
 }
 
@@ -200,8 +200,8 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 4.5rem;
-	height: 2.5rem;
+	width: var(--plim-datepicker-cell-width);
+	height: var(--plim-datepicker-day-size);
 	padding: 0 var(--plim-space-1);
 	border: 0;
 	border-radius: var(--plim-radius-full);
@@ -262,7 +262,7 @@
 	}
 
 	&:disabled {
-		opacity: 0.35;
+		opacity: var(--plim-opacity-muted);
 		cursor: not-allowed;
 	}
 }

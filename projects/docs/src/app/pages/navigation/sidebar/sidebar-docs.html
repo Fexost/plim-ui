@@ -9,13 +9,13 @@
 		<p>Toggle open state and switch between docked and floating layouts.</p>
 
 		<div
-			class="docs-preview sidebar-demo"
-			[class.sidebar-demo--push]="open() && mode() === 'push'"
+			class="docs-preview sidebar-docs-demo"
+			[class.sidebar-docs-demo--push]="open() && mode() === 'push'"
 		>
 			@if (open() && mode() === 'overlay') {
 				<button
 					type="button"
-					class="sidebar-demo__backdrop"
+					class="sidebar-docs-demo__backdrop"
 					(click)="open.set(false)"
 					aria-label="Close sidebar"
 				></button>
@@ -31,10 +31,10 @@
 				</nav>
 			</plim-sidebar>
 
-			<div class="sidebar-demo__content">Main content</div>
+			<div class="sidebar-docs-demo__content">Main content</div>
 		</div>
 
-		<div class="sidebar-demo__controls">
+		<div class="sidebar-docs-demo__controls">
 			<button type="button" plimButton (click)="toggleOpen()">Toggle open</button>
 			<button type="button" plimButton variant="secondary" (click)="setMode('push')">
 				Push
@@ -49,6 +49,7 @@
   [mode]="mode"
   aria-label="Navigation"
 &gt;
+  &lt;div plimSidebarHeader&gt;Search or branding&lt;/div&gt;
   &lt;nav plimSidebarNav&gt;
     &lt;a href="#"&gt;Item one&lt;/a&gt;
     &lt;a href="#"&gt;Item two&lt;/a&gt;
@@ -59,9 +60,7 @@
 	<section class="docs-component__section" id="accessibility">
 		<h2>Accessibility</h2>
 
-		<div class="docs-a11y-callout">
-			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
-			<div>
+		<app-docs-a11y-callout>
 				<h3>Accessibility guidance</h3>
 				<p>
 					The sidebar renders an aside landmark. Name it when the purpose is not clear
@@ -72,8 +71,7 @@
 					<li>Name with aria-label</li>
 					<li>Independent sidebar scroll</li>
 				</ul>
-			</div>
-		</div>
+			</app-docs-a11y-callout>
 	</section>
 
 	<section class="docs-component__section" id="tokens">
@@ -88,7 +86,7 @@
 		<h2>API reference</h2>
 
 		<div class="docs-table-wrap">
-			<table class="docs-table">
+			<table plimTable class="docs-table">
 				<thead>
 					<tr>
 						<th scope="col">Input</th>
@@ -128,7 +126,7 @@
 
 		<h3>Content slots</h3>
 		<div class="docs-table-wrap">
-			<table class="docs-table">
+			<table plimTable class="docs-table">
 				<thead>
 					<tr>
 						<th scope="col">Attribute</th>
@@ -136,6 +134,10 @@
 					</tr>
 				</thead>
 				<tbody>
+					<tr>
+						<td><code>plimSidebarHeader</code></td>
+						<td>Optional header content such as search or branding.</td>
+					</tr>
 					<tr>
 						<td><code>plimSidebarNav</code></td>
 						<td>Primary navigation content.</td>

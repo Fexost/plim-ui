@@ -31,9 +31,7 @@
 	<section class="docs-component__section" id="accessibility">
 		<h2>Accessibility</h2>
 
-		<div class="docs-a11y-callout">
-			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
-			<div>
+		<app-docs-a11y-callout>
 				<h3>Accessibility guidance</h3>
 				<p>
 					The grid is a layout container. Use headings or landmarks inside tiles when the
@@ -43,8 +41,7 @@
 					<li>Tiles are presentational surfaces</li>
 					<li>Keep interactive content as native controls inside each tile</li>
 				</ul>
-			</div>
-		</div>
+			</app-docs-a11y-callout>
 	</section>
 
 	<section class="docs-component__section" id="tokens">
@@ -60,7 +57,7 @@
 
 		<h3>Grid list</h3>
 		<div class="docs-table-wrap">
-			<table class="docs-table">
+			<table plimTable class="docs-table">
 				<thead>
 					<tr>
 						<th scope="col">Input</th>

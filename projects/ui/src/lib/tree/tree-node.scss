@@ -35,7 +35,7 @@
 .plim-tree-node__spacer {
 	display: inline-block;
 	flex-shrink: 0;
-	width: calc(var(--plim-space-2) * 2 + 0.35rem);
+	width: calc(var(--plim-space-2) * 2 + var(--plim-chevron-indent));
 }
 
 .plim-tree-node__label {

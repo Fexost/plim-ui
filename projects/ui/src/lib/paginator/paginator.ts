@@ -30,7 +30,7 @@ export class Paginator {
 	public readonly pageSize = input(10, { transform: numberAttribute });
 	public readonly pageIndex = input(0, { transform: numberAttribute });
 	public readonly pageSizeOptions = input<number[]>(DEFAULT_PAGE_SIZE_OPTIONS);
-	public readonly pageSizeControl = input<PaginatorPageSizeControl>('native');
+	public readonly pageSizeControl = input<PaginatorPageSizeControl>('plim');
 	public readonly ariaLabel = input('Pagination');
 	public readonly page = output<PageEvent>();
 

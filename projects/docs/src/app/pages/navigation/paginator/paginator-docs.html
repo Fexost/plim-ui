@@ -62,9 +62,7 @@
 	<section class="docs-component__section" id="accessibility">
 		<h2>Accessibility</h2>
 
-		<div class="docs-a11y-callout">
-			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
-			<div>
+		<app-docs-a11y-callout>
 				<h3>Accessibility guidance</h3>
 				<p>
 					The host is a navigation landmark. Previous and next are native buttons,
@@ -76,8 +74,7 @@
 					<li>Live region for the current range</li>
 					<li>Labelled page-size control in both plim and native modes</li>
 				</ul>
-			</div>
-		</div>
+			</app-docs-a11y-callout>
 	</section>
 
 	<section class="docs-component__section" id="tokens">
@@ -92,7 +89,7 @@
 		<h2>API reference</h2>
 
 		<div class="docs-table-wrap">
-			<table class="docs-table">
+			<table plimTable class="docs-table">
 				<thead>
 					<tr>
 						<th scope="col">Input</th>
@@ -129,7 +126,7 @@
 					<tr>
 						<td><code>pageSizeControl</code></td>
 						<td><code>'plim' | 'native'</code></td>
-						<td><code>'native'</code></td>
+						<td><code>'plim'</code></td>
 						<td>
 							<code>&lt;plim-select&gt;</code> with <code>&lt;plim-option&gt;</code>, or native
 							<code>&lt;select&gt;</code>.
@@ -147,7 +144,7 @@
 
 		<h3>Outputs</h3>
 		<div class="docs-table-wrap">
-			<table class="docs-table">
+			<table plimTable class="docs-table">
 				<thead>
 					<tr>
 						<th scope="col">Output</th>

@@ -1,0 +1,18 @@
+<div class="docs-search">
+	<label class="docs-search__label" for="docs-search-input">Search documentation</label>
+	<input
+		id="docs-search-input"
+		class="docs-search__input"
+		type="search"
+		plimInput
+		placeholder="Search docs"
+		[value]="search.query()"
+		(input)="onInput($event)"
+		(keydown.escape)="clear()"
+		autocomplete="off"
+		spellcheck="false"
+	/>
+	@if (search.hasQuery() && !search.hasResults()) {
+		<p class="docs-search__empty" role="status">No pages match your search.</p>
+	}
+</div>

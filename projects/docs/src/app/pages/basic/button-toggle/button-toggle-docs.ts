@@ -1,13 +1,14 @@
 import { Component, signal } from '@angular/core';
-import { ButtonToggle, ButtonToggleGroup } from 'plim-ui';
+import { ButtonToggle, ButtonToggleGroup, Table } from 'plim-ui';
 
 import { DocsComponentLayout } from '../../../components/docs-component-layout/docs-component-layout';
+import { DocsA11yCallout } from '../../../components/docs-a11y-callout/docs-a11y-callout';
 import { DocsTokenTable } from '../../../components/docs-token-table/docs-token-table';
 import { BUTTON_TOGGLE_DOCS_TOKENS } from '../../../docs-component-tokens.config';
 
 @Component({
 	selector: 'app-button-toggle-docs',
-	imports: [DocsComponentLayout, DocsTokenTable, ButtonToggle, ButtonToggleGroup],
+	imports: [DocsA11yCallout, DocsComponentLayout, DocsTokenTable, ButtonToggle, ButtonToggleGroup, Table],
 	templateUrl: './button-toggle-docs.html',
 })
 export class ButtonToggleDocs {

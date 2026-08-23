@@ -1,13 +1,14 @@
 import { Component, signal } from '@angular/core';
-import { Button, Sidebar, SidebarMode } from 'plim-ui';
+import { Button, Sidebar, SidebarMode, Table } from 'plim-ui';
 
 import { DocsComponentLayout } from '../../../components/docs-component-layout/docs-component-layout';
+import { DocsA11yCallout } from '../../../components/docs-a11y-callout/docs-a11y-callout';
 import { DocsTokenTable } from '../../../components/docs-token-table/docs-token-table';
 import { SIDEBAR_DOCS_TOKENS } from '../../../docs-component-tokens.config';
 
 @Component({
 	selector: 'app-sidebar-docs',
-	imports: [DocsComponentLayout, DocsTokenTable, Sidebar, Button],
+	imports: [DocsA11yCallout, DocsComponentLayout, DocsTokenTable, Sidebar, Button, Table],
 	templateUrl: './sidebar-docs.html',
 	styleUrl: './sidebar-docs.scss',
 })

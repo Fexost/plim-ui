@@ -1,4 +1,8 @@
 <aside class="plim-sidebar__panel" [attr.aria-label]="ariaLabel()">
+	<div class="plim-sidebar__header">
+		<ng-content select="[plimSidebarHeader]" />
+	</div>
+
 	<div class="plim-sidebar__nav">
 		<ng-content select="[plimSidebarNav]" />
 	</div>

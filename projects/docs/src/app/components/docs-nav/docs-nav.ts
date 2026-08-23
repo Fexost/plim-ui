@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
-import { DOCS_NAV } from '../../docs-nav.config';
+import { DocsSearchService } from '../../services/docs-search.service';
 
 @Component({
 	selector: 'app-docs-nav',
@@ -10,5 +10,6 @@ import { DOCS_NAV } from '../../docs-nav.config';
 	styleUrl: './docs-nav.scss',
 })
 export class DocsNav {
-	protected readonly sections = DOCS_NAV;
+	protected readonly search = inject(DocsSearchService);
+	protected readonly sections = this.search.filteredNav;
 }

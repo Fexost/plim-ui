@@ -4,13 +4,13 @@
 	display: block;
 }
 
-.sidebar-demo {
+.sidebar-docs-demo {
 	position: relative;
 	display: block;
 	height: 16rem;
 	overflow: hidden;
 
-	&--push .sidebar-demo__content {
+	&--push .sidebar-docs-demo__content {
 		margin-left: var(--plim-sidebar-width);
 	}
 

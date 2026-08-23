@@ -1,32 +1,33 @@
-.docs-native-note {
-	display: flex;
-	flex-direction: column;
-	gap: var(--plim-space-1);
-	margin: var(--plim-space-4) 0 0;
+:host ::ng-deep plim-card.docs-native-note {
+	display: block;
+	margin-top: var(--plim-space-6);
 	max-width: 48rem;
-	padding: var(--plim-space-3) var(--plim-space-4);
-	background: var(--plim-color-primary-surface);
-	border: 1px solid var(--plim-color-primary-surface-border);
-	border-left: 3px solid var(--plim-color-primary);
-	border-radius: var(--plim-radius-md);
 
-	&__label {
-		color: var(--plim-color-primary);
-		font-size: var(--plim-font-size-xs);
-		font-weight: var(--plim-font-weight-semibold);
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
+	.plim-card__surface {
+		background: var(--plim-color-primary-surface);
+		border-color: var(--plim-color-primary-surface-border);
+		border-left: 3px solid var(--plim-color-primary);
 	}
 
-	&__text {
-		margin: 0;
-		color: var(--plim-color-primary-surface-text);
-		font-size: var(--plim-font-size-sm);
-		line-height: var(--plim-line-height-normal);
+	.plim-card__body {
+		display: flex;
+		flex-direction: column;
+		gap: var(--plim-space-2);
+	}
+}
 
-		code {
-			color: var(--plim-color-text);
-			font-weight: var(--plim-font-weight-medium);
-		}
+.docs-native-note__label {
+	align-self: flex-start;
+}
+
+.docs-native-note__text {
+	margin: 0;
+	color: var(--plim-color-primary-surface-text);
+	font-size: var(--plim-font-size-sm);
+	line-height: var(--plim-line-height-normal);
+
+	code {
+		color: var(--plim-color-text);
+		font-weight: var(--plim-font-weight-medium);
 	}
 }

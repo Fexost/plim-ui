@@ -76,17 +76,11 @@
 		[mode]="nav.sidebarMode()"
 		aria-label="Documentation navigation"
 	>
+		<app-docs-search plimSidebarHeader />
 		<app-docs-nav plimSidebarNav />
-		<div plimSidebarFooter>
-			<plim-card class="docs-sidebar-card">
-				<div class="docs-sidebar-card__inner">
-					<plim-badge variant="success" aria-hidden="true">✓</plim-badge>
-					<div>
-						<strong>WCAG-minded</strong>
-						<p>Built with keyboard support and visible focus states.</p>
-					</div>
-				</div>
-			</plim-card>
+		<div plimSidebarFooter class="docs-sidebar-footer">
+			<plim-separator />
+			<plim-badge variant="success" class="docs-sidebar-badge">WCAG-minded</plim-badge>
 		</div>
 	</plim-sidebar>
 

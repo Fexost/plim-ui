@@ -99,10 +99,12 @@
 	--plim-icon-size-sm: 1rem;
 	--plim-icon-size-md: 1.25rem;
 	--plim-icon-size-lg: 1.75rem;
+	--plim-icon-size-xl: 1.5rem;
 
 	// Chevron (expansion panel, tree)
 	--plim-chevron-size: 0.4rem;
 	--plim-chevron-offset: 0.15rem;
+	--plim-chevron-indent: 0.35rem;
 
 	// Elevation / stacking
 	--plim-z-sidebar: 50;
@@ -145,4 +147,10 @@
 	--plim-color-select-option-highlight: var(--plim-color-surface);
 	--plim-color-select-option-active: color-mix(in srgb, var(--plim-color-primary) 16%, transparent);
 	--plim-color-select-option-selected: var(--plim-color-primary);
+
+	// Datepicker
+	--plim-datepicker-nav-size: var(--plim-space-8);
+	--plim-datepicker-day-size: var(--plim-space-10);
+	--plim-datepicker-cell-width: 4.5rem;
+	--plim-datepicker-weekday-height: var(--plim-icon-size-xl);
 }

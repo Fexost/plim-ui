@@ -217,10 +217,11 @@ Sticky positioning is applied to the component host, not the internal landmark.
 
 #### Sidebar
 
-Navigation panel with nav and footer slots.
+Navigation panel with header, nav, and footer slots.
 
 ```html
 <plim-sidebar open mode="push" aria-label="Main navigation">
+  <div plimSidebarHeader>Search or branding</div>
   <nav plimSidebarNav>...</nav>
   <div plimSidebarFooter>...</div>
 </plim-sidebar>
@@ -267,7 +268,7 @@ Page controls for long lists. Supports native or plim page-size selects.
 | `pageIndex` | `number` | `0` | Zero-based page index |
 | `pageSize` | `number` | `10` | Items per page |
 | `pageSizeOptions` | `number[]` | `[5, 10, 25]` | Page-size choices |
-| `pageSizeControl` | `'plim' \| 'native'` | `'native'` | Plim select or native `<select>` |
+| `pageSizeControl` | `'plim' \| 'native'` | `'plim'` | Plim select or native `<select>` |
 
 #### Tabs
 

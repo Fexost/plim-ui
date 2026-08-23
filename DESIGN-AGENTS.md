@@ -377,6 +377,8 @@ or a new token should be added to `_tokens.scss`.
   `_docs-code-theme.scss`). Form preview helpers stay in `pages/form/_form-docs-preview.scss`.
 - App shell chrome belongs in `app.scss`. Do not split one-owner styles into extra shared
   partials.
+- Docs page preview wrappers use `{page}-docs-preview` (static demos) or `{page}-docs-demo`
+  (interactive demos such as the sidebar push/overlay example).
 
 ---
 

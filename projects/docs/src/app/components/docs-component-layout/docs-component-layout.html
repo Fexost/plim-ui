@@ -12,13 +12,13 @@
 		</div>
 
 		@if (nativeElement()) {
-			<aside class="docs-native-note" role="note">
-				<span class="docs-native-note__label">Native HTML</span>
+			<plim-card class="docs-native-note" role="note">
+				<plim-badge variant="primary" class="docs-native-note__label">Native HTML</plim-badge>
 				<p class="docs-native-note__text">
 					Built on <code>{{ nativeElement() }}</code> — semantics and form compatibility stay
 					on the element.
 				</p>
-			</aside>
+			</plim-card>
 		}
 	</header>
 
