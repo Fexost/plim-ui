@@ -36,12 +36,24 @@ describe('Sidebar', () => {
 			expect(host.classList.contains('plim-sidebar--open')).toBe(true);
 		});
 
-		it('should forward aria-label to the aside landmark', () => {
-			const panel = host.querySelector('aside.plim-sidebar__panel');
-			expect(panel?.getAttribute('aria-label')).toBe('Main navigation');
+		it('should expose a complementary landmark on the host with aria-label', () => {
+			expect(host.getAttribute('role')).toBe('complementary');
+			expect(host.getAttribute('aria-label')).toBe('Main navigation');
+		});
+
+		it('should hide the panel from assistive technology when closed', () => {
+			const closedFixture = TestBed.createComponent(Sidebar);
+			closedFixture.componentRef.setInput('open', false);
+			closedFixture.detectChanges();
+			const closedHost = closedFixture.nativeElement as HTMLElement;
+
+			expect(closedHost.getAttribute('aria-hidden')).toBe('true');
+			expect(closedHost.hasAttribute('inert')).toBe(true);
 		});
 
 		it('should project header, nav, and footer slots', () => {
+			const panel = host.querySelector('.plim-sidebar__panel');
+			expect(panel).toBeTruthy();
 			expect(host.querySelector('.plim-sidebar__header')?.textContent?.trim()).toBe('Header');
 			expect(host.querySelector('.plim-sidebar__nav')?.textContent?.trim()).toBe('Nav');
 			expect(host.querySelector('.plim-sidebar__footer')?.textContent?.trim()).toBe('Footer');

@@ -65,6 +65,18 @@
 .overview-card__icon {
 	align-self: flex-start;
 	margin-bottom: var(--plim-space-4);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 1.5rem;
+	height: 1.5rem;
+	padding: 0 var(--plim-space-2);
+	border-radius: var(--plim-radius-full);
+	background: var(--plim-color-success-surface);
+	color: var(--plim-color-success);
+	font-size: var(--plim-font-size-xs);
+	font-weight: var(--plim-font-weight-semibold);
+	line-height: 1;
 }
 
 .overview-card .docs-code {
