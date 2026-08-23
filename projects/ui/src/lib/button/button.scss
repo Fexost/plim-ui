@@ -78,12 +78,12 @@
 :host(.plim-button--text) {
 	background: transparent;
 	border-color: transparent;
-	color: var(--plim-color-primary);
+	color: var(--plim-color-link);
 	padding-inline: var(--plim-space-3);
 
 	&:hover:not(:disabled) {
 		background: var(--plim-color-primary-surface);
-		color: var(--plim-color-primary-hover);
+		color: var(--plim-color-link-hover);
 	}
 
 	@media (forced-colors: active) {

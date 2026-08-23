@@ -4,6 +4,7 @@ import { booleanAttribute, Component, input } from '@angular/core';
 	selector: 'plim-header',
 	host: {
 		class: 'plim-header',
+		role: 'banner',
 		'[class.plim-header--sticky]': 'sticky()',
 	},
 	templateUrl: './header.html',

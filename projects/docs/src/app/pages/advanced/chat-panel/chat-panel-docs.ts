@@ -1,5 +1,14 @@
 import { Component, signal } from '@angular/core';
-import { Button, ChatComposer, ChatPanel, Table } from 'plim-ui';
+import {
+	Button,
+	ChatComposer,
+	ChatIntro,
+	ChatMessage,
+	ChatPanel,
+	ChatPrompt,
+	ChatPromptSet,
+	Table,
+} from 'plim-ui';
 
 import { DocsA11yCallout } from '../../../components/docs-a11y-callout/docs-a11y-callout';
 import { DocsComponentLayout } from '../../../components/docs-component-layout/docs-component-layout';
@@ -19,7 +28,11 @@ interface ChatPanelMessage {
 		DocsTokenTable,
 		Button,
 		ChatComposer,
+		ChatIntro,
+		ChatMessage,
 		ChatPanel,
+		ChatPrompt,
+		ChatPromptSet,
 		Table,
 	],
 	templateUrl: './chat-panel-docs.html',

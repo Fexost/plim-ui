@@ -67,6 +67,20 @@
 	margin-bottom: var(--plim-space-4);
 }
 
+.overview-card__icon--success {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--plim-space-1) var(--plim-space-2);
+	border: 1px solid var(--plim-color-success-surface-border);
+	border-radius: var(--plim-radius-full);
+	background: var(--plim-color-success-surface);
+	color: var(--plim-color-success-surface-text);
+	font-size: var(--plim-font-size-xs);
+	font-weight: var(--plim-font-weight-medium);
+	line-height: var(--plim-line-height-tight);
+}
+
 .overview-card .docs-code {
 	margin-bottom: var(--plim-space-4);
 }

@@ -21,25 +21,25 @@
 :host(.plim-badge--primary) {
 	background: var(--plim-color-primary-surface);
 	border-color: var(--plim-color-primary-surface-border);
-	color: var(--plim-color-primary);
+	color: var(--plim-color-primary-surface-text);
 }
 
 :host(.plim-badge--success) {
 	background: var(--plim-color-success-surface);
 	border-color: var(--plim-color-success-surface-border);
-	color: var(--plim-color-success);
+	color: var(--plim-color-success-surface-text);
 }
 
 :host(.plim-badge--warning) {
 	background: var(--plim-color-warning-surface);
 	border-color: var(--plim-color-warning-surface-border);
-	color: var(--plim-color-warning);
+	color: var(--plim-color-warning-surface-text);
 }
 
 :host(.plim-badge--danger) {
 	background: var(--plim-color-danger-surface);
 	border-color: var(--plim-color-danger-surface-border);
-	color: var(--plim-color-danger);
+	color: var(--plim-color-danger-surface-text);
 }
 
 @media (forced-colors: active) {
