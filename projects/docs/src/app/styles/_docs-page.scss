@@ -26,9 +26,11 @@
 	}
 }
 
-.docs-guide__intro .docs-lead a {
+.docs-guide__intro .docs-lead a,
+.docs-section-copy a {
 	color: var(--plim-color-link);
-	text-decoration: none;
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
 
 	&:hover {
 		color: var(--plim-color-link-hover);
@@ -87,15 +89,6 @@
 	color: var(--plim-color-text-muted);
 	font-size: var(--plim-font-size-sm);
 	line-height: var(--plim-line-height-normal);
-
-	a {
-		color: var(--plim-color-link);
-		text-decoration: none;
-
-		&:hover {
-			color: var(--plim-color-link-hover);
-		}
-	}
 }
 
 .docs-list {
@@ -185,6 +178,11 @@
 	&--scroll {
 		max-height: 16rem;
 		overflow: auto;
+
+		&:focus-visible {
+			outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+			outline-offset: var(--plim-focus-ring-offset);
+		}
 	}
 
 	&--native {
@@ -199,6 +197,11 @@
 	border: 1px solid var(--plim-color-border);
 	border-radius: var(--plim-radius-md);
 	overflow-x: auto;
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+	}
 
 	code {
 		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -267,6 +270,11 @@
 .docs-table-wrap {
 	overflow-x: auto;
 	margin-bottom: var(--plim-space-6);
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+	}
 }
 
 // Reference tables use `plimTable`; keep docs-table for page-specific tweaks only.
@@ -280,6 +288,14 @@
 	gap: var(--plim-space-3);
 	width: 100%;
 	flex: 0 0 auto;
+}
+
+.docs-native-label {
+	display: block;
+	margin-bottom: var(--plim-space-2);
+	color: var(--plim-color-text);
+	font-size: var(--plim-font-size-sm);
+	font-weight: var(--plim-font-weight-medium);
 }
 
 .docs-scroll-spacer {
