@@ -2,7 +2,7 @@ import { booleanAttribute, Component, input } from '@angular/core';
 
 @Component({
 	selector: 'input[type=checkbox][plimCheckbox]',
-	template: '',
+	templateUrl: './checkbox.html',
 	styleUrl: './checkbox.scss',
 	host: {
 		class: 'plim-checkbox',

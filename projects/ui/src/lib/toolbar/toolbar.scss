@@ -1,0 +1,36 @@
+:host {
+	display: block;
+	width: 100%;
+}
+
+:host(.plim-toolbar--sticky) {
+	position: sticky;
+	top: 0;
+	z-index: 90;
+}
+
+.plim-toolbar__bar {
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--plim-space-4);
+	width: 100%;
+	min-height: var(--plim-button-height);
+	padding: var(--plim-space-3) var(--plim-space-6);
+	background: var(--plim-color-surface-raised);
+	border-bottom: 1px solid var(--plim-color-border);
+	color: var(--plim-color-text);
+}
+
+.plim-toolbar__start,
+.plim-toolbar__end {
+	display: flex;
+	align-items: center;
+	gap: var(--plim-space-3);
+	min-width: 0;
+}
+
+.plim-toolbar__end {
+	justify-content: flex-end;
+}

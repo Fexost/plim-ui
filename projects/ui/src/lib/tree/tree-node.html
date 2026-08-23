@@ -1,0 +1,23 @@
+<div class="plim-tree-node__row">
+	@if (hasChildren()) {
+		<button
+			type="button"
+			class="plim-tree-node__toggle"
+			[attr.aria-expanded]="expanded()"
+			(click)="toggle()"
+		>
+			<span
+				class="plim-tree-node__chevron"
+				[class.plim-tree-node__chevron--expanded]="expanded()"
+				aria-hidden="true"
+			></span>
+			<span class="plim-tree-node__label">{{ label() }}</span>
+		</button>
+	} @else {
+		<span class="plim-tree-node__spacer" aria-hidden="true"></span>
+		<span class="plim-tree-node__label">{{ label() }}</span>
+	}
+</div>
+<div class="plim-tree-node__children" role="group" [hidden]="!hasChildren() || !expanded()">
+	<ng-content />
+</div>

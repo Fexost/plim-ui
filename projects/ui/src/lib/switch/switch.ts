@@ -10,7 +10,7 @@ import {
 
 @Component({
 	selector: 'input[type=checkbox][plimSwitch]',
-	template: '',
+	templateUrl: './switch.html',
 	styleUrl: './switch.scss',
 	host: {
 		class: 'plim-switch',

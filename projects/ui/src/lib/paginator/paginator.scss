@@ -1,0 +1,71 @@
+@use '../../styles/field-control';
+
+:host {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-end;
+	gap: var(--plim-space-3);
+	color: var(--plim-color-text);
+	font-size: var(--plim-font-size-sm);
+}
+
+.plim-paginator__page-size-field {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--plim-space-2);
+}
+
+.plim-paginator__page-size-label {
+	color: var(--plim-color-text-muted);
+}
+
+.plim-paginator__page-size {
+	@include field-control.plim-field-control-base;
+
+	width: auto;
+	min-width: calc(var(--plim-button-height) * 3);
+	padding-right: calc(var(--plim-input-padding-x) + 1.25rem);
+	appearance: none;
+	cursor: pointer;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%236f7684' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right var(--plim-space-3) center;
+	background-size: 1rem;
+}
+
+.plim-paginator__page-size-select {
+	width: auto;
+	min-width: calc(var(--plim-button-height) * 3.5);
+}
+
+.plim-paginator__range {
+	color: var(--plim-color-text-muted);
+	white-space: nowrap;
+}
+
+.plim-paginator__button {
+	box-sizing: border-box;
+	min-height: var(--plim-button-height);
+	padding: 0 var(--plim-space-3);
+	border: 1px solid var(--plim-color-border-strong);
+	border-radius: var(--plim-radius-md);
+	background: transparent;
+	color: var(--plim-color-text);
+	font: inherit;
+	cursor: pointer;
+
+	&:hover:not(:disabled) {
+		background: var(--plim-color-surface-raised);
+	}
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}

@@ -1,0 +1,12 @@
+@use '../../styles/option-list';
+
+:host {
+	display: none;
+}
+
+.plim-menu__panel {
+	@include option-list.plim-option-list-panel;
+
+	width: max-content;
+	min-width: calc(var(--plim-button-height) * 6);
+}

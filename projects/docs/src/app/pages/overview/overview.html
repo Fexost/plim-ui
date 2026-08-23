@@ -122,19 +122,23 @@
 			</div>
 		</plim-card>
 
-		<plim-card fill class="overview-card overview-card--category overview-card--muted">
+		<plim-card fill class="overview-card overview-card--category">
 			<h3>Feedback</h3>
 			<p>Bottom sheet, dialog, snackbar, tooltip, and contextual overlays.</p>
 			<div plimCardFooter>
-				<plim-badge>Coming soon</plim-badge>
+				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.dialog">
+					View dialog
+				</button>
 			</div>
 		</plim-card>
 
-		<plim-card fill class="overview-card overview-card--category overview-card--muted">
+		<plim-card fill class="overview-card overview-card--category">
 			<h3>Data</h3>
 			<p>Chips, expansion panels, tables, steppers, trees, and structured content.</p>
 			<div plimCardFooter>
-				<plim-badge>Coming soon</plim-badge>
+				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.table">
+					View table
+				</button>
 			</div>
 		</plim-card>
 	</div>

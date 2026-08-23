@@ -1,0 +1,9 @@
+:host {
+	display: block;
+}
+
+.snackbar-docs-preview__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--plim-space-2);
+}

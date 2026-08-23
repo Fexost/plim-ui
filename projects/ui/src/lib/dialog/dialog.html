@@ -1,0 +1,22 @@
+<ng-template #panel>
+	<div
+		class="plim-dialog"
+		role="dialog"
+		aria-modal="true"
+		tabindex="-1"
+		cdkTrapFocus
+		cdkTrapFocusAutoCapture
+		[attr.aria-label]="ariaLabel() ?? null"
+		(keydown)="onPanelKeydown($event)"
+	>
+		<div class="plim-dialog__title">
+			<ng-content select="[plimDialogTitle]" />
+		</div>
+		<div class="plim-dialog__body">
+			<ng-content />
+		</div>
+		<div class="plim-dialog__actions">
+			<ng-content select="[plimDialogActions]" />
+		</div>
+	</div>
+</ng-template>

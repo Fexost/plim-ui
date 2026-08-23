@@ -1,0 +1,112 @@
+<app-docs-component-layout category="Feedback" title="Bottom sheet">
+	<p docsLead>
+		A full-width sheet anchored to the bottom of the viewport. Escape and backdrop click emit
+		<code>closed</code> so the parent can set <code>open</code> to false.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Open and close</h2>
+		<p>Project any content. The overlay is created only while open.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<button type="button" plimButton (click)="open.set(true)">Open sheet</button>
+				<plim-bottom-sheet
+					[open]="open()"
+					ariaLabel="Share options"
+					(closed)="open.set(false)"
+				>
+					<div class="bottom-sheet-docs__content">
+						<p>Share this page with a link or export.</p>
+						<button type="button" plimButton (click)="open.set(false)">Done</button>
+					</div>
+				</plim-bottom-sheet>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;button type="button" plimButton (click)="open.set(true)"&gt;Open sheet&lt;/button&gt;
+
+&lt;plim-bottom-sheet [open]="open()" ariaLabel="Share options" (closed)="open.set(false)"&gt;
+  &lt;p&gt;Share this page with a link or export.&lt;/p&gt;
+  &lt;button type="button" plimButton (click)="open.set(false)"&gt;Done&lt;/button&gt;
+&lt;/plim-bottom-sheet&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The sheet is presented as a modal dialog. Provide an
+					<code>ariaLabel</code> when the content has no visible heading.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Modal dialog semantics</li>
+					<li>Escape and backdrop dismiss</li>
+					<li>Focus trapped while open</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>open</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>When true, attaches a bottom CDK overlay. No overlay when false.</td>
+					</tr>
+					<tr>
+						<td><code>ariaLabel</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Accessible name forwarded to the sheet.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Outputs</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Output</th>
+						<th scope="col">Type</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>closed</code></td>
+						<td><code>void</code></td>
+						<td>Emitted on Escape or backdrop click. Set <code>open</code> to false.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

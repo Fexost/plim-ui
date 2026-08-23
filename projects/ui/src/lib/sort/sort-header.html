@@ -1,0 +1,12 @@
+<button type="button" class="plim-sort-header__button" (click)="toggle()">
+	<span class="plim-sort-header__label"><ng-content /></span>
+	<span class="plim-sort-header__indicator" aria-hidden="true">
+		@if (direction() === 'asc') {
+			▲
+		} @else if (direction() === 'desc') {
+			▼
+		} @else {
+			↕
+		}
+	</span>
+</button>

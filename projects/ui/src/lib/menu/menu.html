@@ -1,0 +1,22 @@
+<div class="plim-menu__source" cdkOverlayOrigin #sourceOrigin="cdkOverlayOrigin" hidden></div>
+
+<ng-template
+	cdkConnectedOverlay
+	[cdkConnectedOverlayOrigin]="overlayOrigin() ?? sourceOrigin"
+	[cdkConnectedOverlayOpen]="panelOpen()"
+	[cdkConnectedOverlayPositions]="overlayPositions"
+	[cdkConnectedOverlayMatchWidth]="false"
+	[cdkConnectedOverlayHasBackdrop]="false"
+	(overlayOutsideClick)="close()"
+	(detach)="close()"
+>
+	<div
+		[id]="panelId"
+		class="plim-menu__panel"
+		role="menu"
+		tabindex="-1"
+		(keydown)="onPanelKeydown($event)"
+	>
+		<ng-content />
+	</div>
+</ng-template>

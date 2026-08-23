@@ -1,0 +1,39 @@
+<nav class="plim-stepper__header" aria-label="Progress">
+	<ol class="plim-stepper__list">
+		@for (step of steps(); track $index) {
+			<li
+				class="plim-stepper__item"
+				[class.plim-stepper__item--active]="$index === selectedIndex()"
+				[class.plim-stepper__item--done]="$index < selectedIndex()"
+			>
+				<button
+					type="button"
+					class="plim-stepper__tab"
+					[attr.aria-current]="$index === selectedIndex() ? 'step' : null"
+					(click)="selectedIndex.set($index)"
+				>
+					<span class="plim-stepper__index">{{ $index + 1 }}</span>
+					<span class="plim-stepper__copy">
+						<span class="plim-stepper__label">{{ step.label() }}</span>
+						@if (step.optional()) {
+							<span class="plim-stepper__optional">Optional</span>
+						}
+					</span>
+				</button>
+			</li>
+		}
+	</ol>
+</nav>
+
+<div class="plim-stepper__body">
+	<ng-content />
+</div>
+
+<div class="plim-stepper__footer">
+	<button type="button" class="plim-stepper__back" [disabled]="atStart()" (click)="back()">
+		Back
+	</button>
+	<button type="button" class="plim-stepper__next" [disabled]="atEnd()" (click)="next()">
+		Next
+	</button>
+</div>

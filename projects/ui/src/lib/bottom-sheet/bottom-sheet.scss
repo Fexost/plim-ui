@@ -1,0 +1,26 @@
+:host {
+	display: none;
+}
+
+.plim-bottom-sheet {
+	box-sizing: border-box;
+	width: 100%;
+	max-height: min(80vh, 32rem);
+	overflow: auto;
+	padding: var(--plim-space-6);
+	background: var(--plim-color-surface-raised);
+	border: 1px solid var(--plim-color-border);
+	border-bottom: none;
+	border-radius: var(--plim-radius-lg) var(--plim-radius-lg) 0 0;
+	box-shadow: var(--plim-shadow-lg);
+	color: var(--plim-color-text);
+}
+
+.plim-bottom-sheet:focus {
+	outline: none;
+}
+
+.plim-bottom-sheet:focus-visible {
+	outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+	outline-offset: var(--plim-focus-ring-offset);
+}

@@ -1,0 +1,14 @@
+<button
+	type="button"
+	class="plim-expansion-panel__header"
+	[attr.aria-expanded]="open()"
+	(click)="toggle()"
+>
+	<span class="plim-expansion-panel__title">
+		<ng-content select="[plimExpansionHeader]" />
+	</span>
+	<span class="plim-expansion-panel__icon" aria-hidden="true"></span>
+</button>
+<div class="plim-expansion-panel__body" [hidden]="!open()">
+	<ng-content />
+</div>

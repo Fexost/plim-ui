@@ -1,0 +1,171 @@
+<app-docs-component-layout category="Navigation" title="Paginator">
+	<p docsLead>
+		Page controls for long lists. Bind <code>length</code>, <code>pageIndex</code>, and
+		<code>pageSize</code>, then update them from the <code>page</code> event. Choose
+		<code>&lt;plim-select&gt;</code> or a native <code>&lt;select&gt;</code> for page size with
+		<code>pageSizeControl</code>.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Plim page-size select</h2>
+		<p>
+			Default — <code>pageSizeControl="plim"</code> uses <code>&lt;plim-select&gt;</code> with
+			<code>&lt;plim-option&gt;</code>.
+		</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-paginator
+					[length]="length"
+					[pageIndex]="plimPageIndex()"
+					[pageSize]="plimPageSize()"
+					pageSizeControl="plim"
+					ariaLabel="Results"
+					(page)="onPlimPage($event)"
+				/>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-paginator
+  [length]="100"
+  [pageIndex]="pageIndex"
+  [pageSize]="pageSize"
+  pageSizeControl="plim"
+  (page)="onPage($event)"
+/&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section">
+		<h2>Native page-size select</h2>
+		<p>Set <code>pageSizeControl="native"</code> for a styled native <code>&lt;select&gt;</code>.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-paginator
+					[length]="length"
+					[pageIndex]="nativePageIndex()"
+					[pageSize]="nativePageSize()"
+					pageSizeControl="native"
+					ariaLabel="Results"
+					(page)="onNativePage($event)"
+				/>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-paginator
+  [length]="100"
+  [pageIndex]="pageIndex"
+  [pageSize]="pageSize"
+  pageSizeControl="native"
+  (page)="onPage($event)"
+/&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The host is a navigation landmark. Previous and next are native buttons,
+					disabled at the ends. The range text updates with <code>aria-live="polite"</code>.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>role="navigation" on the host</li>
+					<li>Named previous and next buttons</li>
+					<li>Live region for the current range</li>
+					<li>Labelled page-size control in both plim and native modes</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>length</code></td>
+						<td><code>number</code></td>
+						<td><code>0</code></td>
+						<td>Total number of items.</td>
+					</tr>
+					<tr>
+						<td><code>pageSize</code></td>
+						<td><code>number</code></td>
+						<td><code>10</code></td>
+						<td>Items shown on the current page.</td>
+					</tr>
+					<tr>
+						<td><code>pageIndex</code></td>
+						<td><code>number</code></td>
+						<td><code>0</code></td>
+						<td>Zero-based page index.</td>
+					</tr>
+					<tr>
+						<td><code>pageSizeOptions</code></td>
+						<td><code>number[]</code></td>
+						<td><code>[5, 10, 25]</code></td>
+						<td>Values offered in the page-size select. Empty hides the select.</td>
+					</tr>
+					<tr>
+						<td><code>pageSizeControl</code></td>
+						<td><code>'plim' | 'native'</code></td>
+						<td><code>'native'</code></td>
+						<td>
+							<code>&lt;plim-select&gt;</code> with <code>&lt;plim-option&gt;</code>, or native
+							<code>&lt;select&gt;</code>.
+						</td>
+					</tr>
+					<tr>
+						<td><code>ariaLabel</code></td>
+						<td><code>string</code></td>
+						<td><code>'Pagination'</code></td>
+						<td>Accessible name for the navigation landmark.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Outputs</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Output</th>
+						<th scope="col">Type</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>page</code></td>
+						<td><code>PageEvent</code></td>
+						<td>
+							Emits <code>{{ '{' }} pageIndex, pageSize, length {{ '}' }}</code> when the page or page
+							size changes.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

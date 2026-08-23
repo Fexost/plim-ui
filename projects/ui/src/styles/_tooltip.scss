@@ -1,0 +1,12 @@
+.plim-tooltip {
+	box-sizing: border-box;
+	max-width: 16rem;
+	padding: var(--plim-space-2) var(--plim-space-3);
+	background: var(--plim-color-surface-raised);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-md);
+	box-shadow: var(--plim-shadow-md);
+	color: var(--plim-color-text);
+	font-size: var(--plim-font-size-xs);
+	line-height: var(--plim-line-height-tight);
+}

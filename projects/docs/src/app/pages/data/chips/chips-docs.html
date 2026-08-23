@@ -1,0 +1,112 @@
+<app-docs-component-layout category="Data" title="Chips">
+	<p docsLead>
+		Compact tokens for a selected value, filter, or category. Wrap chips in
+		<code>plim-chip-set</code> and project the label.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Set and removable</h2>
+		<p>Use <code>removable</code> to show a dismiss control. The parent removes the chip.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-chip-set>
+					@for (chip of chips(); track chip) {
+						<plim-chip removable (removed)="removeChip(chip)">{{ chip }}</plim-chip>
+					}
+					<plim-chip disabled>Disabled</plim-chip>
+				</plim-chip-set>
+			</div>
+			<pre
+				class="docs-code docs-split__code"
+			><code>&lt;plim-chip-set&gt;
+  &lt;plim-chip removable (removed)="removeChip(chip)"&gt;Angular&lt;/plim-chip&gt;
+  &lt;plim-chip disabled&gt;Disabled&lt;/plim-chip&gt;
+&lt;/plim-chip-set&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					Removable chips include a native dismiss button labelled
+					<code>Remove</code>. Disabled chips expose <code>aria-disabled</code>.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Dismiss control is <code>type="button"</code></li>
+					<li>Visible focus ring on the remove control</li>
+					<li>Disabled state forwarded to the dismiss button</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<h3>Chip set</h3>
+		<p class="docs-section-copy">
+			<code>plim-chip-set</code> is a wrapping flex container. It has no inputs.
+		</p>
+
+		<h3>Chip</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>removable</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Shows a dismiss control that emits <code>removed</code>.</td>
+					</tr>
+					<tr>
+						<td><code>disabled</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Dims the chip and disables dismiss.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Output</th>
+						<th scope="col">Type</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>removed</code></td>
+						<td><code>void</code></td>
+						<td>Emitted when the dismiss control is activated.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

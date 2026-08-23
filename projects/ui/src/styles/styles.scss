@@ -1,9 +1,20 @@
 @use './tokens';
 @use './theme';
+@use './table';
+@use './tooltip';
 
 .plim-select__backdrop,
 .plim-autocomplete__backdrop,
 .plim-datepicker__backdrop,
 .plim-timepicker__backdrop {
 	background: transparent;
+}
+
+.plim-dialog__backdrop,
+.plim-bottom-sheet__backdrop {
+	background: var(--plim-color-backdrop);
+}
+
+.plim-snackbar-overlay {
+	pointer-events: none;
 }

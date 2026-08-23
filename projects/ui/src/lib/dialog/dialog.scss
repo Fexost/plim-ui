@@ -1,0 +1,49 @@
+:host {
+	display: none;
+}
+
+.plim-dialog {
+	box-sizing: border-box;
+	width: min(28rem, calc(100vw - var(--plim-space-8)));
+	padding: var(--plim-space-6);
+	background: var(--plim-color-surface-raised);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-lg);
+	box-shadow: var(--plim-shadow-lg);
+	color: var(--plim-color-text);
+}
+
+.plim-dialog:focus {
+	outline: none;
+}
+
+.plim-dialog:focus-visible {
+	outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+	outline-offset: var(--plim-focus-ring-offset);
+}
+
+.plim-dialog__title:not(:empty) {
+	margin-bottom: var(--plim-space-3);
+	font-size: var(--plim-font-size-lg);
+	font-weight: var(--plim-font-weight-semibold);
+	line-height: var(--plim-line-height-tight);
+}
+
+.plim-dialog__title > * {
+	margin: 0;
+	font: inherit;
+}
+
+.plim-dialog__body {
+	color: var(--plim-color-text-muted);
+	font-size: var(--plim-font-size-sm);
+	line-height: var(--plim-line-height-normal);
+}
+
+.plim-dialog__actions:not(:empty) {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: var(--plim-space-2);
+	margin-top: var(--plim-space-6);
+}

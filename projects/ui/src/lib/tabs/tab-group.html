@@ -1,0 +1,24 @@
+<div
+	class="plim-tab-group__list"
+	role="tablist"
+	tabindex="-1"
+	(keydown)="onTablistKeydown($event)"
+>
+	@for (tab of tabs(); track tab.tabId; let index = $index) {
+		<button
+			type="button"
+			class="plim-tab-group__tab"
+			[class.plim-tab-group__tab--active]="isTabSelected(index)"
+			role="tab"
+			[id]="tab.tabId"
+			[attr.aria-selected]="isTabSelected(index)"
+			[attr.aria-controls]="tab.panelId"
+			[tabindex]="isTabSelected(index) ? 0 : -1"
+			[disabled]="tab.disabled()"
+			(click)="selectTab(index)"
+		>
+			{{ tab.label() }}
+		</button>
+	}
+</div>
+<ng-content />

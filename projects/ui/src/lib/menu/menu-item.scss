@@ -1,0 +1,15 @@
+@use '../../styles/option-list';
+
+:host.plim-menu-item {
+	@include option-list.plim-option-list-item;
+
+	&:hover:not(:disabled) {
+		background: var(--plim-color-select-option-highlight);
+	}
+
+	&:focus-visible {
+		background: var(--plim-color-select-option-highlight);
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: calc(var(--plim-focus-ring-offset) * -1);
+	}
+}

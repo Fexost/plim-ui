@@ -1,0 +1,113 @@
+<app-docs-component-layout category="Navigation" title="Toolbar">
+	<p docsLead>
+		An in-page action bar for view-level tools — not app chrome. Use
+		<code>plim-header</code> for global navigation with start, center, and end slots; use
+		<code>plim-toolbar</code> inside a page for titles, filters, and local actions with
+		start and end slots only.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Layout</h2>
+		<p>Project a title or filters on the start side and actions on the end.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-toolbar>
+					<div plimToolbarStart><strong>Inbox</strong></div>
+					<div plimToolbarEnd>Filter</div>
+				</plim-toolbar>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-toolbar&gt;
+  &lt;div plimToolbarStart&gt;&lt;strong&gt;Inbox&lt;/strong&gt;&lt;/div&gt;
+  &lt;div plimToolbarEnd&gt;Filter&lt;/div&gt;
+&lt;/plim-toolbar&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section">
+		<h2>Sticky behaviour</h2>
+		<p>Sticky positioning lives on the component host, not the internal bar.</p>
+
+		<div class="docs-preview docs-preview--scroll">
+			<plim-toolbar sticky>
+				<div plimToolbarStart><strong>Inbox</strong></div>
+				<div plimToolbarEnd>Filter</div>
+			</plim-toolbar>
+			<div class="docs-scroll-spacer" aria-hidden="true"></div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					Keep interactive slot content as native buttons and links so keyboard and
+					screen-reader behaviour stay predictable.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Native controls in slots</li>
+					<li>Sticky offset does not trap focus</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>sticky</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Keeps the toolbar visible at the top of the scroll container.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Content slots</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Attribute</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>plimToolbarStart</code></td>
+						<td>Leading content such as a title or filters.</td>
+					</tr>
+					<tr>
+						<td><code>plimToolbarEnd</code></td>
+						<td>Trailing actions.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

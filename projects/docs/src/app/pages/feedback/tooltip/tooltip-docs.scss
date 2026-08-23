@@ -1,0 +1,15 @@
+:host {
+	display: block;
+}
+
+.tooltip-docs-preview {
+	display: flex;
+	justify-content: center;
+	padding-block: var(--plim-space-4);
+}
+
+.tooltip-docs-preview--above {
+	align-items: flex-end;
+	min-height: 6rem;
+	padding-top: var(--plim-space-8);
+}

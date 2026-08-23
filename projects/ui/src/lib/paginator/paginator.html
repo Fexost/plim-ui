@@ -1,0 +1,49 @@
+@if (pageSizeOptions().length > 0) {
+	<label class="plim-paginator__page-size-field">
+		<span class="plim-paginator__page-size-label">Items per page</span>
+		@if (pageSizeControl() === 'plim') {
+			<plim-select
+				class="plim-paginator__page-size-select"
+				[ngModel]="pageSizeModel()"
+				ariaLabel="Items per page"
+				(ngModelChange)="onPlimPageSizeChange($event)"
+			>
+				@for (size of pageSizeOptions(); track size) {
+					<plim-option [value]="size.toString()">{{ size }}</plim-option>
+				}
+			</plim-select>
+		} @else {
+			<select
+				class="plim-paginator__page-size"
+				[value]="pageSize()"
+				aria-label="Items per page"
+				(change)="onPageSizeChange($event)"
+			>
+				@for (size of pageSizeOptions(); track size) {
+					<option [value]="size" [selected]="size === pageSize()">{{ size }}</option>
+				}
+			</select>
+		}
+	</label>
+}
+
+<span class="plim-paginator__range" aria-live="polite">{{ rangeLabel() }}</span>
+
+<button
+	type="button"
+	class="plim-paginator__button"
+	aria-label="Previous page"
+	[disabled]="!hasPrevious()"
+	(click)="previous()"
+>
+	Previous
+</button>
+<button
+	type="button"
+	class="plim-paginator__button"
+	aria-label="Next page"
+	[disabled]="!hasNext()"
+	(click)="next()"
+>
+	Next
+</button>

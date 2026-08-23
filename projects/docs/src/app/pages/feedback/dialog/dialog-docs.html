@@ -1,0 +1,145 @@
+<app-docs-component-layout category="Feedback" title="Dialog">
+	<p docsLead>
+		A modal dialog centred over the page. Escape and backdrop click emit
+		<code>closed</code> so the parent can set <code>open</code> to false.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Open and close</h2>
+		<p>Project a title, body, and actions. The overlay is created only while open.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<button type="button" plimButton (click)="open.set(true)">Open dialog</button>
+				<plim-dialog [open]="open()" ariaLabel="Delete item" (closed)="open.set(false)">
+					<h2 plimDialogTitle>Delete item</h2>
+					<p>This action cannot be undone. The item will be removed permanently.</p>
+					<div plimDialogActions>
+						<button type="button" plimButton variant="text" (click)="open.set(false)">
+							Cancel
+						</button>
+						<button type="button" plimButton (click)="open.set(false)">Delete</button>
+					</div>
+				</plim-dialog>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;button type="button" plimButton (click)="open.set(true)"&gt;Open dialog&lt;/button&gt;
+
+&lt;plim-dialog [open]="open()" ariaLabel="Delete item" (closed)="open.set(false)"&gt;
+  &lt;h2 plimDialogTitle&gt;Delete item&lt;/h2&gt;
+  &lt;p&gt;This action cannot be undone.&lt;/p&gt;
+  &lt;div plimDialogActions&gt;
+    &lt;button type="button" plimButton variant="text" (click)="open.set(false)"&gt;
+      Cancel
+    &lt;/button&gt;
+    &lt;button type="button" plimButton (click)="open.set(false)"&gt;Delete&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/plim-dialog&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The dialog uses <code>role="dialog"</code> with a focus trap. The first
+					focusable control is focused on open and focus is restored when the overlay
+					closes.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Modal dialog semantics</li>
+					<li>Escape and backdrop dismiss</li>
+					<li>Focus first control, restore on close</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>open</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>When true, attaches a centred CDK overlay. No overlay when false.</td>
+					</tr>
+					<tr>
+						<td><code>ariaLabel</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Accessible name forwarded to the dialog.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Outputs</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Output</th>
+						<th scope="col">Type</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>closed</code></td>
+						<td><code>void</code></td>
+						<td>Emitted on Escape or backdrop click. Set <code>open</code> to false.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Content slots</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Attribute</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>plimDialogTitle</code></td>
+						<td>Heading at the top of the dialog.</td>
+					</tr>
+					<tr>
+						<td><em>default</em></td>
+						<td>Dialog body content.</td>
+					</tr>
+					<tr>
+						<td><code>plimDialogActions</code></td>
+						<td>Action row at the bottom of the dialog.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

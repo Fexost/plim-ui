@@ -1,0 +1,101 @@
+<app-docs-component-layout category="Data" title="Expansion panel">
+	<p docsLead>
+		A collapsible section with a header button and projected body. Bind
+		<code>open</code> or let the header toggle it.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Toggle</h2>
+		<p>Project the title with <code>plimExpansionHeader</code>. The body stays hidden until opened.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview docs-split__preview--stack">
+				<plim-expansion-panel class="expansion-panel-docs-preview">
+					<span plimExpansionHeader>Project details</span>
+					Access tokens, spacing, and typography used by this library.
+				</plim-expansion-panel>
+			</div>
+			<pre
+				class="docs-code docs-split__code"
+			><code>&lt;plim-expansion-panel&gt;
+  &lt;span plimExpansionHeader&gt;Project details&lt;/span&gt;
+  Access tokens, spacing, and typography used by this library.
+&lt;/plim-expansion-panel&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The header is a native button with <code>aria-expanded</code>. Enter and Space
+					toggle the panel.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Header is <code>type="button"</code></li>
+					<li><code>aria-expanded</code> reflects open state</li>
+					<li>Body uses the native <code>hidden</code> attribute when closed</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>open</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Whether the body is visible. Supports two-way binding.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Content slots</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Attribute</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>plimExpansionHeader</code></td>
+						<td>Title content inside the header button.</td>
+					</tr>
+					<tr>
+						<td><em>default</em></td>
+						<td>Panel body, hidden while closed.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

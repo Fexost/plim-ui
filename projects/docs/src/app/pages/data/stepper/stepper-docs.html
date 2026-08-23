@@ -1,0 +1,111 @@
+<app-docs-component-layout category="Data" title="Stepper">
+	<p docsLead>
+		A linear sequence of steps. The stepper renders a header, the selected step body, and
+		Back / Next controls. Bind <code>selectedIndex</code> when the parent needs the current
+		step.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Linear steps</h2>
+		<p>Mark a step <code>optional</code> to show a hint in the header.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview docs-split__preview--stack">
+				<plim-stepper class="stepper-docs-preview">
+					<plim-step label="Account">Enter a name and email for the account.</plim-step>
+					<plim-step label="Profile" optional>Add an optional display name.</plim-step>
+					<plim-step label="Review">Confirm the details before finishing.</plim-step>
+				</plim-stepper>
+			</div>
+			<pre
+				class="docs-code docs-split__code"
+			><code>&lt;plim-stepper&gt;
+  &lt;plim-step label="Account"&gt;Enter a name and email.&lt;/plim-step&gt;
+  &lt;plim-step label="Profile" optional&gt;Add a display name.&lt;/plim-step&gt;
+  &lt;plim-step label="Review"&gt;Confirm the details.&lt;/plim-step&gt;
+&lt;/plim-stepper&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The header is a labelled progress navigation. The active step uses
+					<code>aria-current="step"</code>. Unselected step bodies are hidden.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Header labelled as progress</li>
+					<li>Current step announced with <code>aria-current</code></li>
+					<li>Back and Next are native buttons</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<h3>Stepper</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>selectedIndex</code></td>
+						<td><code>number</code></td>
+						<td><code>0</code></td>
+						<td>Visible step index. Supports two-way binding.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Step</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>label</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Required header label.</td>
+					</tr>
+					<tr>
+						<td><code>optional</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Shows an optional hint in the header.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

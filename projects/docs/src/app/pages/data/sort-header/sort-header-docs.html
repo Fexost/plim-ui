@@ -1,0 +1,130 @@
+<app-docs-component-layout category="Data" title="Sort header">
+	<p docsLead>
+		Column headers that cycle ascending, descending, and unsorted. Pair
+		<code>plimSort</code> with <code>plimSortHeader</code> on a <code>plimTable</code> and sort
+		the displayed rows in the parent.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Sortable columns</h2>
+		<p>Click a header to change <code>active</code> and <code>direction</code>.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<div class="sort-header-docs-preview">
+					<table plimTable plimSort [(active)]="active" [(direction)]="direction">
+						<thead>
+							<tr>
+								<th plimSortHeader="name">Name</th>
+								<th plimSortHeader="role">Role</th>
+							</tr>
+						</thead>
+						<tbody>
+							@for (row of sortedRows(); track row.name) {
+								<tr>
+									<td>{{ row.name }}</td>
+									<td>{{ row.role }}</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<pre
+				class="docs-code docs-split__code"
+			><code>&lt;table plimTable plimSort [(active)]="active" [(direction)]="direction"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th plimSortHeader="name"&gt;Name&lt;/th&gt;
+      &lt;th plimSortHeader="role"&gt;Role&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Ada&lt;/td&gt;&lt;td&gt;Engineer&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					Each sort header is a native button inside <code>th</code>.
+					<code>aria-sort</code> reports ascending, descending, or none.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li><code>aria-sort</code> on the column header</li>
+					<li>Keyboard activation via the header button</li>
+					<li>Third click clears the sort</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<h3>Sort</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>active</code></td>
+						<td><code>string</code></td>
+						<td><code>''</code></td>
+						<td>Active column id. Supports two-way binding.</td>
+					</tr>
+					<tr>
+						<td><code>direction</code></td>
+						<td><code>'asc' | 'desc' | ''</code></td>
+						<td><code>''</code></td>
+						<td>Sort direction. Supports two-way binding.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Sort header</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>plimSortHeader</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Column id reported to the parent <code>plimSort</code>.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

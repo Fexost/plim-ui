@@ -2,7 +2,7 @@ import { booleanAttribute, Component, input } from '@angular/core';
 
 @Component({
 	selector: 'input[type=radio][plimRadio]',
-	template: '',
+	templateUrl: './radio.html',
 	styleUrl: './radio.scss',
 	host: {
 		class: 'plim-radio',

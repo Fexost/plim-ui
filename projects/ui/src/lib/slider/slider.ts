@@ -2,7 +2,7 @@ import { booleanAttribute, Component, input } from '@angular/core';
 
 @Component({
 	selector: 'input[type=range][plimSlider]',
-	template: '',
+	templateUrl: './slider.html',
 	styleUrl: './slider.scss',
 	host: {
 		class: 'plim-slider',

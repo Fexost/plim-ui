@@ -2,7 +2,7 @@ import { booleanAttribute, Component, input } from '@angular/core';
 
 @Component({
 	selector: 'textarea[plimTextarea]',
-	template: '',
+	templateUrl: './textarea.html',
 	styleUrl: './textarea.scss',
 	host: {
 		class: 'plim-textarea',

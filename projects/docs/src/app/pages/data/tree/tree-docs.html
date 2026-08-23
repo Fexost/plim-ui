@@ -1,0 +1,99 @@
+<app-docs-component-layout category="Data" title="Tree">
+	<p docsLead>
+		A nested hierarchy of nodes. Nest <code>plim-tree-node</code> elements and toggle parents
+		that have children.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Nested nodes</h2>
+		<p>Parents expand and collapse. Leaves render as static labels.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-tree class="tree-docs-preview">
+					<plim-tree-node label="src">
+						<plim-tree-node label="app">
+							<plim-tree-node label="app.ts" />
+							<plim-tree-node label="app.html" />
+						</plim-tree-node>
+						<plim-tree-node label="styles.scss" />
+					</plim-tree-node>
+					<plim-tree-node label="README.md" />
+				</plim-tree>
+			</div>
+			<pre
+				class="docs-code docs-split__code"
+			><code>&lt;plim-tree&gt;
+  &lt;plim-tree-node label="src"&gt;
+    &lt;plim-tree-node label="app"&gt;
+      &lt;plim-tree-node label="app.ts" /&gt;
+    &lt;/plim-tree-node&gt;
+  &lt;/plim-tree-node&gt;
+  &lt;plim-tree-node label="README.md" /&gt;
+&lt;/plim-tree&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The tree uses <code>role="tree"</code> and each node uses
+					<code>role="treeitem"</code>. Parents expose <code>aria-expanded</code>.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Tree and treeitem roles</li>
+					<li>Expand toggle is a native button</li>
+					<li>Child group is hidden while collapsed</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<h3>Tree</h3>
+		<p class="docs-section-copy"><code>plim-tree</code> has no inputs.</p>
+
+		<h3>Tree node</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>label</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Required node label.</td>
+					</tr>
+					<tr>
+						<td><code>expanded</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Whether child nodes are visible. Supports two-way binding.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

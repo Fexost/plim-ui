@@ -1,0 +1,14 @@
+:host {
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 0;
+	min-height: 100%;
+	padding: var(--plim-space-4);
+	background: var(--plim-color-surface-raised);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-md);
+	color: var(--plim-color-text);
+	text-align: center;
+}

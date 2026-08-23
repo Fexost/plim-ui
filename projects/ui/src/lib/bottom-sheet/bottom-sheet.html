@@ -1,0 +1,14 @@
+<ng-template #panel>
+	<div
+		class="plim-bottom-sheet"
+		role="dialog"
+		aria-modal="true"
+		tabindex="-1"
+		cdkTrapFocus
+		cdkTrapFocusAutoCapture
+		[attr.aria-label]="ariaLabel() ?? null"
+		(keydown)="onPanelKeydown($event)"
+	>
+		<ng-content />
+	</div>
+</ng-template>

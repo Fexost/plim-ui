@@ -165,3 +165,143 @@ export const SIDEBAR_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-color-border', usage: 'Right divider (push mode)' },
 	{ token: '--plim-shadow-lg', usage: 'Overlay mode elevation' },
 ];
+
+export const CHIPS_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-space-1', usage: 'Chip gap and removable padding' },
+	{ token: '--plim-space-2', usage: 'Chip-set wrap gap' },
+	{ token: '--plim-space-3', usage: 'Chip horizontal padding' },
+	{ token: '--plim-radius-full', usage: 'Pill shape' },
+	{ token: '--plim-color-surface-raised', usage: 'Chip background' },
+	{ token: '--plim-color-border', usage: 'Chip outline' },
+	{ token: '--plim-focus-ring-*', usage: 'Dismiss control focus outline' },
+];
+
+export const EXPANSION_PANEL_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-color-surface-raised', usage: 'Panel background' },
+	{ token: '--plim-color-border', usage: 'Panel outline' },
+	{ token: '--plim-radius-md', usage: 'Corner radius' },
+	{ token: '--plim-space-4', usage: 'Header vertical padding' },
+	{ token: '--plim-space-5', usage: 'Header and body horizontal padding' },
+	{ token: '--plim-focus-ring-*', usage: 'Header focus outline' },
+];
+
+export const GRID_LIST_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-space-4', usage: 'Grid gap and tile padding' },
+	{ token: '--plim-color-surface-raised', usage: 'Tile background' },
+	{ token: '--plim-color-border', usage: 'Tile outline' },
+	{ token: '--plim-radius-md', usage: 'Tile corner radius' },
+];
+
+export const LIST_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-color-surface-raised', usage: 'List background' },
+	{ token: '--plim-color-border', usage: 'List outline and row dividers' },
+	{ token: '--plim-radius-md', usage: 'List corner radius' },
+	{ token: '--plim-space-3', usage: 'Item vertical padding' },
+	{ token: '--plim-space-4', usage: 'Item horizontal padding' },
+];
+
+export const SORT_HEADER_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-space-2', usage: 'Label and indicator gap' },
+	{ token: '--plim-color-text-subtle', usage: 'Inactive sort indicator' },
+	{ token: '--plim-color-primary', usage: 'Active sort indicator' },
+	{ token: '--plim-focus-ring-*', usage: 'Header button focus outline' },
+];
+
+export const STEPPER_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-space-6', usage: 'Section spacing' },
+	{ token: '--plim-space-8', usage: 'Step index size' },
+	{ token: '--plim-color-primary', usage: 'Active step accent' },
+	{ token: '--plim-color-on-primary', usage: 'Active step index text' },
+	{ token: '--plim-color-border', usage: 'Step index outline' },
+	{ token: '--plim-button-height', usage: 'Back and Next height' },
+	{ token: '--plim-focus-ring-*', usage: 'Step and footer focus outline' },
+];
+
+export const TABLE_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-space-3', usage: 'Cell vertical padding' },
+	{ token: '--plim-space-4', usage: 'Cell horizontal padding' },
+	{ token: '--plim-color-border', usage: 'Row dividers' },
+	{ token: '--plim-color-text-muted', usage: 'Header text' },
+	{ token: '--plim-color-surface', usage: 'Row hover background' },
+];
+
+export const TREE_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-space-2', usage: 'Toggle padding and label gap' },
+	{ token: '--plim-space-6', usage: 'Nested child indent' },
+	{ token: '--plim-color-text', usage: 'Node label' },
+	{ token: '--plim-color-surface-raised', usage: 'Toggle hover background' },
+	{ token: '--plim-focus-ring-*', usage: 'Expand toggle focus outline' },
+];
+
+export const MENU_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-color-surface-raised', usage: 'Panel background' },
+	{ token: '--plim-color-border', usage: 'Panel outline' },
+	{ token: '--plim-shadow-md', usage: 'Panel elevation' },
+	{ token: '--plim-radius-md', usage: 'Panel corner radius' },
+	{ token: '--plim-select-panel-max-height', usage: 'Panel max height' },
+	{ token: '--plim-color-select-option-highlight', usage: 'Active item background' },
+	{ token: '--plim-focus-ring-*', usage: 'Keyboard focus outline' },
+];
+
+export const PAGINATOR_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-button-height', usage: 'Previous/next and page-size height' },
+	{ token: '--plim-font-size-sm', usage: 'Range and control text' },
+	{ token: '--plim-color-text', usage: 'Button label colour' },
+	{ token: '--plim-color-text-muted', usage: 'Range and page-size label' },
+	{ token: '--plim-color-border-strong', usage: 'Button outline' },
+	{ token: '--plim-radius-md', usage: 'Button and select radius' },
+	{ token: '--plim-focus-ring-*', usage: 'Keyboard focus outline' },
+];
+
+export const TABS_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-button-height', usage: 'Tab button height' },
+	{ token: '--plim-color-border', usage: 'Tab list divider' },
+	{ token: '--plim-color-primary', usage: 'Selected tab indicator' },
+	{ token: '--plim-color-text', usage: 'Selected tab label' },
+	{ token: '--plim-color-text-muted', usage: 'Idle tab label' },
+	{ token: '--plim-focus-ring-*', usage: 'Keyboard focus outline' },
+];
+
+export const TOOLBAR_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-header-height', usage: 'Bar minimum height' },
+	{ token: '--plim-button-height', usage: 'Fits actions with vertical padding' },
+	{ token: '--plim-color-surface', usage: 'Bar background' },
+	{ token: '--plim-color-border', usage: 'Bottom divider' },
+	{ token: '--plim-space-6', usage: 'Horizontal padding' },
+];
+
+export const DIALOG_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-color-backdrop', usage: 'Dimmed overlay behind the dialog' },
+	{ token: '--plim-color-surface-raised', usage: 'Dialog surface background' },
+	{ token: '--plim-color-border', usage: 'Dialog outline' },
+	{ token: '--plim-shadow-lg', usage: 'Dialog elevation' },
+	{ token: '--plim-radius-lg', usage: 'Dialog corner radius' },
+	{ token: '--plim-focus-ring-*', usage: 'Keyboard focus outline' },
+];
+
+export const BOTTOM_SHEET_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-color-backdrop', usage: 'Dimmed overlay behind the sheet' },
+	{ token: '--plim-color-surface-raised', usage: 'Sheet surface background' },
+	{ token: '--plim-color-border', usage: 'Sheet outline' },
+	{ token: '--plim-shadow-lg', usage: 'Sheet elevation' },
+	{ token: '--plim-radius-lg', usage: 'Top corner radius' },
+	{ token: '--plim-focus-ring-*', usage: 'Keyboard focus outline' },
+];
+
+export const SNACKBAR_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-color-surface-raised', usage: 'Snackbar surface background' },
+	{ token: '--plim-color-border', usage: 'Snackbar outline' },
+	{ token: '--plim-shadow-md', usage: 'Snackbar elevation' },
+	{ token: '--plim-radius-md', usage: 'Snackbar corner radius' },
+	{ token: '--plim-color-primary', usage: 'Dismiss action colour' },
+	{ token: '--plim-space-6', usage: 'Offset from the viewport bottom' },
+];
+
+export const TOOLTIP_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-color-surface-raised', usage: 'Tooltip surface background' },
+	{ token: '--plim-color-border', usage: 'Tooltip outline' },
+	{ token: '--plim-shadow-md', usage: 'Tooltip elevation' },
+	{ token: '--plim-radius-md', usage: 'Tooltip corner radius' },
+	{ token: '--plim-font-size-xs', usage: 'Tooltip text size' },
+];
+

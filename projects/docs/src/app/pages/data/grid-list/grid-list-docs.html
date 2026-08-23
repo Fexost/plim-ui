@@ -1,0 +1,88 @@
+<app-docs-component-layout category="Data" title="Grid list">
+	<p docsLead>
+		A CSS grid of tiles. Set <code>cols</code> on <code>plim-grid-list</code> and project
+		content into each <code>plim-grid-tile</code>.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Columns</h2>
+		<p>Defaults to two columns. This preview uses three.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-grid-list [cols]="3">
+					<plim-grid-tile>Inbox</plim-grid-tile>
+					<plim-grid-tile>Drafts</plim-grid-tile>
+					<plim-grid-tile>Sent</plim-grid-tile>
+					<plim-grid-tile>Archive</plim-grid-tile>
+				</plim-grid-list>
+			</div>
+			<pre
+				class="docs-code docs-split__code"
+			><code>&lt;plim-grid-list [cols]="3"&gt;
+  &lt;plim-grid-tile&gt;Inbox&lt;/plim-grid-tile&gt;
+  &lt;plim-grid-tile&gt;Drafts&lt;/plim-grid-tile&gt;
+  &lt;plim-grid-tile&gt;Sent&lt;/plim-grid-tile&gt;
+  &lt;plim-grid-tile&gt;Archive&lt;/plim-grid-tile&gt;
+&lt;/plim-grid-list&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The grid is a layout container. Use headings or landmarks inside tiles when the
+					content needs a document outline.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Tiles are presentational surfaces</li>
+					<li>Keep interactive content as native controls inside each tile</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<h3>Grid list</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>cols</code></td>
+						<td><code>number</code></td>
+						<td><code>2</code></td>
+						<td>Number of equal-width columns.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Grid tile</h3>
+		<p class="docs-section-copy">
+			<code>plim-grid-tile</code> projects its content. It has no inputs.
+		</p>
+	</section>
+</app-docs-component-layout>

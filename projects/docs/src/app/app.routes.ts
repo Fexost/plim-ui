@@ -87,6 +87,82 @@ export const routes: Routes = [
 			import('./pages/navigation/sidebar/sidebar-docs').then((m) => m.SidebarDocs),
 	},
 	{
+		path: DOCS_PATHS.menu,
+		loadComponent: () => import('./pages/navigation/menu/menu-docs').then((m) => m.MenuDocs),
+	},
+	{
+		path: DOCS_PATHS.paginator,
+		loadComponent: () =>
+			import('./pages/navigation/paginator/paginator-docs').then((m) => m.PaginatorDocs),
+	},
+	{
+		path: DOCS_PATHS.tabs,
+		loadComponent: () => import('./pages/navigation/tabs/tabs-docs').then((m) => m.TabsDocs),
+	},
+	{
+		path: DOCS_PATHS.toolbar,
+		loadComponent: () =>
+			import('./pages/navigation/toolbar/toolbar-docs').then((m) => m.ToolbarDocs),
+	},
+	{
+		path: DOCS_PATHS.bottomSheet,
+		loadComponent: () =>
+			import('./pages/feedback/bottom-sheet/bottom-sheet-docs').then((m) => m.BottomSheetDocs),
+	},
+	{
+		path: DOCS_PATHS.dialog,
+		loadComponent: () =>
+			import('./pages/feedback/dialog/dialog-docs').then((m) => m.DialogDocs),
+	},
+	{
+		path: DOCS_PATHS.snackbar,
+		loadComponent: () =>
+			import('./pages/feedback/snackbar/snackbar-docs').then((m) => m.SnackbarDocs),
+	},
+	{
+		path: DOCS_PATHS.tooltip,
+		loadComponent: () =>
+			import('./pages/feedback/tooltip/tooltip-docs').then((m) => m.TooltipDocs),
+	},
+	{
+		path: DOCS_PATHS.chips,
+		loadComponent: () => import('./pages/data/chips/chips-docs').then((m) => m.ChipsDocs),
+	},
+	{
+		path: DOCS_PATHS.expansionPanel,
+		loadComponent: () =>
+			import('./pages/data/expansion-panel/expansion-panel-docs').then(
+				(m) => m.ExpansionPanelDocs,
+			),
+	},
+	{
+		path: DOCS_PATHS.gridList,
+		loadComponent: () =>
+			import('./pages/data/grid-list/grid-list-docs').then((m) => m.GridListDocs),
+	},
+	{
+		path: DOCS_PATHS.list,
+		loadComponent: () => import('./pages/data/list/list-docs').then((m) => m.ListDocs),
+	},
+	{
+		path: DOCS_PATHS.sortHeader,
+		loadComponent: () =>
+			import('./pages/data/sort-header/sort-header-docs').then((m) => m.SortHeaderDocs),
+	},
+	{
+		path: DOCS_PATHS.stepper,
+		loadComponent: () =>
+			import('./pages/data/stepper/stepper-docs').then((m) => m.StepperDocs),
+	},
+	{
+		path: DOCS_PATHS.table,
+		loadComponent: () => import('./pages/data/table/table-docs').then((m) => m.TableDocs),
+	},
+	{
+		path: DOCS_PATHS.tree,
+		loadComponent: () => import('./pages/data/tree/tree-docs').then((m) => m.TreeDocs),
+	},
+	{
 		path: DOCS_PATHS.autocomplete,
 		loadComponent: () =>
 			import('./pages/form/autocomplete/autocomplete-docs').then((m) => m.AutocompleteDocs),

@@ -1,0 +1,84 @@
+<app-docs-component-layout category="Data" title="List">
+	<p docsLead>
+		A stacked collection of items with list semantics. Mark an item
+		<code>disabled</code> when it is not available.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Items</h2>
+		<p>Project each row into <code>plim-list-item</code>.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-list class="list-docs-preview">
+					<plim-list-item>Ada Lovelace</plim-list-item>
+					<plim-list-item>Grace Hopper</plim-list-item>
+					<plim-list-item disabled>Alan Turing</plim-list-item>
+				</plim-list>
+			</div>
+			<pre
+				class="docs-code docs-split__code"
+			><code>&lt;plim-list&gt;
+  &lt;plim-list-item&gt;Ada Lovelace&lt;/plim-list-item&gt;
+  &lt;plim-list-item&gt;Grace Hopper&lt;/plim-list-item&gt;
+  &lt;plim-list-item disabled&gt;Alan Turing&lt;/plim-list-item&gt;
+&lt;/plim-list&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The list uses <code>role="list"</code> and each item uses
+					<code>role="listitem"</code>. Disabled items set <code>aria-disabled</code>.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>List and listitem roles on the hosts</li>
+					<li>Disabled state exposed to assistive technology</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<h3>List</h3>
+		<p class="docs-section-copy"><code>plim-list</code> has no inputs.</p>
+
+		<h3>List item</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>disabled</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Marks the item unavailable and applies muted styling.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

@@ -1,0 +1,16 @@
+<ng-template #panel>
+	<div
+		class="plim-snackbar"
+		[class.plim-snackbar--primary]="variant() === 'primary'"
+		[class.plim-snackbar--success]="variant() === 'success'"
+		[class.plim-snackbar--warning]="variant() === 'warning'"
+		[class.plim-snackbar--danger]="variant() === 'danger'"
+		role="status"
+		[attr.aria-live]="ariaLive()"
+	>
+		<div class="plim-snackbar__message">
+			<ng-content />
+		</div>
+		<button type="button" class="plim-snackbar__dismiss" (click)="requestClose()">Dismiss</button>
+	</div>
+</ng-template>

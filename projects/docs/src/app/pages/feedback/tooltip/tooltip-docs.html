@@ -1,0 +1,113 @@
+<app-docs-component-layout category="Feedback" title="Tooltip">
+	<p docsLead>
+		A short hint shown on hover or focus. Apply <code>plimTooltip</code> to the trigger
+		element; set <code>plimTooltipPosition</code> to prefer above or below.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Below (default)</h2>
+		<p>The tooltip opens below the trigger when space allows.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview tooltip-docs-preview">
+				<button type="button" plimButton variant="secondary" plimTooltip="Copied to clipboard">
+					Copy
+				</button>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;button
+  type="button"
+  plimButton
+  variant="secondary"
+  plimTooltip="Copied to clipboard"
+&gt;
+  Copy
+&lt;/button&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section">
+		<h2>Above</h2>
+		<p>Set <code>plimTooltipPosition="above"</code> to prefer opening above the trigger.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview tooltip-docs-preview tooltip-docs-preview--above">
+				<button
+					type="button"
+					plimButton
+					plimTooltip="Save changes"
+					plimTooltipPosition="above"
+				>
+					Save
+				</button>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;button
+  type="button"
+  plimButton
+  plimTooltip="Save changes"
+  plimTooltipPosition="above"
+&gt;
+  Save
+&lt;/button&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The overlay uses <code>role="tooltip"</code> and is linked to the host with
+					<code>aria-describedby</code> while visible. Show on pointer enter and focus;
+					hide on leave and blur.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Tooltip role on the overlay panel</li>
+					<li>Described-by relationship while open</li>
+					<li>Keyboard focus and pointer both reveal the message</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>plimTooltip</code></td>
+						<td><code>string</code></td>
+						<td><code>''</code></td>
+						<td>Tooltip message. An empty string keeps the overlay closed.</td>
+					</tr>
+					<tr>
+						<td><code>plimTooltipPosition</code></td>
+						<td><code>'above' | 'below'</code></td>
+						<td><code>'below'</code></td>
+						<td>Preferred placement. Falls back to the opposite side when needed.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

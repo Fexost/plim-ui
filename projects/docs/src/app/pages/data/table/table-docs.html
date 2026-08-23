@@ -1,0 +1,87 @@
+<app-docs-component-layout category="Data" title="Table" nativeElement="<table>">
+	<p docsLead>
+		Styles a native table. Apply <code>plimTable</code> and keep semantic
+		<code>thead</code> / <code>tbody</code> markup. Column headers align with cell content
+		(left-aligned, with row dividers).
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Basic table</h2>
+		<p>Use native rows and cells. Pair with sort headers when columns should be sortable.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<div class="table-docs-preview">
+					<table plimTable>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Role</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Ada</td>
+								<td>Engineer</td>
+							</tr>
+							<tr>
+								<td>Grace</td>
+								<td>Architect</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<pre
+				class="docs-code docs-split__code"
+			><code>&lt;table plimTable&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Role&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Ada&lt;/td&gt;&lt;td&gt;Engineer&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Grace&lt;/td&gt;&lt;td&gt;Architect&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The host remains a native <code>table</code>, so column headers and row
+					relationships stay intact.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Use <code>th</code> for column headers</li>
+					<li>Keep header and body groups</li>
+					<li>Add <code>plimSort</code> when columns should announce sort state</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<p class="docs-section-copy">
+			<code>table[plimTable]</code> is an attribute component. It has no inputs.
+		</p>
+	</section>
+</app-docs-component-layout>

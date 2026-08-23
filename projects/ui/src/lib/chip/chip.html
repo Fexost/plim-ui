@@ -1,0 +1,12 @@
+<span class="plim-chip__label"><ng-content /></span>
+@if (removable()) {
+	<button
+		type="button"
+		class="plim-chip__remove"
+		aria-label="Remove"
+		[disabled]="disabled()"
+		(click)="remove($event)"
+	>
+		<span aria-hidden="true">×</span>
+	</button>
+}

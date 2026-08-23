@@ -1,0 +1,18 @@
+:host {
+	box-sizing: border-box;
+	display: block;
+	padding: var(--plim-space-3) var(--plim-space-4);
+	border-bottom: 1px solid var(--plim-color-border);
+	color: var(--plim-color-text);
+	font-size: var(--plim-font-size-sm);
+	line-height: var(--plim-line-height-normal);
+}
+
+:host(:last-child) {
+	border-bottom: 0;
+}
+
+:host(.plim-list-item--disabled) {
+	color: var(--plim-color-text-muted);
+	opacity: 0.6;
+}

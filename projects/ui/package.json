@@ -1,6 +1,6 @@
 {
   "name": "plim-ui",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Accessible, composable Angular components built with native HTML, Angular CDK primitives, and modern Angular APIs.",
   "license": "MIT",
   "repository": {

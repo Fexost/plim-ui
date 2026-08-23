@@ -1,0 +1,9 @@
+:host {
+	display: block;
+	padding-block: var(--plim-space-4);
+	color: var(--plim-color-text);
+}
+
+:host([hidden]) {
+	display: none;
+}

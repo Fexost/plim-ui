@@ -1,0 +1,85 @@
+:host {
+	display: none;
+}
+
+.plim-snackbar {
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	gap: var(--plim-space-4);
+	pointer-events: auto;
+	min-width: 16rem;
+	max-width: min(32rem, calc(100vw - var(--plim-space-8)));
+	padding: var(--plim-space-3) var(--plim-space-4);
+	background: var(--plim-color-surface-raised);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-md);
+	box-shadow: var(--plim-shadow-md);
+	color: var(--plim-color-text);
+	font-size: var(--plim-font-size-sm);
+	line-height: var(--plim-line-height-normal);
+
+	&--primary {
+		background: var(--plim-color-primary-surface);
+		border-color: var(--plim-color-primary-surface-border);
+		color: var(--plim-color-primary);
+	}
+
+	&--success {
+		background: var(--plim-color-success-surface);
+		border-color: var(--plim-color-success-surface-border);
+		color: var(--plim-color-success);
+	}
+
+	&--warning {
+		background: var(--plim-color-warning-surface);
+		border-color: var(--plim-color-warning-surface-border);
+		color: var(--plim-color-warning);
+	}
+
+	&--danger {
+		background: var(--plim-color-danger-surface);
+		border-color: var(--plim-color-danger-surface-border);
+		color: var(--plim-color-danger);
+	}
+
+	&--primary .plim-snackbar__dismiss,
+	&--success .plim-snackbar__dismiss,
+	&--warning .plim-snackbar__dismiss,
+	&--danger .plim-snackbar__dismiss {
+		color: inherit;
+
+		&:hover {
+			background: rgb(0 0 0 / 8%);
+			color: inherit;
+		}
+	}
+}
+
+.plim-snackbar__message {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.plim-snackbar__dismiss {
+	flex: 0 0 auto;
+	margin: 0;
+	padding: var(--plim-space-1) var(--plim-space-2);
+	border: none;
+	border-radius: var(--plim-radius-md);
+	background: transparent;
+	color: var(--plim-color-primary);
+	font: inherit;
+	font-weight: var(--plim-font-weight-medium);
+	cursor: pointer;
+
+	&:hover {
+		background: var(--plim-color-primary-surface);
+		color: var(--plim-color-primary-hover);
+	}
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+	}
+}

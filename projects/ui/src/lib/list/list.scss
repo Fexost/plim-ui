@@ -1,0 +1,11 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background: var(--plim-color-surface-raised);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-md);
+	list-style: none;
+}

@@ -1,0 +1,157 @@
+<app-docs-component-layout category="Feedback" title="Snackbar">
+	<p docsLead>
+		A non-blocking message at the bottom of the viewport. It auto-closes after
+		<code>duration</code> unless that value is <code>0</code>.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Variants</h2>
+		<p>
+			Match badge semantics with <code>variant</code>: default, primary, success,
+			warning, or danger.
+		</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview snackbar-docs-preview">
+				<div class="snackbar-docs-preview__actions">
+					<button type="button" plimButton variant="secondary" (click)="show('default')">
+						Default
+					</button>
+					<button type="button" plimButton (click)="show('primary')">Primary</button>
+					<button type="button" plimButton variant="secondary" (click)="show('success')">
+						Success
+					</button>
+					<button type="button" plimButton variant="secondary" (click)="show('warning')">
+						Warning
+					</button>
+					<button type="button" plimButton variant="secondary" (click)="show('danger')">
+						Danger
+					</button>
+				</div>
+				<plim-snackbar
+					[open]="open()"
+					[variant]="variant()"
+					[duration]="0"
+					(closed)="open.set(false)"
+				>
+					@if (variant() === 'success') {
+						Changes saved
+					} @else if (variant() === 'warning') {
+						Storage almost full
+					} @else if (variant() === 'danger') {
+						Could not delete item
+					} @else if (variant() === 'primary') {
+						Updates available
+					} @else {
+						Message sent
+					}
+				</plim-snackbar>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-snackbar
+  [open]="open()"
+  variant="success"
+  [duration]="0"
+  (closed)="open.set(false)"
+&gt;
+  Changes saved
+&lt;/plim-snackbar&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<div class="docs-a11y-callout">
+			<span class="docs-a11y-callout__icon" aria-hidden="true">✓</span>
+			<div>
+				<h3>Accessibility guidance</h3>
+				<p>
+					The snackbar is a live region. It does not use a blocking backdrop so the rest
+					of the page stays usable.
+				</p>
+				<ul class="docs-a11y-callout__features">
+					<li>Status live region with configurable politeness</li>
+					<li>Optional dismiss action</li>
+					<li>No focus trap or blocking overlay</li>
+					<li>Do not rely on colour alone — keep the message text explicit</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>open</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>When true, attaches a bottom-centre overlay. No overlay when false.</td>
+					</tr>
+					<tr>
+						<td><code>variant</code></td>
+						<td>
+							<code>'default' | 'primary' | 'success' | 'warning' | 'danger'</code>
+						</td>
+						<td><code>'default'</code></td>
+						<td>Semantic tint matching <code>plim-badge</code> variants.</td>
+					</tr>
+					<tr>
+						<td><code>duration</code></td>
+						<td><code>number</code></td>
+						<td><code>4000</code></td>
+						<td>Auto-close delay in milliseconds. <code>0</code> stays open.</td>
+					</tr>
+					<tr>
+						<td><code>ariaLive</code></td>
+						<td><code>'polite' | 'assertive' | 'off'</code></td>
+						<td><code>'polite'</code></td>
+						<td>Live region politeness.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Outputs</h3>
+		<div class="docs-table-wrap">
+			<table class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Output</th>
+						<th scope="col">Type</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>closed</code></td>
+						<td><code>void</code></td>
+						<td>
+							Emitted after <code>duration</code> or when Dismiss is clicked. Set
+							<code>open</code> to false.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>
