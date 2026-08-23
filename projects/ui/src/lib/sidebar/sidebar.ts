@@ -11,7 +11,6 @@ export type SidebarMode = 'push' | 'overlay';
 		'[class.plim-sidebar--overlay]': 'open() && mode() === "overlay"',
 		'[class.plim-sidebar--contained]': '!fixed()',
 		'[attr.aria-label]': 'ariaLabel() ?? null',
-		'[attr.aria-hidden]': 'open() ? null : "true"',
 		'[attr.inert]': 'open() ? null : ""',
 	},
 	templateUrl: './sidebar.html',

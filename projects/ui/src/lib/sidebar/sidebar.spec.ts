@@ -36,19 +36,9 @@ describe('Sidebar', () => {
 			expect(host.classList.contains('plim-sidebar--open')).toBe(true);
 		});
 
-		it('should expose a complementary landmark on the host with aria-label', () => {
-			expect(host.getAttribute('role')).toBe('complementary');
+		it('should forward aria-label to the host landmark', () => {
 			expect(host.getAttribute('aria-label')).toBe('Main navigation');
-		});
-
-		it('should hide the panel from assistive technology when closed', () => {
-			const closedFixture = TestBed.createComponent(Sidebar);
-			closedFixture.componentRef.setInput('open', false);
-			closedFixture.detectChanges();
-			const closedHost = closedFixture.nativeElement as HTMLElement;
-
-			expect(closedHost.getAttribute('aria-hidden')).toBe('true');
-			expect(closedHost.hasAttribute('inert')).toBe(true);
+			expect(host.getAttribute('role')).toBe('complementary');
 		});
 
 		it('should project header, nav, and footer slots', () => {
@@ -75,6 +65,7 @@ describe('Sidebar', () => {
 			fixture.componentRef.setInput('open', false);
 			fixture.detectChanges();
 			expect(host.classList.contains('plim-sidebar--open')).toBe(false);
+			expect(host.hasAttribute('inert')).toBe(true);
 		});
 
 		it('should apply overlay modifier when open in overlay mode', () => {

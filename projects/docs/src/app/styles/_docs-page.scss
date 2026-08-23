@@ -27,11 +27,11 @@
 }
 
 .docs-guide__intro .docs-lead a {
-	color: var(--plim-color-primary);
+	color: var(--plim-color-link);
 	text-decoration: none;
 
 	&:hover {
-		color: var(--plim-color-primary-hover);
+		color: var(--plim-color-link-hover);
 	}
 }
 
@@ -89,11 +89,11 @@
 	line-height: var(--plim-line-height-normal);
 
 	a {
-		color: var(--plim-color-primary);
+		color: var(--plim-color-link);
 		text-decoration: none;
 
 		&:hover {
-			color: var(--plim-color-primary-hover);
+			color: var(--plim-color-link-hover);
 		}
 	}
 }
@@ -127,14 +127,14 @@
 			text-decoration: none;
 
 			&:hover {
-				color: var(--plim-color-primary);
+				color: var(--plim-color-link);
 			}
 		}
 
 		button.plim-button {
 			min-height: 0;
 			padding-block: var(--plim-space-1);
-			color: var(--plim-color-primary);
+			color: var(--plim-color-link);
 		}
 	}
 

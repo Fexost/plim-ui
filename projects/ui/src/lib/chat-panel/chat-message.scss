@@ -1,0 +1,27 @@
+:host {
+	display: block;
+	max-width: 85%;
+	margin: 0;
+	font-size: var(--plim-font-size-sm);
+	line-height: var(--plim-line-height-normal);
+	white-space: pre-wrap;
+}
+
+:host(.plim-chat-message--user) {
+	margin-inline-start: auto;
+	margin-bottom: var(--plim-space-2);
+	padding: var(--plim-space-2) var(--plim-space-3);
+	background: var(--plim-color-surface);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-lg);
+	color: var(--plim-color-text);
+}
+
+:host(.plim-chat-message--assistant) {
+	margin-inline-end: auto;
+	margin-bottom: var(--plim-space-3);
+	padding: 0;
+	background: transparent;
+	border: 0;
+	color: var(--plim-color-text);
+}
