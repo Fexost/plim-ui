@@ -2,7 +2,7 @@
 
 Open-source Angular component library for building accessible, composable UI with a shared design token system.
 
-**Documentation:** [fexost.github.io/plim-ui](https://fexost.github.io/plim-ui/)
+**Documentation:** [fexost.dev/plim-ui](https://fexost.dev/plim-ui)
 
 ## Install
 
@@ -468,12 +468,12 @@ import {
 
 ## Design tokens
 
-Tokens cover colour, typography, spacing, radius, shadows, focus rings, motion, and component dimensions under the `--plim-*` namespace. See the [tokens reference](https://fexost.github.io/plim-ui/foundations/tokens) for the full list.
+Tokens cover colour, typography, spacing, radius, shadows, focus rings, motion, and component dimensions under the `--plim-*` namespace. See the [tokens reference](https://fexost.dev/plim-ui/foundations/tokens) for the full list.
 
 ## Links
 
 - [Repository](https://github.com/Fexost/plim-ui)
-- [Documentation](https://fexost.github.io/plim-ui/)
+- [Documentation](https://fexost.dev/plim-ui)
 - [npm](https://www.npmjs.com/package/plim-ui)
 
 ## License

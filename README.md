@@ -9,7 +9,7 @@ Install `plim-ui` in any Angular 21+ app, import standalone components, and incl
 [![npm version](https://img.shields.io/npm/v/plim-ui)](https://www.npmjs.com/package/plim-ui)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-**Documentation:** [fexost.github.io/plim-ui](https://fexost.github.io/plim-ui/)
+**Documentation:** [fexost.dev/plim-ui](https://fexost.dev/plim-ui)
 
 ### CI — Lint
 
@@ -108,13 +108,13 @@ Naming follows two patterns:
 - **Element components** — `plim-*` prefix (e.g. `<plim-card>`)
 - **Attribute directives / slot markers** — `plim` + camelCase (e.g. `plimButton`, `plimHeaderStart`)
 
-Each component has a docs page with previews, accessibility notes, and API reference on the [documentation site](https://fexost.github.io/plim-ui/).
+Each component has a docs page with previews, accessibility notes, and API reference on the [documentation site](https://fexost.dev/plim-ui).
 
 ## Theming
 
 Design tokens use the `--plim-*` CSS variable namespace. Dark theme is the default (`:root`); light theme overrides apply when `data-theme="light"` is set on the document root.
 
-See the [Tokens](https://fexost.github.io/plim-ui/foundations/tokens) and [Theme](https://fexost.github.io/plim-ui/foundations/theme) guides for details.
+See the [Tokens](https://fexost.dev/plim-ui/foundations/tokens) and [Theme](https://fexost.dev/plim-ui/foundations/theme) guides for details.
 
 ## Workspace
 
@@ -144,7 +144,7 @@ Open [http://localhost:4200](http://localhost:4200) to browse the docs site.
 | --- | --- |
 | `npm start` | Build the library, then serve the docs app |
 | `npm run build:ui` | Build the library to `dist/plim-ui` |
-| `npm run build:docs` | Production docs build (GitHub Pages base href) |
+| `npm run build:docs` | Production docs build (`--base-href /plim-ui/`) |
 | `npm run build:production` | Build library and docs |
 | `npm run test:ui` | Run library unit tests |
 | `npm run test:docs` | Run docs unit tests |
@@ -164,7 +164,8 @@ Pull requests and pushes to `main` run automated checks per project:
 | [Security](.github/workflows/security.yml) | **Audit (workspace)** | High-severity scan of root production dependencies (Angular, build tooling, shared runtime deps) |
 | | **Audit (ui)** | High-severity scan of the built `dist/plim-ui` package — what ships to npm |
 | | **Dependency review** | PR-only review of dependency diffs at high severity or above |
-| [Deploy](.github/workflows/deploy-docs.yml) | **Deploy (docs)** | Deploys the Docs project to Github Pages |
+
+Docs deploy to [fexost.dev/plim-ui](https://fexost.dev/plim-ui) via **Vercel** from `main` only (`vercel.json` disables preview deployments). CI still runs on pull requests.
 
 **Why audit both workspace and ui?** The monorepo root owns most dependencies (including dev tooling used in CI), while the published library package is a separate manifest with only its runtime deps (`tslib` today). Scanning both catches vulnerabilities in contributor tooling and in what consumers install.
 

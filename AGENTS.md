@@ -522,7 +522,7 @@ rules because emulated encapsulation does not reach projected row markup.
 
 # 15. Documentation Application
 
-Live site: [fexost.github.io/plim-ui](https://fexost.github.io/plim-ui/) (GitHub Pages, base href `/plim-ui/`).
+Live site: [fexost.dev/plim-ui](https://fexost.dev/plim-ui) (Vercel, base href `/plim-ui/`). Preview deployments are disabled in `vercel.json`.
 
 **Shell:** sticky `plim-header` (brand mark + wordmark, theme toggle, GitHub), `plim-sidebar` nav,
 responsive overlay menu below 960px (`DocsResponsiveNavService`).
@@ -619,19 +619,18 @@ Four parallel jobs:
 | `test-ui` | `npm run test:ui` | Vitest, library unit tests |
 | `test-docs` | `npm run build:ui` then `npm run test:docs` | Docs imports `dist/plim-ui` via tsconfig path |
 
-### `deploy-docs.yml` — Deploy docs to GitHub Pages
+### Vercel — Deploy docs
 
 | | |
 | --- | --- |
-| **Triggers** | Push to `main`; manual `workflow_dispatch` |
-| **Concurrency** | `group: pages` — cancel in-progress deploys |
-| **Permissions** | `contents: read`, `pages: write`, `id-token: write` |
-| **Live URL** | https://fexost.github.io/plim-ui/ |
+| **Config** | Root `vercel.json` |
+| **Triggers** | Push to `main` only (`git.deploymentEnabled`: all branches off except `main`) |
+| **Build** | `npm ci` → `npm run build:production` → `dist/docs/browser` |
+| **Base href** | `/plim-ui/` |
+| **Live URL** | https://fexost.dev/plim-ui |
+| **Routing** | SPA rewrites under `/plim-ui` (extensionless routes → `index.html`; assets strip the prefix) |
 
-Two sequential jobs:
-
-1. **`build`** — `npm run build:production`; copies `index.html` → `404.html` for SPA routing; uploads `dist/docs/browser` as a Pages artifact.
-2. **`deploy`** — deploys the artifact via `actions/deploy-pages@v4` to the `github-pages` environment.
+Production domain: `fexost.dev/plim-ui`. Disable preview deployments in the Vercel dashboard as well if any branch still deploys outside `vercel.json`.
 
 ### `publish-npm.yml` — Publish library to npm
 
@@ -699,7 +698,7 @@ When implementing new components:
   Grid list, List, Sort, Table, Stepper, Tree); shared `plim-option`.
 * Docs: all component categories documented; Foundations guides; overview, installation.
 * Docs: syntax-highlighted code blocks, equal-height preview/code splits, mobile nav overlay.
-* GitHub Actions: CI (`ci.yml`), docs deploy (`deploy-docs.yml`), npm publish (`publish-npm.yml`), security audits (`security.yml`).
+* GitHub Actions: CI (`ci.yml`), npm publish (`publish-npm.yml`), security audits (`security.yml`). Docs deploy on Vercel from `main`.
 * `npm start` → `build:ui` + `ng serve docs`.
 
 ---

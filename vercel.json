@@ -1,0 +1,27 @@
+{
+	"$schema": "https://openapi.vercel.sh/vercel.json",
+	"framework": null,
+	"installCommand": "npm ci",
+	"buildCommand": "npm run build:production",
+	"outputDirectory": "dist/docs/browser",
+	"git": {
+		"deploymentEnabled": {
+			"**": false,
+			"main": true
+		}
+	},
+	"rewrites": [
+		{
+			"source": "/plim-ui",
+			"destination": "/index.html"
+		},
+		{
+			"source": "/plim-ui/:path((?!.*\\..*).*)",
+			"destination": "/index.html"
+		},
+		{
+			"source": "/plim-ui/:path*",
+			"destination": "/:path*"
+		}
+	]
+}
