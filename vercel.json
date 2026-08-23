@@ -12,16 +12,8 @@
 	},
 	"rewrites": [
 		{
-			"source": "/plim-ui",
+			"source": "/(.*)",
 			"destination": "/index.html"
-		},
-		{
-			"source": "/plim-ui/:path((?!.*\\..*).*)",
-			"destination": "/index.html"
-		},
-		{
-			"source": "/plim-ui/:path*",
-			"destination": "/:path*"
 		}
 	]
 }

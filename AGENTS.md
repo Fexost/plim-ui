@@ -522,7 +522,7 @@ rules because emulated encapsulation does not reach projected row markup.
 
 # 15. Documentation Application
 
-Live site: [fexost.dev/plim-ui](https://fexost.dev/plim-ui) (Vercel, base href `/plim-ui/`). Preview deployments are disabled in `vercel.json`.
+Live site: [plim-ui.fexost.dev](https://plim-ui.fexost.dev/) (Vercel, root base href `/`). Preview deployments are disabled in `vercel.json`.
 
 **Shell:** sticky `plim-header` (brand mark + wordmark, theme toggle, GitHub), `plim-sidebar` nav,
 responsive overlay menu below 960px (`DocsResponsiveNavService`).
@@ -596,7 +596,7 @@ styling remains in the library.
 | --- | --- |
 | `start` | `build:ui` then `ng serve docs` |
 | `build:ui` | Production library build → `dist/plim-ui` |
-| `build:docs` | Production docs build (`--base-href /plim-ui/`) |
+| `build:docs` | Production docs build |
 | `build:production` | Both builds |
 | `test` / `test:ui` / `test:docs` | Vitest (docs tests require a prior `build:ui`) |
 | `lint` | ESLint for `ui` and `docs` |
@@ -626,11 +626,10 @@ Four parallel jobs:
 | **Config** | Root `vercel.json` |
 | **Triggers** | Push to `main` only (`git.deploymentEnabled`: all branches off except `main`) |
 | **Build** | `npm ci` → `npm run build:production` → `dist/docs/browser` |
-| **Base href** | `/plim-ui/` |
-| **Live URL** | https://fexost.dev/plim-ui |
-| **Routing** | SPA rewrites under `/plim-ui` (extensionless routes → `index.html`; assets strip the prefix) |
+| **Live URL** | https://plim-ui.fexost.dev |
+| **Routing** | SPA rewrite to `index.html` |
 
-Production domain: `fexost.dev/plim-ui`. Disable preview deployments in the Vercel dashboard as well if any branch still deploys outside `vercel.json`.
+Production domain: `plim-ui.fexost.dev`. Disable preview deployments in the Vercel dashboard as well if any branch still deploys outside `vercel.json`.
 
 ### `publish-npm.yml` — Publish library to npm
 

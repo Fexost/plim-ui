@@ -5,7 +5,7 @@
 		"ng": "ng",
 		"start": "npm run build:ui && ng serve docs",
 		"build:ui": "ng build ui --configuration production",
-		"build:docs": "ng build docs --configuration production --base-href /plim-ui/",
+		"build:docs": "ng build docs --configuration production",
 		"build:production": "npm run build:ui && npm run build:docs",
 		"test:ui": "ng test ui --no-watch",
 		"test:docs": "ng test docs --no-watch",
