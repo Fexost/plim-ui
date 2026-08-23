@@ -9,7 +9,6 @@ import { TOOLBAR_DOCS_TOKENS } from '../../../docs-component-tokens.config';
 	selector: 'app-toolbar-docs',
 	imports: [DocsComponentLayout, DocsTokenTable, Toolbar],
 	templateUrl: './toolbar-docs.html',
-	styleUrl: './toolbar-docs.scss',
 })
 export class ToolbarDocs {
 	protected readonly tokens = TOOLBAR_DOCS_TOKENS;

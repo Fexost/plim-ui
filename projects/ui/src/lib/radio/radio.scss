@@ -18,6 +18,10 @@
 		background: var(--plim-color-primary);
 		transform: scale(0);
 		transition: transform var(--plim-duration-fast) var(--plim-ease-default);
+
+		@media (prefers-reduced-motion: reduce) {
+			transition: none;
+		}
 	}
 
 	&:checked {

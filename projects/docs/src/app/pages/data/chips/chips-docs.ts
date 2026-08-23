@@ -9,7 +9,6 @@ import { CHIPS_DOCS_TOKENS } from '../../../docs-component-tokens.config';
 	selector: 'app-chips-docs',
 	imports: [DocsComponentLayout, DocsTokenTable, Chip, ChipSet],
 	templateUrl: './chips-docs.html',
-	styleUrl: './chips-docs.scss',
 })
 export class ChipsDocs {
 	protected readonly tokens = CHIPS_DOCS_TOKENS;

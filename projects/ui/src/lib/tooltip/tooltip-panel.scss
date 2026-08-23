@@ -1,6 +1,7 @@
-.plim-tooltip {
+:host {
 	box-sizing: border-box;
-	max-width: 16rem;
+	display: block;
+	max-width: var(--plim-overlay-max-width);
 	padding: var(--plim-space-2) var(--plim-space-3);
 	background: var(--plim-color-surface-raised);
 	border: 1px solid var(--plim-color-border);

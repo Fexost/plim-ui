@@ -32,12 +32,19 @@
 	}
 
 	&:disabled {
-		opacity: 0.5;
+		opacity: var(--plim-opacity-disabled);
 		cursor: not-allowed;
 	}
 
 	&--active {
 		color: var(--plim-color-text);
 		border-bottom-color: var(--plim-color-primary);
+	}
+
+	@media (forced-colors: active) {
+		&--active {
+			border-bottom-color: Highlight;
+			color: HighlightText;
+		}
 	}
 }

@@ -25,7 +25,7 @@ const TOOLTIP_POSITION_ABOVE: ConnectedPosition = {
 	originY: 'top',
 	overlayX: 'center',
 	overlayY: 'bottom',
-	offsetY: -8,
+	offsetY: -8, // matches --plim-space-2
 };
 
 const TOOLTIP_POSITION_BELOW: ConnectedPosition = {
@@ -33,11 +33,12 @@ const TOOLTIP_POSITION_BELOW: ConnectedPosition = {
 	originY: 'bottom',
 	overlayX: 'center',
 	overlayY: 'top',
-	offsetY: 8,
+	offsetY: 8, // matches --plim-space-2
 };
 
 @Component({
-	template: '{{ text() }}',
+	templateUrl: './tooltip-panel.html',
+	styleUrl: './tooltip-panel.scss',
 	host: {
 		class: 'plim-tooltip',
 		role: 'tooltip',

@@ -4,7 +4,7 @@
 
 .plim-dialog {
 	box-sizing: border-box;
-	width: min(28rem, calc(100vw - var(--plim-space-8)));
+	width: min(var(--plim-dialog-max-width), calc(100vw - var(--plim-space-8)));
 	padding: var(--plim-space-6);
 	background: var(--plim-color-surface-raised);
 	border: 1px solid var(--plim-color-border);

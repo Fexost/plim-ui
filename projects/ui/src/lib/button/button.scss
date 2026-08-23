@@ -30,12 +30,22 @@
 	}
 
 	&:disabled {
-		opacity: 0.5;
+		opacity: var(--plim-opacity-disabled);
 		cursor: not-allowed;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
 		transition: none;
+	}
+
+	@media (forced-colors: active) {
+		&:not(:disabled) {
+			border-color: ButtonBorder;
+		}
+
+		&:hover:not(:disabled) {
+			background: ButtonFace;
+		}
 	}
 }
 
@@ -45,6 +55,12 @@
 
 	&:hover:not(:disabled) {
 		background: var(--plim-color-primary-hover);
+	}
+
+	@media (forced-colors: active) {
+		background: Highlight;
+		color: HighlightText;
+		border-color: Highlight;
 	}
 }
 
@@ -68,5 +84,9 @@
 	&:hover:not(:disabled) {
 		background: var(--plim-color-primary-surface);
 		color: var(--plim-color-primary-hover);
+	}
+
+	@media (forced-colors: active) {
+		color: LinkText;
 	}
 }

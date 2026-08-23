@@ -239,12 +239,6 @@
 		gap: var(--plim-space-3);
 		padding: var(--plim-space-6);
 
-		&--header {
-			display: block;
-			padding: 0;
-			overflow: hidden;
-		}
-
 		&--stack {
 			flex-direction: column;
 			align-items: stretch;
@@ -350,6 +344,13 @@
 	gap: var(--plim-space-3);
 	width: 100%;
 	flex: 0 0 auto;
+}
+
+.docs-scroll-spacer {
+	height: 24rem;
+	background:
+		linear-gradient(var(--plim-color-border) 1px, transparent 1px) 0 0 / 100% 3rem,
+		var(--plim-color-background);
 }
 
 @media (max-width: 960px) {

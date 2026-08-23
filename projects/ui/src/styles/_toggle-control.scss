@@ -16,8 +16,21 @@
 	}
 
 	&:disabled {
-		opacity: 0.5;
+		opacity: var(--plim-opacity-disabled);
 		cursor: not-allowed;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+
+	@media (forced-colors: active) {
+		border-color: ButtonBorder;
+
+		&:checked {
+			border-color: Highlight;
+			background: Highlight;
+		}
 	}
 }
 

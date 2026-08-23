@@ -5,7 +5,7 @@
 .plim-bottom-sheet {
 	box-sizing: border-box;
 	width: 100%;
-	max-height: min(80vh, 32rem);
+	max-height: min(80vh, var(--plim-bottom-sheet-max-height));
 	overflow: auto;
 	padding: var(--plim-space-6);
 	background: var(--plim-color-surface-raised);

@@ -13,4 +13,64 @@
 	&--border {
 		border: 1px solid var(--plim-color-border-strong);
 	}
+
+	&--background {
+		background: var(--plim-color-background);
+	}
+
+	&--surface {
+		background: var(--plim-color-surface);
+	}
+
+	&--surface-raised {
+		background: var(--plim-color-surface-raised);
+	}
+
+	&--border-color {
+		background: var(--plim-color-border);
+	}
+
+	&--text {
+		background: var(--plim-color-text);
+	}
+
+	&--text-muted {
+		background: var(--plim-color-text-muted);
+	}
+
+	&--text-subtle {
+		background: var(--plim-color-text-subtle);
+	}
+
+	&--primary {
+		background: var(--plim-color-primary);
+	}
+
+	&--success {
+		background: var(--plim-color-success);
+	}
+
+	&--warning {
+		background: var(--plim-color-warning);
+	}
+
+	&--danger {
+		background: var(--plim-color-danger);
+	}
+
+	&--primary-surface {
+		background: var(--plim-color-primary-surface);
+	}
+
+	&--success-surface {
+		background: var(--plim-color-success-surface);
+	}
+
+	&--warning-surface {
+		background: var(--plim-color-warning-surface);
+	}
+
+	&--danger-surface {
+		background: var(--plim-color-danger-surface);
+	}
 }

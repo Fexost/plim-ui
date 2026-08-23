@@ -9,7 +9,6 @@ import { SELECT_DOCS_TOKENS } from '../../../docs-component-tokens.config';
 	selector: 'app-select-docs',
 	imports: [DocsComponentLayout, DocsTokenTable, NativeSelect, Option, Select],
 	templateUrl: './select-docs.html',
-	styleUrl: './select-docs.scss',
 })
 export class SelectDocs {
 	protected readonly tokens = SELECT_DOCS_TOKENS;

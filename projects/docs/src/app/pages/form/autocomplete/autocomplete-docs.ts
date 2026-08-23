@@ -9,7 +9,6 @@ import { AUTOCOMPLETE_DOCS_TOKENS } from '../../../docs-component-tokens.config'
 	selector: 'app-autocomplete-docs',
 	imports: [DocsComponentLayout, DocsTokenTable, Autocomplete, Option],
 	templateUrl: './autocomplete-docs.html',
-	styleUrl: './autocomplete-docs.scss',
 })
 export class AutocompleteDocs {
 	protected readonly tokens = AUTOCOMPLETE_DOCS_TOKENS;

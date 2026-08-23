@@ -47,8 +47,8 @@
 .plim-tree-node__chevron {
 	display: inline-block;
 	flex-shrink: 0;
-	width: 0.35rem;
-	height: 0.35rem;
+	width: var(--plim-chevron-size);
+	height: var(--plim-chevron-size);
 	border-right: 2px solid var(--plim-color-text-muted);
 	border-bottom: 2px solid var(--plim-color-text-muted);
 	transform: rotate(-45deg);

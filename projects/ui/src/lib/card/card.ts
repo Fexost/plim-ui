@@ -10,5 +10,5 @@ import { booleanAttribute, Component, input } from '@angular/core';
 	styleUrl: './card.scss',
 })
 export class Card {
-	readonly fill = input(false, { transform: booleanAttribute });
+	public readonly fill = input(false, { transform: booleanAttribute });
 }

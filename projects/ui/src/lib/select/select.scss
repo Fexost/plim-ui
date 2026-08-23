@@ -1,4 +1,5 @@
 @use '../../styles/field-control';
+@use '../../styles/field-icons';
 @use '../../styles/option-list';
 
 :host.plim-select-host {
@@ -13,19 +14,19 @@
 
 .plim-select__trigger {
 	@include field-control.plim-field-control-base;
+	@include field-icons.plim-field-chevron-adornment;
 
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-	padding-right: calc(var(--plim-input-padding-x) + 1.25rem);
 	text-align: left;
 	cursor: pointer;
 	transition-property: box-shadow;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%236f7684' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	background-repeat: no-repeat;
-	background-position: right var(--plim-space-3) center;
-	background-size: 1rem;
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
 
 	&:disabled {
 		cursor: not-allowed;
@@ -41,7 +42,7 @@
 }
 
 .plim-select--disabled .plim-select__trigger {
-	opacity: 0.5;
+	opacity: var(--plim-opacity-disabled);
 	cursor: not-allowed;
 }
 

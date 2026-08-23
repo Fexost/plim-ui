@@ -71,6 +71,12 @@ module.exports = (async () => {
 			},
 		},
 		{
+			files: ['**/tooltip/tooltip.ts'],
+			rules: {
+				'@angular-eslint/no-input-rename': 'off',
+			},
+		},
+		{
 			files: ['**/*.html'],
 			extends: [angular.configs.templateRecommended, angular.configs.templateAccessibility],
 			rules: {},

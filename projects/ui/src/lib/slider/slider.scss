@@ -18,8 +18,12 @@
 	}
 
 	&:disabled {
-		opacity: 0.5;
+		opacity: var(--plim-opacity-disabled);
 		cursor: not-allowed;
+	}
+
+	@media (forced-colors: active) {
+		accent-color: Highlight;
 	}
 }
 

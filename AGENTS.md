@@ -164,10 +164,10 @@ projects/
         _tokens.scss
         _theme.scss
         _field-control.scss
+        _field-icons.scss
         _toggle-control.scss
         _option-list.scss
         _table.scss
-        _tooltip.scss
         styles.scss
       public-api.ts
   docs/
@@ -340,8 +340,8 @@ list covers other attribute-hosted controls (`input[plimInput]`, `table[plimTabl
 files — not inline `template` strings. Unit-test host components may use inline templates.
 
 **Tooltip:** `[plimTooltip]` is a **directive** (not an element component) so it can share a host
-with `button[plimButton]`. The overlay panel is attached via CDK `ComponentPortal`; panel styles
-live in global `_tooltip.scss`.
+with `button[plimButton]`. The overlay panel is a private `TooltipPanel` component attached via
+CDK `ComponentPortal`; panel styles live in `tooltip-panel.scss`.
 
 ---
 
@@ -508,11 +508,11 @@ Consumers should import:
 
 after building the library (`npm run build:ui`).
 
-Component-specific styles that must apply globally (design tokens, projected table rows, tooltip
-overlay panels) belong in `projects/ui/src/styles/` (`_table.scss`, `_tooltip.scss`, and shared
-mixins). Component and directive styles belong next to their source files — one `styleUrl` SCSS
-file per component. Shared mixins (`_field-control.scss`, `_toggle-control.scss`,
-`_option-list.scss`) stay in `projects/ui/src/styles/` and are `@use`d by those component files.
+Component-specific styles that must apply globally (design tokens, projected table rows) belong
+in `projects/ui/src/styles/` (`_table.scss` and shared mixins). Component and directive styles
+belong next to their source files — one `styleUrl` SCSS file per component. Shared mixins
+(`_field-control.scss`, `_field-icons.scss`, `_toggle-control.scss`, `_option-list.scss`) stay in
+`projects/ui/src/styles/` and are `@use`d by those component files.
 
 **Table:** `table[plimTable]` styles projected `thead`/`tbody` content via global `.plim-table`
 rules because emulated encapsulation does not reach projected row markup.

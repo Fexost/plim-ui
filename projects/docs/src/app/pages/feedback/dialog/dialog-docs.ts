@@ -9,7 +9,6 @@ import { DIALOG_DOCS_TOKENS } from '../../../docs-component-tokens.config';
 	selector: 'app-dialog-docs',
 	imports: [DocsComponentLayout, DocsTokenTable, Button, Dialog],
 	templateUrl: './dialog-docs.html',
-	styleUrl: './dialog-docs.scss',
 })
 export class DialogDocs {
 	protected readonly tokens = DIALOG_DOCS_TOKENS;

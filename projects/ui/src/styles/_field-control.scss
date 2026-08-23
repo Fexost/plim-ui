@@ -37,6 +37,10 @@
 	&[readonly] {
 		cursor: default;
 	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
 }
 
 @mixin plim-field-control-invalid {

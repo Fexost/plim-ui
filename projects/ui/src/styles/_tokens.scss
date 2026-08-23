@@ -91,6 +91,25 @@
 	--plim-duration-spin: 1s;
 	--plim-ease-default: cubic-bezier(0.4, 0, 0.2, 1);
 
+	// Opacity
+	--plim-opacity-disabled: 0.5;
+	--plim-opacity-muted: 0.7;
+
+	// Icon sizing
+	--plim-icon-size-sm: 1rem;
+	--plim-icon-size-md: 1.25rem;
+	--plim-icon-size-lg: 1.75rem;
+
+	// Chevron (expansion panel, tree)
+	--plim-chevron-size: 0.4rem;
+	--plim-chevron-offset: 0.15rem;
+
+	// Elevation / stacking
+	--plim-z-sidebar: 50;
+	--plim-z-toolbar: 90;
+	--plim-z-header: 100;
+	--plim-z-sidebar-overlay: 150;
+
 	// Component dimensions
 	--plim-header-height: 4rem;
 	--plim-sidebar-width: 16rem;
@@ -114,6 +133,12 @@
 	--plim-color-field-border-invalid: var(--plim-color-danger);
 	--plim-color-placeholder: var(--plim-color-text-subtle);
 	--plim-color-backdrop: rgb(0 0 0 / 0.45);
+	--plim-color-overlay-hover: color-mix(in srgb, currentColor 8%, transparent);
+
+	// Overlays
+	--plim-overlay-max-width: var(--plim-sidebar-width);
+	--plim-dialog-max-width: 28rem;
+	--plim-bottom-sheet-max-height: 32rem;
 
 	// Select
 	--plim-select-panel-max-height: 16rem;

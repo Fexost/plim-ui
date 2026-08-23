@@ -25,6 +25,30 @@
 	&__sample {
 		font-weight: var(--plim-font-weight-semibold);
 		line-height: var(--plim-line-height-tight);
+
+		&--2xl {
+			font-size: var(--plim-font-size-2xl);
+		}
+
+		&--xl {
+			font-size: var(--plim-font-size-xl);
+		}
+
+		&--lg {
+			font-size: var(--plim-font-size-lg);
+		}
+
+		&--md {
+			font-size: var(--plim-font-size-md);
+		}
+
+		&--sm {
+			font-size: var(--plim-font-size-sm);
+		}
+
+		&--xs {
+			font-size: var(--plim-font-size-xs);
+		}
 	}
 
 	&__value {

@@ -6,6 +6,9 @@ import { AutocompleteOptionView } from './autocomplete-utils';
 	selector: 'plim-autocomplete-panel',
 	templateUrl: './autocomplete-panel.html',
 	styleUrl: './autocomplete-panel.scss',
+	host: {
+		class: 'plim-autocomplete-panel',
+	},
 })
 export class AutocompletePanel {
 	public readonly panelId = input.required<string>();

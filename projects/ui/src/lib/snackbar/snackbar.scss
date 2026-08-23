@@ -8,7 +8,7 @@
 	align-items: center;
 	gap: var(--plim-space-4);
 	pointer-events: auto;
-	min-width: 16rem;
+	min-width: var(--plim-overlay-max-width);
 	max-width: min(32rem, calc(100vw - var(--plim-space-8)));
 	padding: var(--plim-space-3) var(--plim-space-4);
 	background: var(--plim-color-surface-raised);
@@ -50,7 +50,7 @@
 		color: inherit;
 
 		&:hover {
-			background: rgb(0 0 0 / 8%);
+			background: var(--plim-color-overlay-hover);
 			color: inherit;
 		}
 	}

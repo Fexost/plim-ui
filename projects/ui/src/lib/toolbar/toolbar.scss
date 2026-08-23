@@ -6,7 +6,7 @@
 :host(.plim-toolbar--sticky) {
 	position: sticky;
 	top: 0;
-	z-index: 90;
+	z-index: var(--plim-z-toolbar);
 }
 
 .plim-toolbar__bar {

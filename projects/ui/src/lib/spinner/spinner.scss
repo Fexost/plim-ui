@@ -13,18 +13,18 @@
 }
 
 :host(.plim-spinner--sm) .plim-spinner__indicator {
-	width: 1rem;
-	height: 1rem;
+	width: var(--plim-icon-size-sm);
+	height: var(--plim-icon-size-sm);
 }
 
 :host(.plim-spinner--md) .plim-spinner__indicator {
-	width: 1.25rem;
-	height: 1.25rem;
+	width: var(--plim-icon-size-md);
+	height: var(--plim-icon-size-md);
 }
 
 :host(.plim-spinner--lg) .plim-spinner__indicator {
-	width: 1.75rem;
-	height: 1.75rem;
+	width: var(--plim-icon-size-lg);
+	height: var(--plim-icon-size-lg);
 }
 
 @keyframes plim-spinner-spin {

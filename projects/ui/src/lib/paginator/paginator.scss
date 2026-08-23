@@ -1,4 +1,5 @@
 @use '../../styles/field-control';
+@use '../../styles/field-icons';
 
 :host {
 	display: flex;
@@ -22,16 +23,12 @@
 
 .plim-paginator__page-size {
 	@include field-control.plim-field-control-base;
+	@include field-icons.plim-field-chevron-adornment;
 
 	width: auto;
 	min-width: calc(var(--plim-button-height) * 3);
-	padding-right: calc(var(--plim-input-padding-x) + 1.25rem);
 	appearance: none;
 	cursor: pointer;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%236f7684' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	background-repeat: no-repeat;
-	background-position: right var(--plim-space-3) center;
-	background-size: 1rem;
 }
 
 .plim-paginator__page-size-select {
@@ -65,7 +62,7 @@
 	}
 
 	&:disabled {
-		opacity: 0.5;
+		opacity: var(--plim-opacity-disabled);
 		cursor: not-allowed;
 	}
 }

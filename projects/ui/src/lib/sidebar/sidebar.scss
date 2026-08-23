@@ -3,10 +3,14 @@
 	top: var(--plim-header-height);
 	left: 0;
 	bottom: 0;
-	z-index: 50;
+	z-index: var(--plim-z-sidebar);
 	width: var(--plim-sidebar-width);
 	transform: translateX(0);
 	transition: transform var(--plim-duration-normal) var(--plim-ease-default);
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
 }
 
 :host(.plim-sidebar--contained) {
@@ -20,7 +24,7 @@
 }
 
 :host(.plim-sidebar--overlay) {
-	z-index: 150;
+	z-index: var(--plim-z-sidebar-overlay);
 }
 
 .plim-sidebar__panel {

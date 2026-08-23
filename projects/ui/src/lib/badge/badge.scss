@@ -41,3 +41,13 @@
 	border-color: var(--plim-color-danger-surface-border);
 	color: var(--plim-color-danger);
 }
+
+@media (forced-colors: active) {
+	:host(.plim-badge--default),
+	:host(.plim-badge--primary),
+	:host(.plim-badge--success),
+	:host(.plim-badge--warning),
+	:host(.plim-badge--danger) {
+		border-color: CanvasText;
+	}
+}

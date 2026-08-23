@@ -14,20 +14,20 @@
 }
 
 :host(.plim-avatar--sm) {
-	width: 2rem;
-	height: 2rem;
+	width: var(--plim-space-8);
+	height: var(--plim-space-8);
 	font-size: var(--plim-font-size-xs);
 }
 
 :host(.plim-avatar--md) {
-	width: 2.5rem;
-	height: 2.5rem;
+	width: var(--plim-space-10);
+	height: var(--plim-space-10);
 	font-size: var(--plim-font-size-sm);
 }
 
 :host(.plim-avatar--lg) {
-	width: 3rem;
-	height: 3rem;
+	width: var(--plim-space-12);
+	height: var(--plim-space-12);
 	font-size: var(--plim-font-size-md);
 }
 

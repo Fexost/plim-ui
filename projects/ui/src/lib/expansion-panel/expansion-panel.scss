@@ -39,8 +39,8 @@
 
 .plim-expansion-panel__icon {
 	flex: 0 0 auto;
-	width: 0.4rem;
-	height: 0.4rem;
+	width: var(--plim-chevron-size);
+	height: var(--plim-chevron-size);
 	border-right: 2px solid var(--plim-color-text-muted);
 	border-bottom: 2px solid var(--plim-color-text-muted);
 	transform: rotate(45deg);
@@ -48,7 +48,7 @@
 }
 
 :host(.plim-expansion-panel--open) .plim-expansion-panel__icon {
-	transform: translateY(0.15rem) rotate(225deg);
+	transform: translateY(var(--plim-chevron-offset)) rotate(225deg);
 }
 
 .plim-expansion-panel__body {
