@@ -85,7 +85,23 @@ Toggle light mode by setting `data-theme="light"` on the document root.
 | | Textarea | `textarea[plimTextarea]` |
 | | Timepicker | `<plim-timepicker>` / `input[type=time][plimTimepicker]` |
 | **Navigation** | Header | `<plim-header>` |
+| | Menu | `<plim-menu>` / `[plimMenuTrigger]` / `button[plimMenuItem]` |
+| | Paginator | `<plim-paginator>` |
 | | Sidebar | `<plim-sidebar>` |
+| | Tabs | `<plim-tab-group>` / `<plim-tab>` |
+| | Toolbar | `<plim-toolbar>` |
+| **Feedback** | Bottom sheet | `<plim-bottom-sheet>` |
+| | Dialog | `<plim-dialog>` |
+| | Snackbar | `<plim-snackbar>` |
+| | Tooltip | `[plimTooltip]` |
+| **Data** | Chips | `<plim-chip-set>` / `<plim-chip>` |
+| | Expansion panel | `<plim-expansion-panel>` |
+| | Grid list | `<plim-grid-list>` / `<plim-grid-tile>` |
+| | List | `<plim-list>` / `<plim-list-item>` |
+| | Sort header | `[plimSort]` / `th[plimSortHeader]` |
+| | Stepper | `<plim-stepper>` / `<plim-step>` |
+| | Table | `table[plimTable]` |
+| | Tree | `<plim-tree>` / `<plim-tree-node>` |
 
 Naming follows two patterns:
 

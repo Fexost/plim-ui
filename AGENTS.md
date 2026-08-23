@@ -76,7 +76,7 @@ Current stack:
 
 * Angular 21
 * TypeScript
-* Angular CDK 21 (workspace dependency; used by `plim-select`; peer dependency of published package)
+* Angular CDK 21 (workspace dependency; overlay components listed below; peer dependency of published package)
 * SCSS for the component library
 * npm
 * Angular CLI
@@ -100,9 +100,10 @@ utilities, scrolling, drag-and-drop, and more. Angular Material builds on top of
 use the same primitives without adopting Material’s visual design.
 
 **Current status:** `@angular/cdk` Overlay is used by **`plim-select`**, **`plim-autocomplete`**,
-**`plim-datepicker`**, and **`plim-timepicker`**. Other published components remain native HTML,
-SCSS, and Angular APIs. CDK is a **peer dependency** of the published `plim-ui` package
-alongside `@angular/forms`.
+**`plim-datepicker`**, **`plim-timepicker`**, **`plim-menu`**, **`plim-dialog`**,
+**`plim-bottom-sheet`**, **`plim-snackbar`**, and **`[plimTooltip]`**. Other published components
+remain native HTML, SCSS, and Angular APIs. CDK is a **peer dependency** of the published
+`plim-ui` package alongside `@angular/forms`.
 
 **When to reach for CDK:** prefer it when a component needs non-trivial interaction behaviour
 that is easy to get wrong by hand — for example Dialog (focus trap, restore focus, escape to
@@ -142,6 +143,22 @@ projects/
         slider/
         datepicker/
         timepicker/
+        chip/
+        dialog/
+        bottom-sheet/
+        snackbar/
+        tooltip/
+        expansion-panel/
+        grid-list/
+        list/
+        menu/
+        paginator/
+        sort/
+        stepper/
+        table/
+        tabs/
+        toolbar/
+        tree/
         form-field/
       styles/
         _tokens.scss
@@ -149,6 +166,8 @@ projects/
         _field-control.scss
         _toggle-control.scss
         _option-list.scss
+        _table.scss
+        _tooltip.scss
         styles.scss
       public-api.ts
   docs/
@@ -171,7 +190,9 @@ projects/
           foundations/    # *-docs pages: tokens, theme, typography, accessibility, icons
           basic/          # button, button-toggle, badge, card, separator, avatar, spinner, progress-bar
           form/           # input, textarea, select, autocomplete, checkbox, radio, switch, slider, datepicker, timepicker, form-field
-          navigation/     # header-docs, sidebar-docs
+          navigation/     # header, menu, paginator, sidebar, tabs, toolbar
+          feedback/       # bottom-sheet, dialog, snackbar, tooltip
+          data/           # chips, expansion-panel, grid-list, list, sort-header, stepper, table, tree
         services/
           theme.service.ts
           docs-responsive-nav.service.ts
@@ -311,7 +332,16 @@ attributes) is declared in the component `host` metadata rather than `@HostBindi
 ```
 
 `button[plimButton]` is an exception: ESLint allows an attribute selector override in
-`projects/ui/eslint.config.js` because the component styles native buttons.
+`projects/ui/eslint.config.js` because the component styles native buttons. The same override
+list covers other attribute-hosted controls (`input[plimInput]`, `table[plimTable]`,
+`button[plimMenuItem]`, and similar).
+
+**Templates:** production components use `templateUrl` (and `styleUrl`) with sibling HTML/SCSS
+files — not inline `template` strings. Unit-test host components may use inline templates.
+
+**Tooltip:** `[plimTooltip]` is a **directive** (not an element component) so it can share a host
+with `button[plimButton]`. The overlay panel is attached via CDK `ComponentPortal`; panel styles
+live in global `_tooltip.scss`.
 
 ---
 
@@ -478,10 +508,14 @@ Consumers should import:
 
 after building the library (`npm run build:ui`).
 
-Component-specific styles that must apply globally (such as design tokens) belong in
-`projects/ui/src/styles/`. Component and directive styles belong next to their source files —
-one `styleUrl` SCSS file per component. Shared mixins (`_field-control.scss`, `_toggle-control.scss`,
+Component-specific styles that must apply globally (design tokens, projected table rows, tooltip
+overlay panels) belong in `projects/ui/src/styles/` (`_table.scss`, `_tooltip.scss`, and shared
+mixins). Component and directive styles belong next to their source files — one `styleUrl` SCSS
+file per component. Shared mixins (`_field-control.scss`, `_toggle-control.scss`,
 `_option-list.scss`) stay in `projects/ui/src/styles/` and are `@use`d by those component files.
+
+**Table:** `table[plimTable]` styles projected `thead`/`tbody` content via global `.plim-table`
+rules because emulated encapsulation does not reach projected row markup.
 
 ---
 
@@ -493,9 +527,8 @@ Live site: [fexost.github.io/plim-ui](https://fexost.github.io/plim-ui/) (GitHub
 responsive overlay menu below 960px (`DocsResponsiveNavService`).
 
 **Nav config:** `docs-nav.config.ts` — categories: Get started, Foundations, Basic, Form,
-Navigation, Feedback, Data. The sidebar lists the full Material-aligned component inventory;
-items without a `path` render as coming-soon labels. Roadmap status is maintained in this
-document (see Component inventory below), not in code.
+Navigation, Feedback, Data. All inventory entries currently have docs routes. Roadmap status
+is maintained in this document (see Component inventory below), not in code.
 
 **Page routes:**
 
@@ -505,7 +538,9 @@ foundations/tokens, theme, typography, accessibility, icons
 basic/button, button-toggle, badge, card, separator, avatar, spinner, progress-bar
 form/input, textarea, select, autocomplete, checkbox, radio, switch, slider,
      datepicker, timepicker, form-field
-navigation/header, sidebar
+navigation/header, menu, paginator, sidebar, tabs, toolbar
+feedback/bottom-sheet, dialog, snackbar, tooltip
+data/chips, expansion-panel, grid-list, list, sort-header, stepper, table, tree
 ```
 
 **Layouts:**
@@ -521,7 +556,8 @@ section only when a native alternative can carry the same content — for exampl
 <code>&lt;plim-select&gt;</code> options mapped to a native <code>&lt;select&gt;</code>. Do not
 add native preview sections to directive-only controls such as <code>plimInput</code> or
 <code>plimButton</code>, or to components with no useful native counterpart such as
-<code>plim-autocomplete</code>.
+<code>plim-autocomplete</code>. When both plim and native previews exist, show the plim
+component first (for example paginator with `pageSizeControl="plim"` before native).
 
 **Docs-only dependencies:** `highlight.js` (not part of the published library). Theme colours
 for code blocks in `_docs-code-theme.scss` (Cursor / VS Code–style light and dark).
@@ -532,7 +568,7 @@ overview and guide pages).
 **Brand assets:** `projects/docs/public/brand/` — `mark.svg`, `logo-dark.svg`, `logo-light.svg`,
 `favicon.svg`, `app-icon.svg`.
 
-**Not yet implemented:** search, most Feedback/Data nav entries.
+**Not yet implemented:** site search.
 
 **Docs SCSS:**
 
@@ -650,16 +686,16 @@ When implementing new components:
 # 18. Current State
 
 * Angular 21 workspace: `ui` (library) + `docs` (application).
-* Angular CDK installed; **select, autocomplete, datepicker, and timepicker** use CDK Overlay
-  (peer dependency).
-* ESLint / angular-eslint; Vitest for unit tests.
+* Angular CDK installed; overlay components (**select, autocomplete, datepicker, timepicker,
+  menu, dialog, bottom sheet, snackbar, tooltip**) use CDK Overlay (peer dependency).
+* ESLint / angular-eslint; Vitest for unit tests (134+ library tests).
 * Library built with ng-packagr → `dist/plim-ui`; styles at `dist/plim-ui/styles/`.
 * Design tokens: colour, typography, spacing, radius, shadow, focus, motion (`--plim-duration-spin`), component dimensions, semantic tinted surfaces (`--plim-color-*-surface*`).
 * Light/dark themes via CSS variables; docs `ThemeService` persists choice.
-* **Published components:** Header, Sidebar, Button, Button toggle, Badge, Card, Separator,
-  Avatar, Spinner, Progress bar; Form: Input, Textarea, Select, Autocomplete, Checkbox, Radio,
-  Switch, Slider, Datepicker, Timepicker, Form field; shared `plim-option`.
-* Docs: Basic, Form, and Navigation component pages, Foundations guides, overview, installation.
+* **Published components:** Basic, Form, Navigation (Header, Menu, Paginator, Sidebar, Tabs,
+  Toolbar), Feedback (Bottom sheet, Dialog, Snackbar, Tooltip), Data (Chips, Expansion panel,
+  Grid list, List, Sort, Table, Stepper, Tree); shared `plim-option`.
+* Docs: all component categories documented; Foundations guides; overview, installation.
 * Docs: syntax-highlighted code blocks, equal-height preview/code splits, mobile nav overlay.
 * GitHub Actions: CI (`ci.yml`), docs deploy (`deploy-docs.yml`), npm publish (`publish-npm.yml`), security audits (`security.yml`).
 * `npm start` → `build:ui` + `ng serve docs`.
@@ -687,11 +723,14 @@ Immediate priorities:
 
 1. ~~Basic primitives~~ (Button, Badge, Card, Separator, Avatar, Spinner)
 2. ~~Foundation reference pages~~ (Tokens, Theme, Typography, Accessibility)
-3. ~~Header and Sidebar docs~~
+3. ~~Navigation components and docs~~ — Header, Menu, Paginator, Sidebar, Tabs, Toolbar
 4. ~~Form primitives~~ — Input, Textarea, Select, Autocomplete, Checkbox, Radio, Switch,
    Slider, Datepicker, Timepicker, Form field (overlay panels use CDK; native pairs style
    the matching HTML element)
-5. Site search; remaining inventory entries (see below)
+5. ~~Feedback components and docs~~ — Bottom sheet, Dialog, Snackbar, Tooltip
+6. ~~Data components and docs~~ — Chips, Expansion panel, Grid list, List, Sort header,
+   Stepper, Table, Tree
+7. Site search; polish and expand accessibility/icon token guidance
 
 ### Component inventory
 
@@ -704,23 +743,23 @@ different public API.
 | --- | --- | --- | --- |
 | Autocomplete | Form | **implemented** | `<plim-autocomplete>` |
 | Badge | Basic | **implemented** | `<plim-badge>` |
-| Bottom sheet | Feedback | planned | — |
+| Bottom sheet | Feedback | **implemented** | `<plim-bottom-sheet>` |
 | Button | Basic | **implemented** | `button[plimButton]` |
 | Button toggle | Basic | **implemented** | `<plim-button-toggle-group>` |
 | Card | Basic | **implemented** | `<plim-card>` |
 | Checkbox | Form | **implemented** | `input[plimCheckbox]` |
-| Chips | Data | planned | — |
+| Chips | Data | **implemented** | `<plim-chip-set>` / `<plim-chip>` |
 | Datepicker | Form | **implemented** | `<plim-datepicker>` / `input[type=date][plimDatepicker]` |
-| Dialog | Feedback | planned | — |
+| Dialog | Feedback | **implemented** | `<plim-dialog>` |
 | Divider | Basic | **implemented** | `<plim-separator>` |
-| Expansion panel | Data | planned | — |
+| Expansion panel | Data | **implemented** | `<plim-expansion-panel>` |
 | Form field | Form | **implemented** | `<plim-form-field>` |
-| Grid list | Data | planned | — |
+| Grid list | Data | **implemented** | `<plim-grid-list>` / `<plim-grid-tile>` |
 | Icon | Foundations | partial | Icons guide (`foundations/icons`) |
 | Input | Form | **implemented** | `input[plimInput]` |
-| List | Data | planned | — |
-| Menu | Navigation | planned | — |
-| Paginator | Navigation | planned | — |
+| List | Data | **implemented** | `<plim-list>` / `<plim-list-item>` |
+| Menu | Navigation | **implemented** | `<plim-menu>` / `[plimMenuTrigger]` |
+| Paginator | Navigation | **implemented** | `<plim-paginator>` |
 | Progress bar | Basic | **implemented** | `<plim-progress-bar>` |
 | Progress spinner | Basic | **implemented** | `<plim-spinner>` |
 | Radio button | Form | **implemented** | `input[plimRadio]` |
@@ -728,15 +767,15 @@ different public API.
 | Sidenav | Navigation | **implemented** | `<plim-sidebar>` |
 | Slide toggle | Form | **implemented** | `input[plimSwitch]` |
 | Slider | Form | **implemented** | `input[type=range][plimSlider]` |
-| Snackbar | Feedback | planned | — |
-| Sort header | Data | planned | — |
-| Stepper | Data | planned | — |
-| Table | Data | planned | — |
-| Tabs | Navigation | planned | — |
+| Snackbar | Feedback | **implemented** | `<plim-snackbar>` |
+| Sort header | Data | **implemented** | `[plimSort]` / `th[plimSortHeader]` |
+| Stepper | Data | **implemented** | `<plim-stepper>` / `<plim-step>` |
+| Table | Data | **implemented** | `table[plimTable]` |
+| Tabs | Navigation | **implemented** | `<plim-tab-group>` / `<plim-tab>` |
 | Timepicker | Form | **implemented** | `<plim-timepicker>` / `input[type=time][plimTimepicker]` |
-| Toolbar | Navigation | planned | — |
-| Tooltip | Feedback | planned | — |
-| Tree | Data | planned | — |
+| Toolbar | Navigation | **implemented** | `<plim-toolbar>` |
+| Tooltip | Feedback | **implemented** | `[plimTooltip]` |
+| Tree | Data | **implemented** | `<plim-tree>` / `<plim-tree-node>` |
 
 **Also shipped (not in Material list):** Avatar (`<plim-avatar>`), Textarea
 (`textarea[plimTextarea]`), Header (`<plim-header>`).

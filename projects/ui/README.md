@@ -235,6 +235,178 @@ Navigation panel with nav and footer slots.
 
 In `push` mode, offset main content with `margin-left: var(--plim-sidebar-width)`.
 
+#### Menu
+
+Dropdown menu with CDK overlay. Pair a trigger with menu items.
+
+```html
+<button type="button" [plimMenuTrigger]="menu">Actions</button>
+<plim-menu #menu>
+  <button type="button" plimMenuItem>Edit</button>
+  <button type="button" plimMenuItem disabled>Archive</button>
+</plim-menu>
+```
+
+#### Paginator
+
+Page controls for long lists. Supports native or plim page-size selects.
+
+```html
+<plim-paginator
+  [length]="100"
+  [pageIndex]="pageIndex"
+  [pageSize]="pageSize"
+  pageSizeControl="plim"
+  (page)="onPage($event)"
+/>
+```
+
+| Input | Type | Default | Description |
+| --- | --- | --- | --- |
+| `length` | `number` | `0` | Total item count |
+| `pageIndex` | `number` | `0` | Zero-based page index |
+| `pageSize` | `number` | `10` | Items per page |
+| `pageSizeOptions` | `number[]` | `[5, 10, 25]` | Page-size choices |
+| `pageSizeControl` | `'plim' \| 'native'` | `'native'` | Plim select or native `<select>` |
+
+#### Tabs
+
+Tabbed panels with keyboard navigation.
+
+```html
+<plim-tab-group [(selectedIndex)]="selectedIndex">
+  <plim-tab label="One">First panel</plim-tab>
+  <plim-tab label="Two">Second panel</plim-tab>
+</plim-tab-group>
+```
+
+#### Toolbar
+
+In-page action bar (not app chrome). Use `<plim-header>` for global navigation.
+
+```html
+<plim-toolbar sticky>
+  <div plimToolbarStart><strong>Inbox</strong></div>
+  <div plimToolbarEnd>
+    <button type="button" plimButton variant="secondary">Filter</button>
+  </div>
+</plim-toolbar>
+```
+
+Content slots: `plimToolbarStart`, `plimToolbarEnd`.
+
+### Feedback
+
+#### Dialog
+
+Modal overlay with title and actions slots.
+
+```html
+<plim-dialog [open]="open()" ariaLabel="Confirm delete" (closed)="onClosed()">
+  <h2 plimDialogTitle>Delete item</h2>
+  <p>This cannot be undone.</p>
+  <div plimDialogActions>
+    <button type="button" plimButton variant="secondary">Cancel</button>
+    <button type="button" plimButton>Delete</button>
+  </div>
+</plim-dialog>
+```
+
+#### Bottom sheet
+
+Panel anchored to the bottom of the viewport.
+
+```html
+<plim-bottom-sheet [open]="open()" ariaLabel="Share options" (closed)="onClosed()">
+  <p>Share this page</p>
+</plim-bottom-sheet>
+```
+
+#### Snackbar
+
+Non-blocking message with badge-aligned variants.
+
+```html
+<plim-snackbar [open]="open()" variant="success" (closed)="open.set(false)">
+  Changes saved
+</plim-snackbar>
+```
+
+| Input | Type | Default |
+| --- | --- | --- |
+| `variant` | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger'` | `'default'` |
+| `duration` | `number` | `4000` (milliseconds; `0` stays open) |
+
+#### Tooltip
+
+Directive on the trigger element. Works alongside `plimButton` on the same host.
+
+```html
+<button type="button" plimButton plimTooltip="Copied to clipboard">Copy</button>
+<button type="button" plimButton plimTooltip="Save changes" plimTooltipPosition="above">
+  Save
+</button>
+```
+
+| Input | Type | Default |
+| --- | --- | --- |
+| `plimTooltip` | `string` | `''` |
+| `plimTooltipPosition` | `'above' \| 'below'` | `'below'` |
+
+### Data
+
+#### Table and sort header
+
+Styles a native table; sort state lives on a parent `[plimSort]` directive.
+
+```html
+<table plimTable plimSort [(active)]="active" [(direction)]="direction">
+  <thead>
+    <tr>
+      <th plimSortHeader="name">Name</th>
+      <th plimSortHeader="role">Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Ada</td><td>Engineer</td></tr>
+  </tbody>
+</table>
+```
+
+Import global styles so projected row markup receives `.plim-table` rules.
+
+#### Chips, list, grid list, expansion panel, stepper, tree
+
+```html
+<plim-chip-set>
+  <plim-chip removable (removed)="onRemoved()">Angular</plim-chip>
+</plim-chip-set>
+
+<plim-list>
+  <plim-list-item>Ada</plim-list-item>
+</plim-list>
+
+<plim-grid-list [cols]="3">
+  <plim-grid-tile>One</plim-grid-tile>
+</plim-grid-list>
+
+<plim-expansion-panel>
+  <span plimExpansionHeader>Details</span>
+  Body copy
+</plim-expansion-panel>
+
+<plim-stepper>
+  <plim-step label="Account">Account form</plim-step>
+  <plim-step label="Review">Review copy</plim-step>
+</plim-stepper>
+
+<plim-tree>
+  <plim-tree-node label="Parent">
+    <plim-tree-node label="Child" />
+  </plim-tree-node>
+</plim-tree>
+```
+
 ## Public API
 
 ```typescript
@@ -242,29 +414,54 @@ import {
   Autocomplete,
   Avatar,
   Badge,
+  BottomSheet,
   Button,
   ButtonToggle,
   ButtonToggleGroup,
   Card,
   Checkbox,
+  Chip,
+  ChipSet,
   Datepicker,
+  Dialog,
+  ExpansionPanel,
   FormField,
+  GridList,
+  GridTile,
   Header,
   Input,
+  List,
+  ListItem,
+  Menu,
+  MenuItem,
+  MenuTrigger,
   NativeDatepicker,
   NativeSelect,
   NativeTimepicker,
   Option,
+  Paginator,
   ProgressBar,
   Radio,
   Select,
   Separator,
   Sidebar,
   Slider,
+  Snackbar,
+  Sort,
+  SortHeader,
   Spinner,
+  Step,
+  Stepper,
   Switch,
+  Tab,
+  TabGroup,
+  Table,
   Textarea,
   Timepicker,
+  Toolbar,
+  Tooltip,
+  Tree,
+  TreeNode,
 } from 'plim-ui';
 ```
 
