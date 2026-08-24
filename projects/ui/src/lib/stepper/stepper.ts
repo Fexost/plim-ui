@@ -1,16 +1,20 @@
-import { Component, contentChildren, model } from '@angular/core';
+import { Component, contentChildren, input, model } from '@angular/core';
 
 import { Step } from './step';
+
+export type StepperOrientation = 'horizontal' | 'vertical';
 
 @Component({
 	selector: 'plim-stepper',
 	host: {
 		class: 'plim-stepper',
+		'[class.plim-stepper--vertical]': 'orientation() === "vertical"',
 	},
 	templateUrl: './stepper.html',
 	styleUrl: './stepper.scss',
 })
 export class Stepper {
+	public readonly orientation = input<StepperOrientation>('horizontal');
 	public readonly selectedIndex = model(0);
 	public readonly steps = contentChildren(Step);
 

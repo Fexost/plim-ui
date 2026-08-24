@@ -17,3 +17,47 @@
 .plim-snackbar-overlay {
 	pointer-events: none;
 }
+
+.plim-chat-widget-overlay {
+	z-index: var(--plim-z-chat-launcher);
+}
+
+.plim-chat-widget-overlay .plim-chat-widget {
+	animation: plim-chat-widget-enter var(--plim-duration-normal) var(--plim-ease-default);
+	transform-origin: bottom right;
+}
+
+.plim-chat-widget-overlay .plim-chat-widget.plim-chat-widget--closing {
+	animation: plim-chat-widget-exit var(--plim-duration-normal) var(--plim-ease-default) forwards;
+}
+
+@keyframes plim-chat-widget-enter {
+	from {
+		opacity: 0;
+		transform: translateY(var(--plim-space-3)) scale(0.96);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes plim-chat-widget-exit {
+	from {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+
+	to {
+		opacity: 0;
+		transform: translateY(var(--plim-space-3)) scale(0.96);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.plim-chat-widget-overlay .plim-chat-widget,
+	.plim-chat-widget-overlay .plim-chat-widget.plim-chat-widget--closing {
+		animation: none;
+	}
+}

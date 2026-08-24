@@ -1,23 +1,21 @@
-<app-docs-component-layout category="Advanced" title="Chat panel">
+<app-docs-component-layout category="Advanced" title="Chat">
 	<p docsLead>
-		A composable assistant panel shell with header, scrollable messages, composer, and footer
-		slots. plim-ui provides layout and accessibility — wire up your own chat backend in the
-		host app.
+		Composable chat primitives for inline panels and floating assistant widgets. plim-ui provides
+		layout, conversation styling, and accessibility — wire up your own backend in the host app.
 	</p>
 
-	<section class="docs-component__section" id="preview">
+	<section class="docs-component__section" id="preview-inline">
 		<h2>Inline panel</h2>
 		<p>
 			Project each region with slot markers. Use <code>plim-chat-message</code>,
-			<code>plim-chat-intro</code>, and <code>plim-chat-prompt</code> for conversation content
-			instead of styling projected markup by hand.
+			<code>plim-chat-intro</code>, and <code>plim-chat-prompt</code> for conversation content.
 		</p>
 
 		<div class="docs-split">
-			<div class="docs-preview docs-split__preview chat-panel-docs-preview">
+			<div class="docs-preview docs-split__preview chat-docs-preview">
 				<plim-chat-panel aria-label="Documentation assistant">
-					<div plimChatPanelHeader class="chat-panel-docs-preview__header">
-						<h2 class="chat-panel-docs-preview__title">plim-ui assistant</h2>
+					<div plimChatPanelHeader class="chat-docs-preview__header">
+						<h2>plim-ui assistant</h2>
 						<button type="button" plimButton variant="text">Close</button>
 					</div>
 
@@ -57,14 +55,9 @@
       &lt;plim-chat-prompt (selected)="onSubmitted('How do I use plimButton?')"&gt;
         How do I use plimButton?
       &lt;/plim-chat-prompt&gt;
-      &lt;plim-chat-prompt (selected)="onSubmitted('Which tokens control theme colours?')"&gt;
-        Which tokens control theme colours?
-      &lt;/plim-chat-prompt&gt;
     &lt;/plim-chat-prompt-set&gt;
 
-    &lt;plim-chat-message role="user"&gt;
-      How do I use plimButton?
-    &lt;/plim-chat-message&gt;
+    &lt;plim-chat-message role="user"&gt;How do I use plimButton?&lt;/plim-chat-message&gt;
     &lt;plim-chat-message role="assistant"&gt;
       Use the plimButton attribute on a native button.
     &lt;/plim-chat-message&gt;
@@ -81,6 +74,32 @@
 		</div>
 	</section>
 
+	<section class="docs-component__section" id="preview-widget">
+		<h2>Floating widget</h2>
+		<p>
+			<code>plim-chat-widget</code> renders a fixed launcher and CDK overlay panel. Project the
+			same <code>plim-chat-panel</code> markup shown above, bind <code>[(open)]</code> to control
+			visibility, and use <code>[fixed]="false"</code> when the launcher should sit inside a
+			container instead of the viewport.
+		</p>
+		<p>
+			Use the <strong>Ask</strong> button in the bottom-right corner of this page to try the live
+			widget. Escape or Close dismisses the panel.
+		</p>
+
+		<pre class="docs-code"><code>&lt;plim-chat-widget
+  [(open)]="open"
+  [fixed]="false"
+  ariaLabel="Documentation assistant"
+  launcherLabel="Ask"
+  (closed)="open.set(false)"
+&gt;
+  &lt;plim-chat-panel aria-label="Documentation assistant"&gt;
+    ...
+  &lt;/plim-chat-panel&gt;
+&lt;/plim-chat-widget&gt;</code></pre>
+	</section>
+
 	<section class="docs-component__section" id="accessibility">
 		<h2>Accessibility</h2>
 
@@ -94,9 +113,11 @@
 			<ul class="docs-a11y-callout__features">
 				<li>Named panel landmark</li>
 				<li>Polite live region for messages</li>
+				<li>Widget panel uses <code>role="dialog"</code> with focus trap</li>
+				<li>Launcher exposes <code>aria-expanded</code> and toggles the panel closed when clicked again</li>
+				<li>Escape closes the floating widget</li>
 				<li>Starter prompts are native buttons with visible focus</li>
 				<li>Send button disabled until there is a draft</li>
-				<li>Enter or Send submits</li>
 				<li>Messages region scrolls to the latest turn automatically</li>
 			</ul>
 		</app-docs-a11y-callout>
@@ -136,6 +157,64 @@
 						<td><code>string</code></td>
 						<td><code>'Messages'</code></td>
 						<td>Accessible name for the scrollable messages region.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Widget inputs</h3>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input / output</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>open</code></td>
+						<td><code>Model&lt;boolean&gt;</code></td>
+						<td><code>false</code></td>
+						<td>Whether the overlay panel is visible.</td>
+					</tr>
+					<tr>
+						<td><code>fixed</code></td>
+						<td><code>boolean</code></td>
+						<td><code>true</code></td>
+						<td>Pin the launcher to the viewport. Set <code>false</code> to position within a container.</td>
+					</tr>
+					<tr>
+						<td><code>showLauncher</code></td>
+						<td><code>boolean</code></td>
+						<td><code>true</code></td>
+						<td>Render the built-in launcher trigger.</td>
+					</tr>
+					<tr>
+						<td><code>launcherLabel</code></td>
+						<td><code>string</code></td>
+						<td><code>'Chat'</code></td>
+						<td>Label for the built-in launcher.</td>
+					</tr>
+					<tr>
+						<td><code>launcherAriaLabel</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Optional accessible name when the visible label is not enough.</td>
+					</tr>
+					<tr>
+						<td><code>ariaLabel</code></td>
+						<td><code>string</code></td>
+						<td>—</td>
+						<td>Accessible name for the overlay panel.</td>
+					</tr>
+					<tr>
+						<td><code>closed</code></td>
+						<td><code>Output&lt;void&gt;</code></td>
+						<td>—</td>
+						<td>Emits when the widget requests close (Escape).</td>
 					</tr>
 				</tbody>
 			</table>
@@ -244,7 +323,7 @@
 					</tr>
 					<tr>
 						<td><code>value</code></td>
-						<td><code>string</code></td>
+						<td><code>Model&lt;string&gt;</code></td>
 						<td><code>''</code></td>
 						<td>Two-way model for the draft message.</td>
 					</tr>
@@ -259,3 +338,40 @@
 		</div>
 	</section>
 </app-docs-component-layout>
+
+<plim-chat-widget
+	[(open)]="open"
+	ariaLabel="Documentation assistant"
+	launcherLabel="Ask"
+	(closed)="open.set(false)"
+>
+	<plim-chat-panel aria-label="Documentation assistant">
+		<div plimChatPanelHeader class="chat-docs-preview__header">
+			<h2>plim-ui assistant</h2>
+			<button type="button" plimButton variant="text" (click)="open.set(false)">Close</button>
+		</div>
+
+		<div plimChatPanelMessages>
+			@if (messages().length === 0) {
+				<plim-chat-intro>How can I help?</plim-chat-intro>
+				<plim-chat-prompt-set aria-label="Suggested prompts">
+					@for (prompt of prompts; track prompt) {
+						<plim-chat-prompt (selected)="onSubmitted(prompt)">{{ prompt }}</plim-chat-prompt>
+					}
+				</plim-chat-prompt-set>
+			} @else {
+				@for (message of messages(); track $index) {
+					<plim-chat-message [role]="message.role">{{ message.text }}</plim-chat-message>
+				}
+			}
+		</div>
+
+		<div plimChatPanelComposer>
+			<plim-chat-composer
+				label=""
+				placeholder="Ask about plim-ui…"
+				(submitted)="onSubmitted($event)"
+			/>
+		</div>
+	</plim-chat-panel>
+</plim-chat-widget>

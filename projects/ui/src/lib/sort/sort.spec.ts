@@ -15,7 +15,7 @@ import { SortHeader } from './sort-header';
 			</thead>
 			<tbody>
 				<tr>
-					<td>Ada</td>
+					<td>Lorem ipsum</td>
 				</tr>
 			</tbody>
 		</table>

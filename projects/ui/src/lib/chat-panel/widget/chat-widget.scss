@@ -1,0 +1,42 @@
+:host {
+	display: none;
+}
+
+:host(.plim-chat-widget-host--with-launcher) {
+	display: block;
+	z-index: var(--plim-z-chat-launcher);
+}
+
+:host(.plim-chat-widget-host--with-launcher.plim-chat-widget-host--fixed) {
+	position: fixed;
+	right: var(--plim-space-6);
+	bottom: var(--plim-space-6);
+}
+
+:host(.plim-chat-widget-host--with-launcher:not(.plim-chat-widget-host--fixed)) {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.plim-chat-widget {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	width: var(--plim-chat-panel-max-width);
+	min-height: var(--plim-chat-panel-min-height);
+	max-width: calc(100vw - var(--plim-space-8));
+	max-height: var(--plim-chat-panel-max-height);
+	overflow: hidden;
+	border-radius: var(--plim-radius-lg);
+	box-shadow: var(--plim-shadow-lg);
+}
+
+.plim-chat-widget:focus {
+	outline: none;
+}
+
+.plim-chat-widget:focus-visible {
+	outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+	outline-offset: var(--plim-focus-ring-offset);
+}

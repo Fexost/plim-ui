@@ -1,0 +1,11 @@
+<div class="plim-sticky-note__surface">
+	@if (removable()) {
+		<button type="button" class="plim-sticky-note__remove" [attr.aria-label]="removeLabel()" (click)="remove($event)">
+			×
+		</button>
+	}
+
+	<div class="plim-sticky-note__content">
+		<ng-content />
+	</div>
+</div>

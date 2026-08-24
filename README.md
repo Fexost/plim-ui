@@ -100,8 +100,11 @@ Toggle light mode by setting `data-theme="light"` on the document root.
 | | List | `<plim-list>` / `<plim-list-item>` |
 | | Sort header | `[plimSort]` / `th[plimSortHeader]` |
 | | Stepper | `<plim-stepper>` / `<plim-step>` |
+| | Sticky note | `<plim-sticky-note>` |
 | | Table | `table[plimTable]` |
+| | Timeline | `<plim-timeline>` / `<plim-timeline-item>` |
 | | Tree | `<plim-tree>` / `<plim-tree-node>` |
+| **Advanced** | Chat | `<plim-chat-panel>`, `<plim-chat-widget>`, conversation primitives |
 
 Naming follows two patterns:
 

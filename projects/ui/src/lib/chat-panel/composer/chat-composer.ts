@@ -1,7 +1,7 @@
 import { Component, computed, input, model, output } from '@angular/core';
 
-import { Button } from '../button/button';
-import { Input } from '../input/input';
+import { Button } from '../../button/button';
+import { Input } from '../../input/input';
 
 let nextComposerId = 0;
 

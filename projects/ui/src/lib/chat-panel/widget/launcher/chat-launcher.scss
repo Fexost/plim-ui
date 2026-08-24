@@ -1,0 +1,46 @@
+:host {
+	display: block;
+}
+
+.plim-chat-launcher__button {
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: var(--plim-chat-launcher-size);
+	height: var(--plim-chat-launcher-size);
+	padding: 0 var(--plim-space-4);
+	border: 1px solid var(--plim-color-primary);
+	border-radius: var(--plim-radius-full);
+	background: var(--plim-color-primary);
+	color: var(--plim-color-on-primary);
+	font-family: inherit;
+	font-size: var(--plim-font-size-sm);
+	font-weight: var(--plim-font-weight-medium);
+	line-height: var(--plim-line-height-tight);
+	cursor: pointer;
+	box-shadow: var(--plim-shadow-md);
+	transition:
+		background-color var(--plim-duration-normal) var(--plim-ease-default),
+		border-color var(--plim-duration-normal) var(--plim-ease-default),
+		box-shadow var(--plim-duration-normal) var(--plim-ease-default);
+
+	&:hover:not(:disabled) {
+		background: var(--plim-color-primary-hover);
+		border-color: var(--plim-color-primary-hover);
+	}
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.6;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+}

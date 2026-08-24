@@ -126,6 +126,7 @@
 	--plim-z-toolbar: 90;
 	--plim-z-header: 100;
 	--plim-z-sidebar-overlay: 150;
+	--plim-z-chat-launcher: 120;
 
 	// Component dimensions
 	--plim-header-height: 4rem;
@@ -158,8 +159,13 @@
 	--plim-bottom-sheet-max-height: 32rem;
 	--plim-chat-panel-max-width: 24rem;
 	--plim-chat-panel-min-height: 24rem;
+	--plim-chat-panel-max-height: calc(100vh - var(--plim-chat-widget-offset-bottom) - var(--plim-space-6));
 	--plim-chat-panel-messages-min-height: 10rem;
 	--plim-chat-panel-messages-max-height: 20rem;
+	--plim-chat-launcher-size: 3rem;
+	--plim-chat-widget-offset-bottom: calc(var(--plim-space-6) + var(--plim-chat-launcher-size) + var(--plim-space-3));
+	--plim-timeline-marker-size: 0.75rem;
+	--plim-sticky-note-rotation: -1.5deg;
 
 	// Select
 	--plim-select-panel-max-height: 16rem;

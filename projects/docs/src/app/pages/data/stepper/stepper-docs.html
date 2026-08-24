@@ -20,9 +20,29 @@
 			<pre
 				class="docs-code docs-split__code"
 			><code>&lt;plim-stepper&gt;
-  &lt;plim-step label="Account"&gt;Enter a name and email.&lt;/plim-step&gt;
-  &lt;plim-step label="Profile" optional&gt;Add a display name.&lt;/plim-step&gt;
-  &lt;plim-step label="Review"&gt;Confirm the details.&lt;/plim-step&gt;
+  &lt;plim-step label="Account"&gt;Enter a name and email for the account.&lt;/plim-step&gt;
+  &lt;plim-step label="Profile" optional&gt;Add an optional display name.&lt;/plim-step&gt;
+  &lt;plim-step label="Review"&gt;Confirm the details before finishing.&lt;/plim-step&gt;
+&lt;/plim-stepper&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="preview-vertical">
+		<h2>Vertical steps</h2>
+		<p>Set <code>orientation="vertical"</code> when the header should stack down the page.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview docs-split__preview--stack">
+				<plim-stepper orientation="vertical" class="stepper-docs-preview">
+					<plim-step label="Account">Enter a name and email for the account.</plim-step>
+					<plim-step label="Profile" optional>Add an optional display name.</plim-step>
+					<plim-step label="Review">Confirm the details before finishing.</plim-step>
+				</plim-stepper>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-stepper orientation="vertical"&gt;
+  &lt;plim-step label="Account"&gt;Enter a name and email for the account.&lt;/plim-step&gt;
+  &lt;plim-step label="Profile" optional&gt;Add an optional display name.&lt;/plim-step&gt;
+  &lt;plim-step label="Review"&gt;Confirm the details before finishing.&lt;/plim-step&gt;
 &lt;/plim-stepper&gt;</code></pre>
 		</div>
 	</section>
@@ -68,8 +88,14 @@
 				</thead>
 				<tbody>
 					<tr>
+						<td><code>orientation</code></td>
+						<td><code>'horizontal' | 'vertical'</code></td>
+						<td><code>'horizontal'</code></td>
+						<td>Header layout direction.</td>
+					</tr>
+					<tr>
 						<td><code>selectedIndex</code></td>
-						<td><code>number</code></td>
+						<td><code>Model&lt;number&gt;</code></td>
 						<td><code>0</code></td>
 						<td>Visible step index. Supports two-way binding.</td>
 					</tr>

@@ -15,15 +15,15 @@
 					<table plimTable plimSort [(active)]="active" [(direction)]="direction">
 						<thead>
 							<tr>
-								<th plimSortHeader="name">Name</th>
-								<th plimSortHeader="role">Role</th>
+								<th plimSortHeader="label">Label</th>
+								<th plimSortHeader="description">Description</th>
 							</tr>
 						</thead>
 						<tbody>
-							@for (row of sortedRows(); track row.name) {
+							@for (row of sortedRows(); track row.label) {
 								<tr>
-									<td>{{ row.name }}</td>
-									<td>{{ row.role }}</td>
+									<td>{{ row.label }}</td>
+									<td>{{ row.description }}</td>
 								</tr>
 							}
 						</tbody>
@@ -35,12 +35,12 @@
 			><code>&lt;table plimTable plimSort [(active)]="active" [(direction)]="direction"&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th plimSortHeader="name"&gt;Name&lt;/th&gt;
-      &lt;th plimSortHeader="role"&gt;Role&lt;/th&gt;
+      &lt;th plimSortHeader="label"&gt;Label&lt;/th&gt;
+      &lt;th plimSortHeader="description"&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
-    &lt;tr&gt;&lt;td&gt;Ada&lt;/td&gt;&lt;td&gt;Engineer&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Lorem ipsum&lt;/td&gt;&lt;td&gt;Dolor sit amet&lt;/td&gt;&lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;</code></pre>
 		</div>

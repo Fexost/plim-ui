@@ -1,0 +1,19 @@
+:host {
+	display: block;
+}
+
+.plim-timeline__list {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	margin: 0;
+	padding: var(--plim-space-4) var(--plim-space-5);
+	list-style: none;
+}
+
+:host(.plim-timeline--horizontal) .plim-timeline__list {
+	flex-direction: row;
+	align-items: flex-start;
+	width: 100%;
+	padding: var(--plim-space-6) var(--plim-space-4);
+}

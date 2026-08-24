@@ -1,0 +1,10 @@
+<button
+	type="button"
+	class="plim-chat-launcher__button"
+	[disabled]="disabled()"
+	[attr.aria-label]="ariaLabel() || label()"
+	[attr.aria-expanded]="expanded() ? true : null"
+	(click)="onActivate()"
+>
+	{{ label() }}
+</button>

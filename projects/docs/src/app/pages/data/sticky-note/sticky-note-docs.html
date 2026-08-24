@@ -1,0 +1,90 @@
+<app-docs-component-layout category="Data" title="Sticky note">
+	<p docsLead>
+		A post-it style surface for short notes, reminders, or a public sticky-note wall. Supports
+		colour variants and optional removal.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Variants</h2>
+		<p>Use <code>variant</code> for colour treatments and <code>removable</code> for dismissible notes.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview sticky-note-docs-preview">
+				<plim-sticky-note>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</plim-sticky-note>
+				<plim-sticky-note variant="primary">Sed do eiusmod tempor incididunt ut labore.</plim-sticky-note>
+				<plim-sticky-note variant="warning" removable>
+					Ut enim ad minim veniam, quis nostrud exercitation.
+				</plim-sticky-note>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-sticky-note&gt;
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&lt;/plim-sticky-note&gt;
+
+&lt;plim-sticky-note variant="primary"&gt;
+  Sed do eiusmod tempor incididunt ut labore.
+&lt;/plim-sticky-note&gt;
+
+&lt;plim-sticky-note variant="warning" removable&gt;
+  Ut enim ad minim veniam, quis nostrud exercitation.
+&lt;/plim-sticky-note&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+		<app-docs-a11y-callout>
+			<h3>Accessibility guidance</h3>
+			<ul class="docs-a11y-callout__features">
+				<li>Remove control exposes an accessible name via <code>removeLabel</code></li>
+				<li>Keep note copy concise and readable</li>
+			</ul>
+		</app-docs-a11y-callout>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input / output</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>variant</code></td>
+						<td><code>'default' | 'primary' | 'warning' | 'success'</code></td>
+						<td><code>'default'</code></td>
+						<td>Surface colour treatment.</td>
+					</tr>
+					<tr>
+						<td><code>removable</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Show a remove button.</td>
+					</tr>
+					<tr>
+						<td><code>removeLabel</code></td>
+						<td><code>string</code></td>
+						<td><code>'Remove note'</code></td>
+						<td>Accessible name for the remove button when <code>removable</code> is set.</td>
+					</tr>
+					<tr>
+						<td><code>removed</code></td>
+						<td><code>Output&lt;void&gt;</code></td>
+						<td>—</td>
+						<td>Emits when the remove button is clicked.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

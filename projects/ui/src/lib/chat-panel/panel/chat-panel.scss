@@ -1,4 +1,4 @@
-@use '../../styles/scrollbar' as scrollbar;
+@use '../../../styles/scrollbar' as scrollbar;
 
 :host {
 	display: block;
@@ -29,6 +29,7 @@
 
 .plim-chat-panel__header:not(:empty) {
 	display: flex;
+	flex-shrink: 0;
 	align-items: center;
 	justify-content: space-between;
 	gap: var(--plim-space-3);
@@ -68,4 +69,25 @@
 .plim-chat-panel__composer:empty,
 .plim-chat-panel__footer:empty {
 	display: none;
+}
+
+:host-context(.plim-chat-widget) {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	width: 100%;
+	min-height: 0;
+	max-height: 100%;
+}
+
+:host-context(.plim-chat-widget) .plim-chat-panel__surface {
+	flex: 1 1 auto;
+	min-height: 0;
+	max-height: 100%;
+}
+
+:host-context(.plim-chat-widget) .plim-chat-panel__messages:not(:empty) {
+	flex: 1 1 auto;
+	min-height: 0;
+	max-height: none;
 }

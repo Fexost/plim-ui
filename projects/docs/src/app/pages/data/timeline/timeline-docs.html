@@ -1,0 +1,165 @@
+<app-docs-component-layout category="Data" title="Timeline">
+	<p docsLead>
+		A vertical timeline for chronological content such as milestones, project phases, or work
+		history. Set <code>orientation="horizontal"</code> for a read-only stepper-style layout.
+	</p>
+
+	<section class="docs-component__section" id="preview-vertical">
+		<h2>Vertical timeline</h2>
+		<p>Project each entry with optional meta text via <code>plimTimelineMeta</code>.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview timeline-docs-preview">
+				<plim-timeline>
+					<plim-timeline-item>
+						<span plimTimelineMeta>Phase 1</span>
+						<h3>Foundations</h3>
+						<p>Tokens, theme, typography, and accessibility guidance.</p>
+					</plim-timeline-item>
+					<plim-timeline-item>
+						<span plimTimelineMeta>Phase 2</span>
+						<h3>Components</h3>
+						<p>Form controls, navigation, feedback, and data primitives.</p>
+						<plim-badge variant="primary">plim-ui</plim-badge>
+					</plim-timeline-item>
+					<plim-timeline-item>
+						<span plimTimelineMeta>Phase 3</span>
+						<h3>Advanced</h3>
+						<p>Chat patterns, sticky notes, and portfolio-ready layouts.</p>
+					</plim-timeline-item>
+				</plim-timeline>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-timeline&gt;
+  &lt;plim-timeline-item&gt;
+    &lt;span plimTimelineMeta&gt;Phase 1&lt;/span&gt;
+    &lt;h3&gt;Foundations&lt;/h3&gt;
+    &lt;p&gt;Tokens, theme, typography, and accessibility guidance.&lt;/p&gt;
+  &lt;/plim-timeline-item&gt;
+  &lt;plim-timeline-item&gt;
+    &lt;span plimTimelineMeta&gt;Phase 2&lt;/span&gt;
+    &lt;h3&gt;Components&lt;/h3&gt;
+    &lt;p&gt;Form controls, navigation, feedback, and data primitives.&lt;/p&gt;
+    &lt;plim-badge variant="primary"&gt;plim-ui&lt;/plim-badge&gt;
+  &lt;/plim-timeline-item&gt;
+  &lt;plim-timeline-item&gt;
+    &lt;span plimTimelineMeta&gt;Phase 3&lt;/span&gt;
+    &lt;h3&gt;Advanced&lt;/h3&gt;
+    &lt;p&gt;Chat patterns, sticky notes, and portfolio-ready layouts.&lt;/p&gt;
+  &lt;/plim-timeline-item&gt;
+&lt;/plim-timeline&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="preview-horizontal">
+		<h2>Horizontal timeline</h2>
+		<p>Useful for compact milestone rows or phase summaries.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview timeline-docs-preview">
+				<plim-timeline orientation="horizontal">
+					<plim-timeline-item>
+						<span plimTimelineMeta>Phase 1</span>
+						<h3>Foundations</h3>
+						<p>Tokens and theme.</p>
+					</plim-timeline-item>
+					<plim-timeline-item>
+						<span plimTimelineMeta>Phase 2</span>
+						<h3>Components</h3>
+						<p>Form and navigation.</p>
+					</plim-timeline-item>
+					<plim-timeline-item>
+						<span plimTimelineMeta>Phase 3</span>
+						<h3>Advanced</h3>
+						<p>Chat and portfolio patterns.</p>
+					</plim-timeline-item>
+				</plim-timeline>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-timeline orientation="horizontal"&gt;
+  &lt;plim-timeline-item&gt;
+    &lt;span plimTimelineMeta&gt;Phase 1&lt;/span&gt;
+    &lt;h3&gt;Foundations&lt;/h3&gt;
+    &lt;p&gt;Tokens and theme.&lt;/p&gt;
+  &lt;/plim-timeline-item&gt;
+  &lt;plim-timeline-item&gt;
+    &lt;span plimTimelineMeta&gt;Phase 2&lt;/span&gt;
+    &lt;h3&gt;Components&lt;/h3&gt;
+    &lt;p&gt;Form and navigation.&lt;/p&gt;
+  &lt;/plim-timeline-item&gt;
+  &lt;plim-timeline-item&gt;
+    &lt;span plimTimelineMeta&gt;Phase 3&lt;/span&gt;
+    &lt;h3&gt;Advanced&lt;/h3&gt;
+    &lt;p&gt;Chat and portfolio patterns.&lt;/p&gt;
+  &lt;/plim-timeline-item&gt;
+&lt;/plim-timeline&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+		<app-docs-a11y-callout>
+			<h3>Accessibility guidance</h3>
+			<ul class="docs-a11y-callout__features">
+				<li>Timeline uses <code>role="list"</code> with <code>role="listitem"</code> entries</li>
+				<li>Decorative markers are hidden from assistive tech</li>
+				<li>Use headings for role or event titles</li>
+			</ul>
+		</app-docs-a11y-callout>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<h3>Timeline</h3>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>orientation</code></td>
+						<td><code>'vertical' | 'horizontal'</code></td>
+						<td><code>'vertical'</code></td>
+						<td>Layout direction for markers and connectors.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Content slots</h3>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Element / attribute</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>plim-timeline</code></td>
+						<td>Timeline container.</td>
+					</tr>
+					<tr>
+						<td><code>plim-timeline-item</code></td>
+						<td>One chronological entry.</td>
+					</tr>
+					<tr>
+						<td><code>plimTimelineMeta</code></td>
+						<td>Optional date or label above the body.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

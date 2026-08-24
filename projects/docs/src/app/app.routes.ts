@@ -217,5 +217,14 @@ export const routes: Routes = [
 		loadComponent: () =>
 			import('./pages/advanced/chat-panel/chat-panel-docs').then((m) => m.ChatPanelDocs),
 	},
+	{
+		path: DOCS_PATHS.stickyNote,
+		loadComponent: () =>
+			import('./pages/data/sticky-note/sticky-note-docs').then((m) => m.StickyNoteDocs),
+	},
+	{
+		path: DOCS_PATHS.timeline,
+		loadComponent: () => import('./pages/data/timeline/timeline-docs').then((m) => m.TimelineDocs),
+	},
 	{ path: '**', redirectTo: DOCS_HOME },
 ];

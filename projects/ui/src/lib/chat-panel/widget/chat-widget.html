@@ -1,0 +1,23 @@
+@if (showLauncher()) {
+	<plim-chat-launcher
+		[label]="launcherLabel()"
+		[attr.aria-label]="launcherAriaLabel() || null"
+		[expanded]="open()"
+		(activated)="onLauncherActivate()"
+	/>
+}
+
+<ng-template #panel>
+	<div
+		class="plim-chat-widget"
+		role="dialog"
+		aria-modal="true"
+		tabindex="-1"
+		cdkTrapFocus
+		cdkTrapFocusAutoCapture
+		[attr.aria-label]="ariaLabel() ?? null"
+		(keydown)="onPanelKeydown($event)"
+	>
+		<ng-content />
+	</div>
+</ng-template>

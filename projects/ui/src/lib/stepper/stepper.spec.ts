@@ -43,4 +43,18 @@ describe('Stepper', () => {
 		expect((steps[0] as HTMLElement).hidden).toBe(true);
 		expect((steps[1] as HTMLElement).hidden).toBe(false);
 	});
+
+	it('should apply a vertical modifier class', async () => {
+		await TestBed.resetTestingModule()
+			.configureTestingModule({
+				imports: [Stepper],
+			})
+			.compileComponents();
+
+		const verticalFixture = TestBed.createComponent(Stepper);
+		verticalFixture.componentRef.setInput('orientation', 'vertical');
+		verticalFixture.detectChanges();
+
+		expect(verticalFixture.nativeElement.classList.contains('plim-stepper--vertical')).toBe(true);
+	});
 });

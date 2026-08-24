@@ -6,9 +6,9 @@ import { DocsA11yCallout } from '../../../components/docs-a11y-callout/docs-a11y
 import { DocsTokenTable } from '../../../components/docs-token-table/docs-token-table';
 import { SORT_HEADER_DOCS_TOKENS } from '../../../docs-component-tokens.config';
 
-interface Person {
-	name: string;
-	role: string;
+interface DemoRow {
+	label: string;
+	description: string;
 }
 
 @Component({
@@ -22,16 +22,16 @@ export class SortHeaderDocs {
 	protected active = '';
 	protected direction: SortDirection = '';
 
-	private readonly people: Person[] = [
-		{ name: 'Ada', role: 'Engineer' },
-		{ name: 'Grace', role: 'Architect' },
-		{ name: 'Alan', role: 'Researcher' },
+	private readonly rows: DemoRow[] = [
+		{ label: 'Lorem ipsum', description: 'Dolor sit amet' },
+		{ label: 'Consectetur', description: 'Adipiscing elit' },
+		{ label: 'Sed eiusmod', description: 'Tempor incididunt' },
 	];
 
-	protected sortedRows(): Person[] {
-		const key = this.active as keyof Person | '';
+	protected sortedRows(): DemoRow[] {
+		const key = this.active as keyof DemoRow | '';
 		const direction = this.direction;
-		const rows = [...this.people];
+		const rows = [...this.rows];
 
 		if (!key || !direction) {
 			return rows;

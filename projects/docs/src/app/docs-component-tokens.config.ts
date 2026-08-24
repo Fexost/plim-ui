@@ -208,11 +208,12 @@ export const SORT_HEADER_DOCS_TOKENS: DocsComponentToken[] = [
 ];
 
 export const STEPPER_DOCS_TOKENS: DocsComponentToken[] = [
-	{ token: '--plim-space-6', usage: 'Section spacing' },
-	{ token: '--plim-space-8', usage: 'Step index size' },
+	{ token: '--plim-space-6', usage: 'Section spacing and horizontal connector inset' },
+	{ token: '--plim-space-8', usage: 'Step index size and vertical step gap' },
 	{ token: '--plim-color-primary', usage: 'Active step accent' },
+	{ token: '--plim-color-primary-strong', usage: 'Active step index fill and Next button' },
 	{ token: '--plim-color-on-primary', usage: 'Active step index text' },
-	{ token: '--plim-color-border', usage: 'Step index outline' },
+	{ token: '--plim-color-border', usage: 'Step index outline and connector lines' },
 	{ token: '--plim-button-height', usage: 'Back and Next height' },
 	{ token: '--plim-focus-ring-*', usage: 'Step and footer focus outline' },
 ];
@@ -305,19 +306,46 @@ export const TOOLTIP_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-font-size-xs', usage: 'Tooltip text size' },
 ];
 
-export const CHAT_PANEL_DOCS_TOKENS: DocsComponentToken[] = [
+export const CHAT_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-chat-panel-max-width', usage: 'Maximum panel width' },
 	{ token: '--plim-chat-panel-min-height', usage: 'Minimum panel height' },
-	{ token: '--plim-chat-panel-messages-min-height', usage: 'Minimum scrollable messages region height' },
-	{ token: '--plim-chat-panel-messages-max-height', usage: 'Scrollable messages region height cap' },
+	{ token: '--plim-chat-panel-max-height', usage: 'Widget panel viewport height cap' },
+	{ token: '--plim-chat-panel-messages-min-height', usage: 'Minimum scrollable messages region height (inline panel)' },
+	{ token: '--plim-chat-panel-messages-max-height', usage: 'Scrollable messages region height cap (inline panel)' },
+	{ token: '--plim-chat-launcher-size', usage: 'Built-in launcher button size' },
+	{ token: '--plim-chat-widget-offset-bottom', usage: 'Panel offset above the launcher' },
+	{ token: '--plim-z-chat-launcher', usage: 'Launcher and overlay stacking order' },
 	{ token: '--plim-color-surface-raised', usage: 'Panel surface background' },
 	{ token: '--plim-color-surface', usage: 'User message bubble background' },
 	{ token: '--plim-color-border', usage: 'Panel outline and user message border' },
+	{ token: '--plim-color-primary', usage: 'Launcher background' },
+	{ token: '--plim-color-on-primary', usage: 'Launcher text' },
 	{ token: '--plim-color-primary-surface', usage: 'Suggested prompt pill background' },
 	{ token: '--plim-color-primary-surface-border', usage: 'Suggested prompt pill border' },
 	{ token: '--plim-color-primary-surface-text', usage: 'Suggested prompt text' },
 	{ token: '--plim-radius-lg', usage: 'Panel and user bubble corner radius' },
-	{ token: '--plim-radius-full', usage: 'Suggested prompt pill shape' },
+	{ token: '--plim-radius-full', usage: 'Suggested prompt pill and launcher shape' },
+	{ token: '--plim-shadow-md', usage: 'Launcher elevation' },
+	{ token: '--plim-shadow-lg', usage: 'Widget panel elevation' },
 	{ token: '--plim-color-text-subtle', usage: 'Composer placeholder colour' },
+];
+
+export const TIMELINE_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-timeline-marker-size', usage: 'Marker dot size' },
+	{ token: '--plim-color-primary', usage: 'Marker border colour' },
+	{ token: '--plim-color-border', usage: 'Dashed connector line colour' },
+	{ token: '--plim-space-4', usage: 'Timeline padding and item spacing' },
+	{ token: '--plim-space-5', usage: 'Vertical item padding' },
+];
+
+export const STICKY_NOTE_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-sticky-note-rotation', usage: 'Default note tilt' },
+	{ token: '--plim-color-surface-raised', usage: 'Default note background' },
+	{ token: '--plim-color-primary-surface*', usage: 'Primary variant tint' },
+	{ token: '--plim-color-warning-surface*', usage: 'Warning variant tint' },
+	{ token: '--plim-color-success-surface*', usage: 'Success variant tint' },
+	{ token: '--plim-space-5', usage: 'Internal padding' },
+	{ token: '--plim-shadow-md', usage: 'Note elevation' },
+	{ token: '--plim-radius-sm', usage: 'Note corner radius' },
 ];
 

@@ -369,7 +369,7 @@ Styles a native table; sort state lives on a parent `[plimSort]` directive.
     </tr>
   </thead>
   <tbody>
-    <tr><td>Ada</td><td>Engineer</td></tr>
+    <tr><td>Lorem ipsum</td><td>Dolor sit amet</td></tr>
   </tbody>
 </table>
 ```
@@ -384,7 +384,7 @@ Import global styles so projected row markup receives `.plim-table` rules.
 </plim-chip-set>
 
 <plim-list>
-  <plim-list-item>Ada</plim-list-item>
+  <plim-list-item>Lorem ipsum dolor sit amet</plim-list-item>
 </plim-list>
 
 <plim-grid-list [cols]="3">
@@ -396,10 +396,20 @@ Import global styles so projected row markup receives `.plim-table` rules.
   Body copy
 </plim-expansion-panel>
 
-<plim-stepper>
+<plim-stepper orientation="vertical">
   <plim-step label="Account">Account form</plim-step>
   <plim-step label="Review">Review copy</plim-step>
 </plim-stepper>
+
+<plim-sticky-note variant="primary">Short reminder copy.</plim-sticky-note>
+
+<plim-timeline>
+  <plim-timeline-item>
+    <span plimTimelineMeta>Phase 1</span>
+    <h3>Foundations</h3>
+    <p>Tokens, theme, and typography.</p>
+  </plim-timeline-item>
+</plim-timeline>
 
 <plim-tree>
   <plim-tree-node label="Parent">
@@ -407,6 +417,33 @@ Import global styles so projected row markup receives `.plim-table` rules.
   </plim-tree-node>
 </plim-tree>
 ```
+
+### Advanced
+
+#### Chat panel and widget
+
+Composable assistant UI with panel slots, conversation elements, and an optional floating widget.
+
+```html
+<plim-chat-panel aria-label="Assistant">
+  <div plimChatPanelHeader>...</div>
+  <div plimChatPanelMessages>...</div>
+  <div plimChatPanelComposer>
+    <plim-chat-composer (submitted)="onSubmitted($event)" />
+  </div>
+</plim-chat-panel>
+
+<plim-chat-widget [(open)]="open" launcherLabel="Ask">
+  <plim-chat-panel aria-label="Assistant">...</plim-chat-panel>
+</plim-chat-widget>
+```
+
+| Input | Type | Default | Description |
+| --- | --- | --- | --- |
+| `open` | `Model<boolean>` | `false` | Widget overlay visibility |
+| `fixed` | `boolean` | `true` | Pin launcher to the viewport |
+| `showLauncher` | `boolean` | `true` | Render the built-in launcher |
+| `launcherLabel` | `string` | `'Chat'` | Launcher label |
 
 ## Public API
 
@@ -420,6 +457,13 @@ import {
   ButtonToggle,
   ButtonToggleGroup,
   Card,
+  ChatComposer,
+  ChatIntro,
+  ChatMessage,
+  ChatPanel,
+  ChatPrompt,
+  ChatPromptSet,
+  ChatWidget,
   Checkbox,
   Chip,
   ChipSet,
@@ -453,11 +497,14 @@ import {
   Spinner,
   Step,
   Stepper,
+  StickyNote,
   Switch,
   Tab,
   TabGroup,
   Table,
   Textarea,
+  Timeline,
+  TimelineItem,
   Timepicker,
   Toolbar,
   Tooltip,

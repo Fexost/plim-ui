@@ -127,7 +127,7 @@ projects/
         button/
         button-toggle/
         card/
-        chat-panel/
+        chat-panel/     # panel/, composer/, message/, intro/, prompt/, prompt-set/, widget/ (+ launcher/)
         header/
         separator/
         sidebar/
@@ -194,7 +194,7 @@ projects/
           navigation/     # header, menu, paginator, sidebar, tabs, toolbar
           feedback/       # bottom-sheet, dialog, snackbar, tooltip
           data/           # chips, expansion-panel, grid-list, list, sort-header, stepper, table, tree
-          advanced/       # chat-panel (chat-launcher, chat-widget planned)
+          advanced/       # chat (panel + widget)
         services/
           theme.service.ts
           docs-responsive-nav.service.ts
@@ -229,7 +229,8 @@ The project already uses custom CSS variables along the lines of:
 ```
 
 The token system covers colours, surfaces, borders, text, spacing, typography, radius,
-shadows, focus rings, motion, and component dimensions (for example `--plim-header-height`).
+shadows, focus rings, motion, and component dimensions (for example `--plim-header-height`,
+`--plim-chat-panel-max-height`, `--plim-timeline-marker-size`).
 
 Tokens still to expand or formalise further:
 
@@ -542,8 +543,8 @@ form/input, textarea, select, autocomplete, checkbox, radio, switch, slider,
      datepicker, timepicker, form-field
 navigation/header, menu, paginator, sidebar, tabs, toolbar
 feedback/bottom-sheet, dialog, snackbar, tooltip
-data/chips, expansion-panel, grid-list, list, sort-header, stepper, table, tree
-advanced/chat-panel
+data/chips, expansion-panel, grid-list, list, sort-header, stepper, sticky-note, table, timeline, tree
+advanced/chat-panel   # sidebar label: Chat (panel + widget + primitives)
 ```
 
 **Layouts:**
@@ -690,13 +691,14 @@ When implementing new components:
 * Angular 21 workspace: `ui` (library) + `docs` (application).
 * Angular CDK installed; overlay components (**select, autocomplete, datepicker, timepicker,
   menu, dialog, bottom sheet, snackbar, tooltip**) use CDK Overlay (peer dependency).
-* ESLint / angular-eslint; Vitest for unit tests (139+ library tests).
+* ESLint / angular-eslint; Vitest for unit tests (156 library tests).
 * Library built with ng-packagr → `dist/plim-ui`; styles at `dist/plim-ui/styles/`.
-* Design tokens: colour, typography, spacing, radius, shadow, focus, motion (`--plim-duration-spin`), component dimensions, semantic tinted surfaces (`--plim-color-*-surface*`).
+* Design tokens: colour, typography, spacing, radius, shadow, focus, motion (`--plim-duration-spin`), component dimensions (including chat panel sizing), semantic tinted surfaces (`--plim-color-*-surface*`).
 * Light/dark themes via CSS variables; docs `ThemeService` persists choice.
 * **Published components:** Basic, Form, Navigation (Header, Menu, Paginator, Sidebar, Tabs,
   Toolbar), Feedback (Bottom sheet, Dialog, Snackbar, Tooltip), Data (Chips, Expansion panel,
-  Grid list, List, Sort, Table, Stepper, Tree), Advanced (Chat panel); shared `plim-option`.
+  Grid list, List, Sort, Sticky note, Table, Stepper, Timeline, Tree), Advanced (Chat — panel,
+  widget, and conversation primitives); shared `plim-option`.
 * Docs: all component categories documented; Foundations guides; overview, installation.
 * Docs: syntax-highlighted code blocks, equal-height preview/code splits, mobile nav overlay.
 * GitHub Actions: CI (`ci.yml`), npm publish (`publish-npm.yml`), security audits (`security.yml`). Docs deploy on Vercel from `main`.
@@ -733,7 +735,7 @@ Immediate priorities:
 6. ~~Data components and docs~~ — Chips, Expansion panel, Grid list, List, Sort header,
    Stepper, Table, Tree
 7. ~~Site search~~; polish and expand accessibility/icon token guidance
-8. Advanced patterns — ~~Chat panel~~; Chat launcher; Chat widget; command palette; empty state
+8. Advanced patterns — ~~Chat~~; ~~Timeline~~; ~~Sticky note~~; command palette
 
 ### Component inventory
 
@@ -750,7 +752,7 @@ different public API.
 | Button | Basic | **implemented** | `button[plimButton]` |
 | Button toggle | Basic | **implemented** | `<plim-button-toggle-group>` |
 | Card | Basic | **implemented** | `<plim-card>` |
-| Chat panel | Advanced | **implemented** | `<plim-chat-panel>` |
+| Chat | Advanced | **implemented** | `<plim-chat-panel>`, `<plim-chat-widget>` (docs: Chat) |
 | Checkbox | Form | **implemented** | `input[plimCheckbox]` |
 | Chips | Data | **implemented** | `<plim-chip-set>` / `<plim-chip>` |
 | Datepicker | Form | **implemented** | `<plim-datepicker>` / `input[type=date][plimDatepicker]` |
@@ -773,8 +775,10 @@ different public API.
 | Slider | Form | **implemented** | `input[type=range][plimSlider]` |
 | Snackbar | Feedback | **implemented** | `<plim-snackbar>` |
 | Sort header | Data | **implemented** | `[plimSort]` / `th[plimSortHeader]` |
-| Stepper | Data | **implemented** | `<plim-stepper>` / `<plim-step>` |
+| Stepper | Data | **implemented** | `<plim-stepper>` / `<plim-step>` (`orientation`: horizontal \| vertical) |
+| Sticky note | Data | **implemented** | `<plim-sticky-note>` |
 | Table | Data | **implemented** | `table[plimTable]` |
+| Timeline | Data | **implemented** | `<plim-timeline>` / `<plim-timeline-item>` (`orientation`: vertical \| horizontal) |
 | Tabs | Navigation | **implemented** | `<plim-tab-group>` / `<plim-tab>` |
 | Timepicker | Form | **implemented** | `<plim-timepicker>` / `input[type=time][plimTimepicker]` |
 | Toolbar | Navigation | **implemented** | `<plim-toolbar>` |
@@ -782,7 +786,8 @@ different public API.
 | Tree | Data | **implemented** | `<plim-tree>` / `<plim-tree-node>` |
 
 **Also shipped (not in Material list):** Avatar (`<plim-avatar>`), Textarea
-(`textarea[plimTextarea]`), Header (`<plim-header>`).
+(`textarea[plimTextarea]`), Header (`<plim-header>`), Sticky note (`<plim-sticky-note>`),
+Timeline (`<plim-timeline>`), Chat composer / message / prompt primitives under `chat-panel/`.
 
 Inventory ordering in the sidebar is alphabetical within each category. This
 ordering is not mandatory for implementation priority — establish reusable
