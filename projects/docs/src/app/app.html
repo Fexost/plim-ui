@@ -34,24 +34,26 @@
 					{{ theme.theme() === 'dark' ? 'Light theme' : 'Dark theme' }}
 				</button>
 			</div>
-			<div class="docs-header-actions__links">
-				<button
-					type="button"
-					plimButton
-					variant="text"
-					(click)="openExternal('https://www.npmjs.com/package/plim-ui')"
-				>
-					Npm
-				</button>
-				<button
-					type="button"
-					plimButton
-					variant="text"
-					(click)="openExternal('https://github.com/Fexost/plim-ui')"
-				>
-					GitHub
-				</button>
-			</div>
+			@if (!nav.isMobile()) {
+				<div class="docs-header-actions__links">
+					<button
+						type="button"
+						plimButton
+						variant="text"
+						(click)="openExternal('https://www.npmjs.com/package/plim-ui')"
+					>
+						Npm
+					</button>
+					<button
+						type="button"
+						plimButton
+						variant="text"
+						(click)="openExternal('https://github.com/Fexost/plim-ui')"
+					>
+						GitHub
+					</button>
+				</div>
+			}
 		</nav>
 	</div>
 </plim-header>
@@ -73,6 +75,26 @@
 		aria-label="Documentation navigation"
 	>
 		<app-docs-search plimSidebarHeader />
+		@if (nav.isMobile()) {
+			<nav class="docs-sidebar-external-links" plimSidebarHeader aria-label="External links">
+				<button
+					type="button"
+					plimButton
+					variant="text"
+					(click)="openExternal('https://www.npmjs.com/package/plim-ui')"
+				>
+					Npm
+				</button>
+				<button
+					type="button"
+					plimButton
+					variant="text"
+					(click)="openExternal('https://github.com/Fexost/plim-ui')"
+				>
+					GitHub
+				</button>
+			</nav>
+		}
 		<app-docs-nav plimSidebarNav />
 		<div plimSidebarFooter class="docs-sidebar-footer">
 			<plim-separator />
