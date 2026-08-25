@@ -37,7 +37,7 @@
 						@if (site.current) {
 							<button type="button" plimMenuItem disabled aria-current="page">{{ site.label }}</button>
 						} @else if (site.href) {
-							<button type="button" plimMenuItem (click)="openExternal(site.href)">
+							<button type="button" plimMenuItem (click)="navigateToSite(site.href)">
 								{{ site.label }}
 							</button>
 						}

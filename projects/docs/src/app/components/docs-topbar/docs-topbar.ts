@@ -22,6 +22,10 @@ export class DocsTopbar {
 	protected readonly currentSiteLabel =
 		DOCS_SITES.find((site) => site.current)?.label ?? DOCS_SITES[0].label;
 
+	protected navigateToSite(url: string): void {
+		window.location.assign(url);
+	}
+
 	protected openExternal(url: string): void {
 		window.open(url, '_blank', 'noopener,noreferrer');
 	}
