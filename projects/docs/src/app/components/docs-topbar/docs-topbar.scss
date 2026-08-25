@@ -125,19 +125,6 @@
 	gap: var(--plim-space-2);
 }
 
-.docs-topbar__subbar {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	gap: var(--plim-space-2);
-	box-sizing: border-box;
-	padding: 0 var(--plim-space-6) var(--plim-space-3);
-}
-
-.docs-topbar__subbar ::ng-deep .plim-button {
-	box-sizing: border-box;
-}
-
 .docs-topbar__brand {
 	display: inline-flex;
 	align-items: center;
@@ -196,9 +183,5 @@
 
 	.docs-topbar__start {
 		gap: var(--plim-space-2);
-	}
-
-	.docs-topbar__subbar {
-		min-height: var(--docs-topbar-subbar-height, calc(var(--plim-button-height) + var(--plim-space-3)));
 	}
 }

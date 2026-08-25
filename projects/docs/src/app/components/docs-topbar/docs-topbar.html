@@ -69,12 +69,6 @@
 			</nav>
 		</div>
 	</plim-header>
-
-	@if (nav.isMobile()) {
-		<nav class="docs-topbar__subbar" aria-label="External links">
-			<ng-container *ngTemplateOutlet="externalLinkButtons" />
-		</nav>
-	}
 </div>
 
 <ng-template #externalLinkButtons>
