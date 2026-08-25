@@ -1,0 +1,37 @@
+<div class="docs-shell docs-shell--sidebar-push">
+	@if (nav.isMobile() && nav.navOpen()) {
+		<button
+			type="button"
+			class="docs-shell__backdrop"
+			aria-label="Close navigation menu"
+			(click)="nav.closeNav()"
+		></button>
+	}
+
+	<plim-sidebar
+		id="docs-sidebar"
+		[open]="nav.navOpen()"
+		[mode]="nav.sidebarMode()"
+		aria-label="Documentation navigation"
+	>
+		<app-docs-search plimSidebarHeader />
+		@if (nav.isMobile()) {
+			<nav class="docs-shell__external-links" plimSidebarHeader aria-label="External links">
+				@for (link of externalLinks; track link.href) {
+					<button type="button" plimButton variant="text" (click)="openExternal(link.href)">
+						{{ link.label }}
+					</button>
+				}
+			</nav>
+		}
+		<app-docs-nav plimSidebarNav />
+		<div plimSidebarFooter class="docs-shell__sidebar-footer">
+			<plim-separator />
+			<plim-badge variant="success">WCAG-minded</plim-badge>
+		</div>
+	</plim-sidebar>
+
+	<main id="main-content" class="docs-shell__main">
+		<router-outlet />
+	</main>
+</div>

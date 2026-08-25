@@ -21,7 +21,7 @@ describe('App', () => {
 		const fixture = TestBed.createComponent(App);
 		await fixture.whenStable();
 		const compiled = fixture.nativeElement as HTMLElement;
-		expect(compiled.querySelector('.docs-brand-name')?.textContent).toContain('plim');
-		expect(compiled.querySelector('.docs-brand-ui')?.textContent).toContain('ui');
+		expect(compiled.querySelector('.docs-topbar__brand-name')?.textContent).toContain('plim');
+		expect(compiled.querySelector('.docs-topbar__brand-ui')?.textContent).toContain('ui');
 	});
 });
