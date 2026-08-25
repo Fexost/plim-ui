@@ -1,5 +1,27 @@
 export const DOCS_HOME = 'overview';
 
+export interface DocsSiteLink {
+	label: string;
+	href?: string;
+	current?: boolean;
+}
+
+/** Cross-site switcher shown in the docs header. */
+export const DOCS_SITES: DocsSiteLink[] = [
+	{ label: 'plim-ui', current: true },
+	{ label: 'Portfolio', href: 'https://fexost.dev' },
+];
+
+export interface DocsExternalLink {
+	label: string;
+	href: string;
+}
+
+export const DOCS_EXTERNAL_LINKS: DocsExternalLink[] = [
+	{ label: 'Npm', href: 'https://www.npmjs.com/package/plim-ui' },
+	{ label: 'GitHub', href: 'https://github.com/Fexost/plim-ui' },
+];
+
 export const DOCS_PATHS = {
 	installation: 'installation',
 	tokens: 'foundations/tokens',

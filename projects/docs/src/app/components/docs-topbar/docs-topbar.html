@@ -1,0 +1,86 @@
+<div class="docs-topbar">
+	<plim-header>
+		<div plimHeaderStart class="docs-topbar__start">
+			@if (nav.isMobile()) {
+				<button
+					type="button"
+					plimButton
+					variant="secondary"
+					class="docs-topbar__menu"
+					(click)="nav.toggleNav()"
+					[attr.aria-expanded]="nav.navOpen()"
+					[attr.aria-label]="nav.navOpen() ? 'Close navigation menu' : 'Open navigation menu'"
+					aria-controls="docs-sidebar"
+				>
+					<span
+						class="docs-topbar__menu-icon"
+						[class.docs-topbar__menu-icon--open]="nav.navOpen()"
+						aria-hidden="true"
+					></span>
+				</button>
+			}
+
+			<div class="docs-topbar__project-switch">
+				<button
+					type="button"
+					plimButton
+					variant="text"
+					class="docs-topbar__project-trigger"
+					[plimMenuTrigger]="projectMenu"
+					aria-label="Switch project"
+				>
+					{{ currentSiteLabel }}
+					<span class="docs-topbar__project-chevron" aria-hidden="true"></span>
+				</button>
+				<plim-menu #projectMenu>
+					@for (site of DOCS_SITES; track site.label) {
+						@if (site.current) {
+							<button type="button" plimMenuItem disabled aria-current="page">{{ site.label }}</button>
+						} @else if (site.href) {
+							<button type="button" plimMenuItem (click)="openExternal(site.href)">
+								{{ site.label }}
+							</button>
+						}
+					}
+				</plim-menu>
+			</div>
+
+			<a [routerLink]="'/' + DOCS_HOME" class="docs-topbar__brand" aria-label="plim-ui home">
+				<img src="brand/mark.svg" alt="" class="docs-topbar__brand-mark" width="28" height="28" />
+				@if (!nav.isMobile()) {
+					<span class="docs-topbar__brand-text">
+						<span class="docs-topbar__brand-name">plim</span>
+						<span class="docs-topbar__brand-ui">ui</span>
+					</span>
+				}
+			</a>
+		</div>
+
+		<div plimHeaderEnd class="docs-topbar__end">
+			<nav class="docs-topbar__actions" aria-label="Header actions">
+				@if (!nav.isMobile()) {
+					<div class="docs-topbar__links">
+						<ng-container *ngTemplateOutlet="externalLinkButtons" />
+					</div>
+				}
+				<button type="button" plimButton variant="secondary" (click)="theme.toggle()">
+					{{ theme.theme() === 'dark' ? 'Light' : 'Dark' }}
+				</button>
+			</nav>
+		</div>
+	</plim-header>
+
+	@if (nav.isMobile()) {
+		<nav class="docs-topbar__subbar" aria-label="External links">
+			<ng-container *ngTemplateOutlet="externalLinkButtons" />
+		</nav>
+	}
+</div>
+
+<ng-template #externalLinkButtons>
+	@for (link of externalLinks; track link.href) {
+		<button type="button" plimButton variant="text" (click)="openExternal(link.href)">
+			{{ link.label }}
+		</button>
+	}
+</ng-template>
