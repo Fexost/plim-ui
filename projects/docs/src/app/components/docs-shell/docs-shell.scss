@@ -3,10 +3,6 @@
 	min-height: calc(100vh - var(--docs-topbar-height));
 }
 
-:host ::ng-deep plim-sidebar:not(.plim-sidebar--contained) {
-	top: var(--docs-topbar-height);
-}
-
 .docs-shell__backdrop {
 	position: fixed;
 	inset: var(--docs-topbar-height) 0 0 0;

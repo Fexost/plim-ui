@@ -6,6 +6,7 @@
 }
 
 .docs-topbar {
+	box-sizing: border-box;
 	background: var(--plim-color-surface);
 	border-bottom: 1px solid var(--plim-color-border);
 }
@@ -129,7 +130,12 @@
 	align-items: center;
 	justify-content: flex-end;
 	gap: var(--plim-space-2);
+	box-sizing: border-box;
 	padding: 0 var(--plim-space-6) var(--plim-space-3);
+}
+
+.docs-topbar__subbar ::ng-deep .plim-button {
+	box-sizing: border-box;
 }
 
 .docs-topbar__brand {
@@ -167,7 +173,11 @@
 		align-items: center;
 		column-gap: var(--plim-space-3);
 		padding-block: var(--plim-space-3);
-		min-height: calc(var(--plim-space-3) * 2 + var(--plim-button-height));
+		min-height: var(--docs-topbar-row-height, calc(var(--plim-space-3) * 2 + var(--plim-button-height)));
+	}
+
+	:host ::ng-deep plim-header .plim-button {
+		box-sizing: border-box;
 	}
 
 	:host ::ng-deep .plim-header__center {
@@ -186,5 +196,9 @@
 
 	.docs-topbar__start {
 		gap: var(--plim-space-2);
+	}
+
+	.docs-topbar__subbar {
+		min-height: var(--docs-topbar-subbar-height, calc(var(--plim-button-height) + var(--plim-space-3)));
 	}
 }
