@@ -542,15 +542,18 @@ basic/button, button-toggle, badge, card, separator, avatar, spinner, progress-b
 form/input, textarea, select, autocomplete, checkbox, radio, switch, slider,
      datepicker, timepicker, form-field
 navigation/header, menu, paginator, sidebar, tabs, toolbar
-feedback/bottom-sheet, dialog, snackbar, tooltip
+feedback/bottom-sheet, command-palette, dialog, snackbar, tooltip
 data/chips, expansion-panel, grid-list, list, sort-header, stepper, sticky-note, table, timeline, tree
 advanced/chat-panel   # sidebar label: Chat (panel + widget + primitives)
 ```
 
 **Layouts:**
 
-* `DocsGuideLayout` — get started + foundations (intro, separator, sections)
-* `DocsComponentLayout` — component reference (breadcrumbs, jump nav, preview / a11y / API sections)
+* `DocsGuideLayout` — get started + foundations (intro, separator, sections). Optional `toc`
+  input (`DocsGuideTocSection[]`) enables a sticky “On this page” rail with scroll-spy on wide
+  screens (tokens, theme).
+* `DocsComponentLayout` — component reference (breadcrumbs, jump nav with scroll-spy, preview /
+  a11y / API sections). Jump section ids live in `docs-component-layout.config.ts`.
 
 Both layouts use `hostDirectives: [DocsHighlightCodeDirective]` (`selector: [appHighlightCode]`) for syntax highlighting. Standalone pages such as Overview attach the same directive on the page component.
 
@@ -572,13 +575,16 @@ overview and guide pages).
 **Brand assets:** `projects/docs/public/brand/` — `mark.svg`, `logo-dark.svg`, `logo-light.svg`,
 `favicon.svg`, `app-icon.svg`.
 
-**Docs search:** client-side filter in the sidebar header slot (`app-docs-search` +
-`DocsSearchService`), driven by `DOCS_NAV` labels, paths, and optional keywords.
+**Docs search:** command palette via `<plim-command-palette>` in the library; docs wrapper
+`app-docs-command-palette` + `DocsCommandPaletteService` (Ctrl/Cmd+K and topbar search).
+Search logic lives in `searchDocs()` (`docs-search.service.ts`).
 
 **Docs SCSS:**
 
 * Shared primitives stay in `projects/docs/src/app/styles/` (`_docs-page.scss`,
   `_docs-code-theme.scss`) and are imported from `projects/docs/src/styles.scss`.
+* Reusable docs-only classes: `.docs-visually-hidden`, `.docs-kbd`; z-index token
+  `--docs-z-command-palette` on `.docs-app`.
 * Form preview helpers stay in `pages/form/_form-docs-preview.scss` and are `@use`d by form pages.
 * App shell chrome lives in `app.scss` next to the app component.
 * Nav link styles live in `components/docs-nav/docs-nav.scss`; the sidebar demo `@use`s that file.
@@ -696,7 +702,7 @@ When implementing new components:
 * Design tokens: colour, typography, spacing, radius, shadow, focus, motion (`--plim-duration-spin`), component dimensions (including chat panel sizing), semantic tinted surfaces (`--plim-color-*-surface*`).
 * Light/dark themes via CSS variables; docs `ThemeService` persists choice.
 * **Published components:** Basic, Form, Navigation (Header, Menu, Paginator, Sidebar, Tabs,
-  Toolbar), Feedback (Bottom sheet, Dialog, Snackbar, Tooltip), Data (Chips, Expansion panel,
+  Toolbar), Feedback (Bottom sheet, Command palette, Dialog, Snackbar, Tooltip), Data (Chips, Expansion panel,
   Grid list, List, Sort, Sticky note, Table, Stepper, Timeline, Tree), Advanced (Chat — panel,
   widget, and conversation primitives); shared `plim-option`.
 * Docs: all component categories documented; Foundations guides; overview, installation.
@@ -731,11 +737,11 @@ Immediate priorities:
 4. ~~Form primitives~~ — Input, Textarea, Select, Autocomplete, Checkbox, Radio, Switch,
    Slider, Datepicker, Timepicker, Form field (overlay panels use CDK; native pairs style
    the matching HTML element)
-5. ~~Feedback components and docs~~ — Bottom sheet, Dialog, Snackbar, Tooltip
+5. ~~Feedback components and docs~~ — Bottom sheet, Command palette, Dialog, Snackbar, Tooltip
 6. ~~Data components and docs~~ — Chips, Expansion panel, Grid list, List, Sort header,
    Stepper, Table, Tree
-7. ~~Site search~~; polish and expand accessibility/icon token guidance
-8. Advanced patterns — ~~Chat~~; ~~Timeline~~; ~~Sticky note~~; command palette
+7. ~~Site search~~; ~~command palette~~; polish and expand accessibility/icon token guidance
+8. Advanced patterns — ~~Chat~~; ~~Timeline~~; ~~Sticky note~~
 
 ### Component inventory
 
@@ -755,6 +761,7 @@ different public API.
 | Chat | Advanced | **implemented** | `<plim-chat-panel>`, `<plim-chat-widget>` (docs: Chat) |
 | Checkbox | Form | **implemented** | `input[plimCheckbox]` |
 | Chips | Data | **implemented** | `<plim-chip-set>` / `<plim-chip>` |
+| Command palette | Feedback | **implemented** | `<plim-command-palette>` |
 | Datepicker | Form | **implemented** | `<plim-datepicker>` / `input[type=date][plimDatepicker]` |
 | Dialog | Feedback | **implemented** | `<plim-dialog>` |
 | Divider | Basic | **implemented** | `<plim-separator>` |

@@ -1,0 +1,100 @@
+@use '../../styles/scrollbar';
+
+:host {
+	display: none;
+}
+
+.plim-command-palette {
+	display: flex;
+	flex-direction: column;
+	gap: var(--plim-space-3);
+	width: 100%;
+	padding: var(--plim-space-4);
+	background: var(--plim-color-surface-raised);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-lg);
+	box-shadow: var(--plim-elevation-modal);
+	color: var(--plim-color-text);
+}
+
+.plim-command-palette__label {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.plim-command-palette__input {
+	width: 100%;
+}
+
+.plim-command-palette__results {
+	display: flex;
+	flex-direction: column;
+	gap: var(--plim-space-1);
+	max-height: min(24rem, 50vh);
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+	list-style: none;
+
+	@include scrollbar.thin;
+}
+
+.plim-command-palette__result {
+	display: flex;
+	flex-direction: column;
+	gap: var(--plim-space-1);
+	width: 100%;
+	padding: var(--plim-space-2) var(--plim-space-3);
+	border: 1px solid transparent;
+	border-radius: var(--plim-radius-md);
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+
+	&:hover,
+	&.is-active {
+		background: var(--plim-color-surface);
+		border-color: var(--plim-color-border);
+	}
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+	}
+}
+
+.plim-command-palette__result-label {
+	color: var(--plim-color-text);
+	font-size: var(--plim-font-size-sm);
+	font-weight: var(--plim-font-weight-medium);
+}
+
+.plim-command-palette__result-description {
+	color: var(--plim-color-text-subtle);
+	font-size: var(--plim-font-size-xs);
+}
+
+.plim-command-palette__empty {
+	padding: var(--plim-space-3);
+	color: var(--plim-color-text-muted);
+	font-size: var(--plim-font-size-sm);
+}
+
+.plim-command-palette__hint {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--plim-space-2);
+	align-items: center;
+	margin: 0;
+	color: var(--plim-color-text-subtle);
+	font-size: var(--plim-font-size-xs);
+}

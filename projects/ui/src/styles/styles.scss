@@ -1,6 +1,26 @@
 @use './tokens';
 @use './theme';
 @use './table';
+@use './scrollbar';
+
+html {
+	@include scrollbar.thin;
+}
+
+.plim-kbd {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 1.25rem;
+	padding: 0 var(--plim-space-1);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-sm);
+	background: var(--plim-color-surface);
+	color: var(--plim-color-text-muted);
+	font-family: var(--plim-font-family-mono);
+	font-size: 0.6875rem;
+	line-height: 1.4;
+}
 
 .plim-select__backdrop,
 .plim-autocomplete__backdrop,
@@ -10,9 +30,15 @@
 }
 
 .plim-dialog__backdrop,
-.plim-bottom-sheet__backdrop {
+.plim-bottom-sheet__backdrop,
+.plim-command-palette__backdrop {
 	background: var(--plim-color-backdrop);
 	animation: plim-backdrop-enter var(--plim-duration-enter) var(--plim-ease-enter);
+}
+
+.plim-command-palette-overlay .plim-command-palette {
+	animation: plim-overlay-enter var(--plim-duration-enter) var(--plim-ease-enter);
+	transform-origin: top center;
 }
 
 .plim-dialog-overlay .plim-dialog {
@@ -111,6 +137,8 @@
 @media (prefers-reduced-motion: reduce) {
 	.plim-dialog__backdrop,
 	.plim-bottom-sheet__backdrop,
+	.plim-command-palette__backdrop,
+	.plim-command-palette-overlay .plim-command-palette,
 	.plim-dialog-overlay .plim-dialog,
 	.plim-bottom-sheet-overlay .plim-bottom-sheet,
 	.cdk-overlay-pane .plim-menu__panel,

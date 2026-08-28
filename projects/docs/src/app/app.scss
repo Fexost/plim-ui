@@ -5,6 +5,7 @@
 	color: var(--plim-color-text);
 	--docs-topbar-height: var(--plim-header-height);
 	--docs-scroll-offset: calc(var(--docs-topbar-height) + var(--plim-space-6));
+	--plim-command-palette-offset: calc(var(--docs-topbar-height) + var(--plim-space-10));
 }
 
 .docs-skip-link {

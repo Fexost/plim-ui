@@ -14,16 +14,6 @@
 		[mode]="nav.sidebarMode()"
 		aria-label="Documentation navigation"
 	>
-		<app-docs-search plimSidebarHeader />
-		@if (nav.isMobile()) {
-			<nav class="docs-shell__external-links" plimSidebarHeader aria-label="External links">
-				@for (link of externalLinks; track link.href) {
-					<button type="button" plimButton variant="text" (click)="openExternal(link.href)">
-						{{ link.label }}
-					</button>
-				}
-			</nav>
-		}
 		<app-docs-nav plimSidebarNav />
 	</plim-sidebar>
 

@@ -1,38 +1,32 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Button } from 'plim-ui';
 
-import { DOCS_NAV } from '../../docs-nav.config';
-import { DocsSearchService } from '../../services/docs-search.service';
+import { DOCS_EXTERNAL_LINKS, DOCS_NAV } from '../../docs-nav.config';
+import { DocsResponsiveNavService } from '../../services/docs-responsive-nav.service';
+import { openExternal } from '../../utils/open-external';
 
 @Component({
 	selector: 'app-docs-nav',
-	imports: [RouterLink, RouterLinkActive],
+	imports: [RouterLink, RouterLinkActive, Button],
 	templateUrl: './docs-nav.html',
 	styleUrl: './docs-nav.scss',
 })
 export class DocsNav {
-	protected readonly search = inject(DocsSearchService);
-	protected readonly sections = this.search.filteredNav;
+	protected readonly nav = inject(DocsResponsiveNavService);
+	protected readonly sections = DOCS_NAV;
+	protected readonly externalLinks = DOCS_EXTERNAL_LINKS;
+	protected openExternal = openExternal;
 
 	private readonly expandedSections = signal<Record<string, boolean>>(
 		Object.fromEntries(DOCS_NAV.map((section) => [section.label, true])),
 	);
 
-	protected readonly forceExpanded = computed(() => this.search.hasQuery());
-
 	protected isSectionExpanded(sectionLabel: string): boolean {
-		if (this.forceExpanded()) {
-			return true;
-		}
-
 		return this.expandedSections()[sectionLabel] ?? true;
 	}
 
 	protected toggleSection(sectionLabel: string): void {
-		if (this.forceExpanded()) {
-			return;
-		}
-
 		this.expandedSections.update((state) => ({
 			...state,
 			[sectionLabel]: !(state[sectionLabel] ?? true),

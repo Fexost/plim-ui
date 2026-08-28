@@ -28,16 +28,14 @@
 
 	<nav class="docs-component__jump-nav" aria-label="Page sections">
 		@for (section of jumpSections; track section.id) {
-			<button
-				type="button"
-				plimButton
-				variant="text"
-				[class.is-active]="isJumpSectionActive(section.id)"
+			<a
+				class="docs-component__jump-link"
+				[class.is-active]="activeJumpSection() === section.id"
 				[routerLink]="'.'"
 				[fragment]="section.id"
 			>
 				{{ section.label }}
-			</button>
+			</a>
 		}
 	</nav>
 

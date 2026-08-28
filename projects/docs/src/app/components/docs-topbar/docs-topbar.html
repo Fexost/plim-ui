@@ -33,21 +33,26 @@
 
 		<div plimHeaderEnd class="docs-topbar__end">
 			<nav class="docs-topbar__actions" aria-label="Header actions">
-				@if (!nav.isMobile()) {
-					<button
-						type="button"
-						plimButton
-						variant="secondary"
-						class="docs-topbar__search"
-						(click)="commandPalette.toggle()"
-						aria-label="Search documentation"
-					>
-						<span class="material-symbols-outlined docs-topbar__search-icon" aria-hidden="true">
-							search
-						</span>
+				<button
+					type="button"
+					plimButton
+					variant="secondary"
+					class="docs-topbar__search"
+					[class.docs-topbar__search--icon-only]="nav.isMobile()"
+					(click)="commandPalette.toggle()"
+					[attr.aria-label]="nav.isMobile() ? 'Search documentation' : null"
+				>
+					<span class="material-symbols-outlined docs-topbar__search-icon" aria-hidden="true">
+						search
+					</span>
+					@if (!nav.isMobile()) {
 						<span class="docs-topbar__search-label">Search</span>
-						<kbd class="docs-topbar__search-kbd" aria-hidden="true">Ctrl K</kbd>
-					</button>
+						<kbd class="plim-kbd docs-topbar__search-kbd" aria-hidden="true">
+							{{ modifierKeyLabel }} K
+						</kbd>
+					}
+				</button>
+				@if (!nav.isMobile()) {
 					<div class="docs-topbar__links">
 						<ng-container *ngTemplateOutlet="externalLinkButtons" />
 					</div>

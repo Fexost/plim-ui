@@ -41,6 +41,20 @@
 	}
 }
 
+.docs-nav__external-links {
+	display: flex;
+	align-items: center;
+	gap: var(--plim-space-2);
+	padding-bottom: var(--plim-space-4);
+	margin-bottom: var(--plim-space-2);
+	border-bottom: 1px solid var(--plim-color-border);
+
+	::ng-deep .plim-button {
+		min-height: 0;
+		padding-block: 0;
+	}
+}
+
 .docs-nav__section {
 	display: flex;
 	flex-direction: column;

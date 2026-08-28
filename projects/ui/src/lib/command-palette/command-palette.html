@@ -1,0 +1,60 @@
+<ng-template #panel>
+	<div
+		class="plim-command-palette"
+		role="dialog"
+		aria-modal="true"
+		[attr.aria-label]="ariaLabel()"
+		cdkTrapFocus
+		cdkTrapFocusAutoCapture
+		(keydown)="onPanelKeydown($event)"
+	>
+		<label class="plim-command-palette__label" for="plim-command-palette-input">
+			{{ ariaLabel() }}
+		</label>
+		<input
+			#queryInput
+			id="plim-command-palette-input"
+			class="plim-command-palette__input"
+			type="search"
+			plimInput
+			[placeholder]="placeholder()"
+			role="combobox"
+			aria-autocomplete="list"
+			aria-controls="plim-command-palette-results"
+			[attr.aria-activedescendant]="activeDescendantId()"
+			aria-expanded="true"
+			[value]="query()"
+			(input)="onQueryInput($event)"
+		/>
+
+		<ul id="plim-command-palette-results" class="plim-command-palette__results" role="listbox">
+			@for (item of items(); track item.id; let index = $index) {
+				<li role="presentation">
+					<button
+						#resultButton
+						type="button"
+						class="plim-command-palette__result"
+						role="option"
+						[id]="resultOptionId(index)"
+						[attr.aria-selected]="activeIndex() === index"
+						[class.is-active]="activeIndex() === index"
+						(click)="selectItem(item)"
+						(mouseenter)="setActiveIndex(index)"
+					>
+						<span class="plim-command-palette__result-label">{{ item.label }}</span>
+						@if (item.description) {
+							<span class="plim-command-palette__result-description">{{ item.description }}</span>
+						}
+					</button>
+				</li>
+			} @empty {
+				<li class="plim-command-palette__empty" role="status">{{ emptyMessage() }}</li>
+			}
+		</ul>
+
+		<p class="plim-command-palette__hint">
+			<kbd class="plim-kbd">↑</kbd><kbd class="plim-kbd">↓</kbd> navigate
+			<kbd class="plim-kbd">Enter</kbd> select <kbd class="plim-kbd">Esc</kbd> close
+		</p>
+	</div>
+</ng-template>

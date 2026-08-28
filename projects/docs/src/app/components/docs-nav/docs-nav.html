@@ -1,5 +1,14 @@
 <nav class="docs-nav">
-	@for (section of sections(); track section.label) {
+	@if (nav.isMobile()) {
+		<div class="docs-nav__external-links" aria-label="External links">
+			@for (link of externalLinks; track link.href) {
+				<button type="button" plimButton variant="text" (click)="openExternal(link.href)">
+					{{ link.label }}
+				</button>
+			}
+		</div>
+	}
+	@for (section of sections; track section.label) {
 		<div class="docs-nav__section">
 			<button
 				type="button"

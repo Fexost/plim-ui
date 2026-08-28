@@ -1,5 +1,3 @@
-import { computed, Injectable, signal } from '@angular/core';
-
 import { DOCS_NAV, DocsNavItem, DocsNavSection } from '../docs-nav.config';
 
 export interface DocsSearchResult {
@@ -49,31 +47,4 @@ export function searchDocs(query: string): DocsSearchResult[] {
 	}
 
 	return collectResults(filterNavSections(DOCS_NAV, normalizedQuery));
-}
-
-@Injectable({ providedIn: 'root' })
-export class DocsSearchService {
-	public readonly query = signal('');
-
-	public readonly filteredNav = computed(() => {
-		const normalizedQuery = this.query().trim().toLowerCase();
-
-		if (!normalizedQuery) {
-			return DOCS_NAV;
-		}
-
-		return filterNavSections(DOCS_NAV, normalizedQuery);
-	});
-
-	public readonly results = computed(() => searchDocs(this.query().trim()));
-
-	public readonly hasQuery = computed(() => this.query().trim().length > 0);
-
-	public readonly hasResults = computed(() => this.filteredNav().length > 0);
-
-	public readonly resultCount = computed(() => this.results().length);
-
-	public clear(): void {
-		this.query.set('');
-	}
 }

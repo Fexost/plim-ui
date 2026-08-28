@@ -1,21 +1,42 @@
-import { Injectable, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { DestroyRef, inject, Injectable, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class DocsCommandPaletteService {
+	private readonly destroyRef = inject(DestroyRef);
+	private readonly document = inject(DOCUMENT);
+
 	public readonly open = signal(false);
-	public readonly query = signal('');
+
+	constructor() {
+		const handler = (event: KeyboardEvent): void => this.onDocumentKeydown(event);
+		this.document.addEventListener('keydown', handler);
+		this.destroyRef.onDestroy(() => this.document.removeEventListener('keydown', handler));
+	}
 
 	public toggle(): void {
-		if (this.open()) {
-			this.close();
-			return;
-		}
-
-		this.open.set(true);
+		this.open.update((isOpen) => !isOpen);
 	}
 
 	public close(): void {
 		this.open.set(false);
-		this.query.set('');
+	}
+
+	private onDocumentKeydown(event: KeyboardEvent): void {
+		if (!(event.ctrlKey || event.metaKey) || event.key.toLowerCase() !== 'k') {
+			return;
+		}
+
+		const target = event.target;
+
+		if (
+			target instanceof HTMLElement &&
+			(target.isContentEditable || target.closest('input, textarea, select'))
+		) {
+			return;
+		}
+
+		event.preventDefault();
+		this.toggle();
 	}
 }

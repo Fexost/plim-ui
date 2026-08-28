@@ -1,10 +1,3 @@
-:host ::ng-deep .docs-component__jump-nav {
-	button.plim-button.is-active {
-		color: var(--plim-color-text);
-		font-weight: var(--plim-font-weight-medium);
-	}
-}
-
 :host ::ng-deep plim-card.docs-native-note {
 	display: block;
 	margin-top: var(--plim-space-6);

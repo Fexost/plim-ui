@@ -1,0 +1,192 @@
+<app-docs-component-layout category="Feedback" title="Command palette">
+	<p docsLead>
+		A searchable command menu rendered in a CDK overlay. Filter items as the user types,
+		navigate results with arrow keys, and select with Enter. The parent controls
+		<code>open</code>, supplies <code>items</code>, and handles
+		<code>selected</code> / <code>closed</code>.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Open and filter</h2>
+		<p>
+			Provide labelled items with optional descriptions. Set
+			<code>--plim-command-palette-offset</code> on a parent to position the panel below a
+			sticky header.
+		</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<button type="button" plimButton (click)="open.set(true)">Open command palette</button>
+				<plim-command-palette
+					[open]="open()"
+					[items]="items()"
+					[query]="query()"
+					placeholder="Search commands…"
+					ariaLabel="Example command palette"
+					emptyMessage="No commands match your search."
+					(queryChange)="query.set($event)"
+					(selected)="onSelected($event)"
+					(closed)="onClosed()"
+				/>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;button type="button" plimButton (click)="open.set(true)"&gt;
+  Open command palette
+&lt;/button&gt;
+
+&lt;plim-command-palette
+  [open]="open()"
+  [items]="items()"
+  [query]="query()"
+  placeholder="Search commands…"
+  ariaLabel="Example command palette"
+  (queryChange)="query.set($event)"
+  (selected)="onSelected($event)"
+  (closed)="onClosed()"
+/&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+
+		<app-docs-a11y-callout>
+			<h3>Accessibility guidance</h3>
+			<p>
+				The palette uses a combobox pattern: the query field has
+				<code>role="combobox"</code> with <code>aria-expanded</code>,
+				<code>aria-controls</code>, and <code>aria-activedescendant</code> while results are
+				listed. Escape and backdrop click emit <code>closed</code> and focus returns to the
+				trigger.
+			</p>
+			<ul class="docs-a11y-callout__features">
+				<li>Arrow keys cycle through results</li>
+				<li>Enter selects the active result</li>
+				<li>Focus trap while open; restore focus on close</li>
+				<li>Body scroll locked while the overlay is open</li>
+			</ul>
+		</app-docs-a11y-callout>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<p class="docs-section-copy">
+			CSS variables this component reads from the design system.
+		</p>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>open</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>When true, attaches a centred CDK overlay below the header offset.</td>
+					</tr>
+					<tr>
+						<td><code>items</code></td>
+						<td><code>CommandPaletteItem[]</code></td>
+						<td><code>[]</code></td>
+						<td>Results to render. Each item needs <code>id</code> and <code>label</code>.</td>
+					</tr>
+					<tr>
+						<td><code>query</code></td>
+						<td><code>string</code></td>
+						<td><code>''</code></td>
+						<td>Current filter text shown in the search field.</td>
+					</tr>
+					<tr>
+						<td><code>placeholder</code></td>
+						<td><code>string</code></td>
+						<td><code>'Search…'</code></td>
+						<td>Placeholder for the query input.</td>
+					</tr>
+					<tr>
+						<td><code>ariaLabel</code></td>
+						<td><code>string</code></td>
+						<td><code>'Command palette'</code></td>
+						<td>Accessible name for the combobox.</td>
+					</tr>
+					<tr>
+						<td><code>emptyMessage</code></td>
+						<td><code>string</code></td>
+						<td><code>'No results found.'</code></td>
+						<td>Shown when <code>items</code> is empty.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Outputs</h3>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Output</th>
+						<th scope="col">Type</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>queryChange</code></td>
+						<td><code>string</code></td>
+						<td>Emitted when the user edits the filter text.</td>
+					</tr>
+					<tr>
+						<td><code>selected</code></td>
+						<td><code>CommandPaletteItem</code></td>
+						<td>Emitted when the user activates a result (Enter or click).</td>
+					</tr>
+					<tr>
+						<td><code>closed</code></td>
+						<td><code>void</code></td>
+						<td>Emitted on Escape or backdrop click. Set <code>open</code> to false.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3><code>CommandPaletteItem</code></h3>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Property</th>
+						<th scope="col">Type</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>id</code></td>
+						<td><code>string</code></td>
+						<td>Stable identifier passed to <code>selected</code>.</td>
+					</tr>
+					<tr>
+						<td><code>label</code></td>
+						<td><code>string</code></td>
+						<td>Primary result text.</td>
+					</tr>
+					<tr>
+						<td><code>description</code></td>
+						<td><code>string</code></td>
+						<td>Optional secondary line (for example a category).</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

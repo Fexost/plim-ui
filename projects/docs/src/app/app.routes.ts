@@ -110,6 +110,13 @@ export const routes: Routes = [
 			import('./pages/feedback/bottom-sheet/bottom-sheet-docs').then((m) => m.BottomSheetDocs),
 	},
 	{
+		path: DOCS_PATHS.commandPalette,
+		loadComponent: () =>
+			import('./pages/feedback/command-palette/command-palette-docs').then(
+				(m) => m.CommandPaletteDocs,
+			),
+	},
+	{
 		path: DOCS_PATHS.dialog,
 		loadComponent: () =>
 			import('./pages/feedback/dialog/dialog-docs').then((m) => m.DialogDocs),

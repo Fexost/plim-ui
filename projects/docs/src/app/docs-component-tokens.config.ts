@@ -271,6 +271,16 @@ export const TOOLBAR_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-space-6', usage: 'Horizontal padding' },
 ];
 
+export const COMMAND_PALETTE_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-color-backdrop', usage: 'Dimmed overlay behind the palette' },
+	{ token: '--plim-color-surface-raised', usage: 'Palette surface background' },
+	{ token: '--plim-color-border', usage: 'Palette outline and result borders' },
+	{ token: '--plim-elevation-modal', usage: 'Palette elevation' },
+	{ token: '--plim-radius-lg', usage: 'Palette corner radius' },
+	{ token: '--plim-focus-ring-*', usage: 'Keyboard focus outline' },
+	{ token: '--plim-command-palette-offset', usage: 'Vertical offset from the viewport top' },
+];
+
 export const DIALOG_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-color-backdrop', usage: 'Dimmed overlay behind the dialog' },
 	{ token: '--plim-color-surface-raised', usage: 'Dialog surface background' },

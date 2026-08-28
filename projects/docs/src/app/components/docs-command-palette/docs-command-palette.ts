@@ -1,99 +1,46 @@
-import {
-	Component,
-	computed,
-	effect,
-	ElementRef,
-	inject,
-	viewChild,
-} from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { Input } from 'plim-ui';
+import { CommandPalette, CommandPaletteItem } from 'plim-ui';
 
 import { DocsCommandPaletteService } from '../../services/docs-command-palette.service';
-import { DocsSearchResult, searchDocs } from '../../services/docs-search.service';
+import { searchDocs } from '../../services/docs-search.service';
 
 @Component({
 	selector: 'app-docs-command-palette',
-	imports: [Input],
-	templateUrl: './docs-command-palette.html',
-	styleUrl: './docs-command-palette.scss',
+	imports: [CommandPalette],
+	template: `
+		<plim-command-palette
+			[open]="palette.open()"
+			[items]="items()"
+			[query]="query()"
+			placeholder="Search pages…"
+			ariaLabel="Search documentation"
+			emptyMessage="No pages match your search."
+			(queryChange)="query.set($event)"
+			(selected)="onSelected($event)"
+			(closed)="onClosed()"
+		/>
+	`,
 })
 export class DocsCommandPalette {
 	private readonly router = inject(Router);
 	protected readonly palette = inject(DocsCommandPaletteService);
-	private readonly inputRef = viewChild<ElementRef<HTMLInputElement>>('paletteInput');
+	protected readonly query = signal('');
 
-	protected activeIndex = 0;
+	protected readonly items = computed<CommandPaletteItem[]>(() =>
+		searchDocs(this.query()).map((result) => ({
+			id: result.path,
+			label: result.label,
+			description: result.sectionLabel,
+		})),
+	);
 
-	protected readonly results = computed(() => searchDocs(this.palette.query()));
-
-	constructor() {
-		effect(() => {
-			if (!this.palette.open()) {
-				return;
-			}
-
-			queueMicrotask(() => this.inputRef()?.nativeElement.focus());
-		});
+	protected onSelected(item: CommandPaletteItem): void {
+		void this.router.navigateByUrl('/' + item.id).then(() => this.onClosed());
 	}
 
-	protected onInput(event: Event): void {
-		this.palette.query.set((event.target as HTMLInputElement).value);
-		this.activeIndex = 0;
-	}
-
-	protected onBackdropClick(): void {
+	protected onClosed(): void {
+		this.query.set('');
 		this.palette.close();
-	}
-
-	protected onKeydown(event: KeyboardEvent): void {
-		const results = this.results();
-
-		if (event.key === 'Escape') {
-			event.preventDefault();
-			this.palette.close();
-			return;
-		}
-
-		if (event.key === 'ArrowDown') {
-			if (results.length === 0) {
-				return;
-			}
-
-			event.preventDefault();
-			this.activeIndex = (this.activeIndex + 1) % results.length;
-			return;
-		}
-
-		if (event.key === 'ArrowUp') {
-			if (results.length === 0) {
-				return;
-			}
-
-			event.preventDefault();
-			this.activeIndex = this.activeIndex <= 0 ? results.length - 1 : this.activeIndex - 1;
-			return;
-		}
-
-		if (event.key === 'Enter') {
-			const result = results[this.activeIndex];
-
-			if (result) {
-				event.preventDefault();
-				this.navigateToResult(result);
-			}
-		}
-	}
-
-	protected isResultActive(index: number): boolean {
-		return this.activeIndex === index;
-	}
-
-	protected navigateToResult(result: DocsSearchResult): void {
-		void this.router.navigateByUrl('/' + result.path).then(() => this.palette.close());
-	}
-
-	protected get isOpen(): boolean {
-		return this.palette.open();
 	}
 }

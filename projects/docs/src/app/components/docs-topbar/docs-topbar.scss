@@ -137,15 +137,15 @@
 	text-align: start;
 }
 
+.docs-topbar__search--icon-only {
+	justify-content: center;
+	width: var(--plim-button-height);
+	min-width: var(--plim-button-height);
+	padding: 0;
+}
+
 .docs-topbar__search-kbd {
-	padding: 0 var(--plim-space-1);
-	border: 1px solid var(--plim-color-border);
-	border-radius: var(--plim-radius-sm);
-	background: var(--plim-color-surface-raised);
-	color: var(--plim-color-text-subtle);
-	font-family: var(--plim-font-family-mono);
-	font-size: 0.6875rem;
-	line-height: 1.4;
+	margin-left: auto;
 }
 
 .docs-topbar__links {

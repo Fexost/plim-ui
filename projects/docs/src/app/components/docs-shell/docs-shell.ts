@@ -1,16 +1,13 @@
 import { AfterViewInit, Component, ElementRef, inject, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
-import { Button, Sidebar } from 'plim-ui';
+import { Sidebar } from 'plim-ui';
 
 import { DocsNav } from '../docs-nav/docs-nav';
-import { DocsSearch } from '../docs-search/docs-search';
-import { DOCS_EXTERNAL_LINKS } from '../../docs-nav.config';
 import { DocsResponsiveNavService } from '../../services/docs-responsive-nav.service';
-
 @Component({
 	selector: 'app-docs-shell',
-	imports: [RouterOutlet, Button, Sidebar, DocsNav, DocsSearch],
+	imports: [RouterOutlet, Sidebar, DocsNav],
 	templateUrl: './docs-shell.html',
 	styleUrl: './docs-shell.scss',
 })
@@ -20,7 +17,6 @@ export class DocsShell implements AfterViewInit, OnDestroy {
 	private navigationSubscription?: Subscription;
 
 	protected readonly nav = inject(DocsResponsiveNavService);
-	protected readonly externalLinks = DOCS_EXTERNAL_LINKS;
 
 	public ngAfterViewInit(): void {
 		this.navigationSubscription = this.router.events
@@ -30,10 +26,6 @@ export class DocsShell implements AfterViewInit, OnDestroy {
 
 	public ngOnDestroy(): void {
 		this.navigationSubscription?.unsubscribe();
-	}
-
-	protected openExternal(url: string): void {
-		window.open(url, '_blank', 'noopener,noreferrer');
 	}
 
 	private focusMainHeading(): void {

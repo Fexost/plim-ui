@@ -30,7 +30,7 @@
 					@for (item of toc(); track item.id) {
 						<a
 							class="docs-guide__toc-link"
-							[class.is-active]="isTocSectionActive(item.id)"
+							[class.is-active]="activeTocSection() === item.id"
 							[routerLink]="'.'"
 							[fragment]="item.id"
 						>

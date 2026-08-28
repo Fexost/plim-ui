@@ -39,19 +39,33 @@
 
 .plim-sidebar__header {
 	flex-shrink: 0;
-	padding-bottom: var(--plim-space-4);
-	border-bottom: 1px solid var(--plim-color-border);
+
+	&:empty {
+		display: none;
+	}
+
+	&:not(:empty) {
+		padding-bottom: var(--plim-space-4);
+		border-bottom: 1px solid var(--plim-color-border);
+	}
 }
 
 .plim-sidebar__nav {
 	flex: 1 1 auto;
 	overflow: hidden auto;
-	padding-top: var(--plim-space-4);
 	@include scrollbar.thin;
+}
+
+.plim-sidebar__panel:has(.plim-sidebar__header:not(:empty)) .plim-sidebar__nav {
+	padding-top: var(--plim-space-4);
 }
 
 .plim-sidebar__footer {
 	flex-shrink: 0;
+
+	&:empty {
+		display: none;
+	}
 }
 
 .plim-sidebar__panel {

@@ -45,6 +45,7 @@ export const DOCS_PATHS = {
 	tabs: 'navigation/tabs',
 	toolbar: 'navigation/toolbar',
 	bottomSheet: 'feedback/bottom-sheet',
+	commandPalette: 'feedback/command-palette',
 	dialog: 'feedback/dialog',
 	snackbar: 'feedback/snackbar',
 	tooltip: 'feedback/tooltip',
@@ -145,6 +146,11 @@ export const DOCS_NAV: DocsNavSection[] = [
 		label: 'Feedback',
 		items: [
 			{ path: DOCS_PATHS.bottomSheet, label: 'Bottom sheet' },
+			{
+				path: DOCS_PATHS.commandPalette,
+				label: 'Command palette',
+				keywords: ['search', 'palette', 'command', 'keyboard'],
+			},
 			{ path: DOCS_PATHS.dialog, label: 'Dialog' },
 			{ path: DOCS_PATHS.snackbar, label: 'Snackbar' },
 			{ path: DOCS_PATHS.tooltip, label: 'Tooltip' },
