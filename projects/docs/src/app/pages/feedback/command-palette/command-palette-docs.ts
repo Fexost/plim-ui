@@ -40,10 +40,6 @@ export class CommandPaletteDocs {
 		});
 	});
 
-	protected onSelected(_item: CommandPaletteItem): void {
-		this.onClosed();
-	}
-
 	protected onClosed(): void {
 		this.open.set(false);
 		this.query.set('');

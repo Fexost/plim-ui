@@ -7,14 +7,19 @@ describe('observeActiveSection', () => {
 	beforeEach(() => {
 		vi.stubGlobal(
 			'IntersectionObserver',
-			class {
+			class MockIntersectionObserver {
 				public observe = vi.fn();
 				public disconnect = vi.fn();
+				public readonly callback: IntersectionObserverCallback;
+				public readonly options?: IntersectionObserverInit;
 
 				public constructor(
-					_callback: IntersectionObserverCallback,
-					_options?: IntersectionObserverInit,
-				) {}
+					callback: IntersectionObserverCallback,
+					options?: IntersectionObserverInit,
+				) {
+					this.callback = callback;
+					this.options = options;
+				}
 			},
 		);
 	});
