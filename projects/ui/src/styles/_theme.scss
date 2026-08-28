@@ -7,27 +7,74 @@
 [data-theme='light'] {
 	color-scheme: light;
 
-	--plim-color-background: #f4f5f7;
-	--plim-color-surface: #eceef2;
-	--plim-color-surface-raised: #ffffff;
+	--plim-color-background: var(--plim-primitive-neutral-50);
+	--plim-color-surface: var(--plim-primitive-neutral-100);
+	--plim-color-surface-raised: var(--plim-primitive-white);
 
-	--plim-color-border: #e1e4e8;
-	--plim-color-border-strong: #c7ccd3;
+	--plim-color-border: var(--plim-primitive-neutral-200);
+	--plim-color-border-strong: var(--plim-primitive-neutral-300);
 
-	--plim-color-text: #17191d;
-	--plim-color-text-muted: #4f5663;
-	--plim-color-text-subtle: #8b919c;
+	--plim-color-text: var(--plim-primitive-neutral-975);
+	--plim-color-text-muted: var(--plim-primitive-neutral-650);
+	--plim-color-text-subtle: var(--plim-primitive-neutral-500);
 
-	--plim-color-primary: #7c3aed;
-	--plim-color-primary-hover: #6d28d9;
+	--plim-color-primary: var(--plim-primitive-violet-600);
+	--plim-color-primary-hover: var(--plim-primitive-violet-700);
 	--plim-color-primary-strong: var(--plim-color-primary);
 	--plim-color-primary-strong-hover: var(--plim-color-primary-hover);
-	--plim-color-link: #6d28d9;
-	--plim-color-link-hover: #5b21b6;
+	--plim-color-link: var(--plim-primitive-violet-700);
+	--plim-color-link-hover: var(--plim-primitive-violet-750);
 
-	--plim-color-success: #16a34a;
-	--plim-color-warning: #d97706;
-	--plim-color-danger: #dc2626;
+	--plim-color-success: var(--plim-primitive-green-600);
+	--plim-color-warning: var(--plim-primitive-amber-600);
+	--plim-color-danger: var(--plim-primitive-red-600);
+
+	--plim-color-scrim: color-mix(in srgb, var(--plim-primitive-neutral-1000) 40%, transparent);
+
+	--plim-color-primary-surface: color-mix(
+		in srgb,
+		var(--plim-color-primary) 10%,
+		var(--plim-color-surface-raised)
+	);
+	--plim-color-primary-surface-border: color-mix(in srgb, var(--plim-color-primary) 22%, transparent);
+	--plim-color-primary-surface-text: color-mix(
+		in srgb,
+		var(--plim-color-text) 82%,
+		var(--plim-color-primary) 18%
+	);
+	--plim-color-success-surface: color-mix(
+		in srgb,
+		var(--plim-color-success) 8%,
+		var(--plim-color-surface-raised)
+	);
+	--plim-color-success-surface-border: color-mix(in srgb, var(--plim-color-success) 20%, transparent);
+	--plim-color-success-surface-text: color-mix(
+		in srgb,
+		var(--plim-color-text) 84%,
+		var(--plim-color-success) 16%
+	);
+	--plim-color-warning-surface: color-mix(
+		in srgb,
+		var(--plim-color-warning) 10%,
+		var(--plim-color-surface-raised)
+	);
+	--plim-color-warning-surface-border: color-mix(in srgb, var(--plim-color-warning) 22%, transparent);
+	--plim-color-warning-surface-text: color-mix(
+		in srgb,
+		var(--plim-color-text) 84%,
+		var(--plim-color-warning) 16%
+	);
+	--plim-color-danger-surface: color-mix(
+		in srgb,
+		var(--plim-color-danger) 10%,
+		var(--plim-color-surface-raised)
+	);
+	--plim-color-danger-surface-border: color-mix(in srgb, var(--plim-color-danger) 22%, transparent);
+	--plim-color-danger-surface-text: color-mix(
+		in srgb,
+		var(--plim-color-text) 84%,
+		var(--plim-color-danger) 16%
+	);
 
 	--plim-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
 	--plim-shadow-md: 0 4px 12px rgb(0 0 0 / 0.08);

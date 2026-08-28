@@ -73,4 +73,105 @@
 	&--danger-surface {
 		background: var(--plim-color-danger-surface);
 	}
+
+	&--scrim {
+		background: var(--plim-color-scrim);
+	}
+}
+
+.docs-token-layers {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+	gap: var(--plim-space-3);
+	align-items: stretch;
+	padding: var(--plim-space-5);
+	background: var(--plim-color-surface-raised);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-lg);
+}
+
+.docs-token-layers__step {
+	display: flex;
+	flex-direction: column;
+	gap: var(--plim-space-2);
+	min-width: 0;
+	padding: var(--plim-space-4);
+	background: var(--plim-color-background);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-md);
+}
+
+.docs-token-layers__label {
+	color: var(--plim-color-text);
+	font-size: var(--plim-font-size-sm);
+	font-weight: var(--plim-font-weight-semibold);
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.docs-token-layers__description {
+	margin: 0;
+	color: var(--plim-color-text-muted);
+	font-size: var(--plim-font-size-sm);
+	line-height: var(--plim-line-height-normal);
+}
+
+.docs-token-layers__token {
+	display: block;
+	padding: var(--plim-space-2) var(--plim-space-3);
+	overflow-x: auto;
+	background: var(--plim-color-surface);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-sm);
+	color: var(--plim-color-link);
+	font-family: var(--plim-font-family-mono);
+	font-size: var(--plim-font-size-xs);
+	line-height: var(--plim-line-height-normal);
+	white-space: nowrap;
+}
+
+.docs-token-layers__arrow {
+	position: relative;
+	align-self: center;
+	width: var(--plim-space-6);
+	height: 2px;
+	background: var(--plim-color-border-strong);
+
+	&::after {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		width: 0;
+		height: 0;
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid transparent;
+		border-left: 7px solid var(--plim-color-border-strong);
+		content: '';
+		transform: translateY(-50%);
+	}
+}
+
+@media (max-width: 960px) {
+	.docs-token-layers {
+		grid-template-columns: 1fr;
+	}
+
+	.docs-token-layers__arrow {
+		justify-self: center;
+		width: 2px;
+		height: var(--plim-space-6);
+		background: var(--plim-color-border-strong);
+
+		&::after {
+			top: auto;
+			right: auto;
+			bottom: 0;
+			left: 50%;
+			border-top: 7px solid var(--plim-color-border-strong);
+			border-right: 5px solid transparent;
+			border-bottom: 0;
+			border-left: 5px solid transparent;
+			transform: translateX(-50%);
+		}
+	}
 }

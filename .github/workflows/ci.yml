@@ -29,6 +29,9 @@ jobs:
       - name: Lint ui
         run: npx ng lint ui
 
+      - name: Validate design tokens
+        run: npm run validate:tokens
+
   lint-docs:
     name: Lint (docs)
     runs-on: ubuntu-latest

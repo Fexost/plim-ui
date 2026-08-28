@@ -10,7 +10,8 @@
 		"test:ui": "ng test ui --no-watch",
 		"test:docs": "ng test docs --no-watch",
 		"test": "npm run test:ui && npm run test:docs",
-		"lint": "ng lint"
+		"lint": "ng lint",
+		"validate:tokens": "node scripts/validate-tokens.mjs"
 	},
 	"private": true,
 	"packageManager": "npm@10.9.2",

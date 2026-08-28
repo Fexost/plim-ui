@@ -1,0 +1,40 @@
+// Raw palette values — theme-independent building blocks.
+// Prefer semantic tokens (--plim-color-*) in components and docs.
+:root {
+	// Neutral (cool blue-grey)
+	--plim-primitive-neutral-50: #f4f5f7;
+	--plim-primitive-neutral-100: #eceef2;
+	--plim-primitive-neutral-200: #e1e4e8;
+	--plim-primitive-neutral-300: #c7ccd3;
+	--plim-primitive-neutral-400: #a3a9b5;
+	--plim-primitive-neutral-500: #8b919c;
+	--plim-primitive-neutral-600: #7a828f;
+	--plim-primitive-neutral-650: #4f5663;
+	--plim-primitive-neutral-700: #3a414f;
+	--plim-primitive-neutral-800: #292e39;
+	--plim-primitive-neutral-900: #181c24;
+	--plim-primitive-neutral-950: #11141b;
+	--plim-primitive-neutral-975: #17191d;
+	--plim-primitive-neutral-1000: #0a0c10;
+
+	// Primary (violet)
+	--plim-primitive-violet-300: #c4b5fd;
+	--plim-primitive-violet-400: #a78bfa;
+	--plim-primitive-violet-500: #8b5cf6;
+	--plim-primitive-violet-600: #7c3aed;
+	--plim-primitive-violet-700: #6d28d9;
+	--plim-primitive-violet-750: #5b21b6;
+	--plim-primitive-violet-strong: #8048f2;
+	--plim-primitive-violet-strong-hover: #7240e8;
+
+	// Semantic accents
+	--plim-primitive-green-400: #55d187;
+	--plim-primitive-green-600: #16a34a;
+	--plim-primitive-amber-400: #e8b85c;
+	--plim-primitive-amber-600: #d97706;
+	--plim-primitive-red-400: #ed6a7a;
+	--plim-primitive-red-600: #dc2626;
+
+	--plim-primitive-white: #ffffff;
+	--plim-primitive-scrim: rgb(0 0 0 / 0.45);
+}

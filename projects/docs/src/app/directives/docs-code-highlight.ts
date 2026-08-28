@@ -5,6 +5,7 @@ import { hljs } from './docs-highlight-languages';
 const HIGHLIGHTED = 'data-docs-highlighted';
 const COPY_LABEL = 'Copy code';
 const COPIED_LABEL = 'Copied';
+const SUPPORTED_LANGUAGES = new Set(['html', 'xml', 'typescript', 'javascript', 'scss', 'bash', 'shell']);
 
 function detectLanguage(text: string, explicit?: string): string {
 	if (explicit) {
@@ -41,6 +42,12 @@ function highlightPre(pre: HTMLElement): void {
 
 	const text = code.textContent ?? '';
 	const language = detectLanguage(text, pre.dataset['language']);
+
+	if (!SUPPORTED_LANGUAGES.has(language)) {
+		code.setAttribute(HIGHLIGHTED, 'true');
+		return;
+	}
+
 	const { value } = hljs.highlight(text, { language, ignoreIllegals: true });
 
 	code.innerHTML = value;

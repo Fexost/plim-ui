@@ -1,0 +1,61 @@
+// Purpose-driven aliases — default to the dark palette.
+// Light theme overrides live in _theme.scss.
+:root {
+	--plim-color-background: var(--plim-primitive-neutral-1000);
+	--plim-color-surface: var(--plim-primitive-neutral-950);
+	--plim-color-surface-raised: var(--plim-primitive-neutral-900);
+
+	--plim-color-border: var(--plim-primitive-neutral-800);
+	--plim-color-border-strong: var(--plim-primitive-neutral-700);
+
+	--plim-color-text: var(--plim-primitive-neutral-50);
+	--plim-color-text-muted: var(--plim-primitive-neutral-400);
+	--plim-color-text-subtle: var(--plim-primitive-neutral-600);
+
+	--plim-color-primary: var(--plim-primitive-violet-500);
+	--plim-color-primary-hover: var(--plim-primitive-violet-400);
+	--plim-color-primary-strong: var(--plim-primitive-violet-strong);
+	--plim-color-primary-strong-hover: var(--plim-primitive-violet-strong-hover);
+	--plim-color-on-primary: var(--plim-primitive-white);
+	--plim-color-link: var(--plim-primitive-violet-400);
+	--plim-color-link-hover: var(--plim-primitive-violet-300);
+
+	--plim-color-success: var(--plim-primitive-green-400);
+	--plim-color-warning: var(--plim-primitive-amber-400);
+	--plim-color-danger: var(--plim-primitive-red-400);
+
+	--plim-color-scrim: var(--plim-primitive-scrim);
+	--plim-color-backdrop: var(--plim-color-scrim);
+	--plim-color-overlay-hover: color-mix(in srgb, currentColor 8%, transparent);
+
+	// Semantic tinted surfaces (callouts, notes — see DESIGN-AGENTS.md)
+	--plim-color-primary-surface: color-mix(in srgb, var(--plim-color-primary) 12%, var(--plim-color-surface));
+	--plim-color-primary-surface-border: color-mix(in srgb, var(--plim-color-primary) 28%, transparent);
+	--plim-color-primary-surface-text: color-mix(
+		in srgb,
+		var(--plim-color-text) 72%,
+		var(--plim-color-primary) 28%
+	);
+	--plim-color-success-surface: color-mix(in srgb, var(--plim-color-success) 10%, var(--plim-color-surface));
+	--plim-color-success-surface-border: color-mix(in srgb, var(--plim-color-success) 26%, transparent);
+	--plim-color-success-surface-text: color-mix(
+		in srgb,
+		var(--plim-color-text) 78%,
+		var(--plim-color-success) 22%
+	);
+	--plim-color-success-surface-icon: color-mix(in srgb, var(--plim-color-success) 18%, transparent);
+	--plim-color-warning-surface: color-mix(in srgb, var(--plim-color-warning) 12%, var(--plim-color-surface));
+	--plim-color-warning-surface-border: color-mix(in srgb, var(--plim-color-warning) 28%, transparent);
+	--plim-color-warning-surface-text: color-mix(
+		in srgb,
+		var(--plim-color-text) 78%,
+		var(--plim-color-warning) 22%
+	);
+	--plim-color-danger-surface: color-mix(in srgb, var(--plim-color-danger) 12%, var(--plim-color-surface));
+	--plim-color-danger-surface-border: color-mix(in srgb, var(--plim-color-danger) 28%, transparent);
+	--plim-color-danger-surface-text: color-mix(
+		in srgb,
+		var(--plim-color-text) 78%,
+		var(--plim-color-danger) 22%
+	);
+}

@@ -1,0 +1,46 @@
+// Component-specific tokens — dimensions, field colours, overlay sizing.
+:root {
+	--plim-header-height: 4rem;
+	--plim-sidebar-width: 16rem;
+	--plim-button-height: 2.5rem;
+	--plim-progress-bar-height: 0.25rem;
+
+	--plim-input-height: 2.5rem;
+	--plim-input-padding-x: var(--plim-space-3);
+	--plim-input-font-size: var(--plim-font-size-sm);
+	--plim-textarea-min-height: 5rem;
+	--plim-checkbox-size: 1rem;
+	--plim-radio-size: 1rem;
+	--plim-switch-width: 2.5rem;
+	--plim-switch-height: 1.25rem;
+	--plim-slider-thumb-size: 1.125rem;
+	--plim-form-field-gap: var(--plim-space-2);
+	--plim-color-field-background: var(--plim-color-background);
+	--plim-color-field-border: var(--plim-color-border-strong);
+	--plim-color-field-border-focus: var(--plim-color-primary);
+	--plim-color-field-border-invalid: var(--plim-color-danger);
+	--plim-color-placeholder: var(--plim-color-text-subtle);
+
+	--plim-overlay-max-width: var(--plim-sidebar-width);
+	--plim-dialog-max-width: 28rem;
+	--plim-bottom-sheet-max-height: 32rem;
+	--plim-chat-panel-max-width: 24rem;
+	--plim-chat-panel-min-height: 24rem;
+	--plim-chat-panel-max-height: calc(100vh - var(--plim-chat-widget-offset-bottom) - var(--plim-space-6));
+	--plim-chat-panel-messages-min-height: 10rem;
+	--plim-chat-panel-messages-max-height: 20rem;
+	--plim-chat-launcher-size: 3rem;
+	--plim-chat-widget-offset-bottom: calc(var(--plim-space-6) + var(--plim-chat-launcher-size) + var(--plim-space-3));
+	--plim-timeline-marker-size: 0.75rem;
+	--plim-sticky-note-rotation: -1.5deg;
+
+	--plim-select-panel-max-height: 16rem;
+	--plim-color-select-option-highlight: var(--plim-color-surface);
+	--plim-color-select-option-active: color-mix(in srgb, var(--plim-color-primary) 16%, transparent);
+	--plim-color-select-option-selected: var(--plim-color-primary);
+
+	--plim-datepicker-nav-size: var(--plim-space-8);
+	--plim-datepicker-day-size: var(--plim-space-10);
+	--plim-datepicker-cell-width: 4.5rem;
+	--plim-datepicker-weekday-height: var(--plim-icon-size-xl);
+}

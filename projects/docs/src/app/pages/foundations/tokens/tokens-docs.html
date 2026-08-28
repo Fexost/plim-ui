@@ -1,9 +1,41 @@
 <app-docs-guide-layout section="Foundations" title="Tokens">
 	<p docsLead>
-		Design tokens are CSS custom properties in the <code>--plim-*</code> namespace. Use them in
-		your own styles instead of hard-coded values so surfaces stay consistent with the library
-		and respond to theme changes.
+		Design tokens are CSS custom properties in the <code>--plim-*</code> namespace. They are
+		organised in three layers — <strong>primitive</strong> (raw palette),
+		<strong>semantic</strong> (purpose aliases such as <code>--plim-color-surface</code>), and
+		<strong>component</strong> (dimensions and control-specific values). Use semantic and
+		component tokens in your own styles instead of hard-coded values.
 	</p>
+
+	<section class="docs-section">
+		<h2>Token layers</h2>
+		<p class="docs-section-copy">
+			Primitives (<code>--plim-primitive-*</code>) are defined in
+			<code>_primitives.scss</code> and are not intended for direct use in components.
+			Semantic tokens map primitives to roles and respond to <code>data-theme</code>.
+			Component tokens capture shared dimensions (for example
+			<code>--plim-button-height</code>).
+		</p>
+		<div class="docs-token-layers">
+			<div class="docs-token-layers__step">
+				<span class="docs-token-layers__label">Primitive</span>
+				<p class="docs-token-layers__description">Raw palette values in <code>_primitives.scss</code></p>
+				<code class="docs-token-layers__token">--plim-primitive-violet-500</code>
+			</div>
+			<span class="docs-token-layers__arrow" aria-hidden="true"></span>
+			<div class="docs-token-layers__step">
+				<span class="docs-token-layers__label">Semantic</span>
+				<p class="docs-token-layers__description">Purpose aliases; theme-aware</p>
+				<code class="docs-token-layers__token">--plim-color-primary</code>
+			</div>
+			<span class="docs-token-layers__arrow" aria-hidden="true"></span>
+			<div class="docs-token-layers__step">
+				<span class="docs-token-layers__label">Component</span>
+				<p class="docs-token-layers__description">Control and layout dimensions</p>
+				<code class="docs-token-layers__token">--plim-color-field-border-focus</code>
+			</div>
+		</div>
+	</section>
 
 	<section class="docs-section">
 		<h2>Colours</h2>
@@ -127,6 +159,13 @@
 						</td>
 						<td>Tinted danger surfaces</td>
 					</tr>
+					<tr>
+						<td>
+							<span class="docs-token-swatch docs-token-swatch--scrim"></span>
+							<code>--plim-color-scrim</code>
+						</td>
+						<td>Modal and overlay scrim (<code>--plim-color-backdrop</code> aliases this)</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -164,12 +203,24 @@
 						<td>1rem</td>
 					</tr>
 					<tr>
+						<td><code>--plim-space-5</code></td>
+						<td>1.25rem</td>
+					</tr>
+					<tr>
 						<td><code>--plim-space-6</code></td>
 						<td>1.5rem</td>
 					</tr>
 					<tr>
 						<td><code>--plim-space-8</code></td>
 						<td>2rem</td>
+					</tr>
+					<tr>
+						<td><code>--plim-space-10</code></td>
+						<td>2.5rem</td>
+					</tr>
+					<tr>
+						<td><code>--plim-space-12</code></td>
+						<td>3rem</td>
 					</tr>
 				</tbody>
 			</table>
@@ -199,6 +250,22 @@
 						<td>
 							<code>--plim-shadow-sm</code>, <code>--plim-shadow-md</code>,
 							<code>--plim-shadow-lg</code>
+						</td>
+					</tr>
+					<tr>
+						<td>Elevation</td>
+						<td>
+							<code>--plim-elevation-raised</code> (cards, buttons),
+							<code>--plim-elevation-overlay</code> (menus, popovers),
+							<code>--plim-elevation-modal</code> (dialog, bottom sheet)
+						</td>
+					</tr>
+					<tr>
+						<td>Stacking</td>
+						<td>
+							<code>--plim-z-base</code> (0), <code>--plim-z-raised</code> (10),
+							<code>--plim-z-sidebar</code> (50), <code>--plim-z-header</code> (100),
+							<code>--plim-z-overlay</code> (200), <code>--plim-z-modal</code> (300)
 						</td>
 					</tr>
 					<tr>

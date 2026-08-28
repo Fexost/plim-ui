@@ -1,60 +1,8 @@
+@use './primitives';
+@use './semantic';
+@use './component-tokens';
+
 :root {
-	// Colours
-	--plim-color-background: #0a0c10;
-	--plim-color-surface: #11141b;
-	--plim-color-surface-raised: #181c24;
-
-	--plim-color-border: #292e39;
-	--plim-color-border-strong: #3a414f;
-
-	--plim-color-text: #f4f5f7;
-	--plim-color-text-muted: #a3a9b5;
-	--plim-color-text-subtle: #7a828f;
-
-	--plim-color-primary: #8b5cf6;
-	--plim-color-primary-hover: #a78bfa;
-	// Filled controls (primary buttons, checked toggles) need a darker accent for white text.
-	--plim-color-primary-strong: #8048f2;
-	--plim-color-primary-strong-hover: #7240e8;
-	--plim-color-on-primary: #ffffff;
-	--plim-color-link: #a78bfa;
-	--plim-color-link-hover: #c4b5fd;
-
-	--plim-color-success: #55d187;
-	--plim-color-warning: #e8b85c;
-	--plim-color-danger: #ed6a7a;
-
-	// Semantic tinted surfaces (callouts, notes — see DESIGN-AGENTS.md)
-	--plim-color-primary-surface: color-mix(in srgb, var(--plim-color-primary) 12%, var(--plim-color-surface));
-	--plim-color-primary-surface-border: color-mix(in srgb, var(--plim-color-primary) 28%, transparent);
-	--plim-color-primary-surface-text: color-mix(
-		in srgb,
-		var(--plim-color-text) 72%,
-		var(--plim-color-primary) 28%
-	);
-	--plim-color-success-surface: color-mix(in srgb, var(--plim-color-success) 10%, var(--plim-color-surface));
-	--plim-color-success-surface-border: color-mix(in srgb, var(--plim-color-success) 26%, transparent);
-	--plim-color-success-surface-text: color-mix(
-		in srgb,
-		var(--plim-color-text) 78%,
-		var(--plim-color-success) 22%
-	);
-	--plim-color-success-surface-icon: color-mix(in srgb, var(--plim-color-success) 18%, transparent);
-	--plim-color-warning-surface: color-mix(in srgb, var(--plim-color-warning) 12%, var(--plim-color-surface));
-	--plim-color-warning-surface-border: color-mix(in srgb, var(--plim-color-warning) 28%, transparent);
-	--plim-color-warning-surface-text: color-mix(
-		in srgb,
-		var(--plim-color-text) 78%,
-		var(--plim-color-warning) 22%
-	);
-	--plim-color-danger-surface: color-mix(in srgb, var(--plim-color-danger) 12%, var(--plim-color-surface));
-	--plim-color-danger-surface-border: color-mix(in srgb, var(--plim-color-danger) 28%, transparent);
-	--plim-color-danger-surface-text: color-mix(
-		in srgb,
-		var(--plim-color-text) 78%,
-		var(--plim-color-danger) 22%
-	);
-
 	// Typography
 	--plim-font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 	--plim-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -63,6 +11,7 @@
 	--plim-font-size-sm: 0.875rem;
 	--plim-font-size-md: 1rem;
 	--plim-font-size-lg: 1.125rem;
+	--plim-font-size-subheading: 1.25rem;
 	--plim-font-size-xl: 1.5rem;
 	--plim-font-size-2xl: 2.25rem;
 
@@ -95,6 +44,12 @@
 	--plim-shadow-md: 0 4px 12px rgb(0 0 0 / 0.32);
 	--plim-shadow-lg: 0 8px 24px rgb(0 0 0 / 0.4);
 
+	// Elevation (shadow + stacking guidance)
+	--plim-elevation-none: none;
+	--plim-elevation-raised: var(--plim-shadow-sm);
+	--plim-elevation-overlay: var(--plim-shadow-md);
+	--plim-elevation-modal: var(--plim-shadow-lg);
+
 	// Focus
 	--plim-focus-ring-color: var(--plim-color-primary);
 	--plim-focus-ring-width: 2px;
@@ -122,61 +77,14 @@
 	--plim-chevron-offset: 0.15rem;
 	--plim-chevron-indent: 0.35rem;
 
-	// Elevation / stacking
+	// Stacking
+	--plim-z-base: 0;
+	--plim-z-raised: 10;
 	--plim-z-sidebar: 50;
 	--plim-z-toolbar: 90;
 	--plim-z-header: 100;
-	--plim-z-sidebar-overlay: 150;
 	--plim-z-chat-launcher: 120;
-
-	// Component dimensions
-	--plim-header-height: 4rem;
-	--plim-sidebar-width: 16rem;
-	--plim-button-height: 2.5rem;
-	--plim-progress-bar-height: 0.25rem;
-
-	// Form controls
-	--plim-input-height: 2.5rem;
-	--plim-input-padding-x: var(--plim-space-3);
-	--plim-input-font-size: var(--plim-font-size-sm);
-	--plim-textarea-min-height: 5rem;
-	--plim-checkbox-size: 1rem;
-	--plim-radio-size: 1rem;
-	--plim-switch-width: 2.5rem;
-	--plim-switch-height: 1.25rem;
-	--plim-slider-thumb-size: 1.125rem;
-	--plim-form-field-gap: var(--plim-space-2);
-	--plim-color-field-background: var(--plim-color-background);
-	--plim-color-field-border: var(--plim-color-border-strong);
-	--plim-color-field-border-focus: var(--plim-color-primary);
-	--plim-color-field-border-invalid: var(--plim-color-danger);
-	--plim-color-placeholder: var(--plim-color-text-subtle);
-	--plim-color-backdrop: rgb(0 0 0 / 0.45);
-	--plim-color-overlay-hover: color-mix(in srgb, currentColor 8%, transparent);
-
-	// Overlays
-	--plim-overlay-max-width: var(--plim-sidebar-width);
-	--plim-dialog-max-width: 28rem;
-	--plim-bottom-sheet-max-height: 32rem;
-	--plim-chat-panel-max-width: 24rem;
-	--plim-chat-panel-min-height: 24rem;
-	--plim-chat-panel-max-height: calc(100vh - var(--plim-chat-widget-offset-bottom) - var(--plim-space-6));
-	--plim-chat-panel-messages-min-height: 10rem;
-	--plim-chat-panel-messages-max-height: 20rem;
-	--plim-chat-launcher-size: 3rem;
-	--plim-chat-widget-offset-bottom: calc(var(--plim-space-6) + var(--plim-chat-launcher-size) + var(--plim-space-3));
-	--plim-timeline-marker-size: 0.75rem;
-	--plim-sticky-note-rotation: -1.5deg;
-
-	// Select
-	--plim-select-panel-max-height: 16rem;
-	--plim-color-select-option-highlight: var(--plim-color-surface);
-	--plim-color-select-option-active: color-mix(in srgb, var(--plim-color-primary) 16%, transparent);
-	--plim-color-select-option-selected: var(--plim-color-primary);
-
-	// Datepicker
-	--plim-datepicker-nav-size: var(--plim-space-8);
-	--plim-datepicker-day-size: var(--plim-space-10);
-	--plim-datepicker-cell-width: 4.5rem;
-	--plim-datepicker-weekday-height: var(--plim-icon-size-xl);
+	--plim-z-sidebar-overlay: 150;
+	--plim-z-overlay: 200;
+	--plim-z-modal: 300;
 }
