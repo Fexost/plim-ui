@@ -1,8 +1,8 @@
 import { WritableSignal } from '@angular/core';
 
-export type ActiveSectionObserver = {
+export interface ActiveSectionObserver {
 	disconnect(): void;
-};
+}
 
 const GUIDE_SECTION_SELECTOR = '.docs-section[id], .docs-principles[id]';
 const COMPONENT_SECTION_SELECTOR = '.docs-component__section[id]';
