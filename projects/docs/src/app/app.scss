@@ -7,6 +7,32 @@
 	--docs-scroll-offset: calc(var(--docs-topbar-height) + var(--plim-space-6));
 }
 
+.docs-skip-link {
+	position: absolute;
+	top: var(--plim-space-2);
+	left: var(--plim-space-2);
+	z-index: calc(var(--plim-z-header) + 1);
+	padding: var(--plim-space-2) var(--plim-space-4);
+	border-radius: var(--plim-radius-md);
+	background: var(--plim-color-primary-strong);
+	color: var(--plim-color-on-primary);
+	font-size: var(--plim-font-size-sm);
+	font-weight: var(--plim-font-weight-medium);
+	text-decoration: none;
+	transform: translateY(calc(-100% - var(--plim-space-4)));
+	transition: transform var(--plim-duration-normal) var(--plim-ease-default);
+
+	&:focus {
+		transform: translateY(0);
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+}
+
 @media (max-width: 960px) {
 	.docs-app {
 		--docs-topbar-row-height: calc(var(--plim-space-3) * 2 + var(--plim-button-height));

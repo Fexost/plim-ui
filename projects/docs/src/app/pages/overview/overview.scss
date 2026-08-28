@@ -57,6 +57,7 @@
 .overview-card--category > p {
 	flex: 1 1 auto;
 	margin: 0;
+	overflow-wrap: anywhere;
 	color: var(--plim-color-text-muted);
 	font-size: var(--plim-font-size-sm);
 	line-height: var(--plim-line-height-normal);
@@ -69,16 +70,23 @@
 
 .overview-card__icon--success {
 	display: inline-flex;
+	align-self: flex-start;
 	align-items: center;
 	justify-content: center;
-	padding: var(--plim-space-1) var(--plim-space-2);
+	width: var(--plim-icon-size-xl);
+	height: var(--plim-icon-size-xl);
+	margin-bottom: var(--plim-space-4);
 	border: 1px solid var(--plim-color-success-surface-border);
 	border-radius: var(--plim-radius-full);
 	background: var(--plim-color-success-surface);
-	color: var(--plim-color-success-surface-text);
-	font-size: var(--plim-font-size-xs);
-	font-weight: var(--plim-font-weight-medium);
-	line-height: var(--plim-line-height-tight);
+	color: var(--plim-color-success);
+	font-size: var(--plim-icon-size-md);
+	font-variation-settings:
+		'FILL' 1,
+		'wght' 400,
+		'GRAD' 0,
+		'opsz' 24;
+	line-height: 1;
 }
 
 .overview-card .docs-code {

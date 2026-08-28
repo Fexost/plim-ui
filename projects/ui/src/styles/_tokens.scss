@@ -57,6 +57,7 @@
 
 	// Typography
 	--plim-font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+	--plim-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
 	--plim-font-size-xs: 0.75rem;
 	--plim-font-size-sm: 0.875rem;
@@ -113,8 +114,8 @@
 	// Icon sizing
 	--plim-icon-size-sm: 1rem;
 	--plim-icon-size-md: 1.25rem;
-	--plim-icon-size-lg: 1.75rem;
-	--plim-icon-size-xl: 1.5rem;
+	--plim-icon-size-lg: 1.5rem;
+	--plim-icon-size-xl: 1.75rem;
 
 	// Chevron (expansion panel, tree)
 	--plim-chevron-size: 0.4rem;

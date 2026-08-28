@@ -57,6 +57,10 @@
 		background: var(--plim-color-primary-strong-hover);
 	}
 
+	&:active:not(:disabled) {
+		background: color-mix(in srgb, var(--plim-color-primary-strong) 88%, black);
+	}
+
 	@media (forced-colors: active) {
 		background: Highlight;
 		color: HighlightText;
@@ -73,6 +77,10 @@
 		background: var(--plim-color-surface-raised);
 		border-color: var(--plim-color-border);
 	}
+
+	&:active:not(:disabled) {
+		background: color-mix(in srgb, var(--plim-color-surface-raised) 92%, var(--plim-color-border));
+	}
 }
 
 :host(.plim-button--text) {
@@ -84,6 +92,10 @@
 	&:hover:not(:disabled) {
 		background: var(--plim-color-primary-surface);
 		color: var(--plim-color-link-hover);
+	}
+
+	&:active:not(:disabled) {
+		background: color-mix(in srgb, var(--plim-color-primary-surface) 80%, var(--plim-color-primary));
 	}
 
 	@media (forced-colors: active) {

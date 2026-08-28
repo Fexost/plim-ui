@@ -23,8 +23,8 @@
 }
 
 :host(.plim-spinner--lg) .plim-spinner__indicator {
-	width: var(--plim-icon-size-lg);
-	height: var(--plim-icon-size-lg);
+	width: var(--plim-icon-size-xl);
+	height: var(--plim-icon-size-xl);
 }
 
 @keyframes plim-spinner-spin {

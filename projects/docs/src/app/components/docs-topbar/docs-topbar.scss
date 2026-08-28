@@ -125,6 +125,16 @@
 	gap: var(--plim-space-2);
 }
 
+.docs-topbar__theme-toggle {
+	width: var(--plim-button-height);
+	padding: 0;
+}
+
+.docs-topbar__theme-icon {
+	font-size: var(--plim-icon-size-md);
+	line-height: 1;
+}
+
 .docs-topbar__brand {
 	display: inline-flex;
 	align-items: center;

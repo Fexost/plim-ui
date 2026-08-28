@@ -27,6 +27,10 @@
 		background: var(--plim-color-surface);
 	}
 
+	&:active {
+		background: color-mix(in srgb, var(--plim-color-surface) 88%, var(--plim-color-border));
+	}
+
 	&:focus-visible {
 		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
 		outline-offset: calc(-1 * var(--plim-focus-ring-offset));

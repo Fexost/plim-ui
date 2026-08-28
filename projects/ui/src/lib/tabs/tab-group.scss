@@ -26,6 +26,11 @@
 		color: var(--plim-color-text);
 	}
 
+	&:active:not(:disabled) {
+		color: var(--plim-color-text);
+		background: color-mix(in srgb, currentColor 6%, transparent);
+	}
+
 	&:focus-visible {
 		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
 		outline-offset: var(--plim-focus-ring-offset);

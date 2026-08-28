@@ -191,8 +191,10 @@
 }
 
 .docs-code {
+	position: relative;
 	margin: 0;
 	padding: var(--plim-space-4);
+	padding-top: calc(var(--plim-space-4) + var(--plim-space-6));
 	background: var(--plim-color-background);
 	border: 1px solid var(--plim-color-border);
 	border-radius: var(--plim-radius-md);
@@ -204,10 +206,40 @@
 	}
 
 	code {
-		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+		font-family: var(--plim-font-family-mono);
 		font-size: var(--plim-font-size-sm);
 		line-height: var(--plim-line-height-normal);
 		white-space: pre;
+	}
+}
+
+.docs-code__copy {
+	position: absolute;
+	top: var(--plim-space-2);
+	right: var(--plim-space-2);
+	padding: var(--plim-space-1) var(--plim-space-2);
+	border: 1px solid var(--plim-color-border-strong);
+	border-radius: var(--plim-radius-sm);
+	background: var(--plim-color-surface-raised);
+	color: var(--plim-color-text-muted);
+	font-family: inherit;
+	font-size: var(--plim-font-size-xs);
+	font-weight: var(--plim-font-weight-medium);
+	line-height: var(--plim-line-height-tight);
+	cursor: pointer;
+
+	&:hover {
+		color: var(--plim-color-text);
+		border-color: var(--plim-color-border);
+	}
+
+	&:active {
+		background: color-mix(in srgb, var(--plim-color-surface-raised) 88%, var(--plim-color-border));
+	}
+
+	&:focus-visible {
+		outline: var(--plim-focus-ring-width) solid var(--plim-focus-ring-color);
+		outline-offset: var(--plim-focus-ring-offset);
 	}
 }
 
