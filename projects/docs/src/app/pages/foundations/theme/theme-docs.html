@@ -1,11 +1,11 @@
-<app-docs-guide-layout section="Foundations" title="Theme">
+<app-docs-guide-layout section="Foundations" title="Theme" [toc]="toc">
 	<p docsLead>
 		plim-ui defaults to dark mode. Light mode overrides are applied when
 		<code>data-theme="light"</code> is set on the document root. Colour tokens in
 		<a [routerLink]="'/' + DOCS_PATHS.tokens">Tokens</a> update automatically.
 	</p>
 
-	<section class="docs-section">
+	<section class="docs-section" id="default-dark">
 		<h2>Default (dark)</h2>
 		<p class="docs-section-copy">
 			Dark values are defined on <code>:root</code>. No attribute is required — import the
@@ -14,7 +14,7 @@
 		<pre class="docs-code" data-language="scss"><code>@use 'plim-ui/styles/styles';</code></pre>
 	</section>
 
-	<section class="docs-section">
+	<section class="docs-section" id="light-mode">
 		<h2>Light mode</h2>
 		<p class="docs-section-copy">
 			Set the attribute on <code>&lt;html&gt;</code> or <code>&lt;body&gt;</code> to swap
@@ -25,7 +25,7 @@
 &lt;/html&gt;</code></pre>
 	</section>
 
-	<section class="docs-section">
+	<section class="docs-section" id="toggle-runtime">
 		<h2>Toggle at runtime</h2>
 		<p class="docs-section-copy">
 			Read the user preference, persist the choice, and update the attribute when the
@@ -43,7 +43,7 @@
 		</p>
 	</section>
 
-	<section class="docs-section">
+	<section class="docs-section" id="color-scheme-hint">
 		<h2>Color scheme hint</h2>
 		<p class="docs-section-copy">
 			<code>color-scheme</code> is set alongside theme variables so native form controls and

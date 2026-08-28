@@ -27,6 +27,12 @@ class DisabledButtonHost {}
 })
 class TextButtonHost {}
 
+@Component({
+	template: `<button type="button" plimButton loading>Saving</button>`,
+	imports: [Button],
+})
+class LoadingButtonHost {}
+
 describe('Button', () => {
 	let fixture: ComponentFixture<PrimaryButtonHost>;
 	let button: HTMLButtonElement;
@@ -69,5 +75,14 @@ describe('Button', () => {
 		disabledFixture.detectChanges();
 		const disabledButton = disabledFixture.nativeElement.querySelector('button')!;
 		expect(disabledButton.disabled).toBe(true);
+	});
+
+	it('should disable and mark busy when loading', () => {
+		const loadingFixture = TestBed.createComponent(LoadingButtonHost);
+		loadingFixture.detectChanges();
+		const loadingButton = loadingFixture.nativeElement.querySelector('button')!;
+		expect(loadingButton.disabled).toBe(true);
+		expect(loadingButton.getAttribute('aria-busy')).toBe('true');
+		expect(loadingButton.classList.contains('plim-button--loading')).toBe(true);
 	});
 });

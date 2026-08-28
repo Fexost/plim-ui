@@ -12,6 +12,59 @@
 .plim-dialog__backdrop,
 .plim-bottom-sheet__backdrop {
 	background: var(--plim-color-backdrop);
+	animation: plim-backdrop-enter var(--plim-duration-enter) var(--plim-ease-enter);
+}
+
+.plim-dialog-overlay .plim-dialog {
+	animation: plim-overlay-enter var(--plim-duration-enter) var(--plim-ease-enter);
+	transform-origin: center center;
+}
+
+.plim-bottom-sheet-overlay .plim-bottom-sheet {
+	animation: plim-bottom-sheet-enter var(--plim-duration-enter) var(--plim-ease-enter);
+}
+
+.cdk-overlay-pane .plim-menu__panel {
+	animation: plim-overlay-enter var(--plim-duration-enter) var(--plim-ease-enter);
+	transform-origin: top left;
+}
+
+.cdk-overlay-pane .plim-tooltip {
+	animation: plim-overlay-enter var(--plim-duration-fast) var(--plim-ease-enter);
+}
+
+@keyframes plim-backdrop-enter {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes plim-overlay-enter {
+	from {
+		opacity: 0;
+		transform: translateY(calc(var(--plim-space-2) * -1)) scale(0.98);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes plim-bottom-sheet-enter {
+	from {
+		opacity: 0;
+		transform: translateY(100%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .plim-snackbar-overlay {
@@ -56,6 +109,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+	.plim-dialog__backdrop,
+	.plim-bottom-sheet__backdrop,
+	.plim-dialog-overlay .plim-dialog,
+	.plim-bottom-sheet-overlay .plim-bottom-sheet,
+	.cdk-overlay-pane .plim-menu__panel,
+	.cdk-overlay-pane .plim-tooltip,
 	.plim-chat-widget-overlay .plim-chat-widget,
 	.plim-chat-widget-overlay .plim-chat-widget.plim-chat-widget--closing {
 		animation: none;

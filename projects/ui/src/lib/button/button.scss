@@ -102,3 +102,36 @@
 		color: LinkText;
 	}
 }
+
+.plim-button__content {
+	display: inline-flex;
+	align-items: center;
+	gap: inherit;
+
+	&--loading {
+		opacity: var(--plim-opacity-muted);
+	}
+}
+
+.plim-button__spinner {
+	box-sizing: border-box;
+	flex-shrink: 0;
+	width: var(--plim-icon-size-sm);
+	height: var(--plim-icon-size-sm);
+	border: 2px solid color-mix(in srgb, currentColor 28%, transparent);
+	border-top-color: currentColor;
+	border-radius: var(--plim-radius-full);
+	animation: plim-button-spinner var(--plim-duration-spin) linear infinite;
+}
+
+@keyframes plim-button-spinner {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.plim-button__spinner {
+		animation: none;
+	}
+}

@@ -11,4 +11,10 @@ import { DOCS_PATHS } from '../../../docs-nav.config';
 })
 export class ThemeDocs {
 	protected readonly DOCS_PATHS = DOCS_PATHS;
+	protected readonly toc = [
+		{ id: 'default-dark', label: 'Default (dark)' },
+		{ id: 'light-mode', label: 'Light mode' },
+		{ id: 'toggle-runtime', label: 'Toggle at runtime' },
+		{ id: 'color-scheme-hint', label: 'Color scheme hint' },
+	];
 }

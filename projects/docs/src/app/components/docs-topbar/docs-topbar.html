@@ -20,31 +20,6 @@
 				</button>
 			}
 
-			<div class="docs-topbar__project-switch">
-				<button
-					type="button"
-					plimButton
-					variant="text"
-					class="docs-topbar__project-trigger"
-					[plimMenuTrigger]="projectMenu"
-					aria-label="Switch project"
-				>
-					{{ currentSiteLabel }}
-					<span class="docs-topbar__project-chevron" aria-hidden="true"></span>
-				</button>
-				<plim-menu #projectMenu>
-					@for (site of DOCS_SITES; track site.label) {
-						@if (site.current) {
-							<button type="button" plimMenuItem disabled aria-current="page">{{ site.label }}</button>
-						} @else if (site.href) {
-							<button type="button" plimMenuItem (click)="navigateToSite(site.href)">
-								{{ site.label }}
-							</button>
-						}
-					}
-				</plim-menu>
-			</div>
-
 			<a [routerLink]="'/' + DOCS_HOME" class="docs-topbar__brand" aria-label="plim-ui home">
 				<img src="brand/mark.svg" alt="" class="docs-topbar__brand-mark" width="28" height="28" />
 				@if (!nav.isMobile()) {
@@ -59,6 +34,20 @@
 		<div plimHeaderEnd class="docs-topbar__end">
 			<nav class="docs-topbar__actions" aria-label="Header actions">
 				@if (!nav.isMobile()) {
+					<button
+						type="button"
+						plimButton
+						variant="secondary"
+						class="docs-topbar__search"
+						(click)="commandPalette.toggle()"
+						aria-label="Search documentation"
+					>
+						<span class="material-symbols-outlined docs-topbar__search-icon" aria-hidden="true">
+							search
+						</span>
+						<span class="docs-topbar__search-label">Search</span>
+						<kbd class="docs-topbar__search-kbd" aria-hidden="true">Ctrl K</kbd>
+					</button>
 					<div class="docs-topbar__links">
 						<ng-container *ngTemplateOutlet="externalLinkButtons" />
 					</div>

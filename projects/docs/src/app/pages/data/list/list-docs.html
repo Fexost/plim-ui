@@ -26,6 +26,28 @@
 		</div>
 	</section>
 
+	<section class="docs-component__section">
+		<h2>Interactive items</h2>
+		<p>
+			Add <code>interactive</code> for selectable rows. Use <code>selected</code> to mark the
+			current choice.
+		</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<plim-list class="list-docs-preview">
+					<plim-list-item interactive>Notifications</plim-list-item>
+					<plim-list-item interactive selected>Appearance</plim-list-item>
+					<plim-list-item interactive>Privacy</plim-list-item>
+					<plim-list-item disabled>Unavailable</plim-list-item>
+				</plim-list>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-list-item interactive&gt;Notifications&lt;/plim-list-item&gt;
+&lt;plim-list-item interactive selected&gt;Appearance&lt;/plim-list-item&gt;
+&lt;plim-list-item interactive&gt;Privacy&lt;/plim-list-item&gt;</code></pre>
+		</div>
+	</section>
+
 	<section class="docs-component__section" id="accessibility">
 		<h2>Accessibility</h2>
 
@@ -73,6 +95,18 @@
 						<td><code>boolean</code></td>
 						<td><code>false</code></td>
 						<td>Marks the item unavailable and applies muted styling.</td>
+					</tr>
+					<tr>
+						<td><code>interactive</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Enables hover, focus, and pressed feedback for selectable rows.</td>
+					</tr>
+					<tr>
+						<td><code>selected</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Highlights the current item and sets <code>aria-selected</code>.</td>
 					</tr>
 				</tbody>
 			</table>

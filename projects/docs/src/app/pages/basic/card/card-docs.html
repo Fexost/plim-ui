@@ -29,6 +29,24 @@
 	</section>
 
 	<section class="docs-component__section">
+		<h2>Elevated</h2>
+		<p>Add <code>elevated</code> for a subtle shadow lift on marketing or dashboard surfaces.</p>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview docs-split__preview--stack">
+				<plim-card elevated>
+					<div plimCardHeader>Elevated card</div>
+					<p>Uses <code>--plim-elevation-raised</code> for depth.</p>
+				</plim-card>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-card elevated&gt;
+  &lt;div plimCardHeader&gt;Elevated card&lt;/div&gt;
+  &lt;p&gt;Uses --plim-elevation-raised for depth.&lt;/p&gt;
+&lt;/plim-card&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section">
 		<h2>Fill layout</h2>
 		<p>
 			Add <code>fill</code> to stretch cards in a grid and pin footers to the bottom when body
@@ -115,6 +133,12 @@
 							Stretches the card to the height of its container and pins the footer to
 							the bottom.
 						</td>
+					</tr>
+					<tr>
+						<td><code>elevated</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Applies <code>--plim-elevation-raised</code> shadow for subtle depth.</td>
 					</tr>
 				</tbody>
 			</table>

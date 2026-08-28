@@ -119,6 +119,35 @@
 	gap: var(--plim-space-2);
 }
 
+.docs-topbar__search {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--plim-space-2);
+	min-width: 11rem;
+	padding-inline: var(--plim-space-3);
+}
+
+.docs-topbar__search-icon {
+	font-size: var(--plim-icon-size-md);
+	line-height: 1;
+}
+
+.docs-topbar__search-label {
+	flex: 1 1 auto;
+	text-align: start;
+}
+
+.docs-topbar__search-kbd {
+	padding: 0 var(--plim-space-1);
+	border: 1px solid var(--plim-color-border);
+	border-radius: var(--plim-radius-sm);
+	background: var(--plim-color-surface-raised);
+	color: var(--plim-color-text-subtle);
+	font-family: var(--plim-font-family-mono);
+	font-size: 0.6875rem;
+	line-height: 1.4;
+}
+
 .docs-topbar__links {
 	display: flex;
 	align-items: center;

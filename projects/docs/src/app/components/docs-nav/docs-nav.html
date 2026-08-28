@@ -1,20 +1,35 @@
 <nav class="docs-nav">
 	@for (section of sections(); track section.label) {
-		<div>
-			<h3 class="docs-nav-label">{{ section.label }}</h3>
-			<ul>
-				@for (item of section.items; track item.label) {
-					<li>
-						@if (item.path) {
-							<a [routerLink]="'/' + item.path" routerLinkActive="is-active">{{
-								item.label
-							}}</a>
-						} @else {
-							<span class="docs-nav-item docs-nav-item--soon">{{ item.label }}</span>
-						}
-					</li>
-				}
-			</ul>
+		<div class="docs-nav__section">
+			<button
+				type="button"
+				class="docs-nav__toggle"
+				[attr.aria-expanded]="isSectionExpanded(section.label)"
+				[attr.aria-controls]="'docs-nav-section-' + $index"
+				(click)="toggleSection(section.label)"
+			>
+				<span class="docs-nav-label">{{ section.label }}</span>
+				<span
+					class="docs-nav__chevron"
+					[class.docs-nav__chevron--expanded]="isSectionExpanded(section.label)"
+					aria-hidden="true"
+				></span>
+			</button>
+			@if (isSectionExpanded(section.label)) {
+				<ul [id]="'docs-nav-section-' + $index">
+					@for (item of section.items; track item.label) {
+						<li>
+							@if (item.path) {
+								<a [routerLink]="'/' + item.path" routerLinkActive="is-active">{{
+									item.label
+								}}</a>
+							} @else {
+								<span class="docs-nav-item docs-nav-item--soon">{{ item.label }}</span>
+							}
+						</li>
+					}
+				</ul>
+			}
 		</div>
 	}
 </nav>

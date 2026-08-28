@@ -2,6 +2,12 @@ import { computed, Injectable, signal } from '@angular/core';
 
 import { DOCS_NAV, DocsNavItem, DocsNavSection } from '../docs-nav.config';
 
+export interface DocsSearchResult {
+	label: string;
+	path: string;
+	sectionLabel: string;
+}
+
 function matchesItem(item: DocsNavItem, query: string, sectionLabel: string): boolean {
 	if (!item.path) {
 		return false;
@@ -23,6 +29,28 @@ function filterNavSections(sections: DocsNavSection[], query: string): DocsNavSe
 		.filter((section) => section.items.length > 0);
 }
 
+function collectResults(sections: DocsNavSection[]): DocsSearchResult[] {
+	return sections.flatMap((section) =>
+		section.items
+			.filter((item): item is DocsNavItem & { path: string } => Boolean(item.path))
+			.map((item) => ({
+				label: item.label,
+				path: item.path,
+				sectionLabel: section.label,
+			})),
+	);
+}
+
+export function searchDocs(query: string): DocsSearchResult[] {
+	const normalizedQuery = query.trim().toLowerCase();
+
+	if (!normalizedQuery) {
+		return collectResults(DOCS_NAV);
+	}
+
+	return collectResults(filterNavSections(DOCS_NAV, normalizedQuery));
+}
+
 @Injectable({ providedIn: 'root' })
 export class DocsSearchService {
 	public readonly query = signal('');
@@ -37,9 +65,13 @@ export class DocsSearchService {
 		return filterNavSections(DOCS_NAV, normalizedQuery);
 	});
 
+	public readonly results = computed(() => searchDocs(this.query().trim()));
+
 	public readonly hasQuery = computed(() => this.query().trim().length > 0);
 
 	public readonly hasResults = computed(() => this.filteredNav().length > 0);
+
+	public readonly resultCount = computed(() => this.results().length);
 
 	public clear(): void {
 		this.query.set('');

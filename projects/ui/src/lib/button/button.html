@@ -1,1 +1,6 @@
-<ng-content />
+@if (loading()) {
+	<span class="plim-button__spinner" aria-hidden="true"></span>
+}
+<span class="plim-button__content" [class.plim-button__content--loading]="loading()">
+	<ng-content />
+</span>

@@ -59,8 +59,15 @@
 	--plim-duration-fast: 100ms;
 	--plim-duration-normal: 150ms;
 	--plim-duration-slow: 250ms;
+	--plim-duration-enter: 200ms;
+	--plim-duration-exit: 130ms;
 	--plim-duration-spin: 1s;
 	--plim-ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+	--plim-ease-enter: cubic-bezier(0, 0, 0.2, 1);
+	--plim-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+	// Typography utilities
+	--plim-font-variant-numeric-tabular: tabular-nums;
 
 	// Opacity
 	--plim-opacity-disabled: 0.5;

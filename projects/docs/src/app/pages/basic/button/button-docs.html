@@ -26,7 +26,10 @@
 
 	<section class="docs-component__section">
 		<h2>States</h2>
-		<p>Disabled buttons remain in the tab order only when they stay actionable.</p>
+		<p>
+			Hover, focus (Tab), and press the preview buttons to see interaction feedback. Disabled and
+			loading states are shown below.
+		</p>
 
 		<div class="docs-state-grid">
 			<plim-card fill class="docs-state-card">
@@ -51,6 +54,17 @@
 				</div>
 				<h3>Disabled</h3>
 				<p>Use when the action is unavailable. Binds to the native disabled attribute.</p>
+			</plim-card>
+
+			<plim-card fill class="docs-state-card">
+				<div class="docs-state-card__preview">
+					<button type="button" plimButton loading>Saving</button>
+				</div>
+				<h3>Loading</h3>
+				<p>
+					Set <code>loading</code> during async work. The button is disabled and exposes
+					<code>aria-busy</code>.
+				</p>
 			</plim-card>
 		</div>
 	</section>
@@ -105,6 +119,12 @@
 						<td><code>boolean</code></td>
 						<td><code>false</code></td>
 						<td>Disables the native button.</td>
+					</tr>
+					<tr>
+						<td><code>loading</code></td>
+						<td><code>boolean</code></td>
+						<td><code>false</code></td>
+						<td>Shows a spinner, disables the button, and sets <code>aria-busy</code>.</td>
 					</tr>
 				</tbody>
 			</table>

@@ -1,17 +1,49 @@
 <section class="docs-hero">
-	<h1>Interfaces that welcome everyone.</h1>
-	<p class="docs-lead">
-		plim-ui is an accessibility-first UI library for Angular — composable primitives, semantic
-		tokens, and interaction patterns that work for keyboard, pointer, and assistive technology
-		users.
-	</p>
-	<div class="docs-hero-actions">
-		<button type="button" plimButton [routerLink]="'/' + DOCS_PATHS.installation">
-			Get started
-		</button>
-		<button type="button" plimButton variant="secondary" [routerLink]="'/' + DOCS_PATHS.tokens">
-			View foundations
-		</button>
+	<div class="docs-hero__content">
+		<p class="docs-hero__eyebrow">Angular component library</p>
+		<h1>Interfaces that welcome everyone.</h1>
+		<p class="docs-lead">
+			plim-ui is an accessibility-first UI library for Angular — composable primitives, semantic
+			tokens, and interaction patterns that work for keyboard, pointer, and assistive technology
+			users.
+		</p>
+		<div class="docs-hero-actions">
+			<button type="button" plimButton [routerLink]="'/' + DOCS_PATHS.installation">
+				Get started
+			</button>
+			<button type="button" plimButton variant="secondary" [routerLink]="'/' + DOCS_PATHS.tokens">
+				View foundations
+			</button>
+		</div>
+	</div>
+
+	<div class="docs-hero__preview" aria-hidden="true">
+		<div class="docs-hero__preview-window">
+			<div class="docs-hero__preview-toolbar">
+				<span class="docs-hero__preview-dot"></span>
+				<span class="docs-hero__preview-dot"></span>
+				<span class="docs-hero__preview-dot"></span>
+			</div>
+			<div class="docs-hero__preview-body">
+				<div class="docs-hero__preview-row">
+					<span class="docs-hero__preview-button docs-hero__preview-button--primary">Primary</span>
+					<span class="docs-hero__preview-button docs-hero__preview-button--secondary"
+						>Secondary</span
+					>
+				</div>
+				<div class="docs-hero__preview-row">
+					<span class="docs-hero__preview-badge docs-hero__preview-badge--primary">Accessible</span>
+					<span class="docs-hero__preview-badge docs-hero__preview-badge--success">Composable</span>
+				</div>
+				<div class="docs-hero__preview-card">
+					<strong>Semantic tokens</strong>
+					<p>Consistent surfaces, type, and motion across light and dark themes.</p>
+					<div class="docs-hero__preview-progress" role="presentation">
+						<span></span>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -142,6 +174,16 @@
 			<div plimCardFooter>
 				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.table">
 					View table
+				</button>
+			</div>
+		</plim-card>
+
+		<plim-card fill class="overview-card overview-card--category">
+			<h3>Advanced</h3>
+			<p>Chat panel, widget launcher, and conversation primitives.</p>
+			<div plimCardFooter>
+				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.chatPanel">
+					View chat
 				</button>
 			</div>
 		</plim-card>

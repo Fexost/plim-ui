@@ -40,6 +40,10 @@
 	color: var(--plim-color-text);
 }
 
+:host(.plim-card--elevated) .plim-card__surface {
+	box-shadow: var(--plim-elevation-raised);
+}
+
 .plim-card__header:not(:empty) {
 	padding: var(--plim-space-5) var(--plim-space-5) 0;
 	font-size: var(--plim-font-size-md);

@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, inject, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
-import { Badge, Button, Separator, Sidebar } from 'plim-ui';
+import { Button, Sidebar } from 'plim-ui';
 
 import { DocsNav } from '../docs-nav/docs-nav';
 import { DocsSearch } from '../docs-search/docs-search';
@@ -10,7 +10,7 @@ import { DocsResponsiveNavService } from '../../services/docs-responsive-nav.ser
 
 @Component({
 	selector: 'app-docs-shell',
-	imports: [RouterOutlet, Badge, Button, Separator, Sidebar, DocsNav, DocsSearch],
+	imports: [RouterOutlet, Button, Sidebar, DocsNav, DocsSearch],
 	templateUrl: './docs-shell.html',
 	styleUrl: './docs-shell.scss',
 })

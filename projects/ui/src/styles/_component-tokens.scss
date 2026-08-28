@@ -20,6 +20,7 @@
 	--plim-color-field-border-focus: var(--plim-color-primary);
 	--plim-color-field-border-invalid: var(--plim-color-danger);
 	--plim-color-placeholder: var(--plim-color-text-subtle);
+	--plim-shadow-field-inset: inset 0 1px 2px color-mix(in srgb, var(--plim-color-text) 6%, transparent);
 
 	--plim-overlay-max-width: var(--plim-sidebar-width);
 	--plim-dialog-max-width: 28rem;

@@ -176,3 +176,8 @@ export const DOCS_NAV: DocsNavSection[] = [
 		],
 	},
 ];
+
+export function getDocsCategoryPath(category: string): string | undefined {
+	return DOCS_NAV.find((section) => section.label === category)?.items.find((item) => item.path)
+		?.path;
+}

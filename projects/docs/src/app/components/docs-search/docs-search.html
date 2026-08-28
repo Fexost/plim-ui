@@ -12,7 +12,13 @@
 		autocomplete="off"
 		spellcheck="false"
 	/>
-	@if (search.hasQuery() && !search.hasResults()) {
-		<p class="docs-search__empty" role="status">No pages match your search.</p>
+	@if (search.hasQuery()) {
+		<p class="docs-search__status" role="status" aria-live="polite">
+			@if (search.hasResults()) {
+				{{ search.resultCount() }} {{ search.resultCount() === 1 ? 'page' : 'pages' }} found
+			} @else {
+				No pages match your search.
+			}
+		</p>
 	}
 </div>

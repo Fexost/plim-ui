@@ -1,31 +1,30 @@
-// Cursor / VS Code–inspired syntax colours for docs code blocks.
-// Token values meet WCAG AA (4.5:1) against --plim-color-background in both themes.
-// Scoped to .docs-code so this stays docs-app-only — not part of plim-ui.
+// Syntax colours derived from plim semantic tokens.
+// Scoped to .docs-code — docs-app only.
 
 :root {
-	--docs-code-fg: #d4d4d4;
-	--docs-code-tag: #569cd6;
-	--docs-code-name: #4ec9b0;
-	--docs-code-attr: #9cdcfe;
-	--docs-code-string: #ce9178;
-	--docs-code-keyword: #c586c0;
-	--docs-code-comment: #7cab65;
-	--docs-code-punctuation: #9a9a9a;
-	--docs-code-number: #b5cea8;
-	--docs-code-built-in: #dcdcaa;
+	--docs-code-fg: var(--plim-color-text);
+	--docs-code-tag: var(--plim-color-link);
+	--docs-code-name: var(--plim-color-success);
+	--docs-code-attr: color-mix(in srgb, var(--plim-color-link) 72%, var(--plim-color-text) 28%);
+	--docs-code-string: var(--plim-color-warning);
+	--docs-code-keyword: var(--plim-color-primary);
+	--docs-code-comment: var(--plim-color-text-subtle);
+	--docs-code-punctuation: var(--plim-color-text-muted);
+	--docs-code-number: var(--plim-color-success);
+	--docs-code-built-in: color-mix(in srgb, var(--plim-color-warning) 70%, var(--plim-color-text) 30%);
 }
 
 [data-theme='light'] {
-	--docs-code-fg: #17191d;
-	--docs-code-tag: #7a0000;
-	--docs-code-name: #1a5c69;
-	--docs-code-attr: #c40000;
-	--docs-code-string: #0451a5;
-	--docs-code-keyword: #0000cc;
-	--docs-code-comment: #006400;
-	--docs-code-punctuation: #17191d;
-	--docs-code-number: #046c4a;
-	--docs-code-built-in: #5c4a1f;
+	--docs-code-fg: var(--plim-color-text);
+	--docs-code-tag: var(--plim-color-link);
+	--docs-code-name: var(--plim-color-success);
+	--docs-code-attr: color-mix(in srgb, var(--plim-color-danger) 80%, var(--plim-color-text) 20%);
+	--docs-code-string: color-mix(in srgb, var(--plim-color-link) 85%, var(--plim-color-primary) 15%);
+	--docs-code-keyword: var(--plim-color-primary);
+	--docs-code-comment: var(--plim-color-text-subtle);
+	--docs-code-punctuation: var(--plim-color-text);
+	--docs-code-number: var(--plim-color-success);
+	--docs-code-built-in: color-mix(in srgb, var(--plim-color-warning) 75%, var(--plim-color-text) 25%);
 }
 
 .docs-code code.hljs {

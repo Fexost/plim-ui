@@ -18,5 +18,27 @@
 
 	<plim-separator />
 
-	<ng-content />
+	<div class="docs-guide__body" [class.docs-guide__body--with-toc]="toc().length > 0">
+		<div class="docs-guide__content">
+			<ng-content />
+		</div>
+
+		@if (toc().length > 0) {
+			<aside class="docs-guide__toc" aria-label="On this page">
+				<p class="docs-guide__toc-label">On this page</p>
+				<nav class="docs-guide__toc-nav">
+					@for (item of toc(); track item.id) {
+						<a
+							class="docs-guide__toc-link"
+							[class.is-active]="isTocSectionActive(item.id)"
+							[routerLink]="'.'"
+							[fragment]="item.id"
+						>
+							{{ item.label }}
+						</a>
+					}
+				</nav>
+			</aside>
+		}
+	</div>
 </article>

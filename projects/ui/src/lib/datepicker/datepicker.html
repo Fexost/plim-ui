@@ -76,7 +76,7 @@
 
 			@if (panelView() === 'calendar') {
 				<div class="plim-datepicker__weekdays" aria-hidden="true">
-					@for (label of weekdays(); track label) {
+					@for (label of weekdays(); track $index) {
 						<span>{{ label }}</span>
 					}
 				</div>

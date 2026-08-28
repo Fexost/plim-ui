@@ -1,4 +1,4 @@
-<app-docs-guide-layout section="Foundations" title="Tokens">
+<app-docs-guide-layout section="Foundations" title="Tokens" [toc]="toc">
 	<p docsLead>
 		Design tokens are CSS custom properties in the <code>--plim-*</code> namespace. They are
 		organised in three layers — <strong>primitive</strong> (raw palette),
@@ -7,7 +7,7 @@
 		component tokens in your own styles instead of hard-coded values.
 	</p>
 
-	<section class="docs-section">
+	<section class="docs-section" id="token-layers">
 		<h2>Token layers</h2>
 		<p class="docs-section-copy">
 			Primitives (<code>--plim-primitive-*</code>) are defined in
@@ -37,7 +37,7 @@
 		</div>
 	</section>
 
-	<section class="docs-section">
+	<section class="docs-section" id="colours">
 		<h2>Colours</h2>
 		<div class="docs-table-wrap">
 			<table plimTable class="docs-table">
@@ -171,7 +171,41 @@
 		</div>
 	</section>
 
-	<section class="docs-section">
+	<section class="docs-section" id="theme-preview">
+		<h2>Theme preview</h2>
+		<p class="docs-section-copy">
+			These swatches read live semantic tokens. Toggle the theme in the header to see values
+			update without reloading.
+		</p>
+		<div class="docs-theme-preview">
+			<div class="docs-theme-preview__swatch docs-theme-preview__swatch--background">
+				<span>Background</span>
+				<code>--plim-color-background</code>
+			</div>
+			<div class="docs-theme-preview__swatch docs-theme-preview__swatch--surface">
+				<span>Surface</span>
+				<code>--plim-color-surface</code>
+			</div>
+			<div class="docs-theme-preview__swatch docs-theme-preview__swatch--surface-raised">
+				<span>Surface raised</span>
+				<code>--plim-color-surface-raised</code>
+			</div>
+			<div class="docs-theme-preview__swatch docs-theme-preview__swatch--primary">
+				<span>Primary</span>
+				<code>--plim-color-primary</code>
+			</div>
+			<div class="docs-theme-preview__swatch docs-theme-preview__swatch--text">
+				<span>Text</span>
+				<code>--plim-color-text</code>
+			</div>
+			<div class="docs-theme-preview__swatch docs-theme-preview__swatch--border">
+				<span>Border</span>
+				<code>--plim-color-border</code>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-section" id="spacing">
 		<h2>Spacing</h2>
 		<p class="docs-section-copy">
 			A rem-based scale from <code>--plim-space-1</code> (0.25rem) through
@@ -227,7 +261,7 @@
 		</div>
 	</section>
 
-	<section class="docs-section">
+	<section class="docs-section" id="radius-shadow-motion">
 		<h2>Radius, shadow, and motion</h2>
 		<div class="docs-table-wrap">
 			<table plimTable class="docs-table">
@@ -280,8 +314,10 @@
 						<td>Motion</td>
 						<td>
 							<code>--plim-duration-fast</code>, <code>--plim-duration-normal</code>,
-							<code>--plim-duration-slow</code>, <code>--plim-duration-spin</code>,
-							<code>--plim-ease-default</code>
+							<code>--plim-duration-slow</code>, <code>--plim-duration-enter</code>,
+							<code>--plim-duration-exit</code>, <code>--plim-duration-spin</code>,
+							<code>--plim-ease-default</code>, <code>--plim-ease-enter</code>,
+							<code>--plim-ease-exit</code>
 						</td>
 					</tr>
 					<tr>

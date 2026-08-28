@@ -21,6 +21,12 @@ class CardHost {}
 })
 class FillCardHost {}
 
+@Component({
+	template: `<plim-card elevated>Body</plim-card>`,
+	imports: [Card],
+})
+class ElevatedCardHost {}
+
 describe('Card', () => {
 	describe('layout', () => {
 		let fixture: ComponentFixture<CardHost>;
@@ -58,6 +64,19 @@ describe('Card', () => {
 			fixture.detectChanges();
 			const host = fixture.nativeElement.querySelector('plim-card')!;
 			expect(host.classList.contains('plim-card--fill')).toBe(true);
+		});
+	});
+
+	describe('elevated', () => {
+		beforeEach(async () => {
+			await TestBed.configureTestingModule({ imports: [ElevatedCardHost] }).compileComponents();
+		});
+
+		it('should apply elevated modifier class', () => {
+			const fixture = TestBed.createComponent(ElevatedCardHost);
+			fixture.detectChanges();
+			const host = fixture.nativeElement.querySelector('plim-card')!;
+			expect(host.classList.contains('plim-card--elevated')).toBe(true);
 		});
 	});
 });

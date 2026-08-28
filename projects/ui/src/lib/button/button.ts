@@ -11,10 +11,13 @@ export type ButtonVariant = 'primary' | 'secondary' | 'text';
 		'[class.plim-button--primary]': 'variant() === "primary"',
 		'[class.plim-button--secondary]': 'variant() === "secondary"',
 		'[class.plim-button--text]': 'variant() === "text"',
-		'[disabled]': 'disabled()',
+		'[class.plim-button--loading]': 'loading()',
+		'[attr.aria-busy]': 'loading() ? true : null',
+		'[disabled]': 'disabled() || loading()',
 	},
 })
 export class Button {
 	public readonly variant = input<ButtonVariant>('primary');
 	public readonly disabled = input(false, { transform: booleanAttribute });
+	public readonly loading = input(false, { transform: booleanAttribute });
 }

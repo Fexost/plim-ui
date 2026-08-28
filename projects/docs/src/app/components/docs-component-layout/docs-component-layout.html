@@ -1,7 +1,11 @@
 <article class="docs-component">
 	<header class="docs-component__intro">
 		<p class="docs-breadcrumbs">
-			<span>{{ category() }}</span>
+			@if (categoryPath()) {
+				<a [routerLink]="'/' + categoryPath()">{{ category() }}</a>
+			} @else {
+				<span>{{ category() }}</span>
+			}
 			<span> / {{ title() }}</span>
 		</p>
 
@@ -28,6 +32,7 @@
 				type="button"
 				plimButton
 				variant="text"
+				[class.is-active]="isJumpSectionActive(section.id)"
 				[routerLink]="'.'"
 				[fragment]="section.id"
 			>
