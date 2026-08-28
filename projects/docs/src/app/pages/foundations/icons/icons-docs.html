@@ -42,6 +42,58 @@
 	</section>
 
 	<section class="docs-section">
+		<h2>Colour</h2>
+		<p class="docs-section-copy">
+			Use semantic icon colour tokens so icons match text hierarchy and status. Apply
+			<code>.plim-icon</code> with size modifiers, or set <code>font-size</code> and
+			<code>color</code> directly on Material Symbols.
+		</p>
+		<div class="icons-docs-preview">
+			<span class="material-symbols-outlined plim-icon plim-icon--sm" aria-hidden="true">search</span>
+			<span class="material-symbols-outlined plim-icon plim-icon--primary" aria-hidden="true">star</span>
+			<span class="material-symbols-outlined plim-icon plim-icon--success" aria-hidden="true">check_circle</span>
+			<span class="material-symbols-outlined plim-icon plim-icon--warning" aria-hidden="true">warning</span>
+			<span class="material-symbols-outlined plim-icon plim-icon--danger" aria-hidden="true">error</span>
+		</div>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Token</th>
+						<th scope="col">Use</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>--plim-color-icon</code></td>
+						<td>Default inline icons</td>
+					</tr>
+					<tr>
+						<td><code>--plim-color-icon-muted</code></td>
+						<td>De-emphasized icons</td>
+					</tr>
+					<tr>
+						<td><code>--plim-color-icon-primary</code></td>
+						<td>Brand or active icons</td>
+					</tr>
+					<tr>
+						<td><code>--plim-color-icon-success</code></td>
+						<td>Success status icons</td>
+					</tr>
+					<tr>
+						<td><code>--plim-color-icon-warning</code></td>
+						<td>Warning status icons</td>
+					</tr>
+					<tr>
+						<td><code>--plim-color-icon-danger</code></td>
+						<td>Error status icons</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section class="docs-section">
 		<h2>Sizing</h2>
 		<p class="docs-section-copy">
 			Prefer <code>--plim-icon-size-*</code> tokens so icons align with adjacent text and

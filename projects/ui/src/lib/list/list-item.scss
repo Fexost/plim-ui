@@ -1,7 +1,8 @@
 :host {
 	box-sizing: border-box;
 	display: block;
-	padding: var(--plim-space-3) var(--plim-space-4);
+	padding: var(--plim-list-item-padding-y, var(--plim-density-list-item-padding-y))
+		var(--plim-space-4);
 	border-bottom: 1px solid var(--plim-color-border);
 	color: var(--plim-color-text);
 	font-size: var(--plim-font-size-sm);

@@ -1,35 +1,72 @@
 import { WritableSignal } from '@angular/core';
 
-const ACTIVE_SECTION_OBSERVER_OPTIONS: IntersectionObserverInit = {
-	rootMargin: '-20% 0px -55% 0px',
-	threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
+export type ActiveSectionObserver = {
+	disconnect(): void;
 };
+
+const GUIDE_SECTION_SELECTOR = '.docs-section[id], .docs-principles[id]';
+const COMPONENT_SECTION_SELECTOR = '.docs-component__section[id]';
+
+function resolveScrollOffset(): number {
+	const rootStyles = getComputedStyle(document.documentElement);
+	const topbar = document.querySelector('app-docs-topbar');
+	const topbarHeight =
+		topbar instanceof HTMLElement ? topbar.getBoundingClientRect().height : 56;
+	const sectionGap = Number.parseFloat(rootStyles.getPropertyValue('--plim-space-6')) || 24;
+
+	return topbarHeight + sectionGap;
+}
+
+function updateActiveSection(
+	sections: readonly HTMLElement[],
+	activeSection: WritableSignal<string>,
+): void {
+	if (sections.length === 0) {
+		return;
+	}
+
+	const offset = resolveScrollOffset();
+	let current = sections[0]?.id ?? '';
+
+	for (const section of sections) {
+		if (section.getBoundingClientRect().top - offset <= 1) {
+			current = section.id;
+			continue;
+		}
+
+		break;
+	}
+
+	if (activeSection() !== current) {
+		activeSection.set(current);
+	}
+}
 
 export function observeActiveSection(
 	sections: NodeListOf<HTMLElement>,
 	activeSection: WritableSignal<string>,
-): IntersectionObserver | undefined {
+): ActiveSectionObserver | undefined {
 	if (sections.length === 0) {
 		return undefined;
 	}
 
-	activeSection.set(sections[0]?.id ?? '');
+	const sectionList = Array.from(sections);
+	activeSection.set(sectionList[0]?.id ?? '');
 
-	const observer = new IntersectionObserver((entries) => {
-		const visible = entries
-			.filter((entry) => entry.isIntersecting)
-			.sort((left, right) => right.intersectionRatio - left.intersectionRatio);
+	const onScroll = () => {
+		updateActiveSection(sectionList, activeSection);
+	};
 
-		const active = visible[0]?.target;
+	onScroll();
+	window.addEventListener('scroll', onScroll, { passive: true });
+	window.addEventListener('resize', onScroll, { passive: true });
 
-		if (active instanceof HTMLElement && active.id) {
-			activeSection.set(active.id);
-		}
-	}, ACTIVE_SECTION_OBSERVER_OPTIONS);
-
-	for (const section of sections) {
-		observer.observe(section);
-	}
-
-	return observer;
+	return {
+		disconnect: () => {
+			window.removeEventListener('scroll', onScroll);
+			window.removeEventListener('resize', onScroll);
+		},
+	};
 }
+
+export { COMPONENT_SECTION_SELECTOR, GUIDE_SECTION_SELECTOR };

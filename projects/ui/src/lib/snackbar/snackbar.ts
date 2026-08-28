@@ -38,6 +38,7 @@ export class Snackbar {
 	public readonly duration = input(4000, { transform: numberAttribute });
 	public readonly variant = input<SnackbarVariant>('default');
 	public readonly ariaLive = input<SnackbarAriaLive>('polite');
+	public readonly stackIndex = input(0, { transform: numberAttribute });
 	public readonly closed = output<void>();
 
 	constructor() {
@@ -46,11 +47,12 @@ export class Snackbar {
 		effect(() => {
 			const template = this.panelTemplate();
 			const isOpen = this.open();
+			const stackIndex = this.stackIndex();
 
 			untracked(() => {
 				if (isOpen && template) {
 					this.closeRequested = false;
-					this.attachOverlay(template);
+					this.attachOverlay(template, stackIndex);
 					return;
 				}
 
@@ -80,8 +82,15 @@ export class Snackbar {
 		this.closed.emit();
 	}
 
-	private attachOverlay(template: TemplateRef<unknown>): void {
+	private attachOverlay(template: TemplateRef<unknown>, stackIndex: number): void {
 		if (this.overlayRef) {
+			this.overlayRef.updatePositionStrategy(
+				this.overlay
+					.position()
+					.global()
+					.centerHorizontally()
+					.bottom(this.getBottomOffset(stackIndex)),
+			);
 			return;
 		}
 
@@ -93,10 +102,18 @@ export class Snackbar {
 				.position()
 				.global()
 				.centerHorizontally()
-				.bottom('var(--plim-space-6)'),
+				.bottom(this.getBottomOffset(stackIndex)),
 		});
 
 		this.overlayRef.attach(new TemplatePortal(template, this.viewContainerRef));
+	}
+
+	private getBottomOffset(stackIndex: number): string {
+		if (stackIndex <= 0) {
+			return 'var(--plim-space-6)';
+		}
+
+		return `calc(var(--plim-space-6) + ${stackIndex} * var(--plim-snackbar-stack-gap))`;
 	}
 
 	private detachOverlay(): void {

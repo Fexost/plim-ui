@@ -1,6 +1,7 @@
 .docs-app {
 	display: block;
 	min-height: 100vh;
+	padding-top: var(--docs-topbar-height);
 	background: var(--plim-color-background);
 	color: var(--plim-color-text);
 	--docs-topbar-height: var(--plim-header-height);

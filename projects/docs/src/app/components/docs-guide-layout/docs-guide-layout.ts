@@ -11,7 +11,11 @@ import { RouterLink } from '@angular/router';
 import { Separator } from 'plim-ui';
 
 import { DOCS_PAGE_HOST_DIRECTIVES } from '../../directives/docs-page-host-directives';
-import { observeActiveSection } from '../../utils/observe-active-section';
+import {
+	ActiveSectionObserver,
+	GUIDE_SECTION_SELECTOR,
+	observeActiveSection,
+} from '../../utils/observe-active-section';
 
 export interface DocsGuideTocSection {
 	id: string;
@@ -27,7 +31,7 @@ export interface DocsGuideTocSection {
 })
 export class DocsGuideLayout implements AfterViewInit, OnDestroy {
 	private readonly host = inject(ElementRef<HTMLElement>);
-	private sectionObserver?: IntersectionObserver;
+	private sectionObserver?: ActiveSectionObserver;
 
 	public readonly section = input.required<string>();
 	public readonly title = input.required<string>();
@@ -43,7 +47,7 @@ export class DocsGuideLayout implements AfterViewInit, OnDestroy {
 
 		this.sectionObserver = observeActiveSection(
 			this.host.nativeElement.querySelectorAll(
-				'.docs-section[id]',
+				GUIDE_SECTION_SELECTOR,
 			) as NodeListOf<HTMLElement>,
 			this.activeTocSection,
 		);

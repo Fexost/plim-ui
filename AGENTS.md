@@ -556,9 +556,9 @@ Navigation, Feedback, Data, Advanced.
 **Page routes:**
 
 ```text
-overview, installation
+overview, installation, app-shell
 foundations/tokens, theme, typography, accessibility, icons
-basic/button, button-toggle, badge, card, separator, avatar, spinner, progress-bar
+basic/button, button-toggle, badge, card, separator, avatar, spinner, skeleton, progress-bar
 form/input, textarea, select, autocomplete, checkbox, radio, switch, slider,
      datepicker, timepicker, form-field
 navigation/header, menu, paginator, sidebar, tabs, toolbar
@@ -720,7 +720,7 @@ When implementing new components:
 * Angular 21 workspace: `ui` (library) + `docs` (application).
 * Angular CDK installed; overlay components (**select, autocomplete, datepicker, timepicker,
   menu, dialog, bottom sheet, snackbar, command palette, tooltip**) use CDK Overlay (peer dependency).
-* ESLint / angular-eslint; Vitest for unit tests (161 library tests, 12 docs tests).
+* ESLint / angular-eslint; Vitest for unit tests (163 library tests, 12 docs tests).
 * Library built with ng-packagr → `dist/plim-ui`; styles at `dist/plim-ui/styles/`.
 * Design tokens: colour, typography, spacing, radius, shadow, focus, motion (`--plim-duration-spin`), component dimensions (including chat panel sizing), semantic tinted surfaces (`--plim-color-*-surface*`).
 * Light/dark themes via CSS variables; docs `ThemeService` persists choice.
@@ -798,6 +798,7 @@ different public API.
 | Paginator | Navigation | **implemented** | `<plim-paginator>` |
 | Progress bar | Basic | **implemented** | `<plim-progress-bar>` |
 | Progress spinner | Basic | **implemented** | `<plim-spinner>` |
+| Skeleton | Basic | **implemented** | `<plim-skeleton>` |
 | Radio button | Form | **implemented** | `input[plimRadio]` |
 | Select | Form | **implemented** | `<plim-select>` (CDK overlay); native `select[plimSelect]` |
 | Sidenav | Navigation | **implemented** | `<plim-sidebar>` |

@@ -48,6 +48,52 @@
 		</div>
 	</section>
 
+	<section class="docs-component__section">
+		<h2>Density</h2>
+		<p>Set <code>density="compact"</code> on <code>plim-list</code> for tighter rows.</p>
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<button type="button" plimButton variant="secondary" (click)="toggleDensity()">
+					Toggle density ({{ density() }})
+				</button>
+				<plim-list class="list-docs-preview" [density]="density()">
+					<plim-list-item>Notifications</plim-list-item>
+					<plim-list-item>Appearance</plim-list-item>
+					<plim-list-item>Privacy</plim-list-item>
+				</plim-list>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-list density="compact"&gt;
+  &lt;plim-list-item&gt;...&lt;/plim-list-item&gt;
+&lt;/plim-list&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section">
+		<h2>Loading and empty states</h2>
+		<p>
+			Use skeleton placeholders while fetching and a single status row when there are no items.
+		</p>
+		<div class="docs-preview docs-split__preview docs-split__preview--stack">
+			<div style="display: flex; gap: var(--plim-space-2); flex-wrap: wrap">
+				<button type="button" plimButton variant="secondary" (click)="showItems()">Items</button>
+				<button type="button" plimButton variant="secondary" (click)="showLoading()">Loading</button>
+				<button type="button" plimButton variant="secondary" (click)="showEmpty()">Empty</button>
+			</div>
+			<plim-list class="list-docs-preview" [attr.aria-busy]="loading() ? true : null">
+				@if (loading()) {
+					<plim-list-item><plim-skeleton variant="text" /></plim-list-item>
+					<plim-list-item><plim-skeleton variant="text" width="80%" /></plim-list-item>
+					<plim-list-item><plim-skeleton variant="text" width="65%" /></plim-list-item>
+				} @else if (empty()) {
+					<plim-list-item role="status">No items yet.</plim-list-item>
+				} @else {
+					<plim-list-item>Lorem ipsum dolor sit amet</plim-list-item>
+					<plim-list-item>Consectetur adipiscing elit</plim-list-item>
+				}
+			</plim-list>
+		</div>
+	</section>
+
 	<section class="docs-component__section" id="accessibility">
 		<h2>Accessibility</h2>
 
@@ -76,7 +122,26 @@
 		<h2>API reference</h2>
 
 		<h3>List</h3>
-		<p class="docs-section-copy"><code>plim-list</code> has no inputs.</p>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>density</code></td>
+						<td><code>'comfortable' | 'compact'</code></td>
+						<td><code>'comfortable'</code></td>
+						<td>Row padding preset.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
 		<h3>List item</h3>
 		<div class="docs-table-wrap">

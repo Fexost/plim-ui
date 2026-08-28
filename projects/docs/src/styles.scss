@@ -1,6 +1,22 @@
 @use './app/styles/docs-page';
 @use './app/styles/docs-code-theme';
 
+:root {
+	--docs-topbar-height: var(--plim-header-height);
+	--docs-scroll-offset: calc(var(--docs-topbar-height) + var(--plim-space-6));
+}
+
+@media (max-width: 960px) {
+	:root {
+		--docs-topbar-row-height: calc(var(--plim-space-3) * 2 + var(--plim-button-height));
+		--docs-topbar-height: calc(var(--docs-topbar-row-height) + 1px);
+	}
+}
+
+html {
+	scroll-padding-top: var(--docs-scroll-offset);
+}
+
 html,
 body {
 	margin: 0;

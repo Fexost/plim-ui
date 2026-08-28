@@ -9,4 +9,14 @@ import { DocsGuideLayout } from '../../../components/docs-guide-layout/docs-guid
 	templateUrl: './accessibility-docs.html',
 	styleUrl: './accessibility-docs.scss',
 })
-export class AccessibilityDocs {}
+export class AccessibilityDocs {
+	protected readonly toc = [
+		{ id: 'principles', label: 'Principles' },
+		{ id: 'keyboard', label: 'Keyboard' },
+		{ id: 'forms', label: 'Forms' },
+		{ id: 'overlays', label: 'Overlays' },
+		{ id: 'data', label: 'Data display' },
+		{ id: 'motion', label: 'Motion' },
+		{ id: 'contrast', label: 'High contrast' },
+	];
+}

@@ -44,4 +44,14 @@
 	--plim-datepicker-day-size: var(--plim-space-10);
 	--plim-datepicker-cell-width: 4.5rem;
 	--plim-datepicker-weekday-height: var(--plim-icon-size-xl);
+
+	--plim-density-table-cell-padding-y: var(--plim-space-3);
+	--plim-density-table-cell-padding-x: var(--plim-space-4);
+	--plim-density-table-cell-padding-y-compact: var(--plim-space-2);
+	--plim-density-table-cell-padding-x-compact: var(--plim-space-3);
+	--plim-density-list-item-padding-y: var(--plim-space-3);
+	--plim-density-list-item-padding-y-compact: var(--plim-space-2);
+	--plim-snackbar-stack-gap: 3.5rem;
+	--plim-color-skeleton-base: var(--plim-color-surface);
+	--plim-color-skeleton-highlight: color-mix(in srgb, var(--plim-color-surface-raised) 72%, white 28%);
 }

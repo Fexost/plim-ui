@@ -22,6 +22,46 @@ html {
 	line-height: 1.4;
 }
 
+.plim-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1em;
+	height: 1em;
+	font-size: var(--plim-icon-size-md);
+	line-height: 1;
+	color: var(--plim-color-icon);
+	font-variation-settings:
+		'FILL' 0,
+		'wght' 400,
+		'GRAD' 0,
+		'opsz' 24;
+}
+
+.plim-icon--sm {
+	font-size: var(--plim-icon-size-sm);
+}
+
+.plim-icon--lg {
+	font-size: var(--plim-icon-size-lg);
+}
+
+.plim-icon--primary {
+	color: var(--plim-color-icon-primary);
+}
+
+.plim-icon--success {
+	color: var(--plim-color-icon-success);
+}
+
+.plim-icon--warning {
+	color: var(--plim-color-icon-warning);
+}
+
+.plim-icon--danger {
+	color: var(--plim-color-icon-danger);
+}
+
 .plim-select__backdrop,
 .plim-autocomplete__backdrop,
 .plim-datepicker__backdrop,
@@ -51,6 +91,12 @@ html {
 }
 
 .cdk-overlay-pane .plim-menu__panel {
+	animation: plim-overlay-enter var(--plim-duration-enter) var(--plim-ease-enter);
+	transform-origin: top left;
+}
+
+.cdk-overlay-pane .plim-select__panel,
+.cdk-overlay-pane .plim-autocomplete__panel {
 	animation: plim-overlay-enter var(--plim-duration-enter) var(--plim-ease-enter);
 	transform-origin: top left;
 }
@@ -143,6 +189,8 @@ html {
 	.plim-bottom-sheet-overlay .plim-bottom-sheet,
 	.cdk-overlay-pane .plim-menu__panel,
 	.cdk-overlay-pane .plim-tooltip,
+	.cdk-overlay-pane .plim-select__panel,
+	.cdk-overlay-pane .plim-autocomplete__panel,
 	.plim-chat-widget-overlay .plim-chat-widget,
 	.plim-chat-widget-overlay .plim-chat-widget.plim-chat-widget--closing {
 		animation: none;

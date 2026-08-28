@@ -14,7 +14,11 @@ import { Badge, Card, Separator } from 'plim-ui';
 import { DOCS_COMPONENT_JUMP_SECTIONS } from '../../docs-component-layout.config';
 import { getDocsCategoryPath } from '../../docs-nav.config';
 import { DOCS_PAGE_HOST_DIRECTIVES } from '../../directives/docs-page-host-directives';
-import { observeActiveSection } from '../../utils/observe-active-section';
+import {
+	ActiveSectionObserver,
+	COMPONENT_SECTION_SELECTOR,
+	observeActiveSection,
+} from '../../utils/observe-active-section';
 
 @Component({
 	selector: 'app-docs-component-layout',
@@ -25,7 +29,7 @@ import { observeActiveSection } from '../../utils/observe-active-section';
 })
 export class DocsComponentLayout implements AfterViewInit, OnDestroy {
 	private readonly host = inject(ElementRef<HTMLElement>);
-	private sectionObserver?: IntersectionObserver;
+	private sectionObserver?: ActiveSectionObserver;
 
 	public readonly category = input.required<string>();
 	public readonly title = input.required<string>();
@@ -39,7 +43,7 @@ export class DocsComponentLayout implements AfterViewInit, OnDestroy {
 	public ngAfterViewInit(): void {
 		this.sectionObserver = observeActiveSection(
 			this.host.nativeElement.querySelectorAll(
-				'.docs-component__section[id]',
+				COMPONENT_SECTION_SELECTOR,
 			) as NodeListOf<HTMLElement>,
 			this.activeJumpSection,
 		);

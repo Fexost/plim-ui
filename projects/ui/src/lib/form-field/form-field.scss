@@ -25,10 +25,28 @@
 	line-height: var(--plim-line-height-normal);
 }
 
+:host(.plim-form-field--invalid) .plim-form-field__label:not(:empty) {
+	color: var(--plim-color-danger);
+}
+
 .plim-form-field__error:not(:empty) {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--plim-space-1);
 	color: var(--plim-color-danger);
 	font-size: var(--plim-font-size-xs);
 	line-height: var(--plim-line-height-normal);
+
+	&::before {
+		flex-shrink: 0;
+		width: var(--plim-icon-size-sm);
+		height: var(--plim-icon-size-sm);
+		margin-top: 1px;
+		background: currentColor;
+		content: '';
+		mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E")
+			center / contain no-repeat;
+	}
 }
 
 :host:not(.plim-form-field--invalid) .plim-form-field__error:not(:empty) {

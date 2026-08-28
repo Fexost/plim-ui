@@ -15,10 +15,21 @@ import { SNACKBAR_DOCS_TOKENS } from '../../../docs-component-tokens.config';
 export class SnackbarDocs {
 	protected readonly tokens = SNACKBAR_DOCS_TOKENS;
 	protected readonly open = signal(false);
+	protected readonly stackedOpen = signal(false);
 	protected readonly variant = signal<SnackbarVariant>('default');
 
 	protected show(nextVariant: SnackbarVariant): void {
 		this.variant.set(nextVariant);
 		this.open.set(true);
+	}
+
+	protected showStacked(): void {
+		this.open.set(true);
+		this.stackedOpen.set(true);
+	}
+
+	protected closeAll(): void {
+		this.open.set(false);
+		this.stackedOpen.set(false);
 	}
 }

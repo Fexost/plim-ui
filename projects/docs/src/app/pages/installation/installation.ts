@@ -16,5 +16,14 @@ export class Installation {
 	protected readonly DOCS_HOME = DOCS_HOME;
 	protected readonly DOCS_PATHS = DOCS_PATHS;
 
+	protected readonly toc = [
+		{ id: 'install', label: 'Install' },
+		{ id: 'styles', label: 'Styles' },
+		{ id: 'icons', label: 'Icons' },
+		{ id: 'components', label: 'Components' },
+		{ id: 'shell', label: 'App shell' },
+		{ id: 'contribute', label: 'Contribute' },
+	];
+
 	protected openExternal = openExternal;
 }

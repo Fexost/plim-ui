@@ -27,6 +27,9 @@
 					<button type="button" plimButton variant="secondary" (click)="show('danger')">
 						Danger
 					</button>
+					<button type="button" plimButton variant="text" (click)="showStacked()">
+						Show stacked
+					</button>
 				</div>
 				<plim-snackbar
 					[open]="open()"
@@ -46,6 +49,15 @@
 						Message sent
 					}
 				</plim-snackbar>
+				<plim-snackbar
+					[open]="stackedOpen()"
+					variant="primary"
+					[stackIndex]="1"
+					[duration]="0"
+					(closed)="stackedOpen.set(false)"
+				>
+					Second snackbar
+				</plim-snackbar>
 			</div>
 			<pre class="docs-code docs-split__code"><code>&lt;plim-snackbar
   [open]="open()"
@@ -56,6 +68,17 @@
   Changes saved
 &lt;/plim-snackbar&gt;</code></pre>
 		</div>
+	</section>
+
+	<section class="docs-component__section">
+		<h2>Stacking</h2>
+		<p>
+			Render multiple snackbars with <code>stackIndex</code> to offset each instance vertically.
+			Index <code>0</code> sits at the default bottom offset; higher values stack upward using
+			<code>--plim-snackbar-stack-gap</code>.
+		</p>
+		<pre class="docs-code"><code>&lt;plim-snackbar [open]="first()" [stackIndex]="0"&gt;Saved&lt;/plim-snackbar&gt;
+&lt;plim-snackbar [open]="second()" [stackIndex]="1"&gt;Syncing…&lt;/plim-snackbar&gt;</code></pre>
 	</section>
 
 	<section class="docs-component__section" id="accessibility">
@@ -123,6 +146,12 @@
 						<td><code>'polite' | 'assertive' | 'off'</code></td>
 						<td><code>'polite'</code></td>
 						<td>Live region politeness.</td>
+					</tr>
+					<tr>
+						<td><code>stackIndex</code></td>
+						<td><code>number</code></td>
+						<td><code>0</code></td>
+						<td>Vertical stack position when multiple snackbars are open.</td>
 					</tr>
 				</tbody>
 			</table>

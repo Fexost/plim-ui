@@ -58,4 +58,11 @@
 		var(--plim-color-text) 78%,
 		var(--plim-color-danger) 22%
 	);
+
+	--plim-color-icon: var(--plim-color-text-muted);
+	--plim-color-icon-muted: var(--plim-color-text-subtle);
+	--plim-color-icon-primary: var(--plim-color-primary);
+	--plim-color-icon-success: var(--plim-color-success);
+	--plim-color-icon-warning: var(--plim-color-warning);
+	--plim-color-icon-danger: var(--plim-color-danger);
 }

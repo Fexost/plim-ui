@@ -1,0 +1,80 @@
+<app-docs-component-layout category="Basic" title="Skeleton">
+	<p docsLead>
+		Placeholder shapes for loading states. Use while content is fetching instead of empty space
+		or layout shift. Decorative only — mark surrounding regions with
+		<code>aria-busy</code> when appropriate.
+	</p>
+
+	<section class="docs-component__section" id="preview">
+		<h2>Variants</h2>
+
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview docs-split__preview--stack">
+				<plim-skeleton />
+				<plim-skeleton variant="text" width="70%" />
+				<div style="display: flex; gap: var(--plim-space-3); align-items: center">
+					<plim-skeleton variant="circle" width="2.5rem" height="2.5rem" />
+					<div style="flex: 1; display: flex; flex-direction: column; gap: var(--plim-space-2)">
+						<plim-skeleton variant="text" width="40%" />
+						<plim-skeleton variant="text" />
+					</div>
+				</div>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;plim-skeleton /&gt;
+&lt;plim-skeleton variant="text" width="70%" /&gt;
+&lt;plim-skeleton variant="circle" width="2.5rem" height="2.5rem" /&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section" id="accessibility">
+		<h2>Accessibility</h2>
+		<app-docs-a11y-callout>
+			<h3>Accessibility guidance</h3>
+			<p>
+				Skeleton hosts use <code>aria-hidden="true"</code>. Pair with a visible loading label
+				or set <code>aria-busy="true"</code> on the parent region until content loads.
+			</p>
+		</app-docs-a11y-callout>
+	</section>
+
+	<section class="docs-component__section" id="tokens">
+		<h2>Design tokens</h2>
+		<app-docs-token-table [tokens]="tokens" />
+	</section>
+
+	<section class="docs-component__section" id="api">
+		<h2>API reference</h2>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>variant</code></td>
+						<td><code>'rect' | 'text' | 'circle'</code></td>
+						<td><code>'rect'</code></td>
+						<td>Shape preset for the placeholder.</td>
+					</tr>
+					<tr>
+						<td><code>width</code></td>
+						<td><code>string | null</code></td>
+						<td><code>null</code></td>
+						<td>Inline width override.</td>
+					</tr>
+					<tr>
+						<td><code>height</code></td>
+						<td><code>string | null</code></td>
+						<td><code>null</code></td>
+						<td>Inline height override.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</app-docs-component-layout>

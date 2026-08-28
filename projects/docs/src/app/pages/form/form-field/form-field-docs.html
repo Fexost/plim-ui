@@ -42,6 +42,26 @@
 		</div>
 	</section>
 
+	<section class="docs-component__section">
+		<h2>Validation pattern</h2>
+		<p>
+			Set <code>invalid</code> on both the field wrapper and the control. Link the error message
+			with <code>aria-describedby</code>. The error slot uses <code>role="alert"</code> when
+			visible.
+		</p>
+		<pre class="docs-code"><code>&lt;plim-form-field [invalid]="email.invalid &amp;&amp; email.touched"&gt;
+  &lt;label plimFormFieldLabel for="email"&gt;Email&lt;/label&gt;
+  &lt;input
+    id="email"
+    type="email"
+    plimInput
+    [invalid]="email.invalid &amp;&amp; email.touched"
+    aria-describedby="email-error"
+  /&gt;
+  &lt;span plimFormFieldError id="email-error"&gt;Enter a valid email address.&lt;/span&gt;
+&lt;/plim-form-field&gt;</code></pre>
+	</section>
+
 	<section class="docs-component__section" id="accessibility">
 		<h2>Accessibility</h2>
 
@@ -54,7 +74,8 @@
 				<ul class="docs-a11y-callout__features">
 					<li>One label per control</li>
 					<li>Hints stay visible; errors show when <code>invalid</code> is set</li>
-					<li>Does not replace native validation semantics</li>
+					<li>Error region uses <code>role="alert"</code></li>
+					<li>Invalid labels use danger colour</li>
 				</ul>
 			</app-docs-a11y-callout>
 	</section>

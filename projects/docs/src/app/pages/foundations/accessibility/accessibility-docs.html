@@ -1,10 +1,10 @@
-<app-docs-guide-layout section="Foundations" title="Accessibility">
+<app-docs-guide-layout section="Foundations" title="Accessibility" [toc]="toc">
 	<p docsLead>
 		plim-ui treats accessibility as a baseline requirement. Components use semantic HTML first,
 		keyboard support by default, and ARIA only when native semantics are not enough.
 	</p>
 
-	<section class="docs-principles">
+	<section class="docs-principles" id="principles">
 		<plim-card>
 			<plim-badge variant="primary">01</plim-badge>
 			<h2>Semantic structure</h2>
@@ -24,59 +24,98 @@
 
 	<plim-separator />
 
-	<section class="docs-section">
-		<h2>In practice</h2>
+	<section class="docs-section" id="keyboard">
+		<h2>Keyboard patterns</h2>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Component</th>
+						<th scope="col">Keys</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Button, link</td>
+						<td><kbd class="plim-kbd">Enter</kbd> / <kbd class="plim-kbd">Space</kbd> activate</td>
+					</tr>
+					<tr>
+						<td>Menu, select, autocomplete</td>
+						<td><kbd class="plim-kbd">↑</kbd> <kbd class="plim-kbd">↓</kbd> move; <kbd class="plim-kbd">Enter</kbd> select; <kbd class="plim-kbd">Esc</kbd> close</td>
+					</tr>
+					<tr>
+						<td>Tabs</td>
+						<td><kbd class="plim-kbd">←</kbd> <kbd class="plim-kbd">→</kbd> roving focus between tabs</td>
+					</tr>
+					<tr>
+						<td>Dialog, bottom sheet, command palette</td>
+						<td><kbd class="plim-kbd">Esc</kbd> close; focus trapped while open; focus restored on close</td>
+					</tr>
+					<tr>
+						<td>Command palette</td>
+						<td><kbd class="plim-kbd">↑</kbd> <kbd class="plim-kbd">↓</kbd> cycle results; <kbd class="plim-kbd">Enter</kbd> select</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="docs-section-copy">
+			Each component docs page includes component-specific accessibility notes. Focus rings use
+			<code>--plim-focus-ring-*</code> tokens for consistent visibility.
+		</p>
+	</section>
+
+	<section class="docs-section" id="forms">
+		<h2>Forms and validation</h2>
 		<ul class="docs-list">
+			<li>Associate labels with controls using <code>for</code> and <code>id</code>.</li>
 			<li>
-				Buttons use native <code>&lt;button&gt;</code> semantics via
-				<code>plimButton</code>.
+				Set <code>invalid</code> on both <code>plim-form-field</code> and the control; link errors
+				with <code>aria-describedby</code>.
 			</li>
 			<li>
-				Landmarks such as <code>&lt;header&gt;</code> and <code>&lt;aside&gt;</code> are
-				used internally.
+				Error messages in <code>plimFormFieldError</code> use <code>role="alert"</code> when
+				shown.
 			</li>
-			<li>
-				Focus rings use <code>--plim-focus-ring-*</code> tokens for consistent visibility.
-			</li>
-			<li>Each component docs page includes accessibility notes for that primitive.</li>
+			<li>Do not rely on colour alone — pair invalid borders with error text.</li>
 		</ul>
 	</section>
 
-	<section class="docs-section">
+	<section class="docs-section" id="overlays">
+		<h2>Overlays and focus</h2>
+		<p class="docs-section-copy">
+			Modal overlays (dialog, bottom sheet, command palette) trap focus while open and restore
+			focus to the trigger on close. Non-modal panels (select, menu, tooltip) return focus to the
+			trigger when dismissed. Body scroll is locked for modal command palette and dialog patterns.
+		</p>
+	</section>
+
+	<section class="docs-section" id="data">
+		<h2>Data display</h2>
+		<p class="docs-section-copy">
+			Tables remain native <code>&lt;table&gt;</code> elements — use <code>th</code> for headers
+			and keep <code>thead</code> / <code>tbody</code> groups. Lists expose
+			<code>role="list"</code> and <code>role="listitem"</code>. When data is loading, set
+			<code>aria-busy="true"</code> on the container and use skeleton placeholders or a spinner
+			with an accessible name.
+		</p>
+	</section>
+
+	<section class="docs-section" id="motion">
 		<h2>Motion</h2>
 		<p class="docs-section-copy">
 			Transitions use <code>--plim-duration-*</code> and <code>--plim-ease-default</code>.
 			Components respect <code>prefers-reduced-motion: reduce</code> by disabling non-essential
-			animation — for example spinner rotation, sidebar slide transitions, and toggle control
-			scale effects.
-		</p>
-		<p class="docs-section-copy">
-			When adding motion, keep it functional (open/close feedback, loading state) rather than
-			ornamental. If meaning depends on animation, provide a static alternative.
+			animation — for example spinner rotation, sidebar slide transitions, overlay enter
+			animations, and skeleton shimmer.
 		</p>
 	</section>
 
-	<section class="docs-section">
-		<h2>High contrast</h2>
+	<section class="docs-section" id="contrast">
+		<h2>High contrast and muted content</h2>
 		<p class="docs-section-copy">
 			Interactive states include <code>@media (forced-colors: active)</code> rules where colour
-			carries meaning — for example primary buttons, badges, tabs, sliders, and option list
-			highlight/selected states. Prefer system colours such as <code>Highlight</code>,
-			<code>HighlightText</code>, and <code>ButtonBorder</code> rather than hard-coded palette
-			values.
-		</p>
-		<p class="docs-section-copy">
-			Never rely on colour alone for status or selection. Pair semantic colours with text,
-			icons, weight, or borders.
-		</p>
-	</section>
-
-	<section class="docs-section">
-		<h2>Disabled and muted content</h2>
-		<p class="docs-section-copy">
-			Disabled controls use <code>--plim-opacity-disabled</code>. Subtle or de-emphasized UI
-			can use <code>--plim-opacity-muted</code>. Prefer these tokens over scattered opacity
-			literals so contrast stays predictable in both themes.
+			carries meaning. Disabled controls use <code>--plim-opacity-disabled</code>; de-emphasized
+			UI can use <code>--plim-opacity-muted</code>.
 		</p>
 	</section>
 </app-docs-guide-layout>

@@ -1,40 +1,70 @@
-<app-docs-guide-layout section="Get started" [parentPath]="'/' + DOCS_HOME" title="Installation">
+<app-docs-guide-layout section="Get started" [parentPath]="'/' + DOCS_HOME" title="Installation" [toc]="toc">
 	<p docsLead>
 		Add plim-ui to an Angular app, import the components you need, and load the global
 		stylesheet once. Design tokens and theming are covered in
 		<a [routerLink]="'/' + DOCS_PATHS.tokens">Foundations</a>.
 	</p>
 
-	<section class="docs-section">
+	<section class="docs-section" id="install">
 		<h2>Install the package</h2>
 		<pre class="docs-code" data-language="bash"><code>npm install plim-ui</code></pre>
 		<p class="docs-section-copy">
-			Requires <plim-badge variant="primary">Angular 21+</plim-badge>.
+			Requires <plim-badge variant="primary">Angular 21+</plim-badge> and these peer
+			dependencies:
+		</p>
+		<ul class="docs-list">
+			<li><code>@angular/cdk</code> — overlay components (dialog, menu, select, command palette)</li>
+			<li><code>@angular/common</code>, <code>@angular/core</code>, <code>@angular/forms</code></li>
+			<li><code>@angular/platform-browser</code></li>
+		</ul>
+	</section>
+
+	<section class="docs-section" id="styles">
+		<h2>Include styles</h2>
+		<pre class="docs-code" data-language="scss"><code>@use 'plim-ui/styles/styles';</code></pre>
+		<p class="docs-section-copy">
+			Add this once in your application styles (for example <code>styles.scss</code>). In
+			<code>angular.json</code>, point the app styles array at your entry file after building
+			or linking the library.
+		</p>
+		<p class="docs-section-copy">
+			Global styles apply design tokens, a thin page scrollbar, and utilities such as
+			<code>.plim-kbd</code>. See <a [routerLink]="'/' + DOCS_PATHS.theme">Theme</a> for light
+			and dark mode (<code>data-theme="light"</code> on the document root).
 		</p>
 	</section>
 
-	<section class="docs-section">
+	<section class="docs-section" id="icons">
+		<h2>Icons (optional)</h2>
+		<p class="docs-section-copy">
+			Components do not bundle an icon font. Load Material Symbols once if you use icons in your
+			app shell — see the <a [routerLink]="'/' + DOCS_PATHS.icons">Icons</a> guide.
+		</p>
+	</section>
+
+	<section class="docs-section" id="components">
 		<h2>Import components</h2>
 		<pre
 			class="docs-code"
 			data-language="typescript"
-		><code>import {{ '{' }} Button, Card, Option, Select {{ '}' }} from 'plim-ui';</code></pre>
+		><code>import {{ '{' }} Button, Card, CommandPalette, Option, Select {{ '}' }} from 'plim-ui';</code></pre>
 		<p class="docs-section-copy">
 			All components are standalone — add them to the <code>imports</code> array of your
-			component or route.
+			component or route. Form controls that implement <code>ControlValueAccessor</code> work
+			with reactive and template-driven forms.
 		</p>
 	</section>
 
-	<section class="docs-section">
-		<h2>Include styles</h2>
-		<pre class="docs-code" data-language="scss"><code>@use 'plim-ui/styles/styles';</code></pre>
+	<section class="docs-section" id="shell">
+		<h2>App shell</h2>
 		<p class="docs-section-copy">
-			Add this once in your application styles (for example <code>styles.scss</code>). See
-			<a [routerLink]="'/' + DOCS_PATHS.theme">Theme</a> for light and dark mode setup.
+			For a docs-style layout with header, sidebar, and command-palette search, follow the
+			<a [routerLink]="'/' + DOCS_PATHS.appShell">App shell</a> guide. This documentation site
+			is the reference implementation.
 		</p>
 	</section>
 
-	<section class="docs-section">
+	<section class="docs-section" id="contribute">
 		<h2>Contribute locally</h2>
 		<p class="docs-section-copy">
 			The source lives on GitHub. Clone the repo and run the docs app:

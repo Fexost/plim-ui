@@ -64,6 +64,13 @@ export const SPINNER_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-radius-full', usage: 'Circular indicator' },
 ];
 
+export const SKELETON_DOCS_TOKENS: DocsComponentToken[] = [
+	{ token: '--plim-color-skeleton-base', usage: 'Placeholder base colour' },
+	{ token: '--plim-color-skeleton-highlight', usage: 'Shimmer highlight' },
+	{ token: '--plim-duration-slow', usage: 'Shimmer animation duration' },
+	{ token: '--plim-radius-md', usage: 'Default corner radius' },
+];
+
 export const PROGRESS_BAR_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-progress-bar-height', usage: 'Track height' },
 	{ token: '--plim-color-primary', usage: 'Fill colour' },
@@ -196,7 +203,8 @@ export const LIST_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-color-surface-raised', usage: 'List background' },
 	{ token: '--plim-color-border', usage: 'List outline and row dividers' },
 	{ token: '--plim-radius-md', usage: 'List corner radius' },
-	{ token: '--plim-space-3', usage: 'Item vertical padding' },
+	{ token: '--plim-density-list-item-padding-y', usage: 'Comfortable row padding' },
+	{ token: '--plim-density-list-item-padding-y-compact', usage: 'Compact row padding' },
 	{ token: '--plim-space-4', usage: 'Item horizontal padding' },
 ];
 
@@ -219,8 +227,10 @@ export const STEPPER_DOCS_TOKENS: DocsComponentToken[] = [
 ];
 
 export const TABLE_DOCS_TOKENS: DocsComponentToken[] = [
-	{ token: '--plim-space-3', usage: 'Cell vertical padding' },
-	{ token: '--plim-space-4', usage: 'Cell horizontal padding' },
+	{ token: '--plim-density-table-cell-padding-y', usage: 'Comfortable cell vertical padding' },
+	{ token: '--plim-density-table-cell-padding-x', usage: 'Comfortable cell horizontal padding' },
+	{ token: '--plim-density-table-cell-padding-y-compact', usage: 'Compact cell vertical padding' },
+	{ token: '--plim-density-table-cell-padding-x-compact', usage: 'Compact cell horizontal padding' },
 	{ token: '--plim-color-border', usage: 'Row dividers' },
 	{ token: '--plim-color-text-muted', usage: 'Header text' },
 	{ token: '--plim-color-surface', usage: 'Row hover background' },
@@ -306,6 +316,7 @@ export const SNACKBAR_DOCS_TOKENS: DocsComponentToken[] = [
 	{ token: '--plim-radius-md', usage: 'Snackbar corner radius' },
 	{ token: '--plim-color-primary', usage: 'Dismiss action colour' },
 	{ token: '--plim-space-6', usage: 'Offset from the viewport bottom' },
+	{ token: '--plim-snackbar-stack-gap', usage: 'Vertical offset between stacked snackbars' },
 ];
 
 export const TOOLTIP_DOCS_TOKENS: DocsComponentToken[] = [

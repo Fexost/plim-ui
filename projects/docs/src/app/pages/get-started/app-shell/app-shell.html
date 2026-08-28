@@ -1,0 +1,77 @@
+<app-docs-guide-layout
+	section="Get started"
+	[parentPath]="'/' + DOCS_HOME"
+	title="App shell"
+	[toc]="toc"
+>
+	<p docsLead>
+		A typical documentation or admin app combines a sticky header, optional sidebar navigation,
+		and a main content region. plim-ui ships composable primitives for each layer — this guide
+		shows how to assemble them.
+	</p>
+
+	<section class="docs-section" id="layout">
+		<h2>Layout structure</h2>
+		<p class="docs-section-copy">
+			Keep landmarks semantic: one <code>&lt;header&gt;</code> via
+			<code>&lt;plim-header&gt;</code>, one navigation <code>&lt;aside&gt;</code> via
+			<code>&lt;plim-sidebar&gt;</code>, and a <code>&lt;main&gt;</code> for routed content.
+			Offset main content in push mode with
+			<code>margin-left: var(--plim-sidebar-width)</code>.
+		</p>
+		<pre class="docs-code" data-language="html"><code>&lt;plim-header sticky&gt;
+  &lt;div plimHeaderStart&gt;Brand&lt;/div&gt;
+  &lt;div plimHeaderEnd&gt;Actions&lt;/div&gt;
+&lt;/plim-header&gt;
+
+&lt;plim-sidebar open mode="push" aria-label="Main navigation"&gt;
+  &lt;nav plimSidebarNav&gt;...&lt;/nav&gt;
+&lt;/plim-sidebar&gt;
+
+&lt;main&gt;
+  &lt;router-outlet /&gt;
+&lt;/main&gt;</code></pre>
+	</section>
+
+	<section class="docs-section" id="header">
+		<h2>Header</h2>
+		<p class="docs-section-copy">
+			Use three projection slots — <code>plimHeaderStart</code>,
+			<code>plimHeaderCenter</code>, <code>plimHeaderEnd</code> — for brand, title, and
+			actions. Set <code>sticky</code> on the host so the bar stays visible while scrolling.
+			See the <a [routerLink]="'/' + DOCS_PATHS.header">Header</a> reference for the full
+			API.
+		</p>
+	</section>
+
+	<section class="docs-section" id="sidebar">
+		<h2>Sidebar</h2>
+		<p class="docs-section-copy">
+			Project navigation into <code>plimSidebarNav</code>. Header and footer slots are
+			optional — empty slots are not rendered, so a nav-only sidebar has no phantom dividers.
+			Toggle <code>open</code> and switch between <code>push</code> and
+			<code>overlay</code> modes for mobile. See
+			<a [routerLink]="'/' + DOCS_PATHS.sidebar">Sidenav</a>.
+		</p>
+	</section>
+
+	<section class="docs-section" id="search">
+		<h2>Search</h2>
+		<p class="docs-section-copy">
+			For site-wide search, use <code>&lt;plim-command-palette&gt;</code> with a topbar
+			trigger and a <kbd class="plim-kbd">Ctrl</kbd> <kbd class="plim-kbd">K</kbd> shortcut.
+			The parent filters <code>items</code> and handles <code>selected</code>. See
+			<a [routerLink]="'/' + DOCS_PATHS.commandPalette">Command palette</a>.
+		</p>
+	</section>
+
+	<section class="docs-section" id="reference">
+		<h2>Reference app</h2>
+		<p class="docs-section-copy">
+			This documentation site is built with the same pattern:
+			<code>app-docs-topbar</code>, <code>app-docs-shell</code>, and
+			<code>app-docs-command-palette</code> in the docs app source. Use it as a reference
+			implementation when wiring responsive navigation and search.
+		</p>
+	</section>
+</app-docs-guide-layout>

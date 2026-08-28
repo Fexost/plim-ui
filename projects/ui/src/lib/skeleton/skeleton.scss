@@ -1,0 +1,42 @@
+:host {
+	display: block;
+	width: 100%;
+	height: var(--plim-skeleton-height, 1rem);
+	border-radius: var(--plim-radius-md);
+	background: linear-gradient(
+		90deg,
+		var(--plim-color-skeleton-base) 0%,
+		var(--plim-color-skeleton-highlight) 50%,
+		var(--plim-color-skeleton-base) 100%
+	);
+	background-size: 200% 100%;
+	animation: plim-skeleton-shimmer var(--plim-duration-slow) var(--plim-ease-default) infinite;
+}
+
+:host(.plim-skeleton--text) {
+	height: var(--plim-skeleton-height, 0.875rem);
+	border-radius: var(--plim-radius-sm);
+}
+
+:host(.plim-skeleton--circle) {
+	width: var(--plim-skeleton-size, 2.5rem);
+	height: var(--plim-skeleton-size, 2.5rem);
+	border-radius: var(--plim-radius-full);
+}
+
+@keyframes plim-skeleton-shimmer {
+	from {
+		background-position: 100% 0;
+	}
+
+	to {
+		background-position: -100% 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:host {
+		animation: none;
+		background: var(--plim-color-skeleton-base);
+	}
+}

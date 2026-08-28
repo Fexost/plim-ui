@@ -1,14 +1,17 @@
 :host {
 	display: block;
-	position: sticky;
+	position: fixed;
 	top: 0;
+	right: 0;
+	left: 0;
 	z-index: var(--plim-z-header);
+	width: 100%;
+	background: var(--plim-color-surface);
+	border-bottom: 1px solid var(--plim-color-border);
 }
 
 .docs-topbar {
 	box-sizing: border-box;
-	background: var(--plim-color-surface);
-	border-bottom: 1px solid var(--plim-color-border);
 }
 
 :host ::ng-deep plim-header .plim-header__bar {

@@ -45,6 +45,7 @@ export * from './lib/select/select';
 export * from './lib/select/native-select';
 export * from './lib/separator/separator';
 export * from './lib/sidebar/sidebar';
+export * from './lib/skeleton/skeleton';
 export * from './lib/snackbar/snackbar';
 export * from './lib/sort/sort';
 export * from './lib/sort/sort-header';

@@ -24,6 +24,7 @@ export const DOCS_EXTERNAL_LINKS: DocsExternalLink[] = [
 
 export const DOCS_PATHS = {
 	installation: 'installation',
+	appShell: 'app-shell',
 	tokens: 'foundations/tokens',
 	theme: 'foundations/theme',
 	typography: 'foundations/typography',
@@ -37,6 +38,7 @@ export const DOCS_PATHS = {
 	autocomplete: 'form/autocomplete',
 	avatar: 'basic/avatar',
 	spinner: 'basic/spinner',
+	skeleton: 'basic/skeleton',
 	progressBar: 'basic/progress-bar',
 	header: 'navigation/header',
 	menu: 'navigation/menu',
@@ -90,6 +92,7 @@ export const DOCS_NAV: DocsNavSection[] = [
 		items: [
 			{ path: DOCS_HOME, label: 'Overview' },
 			{ path: DOCS_PATHS.installation, label: 'Installation' },
+			{ path: DOCS_PATHS.appShell, label: 'App shell', keywords: ['layout', 'starter', 'header', 'sidebar'] },
 		],
 	},
 	{
@@ -112,6 +115,7 @@ export const DOCS_NAV: DocsNavSection[] = [
 			{ path: DOCS_PATHS.card, label: 'Card' },
 			{ path: DOCS_PATHS.progressBar, label: 'Progress bar' },
 			{ path: DOCS_PATHS.spinner, label: 'Progress spinner', keywords: ['spinner', 'loading'] },
+			{ path: DOCS_PATHS.skeleton, label: 'Skeleton', keywords: ['loading', 'placeholder', 'shimmer'] },
 			{ path: DOCS_PATHS.separator, label: 'Divider', keywords: ['separator'] },
 		],
 	},

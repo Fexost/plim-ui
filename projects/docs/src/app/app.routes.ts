@@ -14,6 +14,11 @@ export const routes: Routes = [
 			import('./pages/installation/installation').then((m) => m.Installation),
 	},
 	{
+		path: DOCS_PATHS.appShell,
+		loadComponent: () =>
+			import('./pages/get-started/app-shell/app-shell').then((m) => m.AppShellDocs),
+	},
+	{
 		path: DOCS_PATHS.tokens,
 		loadComponent: () =>
 			import('./pages/foundations/tokens/tokens-docs').then((m) => m.TokensDocs),
@@ -70,6 +75,11 @@ export const routes: Routes = [
 		path: DOCS_PATHS.spinner,
 		loadComponent: () =>
 			import('./pages/basic/spinner/spinner-docs').then((m) => m.SpinnerDocs),
+	},
+	{
+		path: DOCS_PATHS.skeleton,
+		loadComponent: () =>
+			import('./pages/basic/skeleton/skeleton-docs').then((m) => m.SkeletonDocs),
 	},
 	{
 		path: DOCS_PATHS.progressBar,

@@ -10,6 +10,9 @@
 }
 
 .docs-guide__content {
+	display: flex;
+	flex-direction: column;
+	gap: var(--plim-space-10);
 	min-width: 0;
 }
 

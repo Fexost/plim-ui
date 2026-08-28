@@ -58,7 +58,8 @@
 		margin-bottom: 0;
 	}
 
-	.docs-section[id] {
+	.docs-section[id],
+	.docs-principles[id] {
 		scroll-margin-top: var(--docs-scroll-offset);
 	}
 }

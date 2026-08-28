@@ -8,4 +8,9 @@
 	border: 1px solid var(--plim-color-border);
 	border-radius: var(--plim-radius-md);
 	list-style: none;
+	--plim-list-item-padding-y: var(--plim-density-list-item-padding-y);
+}
+
+:host(.plim-list--compact) {
+	--plim-list-item-padding-y: var(--plim-density-list-item-padding-y-compact);
 }

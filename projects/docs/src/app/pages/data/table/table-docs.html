@@ -49,6 +49,96 @@
 		</div>
 	</section>
 
+	<section class="docs-component__section">
+		<h2>Density and responsive scroll</h2>
+		<p>
+			Set <code>density="compact"</code> for tighter rows. Wrap wide tables in a horizontally
+			scrollable container on narrow viewports.
+		</p>
+		<div class="docs-split">
+			<div class="docs-preview docs-split__preview">
+				<button type="button" plimButton variant="secondary" (click)="toggleDensity()">
+					Toggle density ({{ density() }})
+				</button>
+				<div class="table-docs-preview">
+					<table plimTable [density]="density()">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Role</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Ada Lovelace</td>
+								<td>Engineer</td>
+								<td>Active</td>
+							</tr>
+							<tr>
+								<td>Grace Hopper</td>
+								<td>Researcher</td>
+								<td>Active</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<pre class="docs-code docs-split__code"><code>&lt;div class="table-scroll"&gt;
+  &lt;table plimTable density="compact"&gt;...&lt;/table&gt;
+&lt;/div&gt;</code></pre>
+		</div>
+	</section>
+
+	<section class="docs-component__section">
+		<h2>Loading and empty states</h2>
+		<p>
+			Set <code>aria-busy="true"</code> on a wrapper while fetching. Use skeleton rows or a
+			spinner with an accessible label. For empty data, render a single row with a
+			<code>colspan</code> and <code>role="status"</code>.
+		</p>
+		<div class="docs-preview docs-split__preview docs-split__preview--stack">
+			<button type="button" plimButton variant="secondary" (click)="toggleLoading()">
+				{{ loading() ? 'Show data' : 'Show loading' }}
+			</button>
+			<div class="table-docs-preview" [attr.aria-busy]="loading() ? true : null">
+				@if (loading()) {
+					<table plimTable>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Role</th>
+							</tr>
+						</thead>
+						<tbody>
+							@for (row of [1, 2, 3]; track row) {
+								<tr>
+									<td><plim-skeleton variant="text" /></td>
+									<td><plim-skeleton variant="text" width="60%" /></td>
+								</tr>
+							}
+						</tbody>
+					</table>
+					<plim-spinner size="sm" aria-label="Loading table data" />
+				} @else {
+					<table plimTable>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Role</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td colspan="2" role="status">No results match your filters.</td>
+							</tr>
+						</tbody>
+					</table>
+				}
+			</div>
+		</div>
+	</section>
+
 	<section class="docs-component__section" id="accessibility">
 		<h2>Accessibility</h2>
 
@@ -77,8 +167,25 @@
 	<section class="docs-component__section" id="api">
 		<h2>API reference</h2>
 
-		<p class="docs-section-copy">
-			<code>table[plimTable]</code> is an attribute component. It has no inputs.
-		</p>
+		<div class="docs-table-wrap">
+			<table plimTable class="docs-table">
+				<thead>
+					<tr>
+						<th scope="col">Input</th>
+						<th scope="col">Type</th>
+						<th scope="col">Default</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>density</code></td>
+						<td><code>'comfortable' | 'compact'</code></td>
+						<td><code>'comfortable'</code></td>
+						<td>Row padding preset for data-dense layouts.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</section>
 </app-docs-component-layout>
