@@ -359,7 +359,9 @@ When implementing or reviewing plim-ui:
 | Secondary actions | `plimButton` secondary variant |
 | Form fields | `--plim-color-field-*`, `--plim-input-height` |
 | Focus | `--plim-focus-ring-*` |
-| Elevation | `--plim-shadow-sm/md/lg` |
+| Elevation | `--plim-shadow-sm/md/lg`, `--plim-elevation-modal` |
+| Scrollbars | `_scrollbar.scss` thin mixin on `html` and scrollable panels |
+| Keyboard hints | `.plim-kbd` (global utility in `styles.scss`) |
 | Select option states | `--plim-color-select-option-*` |
 | Semantic callout surfaces | `--plim-color-primary-surface*`, `--plim-color-success-surface*` |
 | Radius | `--plim-radius-*` |
@@ -372,7 +374,7 @@ or a new token should be added to `_tokens.scss`.
 
 - One SCSS file next to the component, directive, or page that uses it (`styleUrl`).
 - Shared tokens, theme, and mixins stay in `projects/ui/src/styles/` (`_field-control.scss`,
-  `_field-icons.scss`, `_toggle-control.scss`, `_option-list.scss`, `_table.scss`).
+  `_field-icons.scss`, `_toggle-control.scss`, `_option-list.scss`, `_scrollbar.scss`, `_table.scss`).
 - Shared docs primitives stay in `projects/docs/src/app/styles/` (`_docs-page.scss`,
   `_docs-code-theme.scss`). Form preview helpers stay in `pages/form/_form-docs-preview.scss`.
 - App shell chrome belongs in `app.scss`. Do not split one-owner styles into extra shared
@@ -391,7 +393,9 @@ or a new token should be added to `_tokens.scss`.
 - [ ] Keyboard focus visible; ARIA relationships correct?
 - [ ] Works in light and dark theme (`data-theme`)?
 - [ ] `prefers-reduced-motion` and `forced-colors` considered where motion/colour carry meaning?
+- [ ] Scrollable regions use the thin scrollbar mixin where custom scrollbars are needed?
 - [ ] No unnecessary borders; surfaces/spacing do separation work?
+- [ ] Empty layout slots (sidebar header/footer) do not leave phantom dividers?
 - [ ] Component API small and composable (SOLID — single responsibility per component)?
 
 ---

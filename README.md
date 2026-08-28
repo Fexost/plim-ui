@@ -47,6 +47,7 @@ Import components where you need them:
 import {
   Autocomplete,
   Button,
+  CommandPalette,
   Datepicker,
   Option,
   Select,
@@ -58,6 +59,8 @@ Include global styles and design tokens once in your application styles:
 ```scss
 @use 'plim-ui/styles/styles';
 ```
+
+This applies design tokens, theme variables, a thin page scrollbar (`html`), and shared utilities such as `.plim-kbd`.
 
 Toggle light mode by setting `data-theme="light"` on the document root.
 
@@ -91,6 +94,7 @@ Toggle light mode by setting `data-theme="light"` on the document root.
 | | Tabs | `<plim-tab-group>` / `<plim-tab>` |
 | | Toolbar | `<plim-toolbar>` |
 | **Feedback** | Bottom sheet | `<plim-bottom-sheet>` |
+| | Command palette | `<plim-command-palette>` |
 | | Dialog | `<plim-dialog>` |
 | | Snackbar | `<plim-snackbar>` |
 | | Tooltip | `[plimTooltip]` |

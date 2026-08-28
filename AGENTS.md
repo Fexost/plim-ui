@@ -101,9 +101,9 @@ use the same primitives without adopting Material’s visual design.
 
 **Current status:** `@angular/cdk` Overlay is used by **`plim-select`**, **`plim-autocomplete`**,
 **`plim-datepicker`**, **`plim-timepicker`**, **`plim-menu`**, **`plim-dialog`**,
-**`plim-bottom-sheet`**, **`plim-snackbar`**, and **`[plimTooltip]`**. Other published components
-remain native HTML, SCSS, and Angular APIs. CDK is a **peer dependency** of the published
-`plim-ui` package alongside `@angular/forms`.
+**`plim-bottom-sheet`**, **`plim-snackbar`**, **`plim-command-palette`**, and **`[plimTooltip]`**.
+Other published components remain native HTML, SCSS, and Angular APIs. CDK is a **peer dependency**
+of the published `plim-ui` package alongside `@angular/forms`.
 
 **When to reach for CDK:** prefer it when a component needs non-trivial interaction behaviour
 that is easy to get wrong by hand — for example Dialog (focus trap, restore focus, escape to
@@ -145,6 +145,7 @@ projects/
         datepicker/
         timepicker/
         chip/
+        command-palette/
         dialog/
         bottom-sheet/
         snackbar/
@@ -168,6 +169,7 @@ projects/
         _field-icons.scss
         _toggle-control.scss
         _option-list.scss
+        _scrollbar.scss
         _table.scss
         styles.scss
       public-api.ts
@@ -178,9 +180,12 @@ projects/
       app/
         app.ts / app.html / app.scss   # shell chrome (header + layout)
         components/
+          docs-command-palette/
           docs-component-layout/
           docs-guide-layout/
           docs-nav/       # nav styles live here; sidebar demo @uses them
+          docs-shell/
+          docs-topbar/
           docs-token-table/
         directives/
           docs-code-highlight.ts
@@ -192,12 +197,18 @@ projects/
           basic/          # button, button-toggle, badge, card, separator, avatar, spinner, progress-bar
           form/           # input, textarea, select, autocomplete, checkbox, radio, switch, slider, datepicker, timepicker, form-field
           navigation/     # header, menu, paginator, sidebar, tabs, toolbar
-          feedback/       # bottom-sheet, dialog, snackbar, tooltip
+          feedback/       # bottom-sheet, command-palette, dialog, snackbar, tooltip
           data/           # chips, expansion-panel, grid-list, list, sort-header, stepper, table, tree
           advanced/       # chat (panel + widget)
         services/
           theme.service.ts
+          docs-command-palette.service.ts
           docs-responsive-nav.service.ts
+          docs-search.service.ts   # searchDocs() helper for command palette
+        utils/
+          observe-active-section.ts
+          open-external.ts
+          platform-shortcut.ts
         styles/
           _docs-page.scss        # shared preview/split/code/table/a11y primitives
           _docs-code-theme.scss  # highlight.js colours
@@ -410,6 +421,7 @@ Inputs:
 
 * `variant` — `'primary' | 'secondary' | 'text'` (default: `'primary'`)
 * `disabled` — boolean (default: `false`); binds to the native `disabled` attribute
+* `loading` — boolean (default: `false`); shows a spinner and sets `aria-busy`
 
 Styles live in `projects/ui/src/lib/button/button.scss`. Host classes are set via `host` metadata.
 
@@ -429,20 +441,21 @@ Example usage:
   <nav plimSidebarNav>
     ...
   </nav>
-
-  <div plimSidebarFooter>
-    ...
-  </div>
 </plim-sidebar>
 ```
+
+Optional `plimSidebarHeader` and `plimSidebarFooter` slots are available when needed.
 
 Content slots:
 
 ```text
-plimSidebarHeader
+plimSidebarHeader   (optional — hidden when empty)
 plimSidebarNav
-plimSidebarFooter
+plimSidebarFooter   (optional — hidden when empty)
 ```
+
+Empty header and footer slots are not rendered: no border, padding, or extra nav offset. The docs
+app projects only `plimSidebarNav` (nav-only sidebar).
 
 Inputs:
 
@@ -512,11 +525,15 @@ Consumers should import:
 
 after building the library (`npm run build:ui`).
 
-Component-specific styles that must apply globally (design tokens, projected table rows) belong
-in `projects/ui/src/styles/` (`_table.scss` and shared mixins). Component and directive styles
-belong next to their source files — one `styleUrl` SCSS file per component. Shared mixins
-(`_field-control.scss`, `_field-icons.scss`, `_toggle-control.scss`, `_option-list.scss`) stay in
-`projects/ui/src/styles/` and are `@use`d by those component files.
+Component-specific styles that must apply globally (design tokens, projected table rows, thin
+scrollbars, keyboard-hint utility) belong in `projects/ui/src/styles/` (`_table.scss`,
+`_scrollbar.scss`, and shared mixins). Component and directive styles belong next to their source
+files — one `styleUrl` SCSS file per component. Shared mixins (`_field-control.scss`,
+`_field-icons.scss`, `_toggle-control.scss`, `_option-list.scss`) stay in `projects/ui/src/styles/`
+and are `@use`d by those component files.
+
+**Global styles:** `styles.scss` applies the thin scrollbar mixin to `html`, defines `.plim-kbd`,
+and shared overlay enter animations (dialog, bottom sheet, command palette).
 
 **Table:** `table[plimTable]` styles projected `thead`/`tbody` content via global `.plim-table`
 rules because emulated encapsulation does not reach projected row markup.
@@ -527,8 +544,11 @@ rules because emulated encapsulation does not reach projected row markup.
 
 Live site: [plim-ui.fexost.dev](https://plim-ui.fexost.dev/) (Vercel, root base href `/`). Preview deployments are disabled in `vercel.json`.
 
-**Shell:** sticky `plim-header` (brand mark + wordmark, theme toggle, GitHub), `plim-sidebar` nav,
-responsive overlay menu below 960px (`DocsResponsiveNavService`).
+**Shell:** `app-docs-topbar` (sticky `plim-header` with brand, command-palette search trigger,
+theme toggle, and desktop external links), `app-docs-shell` with `plim-sidebar` nav-only content,
+and `app-docs-command-palette` at the app root. Responsive overlay menu below 960px
+(`DocsResponsiveNavService`). Mobile external links (Npm, GitHub) appear at the top of the nav
+list; the topbar search trigger is icon-only on narrow viewports.
 
 **Nav config:** `docs-nav.config.ts` — categories: Get started, Foundations, Basic, Form,
 Navigation, Feedback, Data, Advanced.
@@ -575,16 +595,19 @@ overview and guide pages).
 **Brand assets:** `projects/docs/public/brand/` — `mark.svg`, `logo-dark.svg`, `logo-light.svg`,
 `favicon.svg`, `app-icon.svg`.
 
-**Docs search:** command palette via `<plim-command-palette>` in the library; docs wrapper
+**Docs search:** command palette only — `<plim-command-palette>` in the library; docs wrapper
 `app-docs-command-palette` + `DocsCommandPaletteService` (Ctrl/Cmd+K and topbar search).
-Search logic lives in `searchDocs()` (`docs-search.service.ts`).
+Search logic lives in `searchDocs()` (`docs-search.service.ts`). There is no separate sidebar
+search filter.
 
 **Docs SCSS:**
 
 * Shared primitives stay in `projects/docs/src/app/styles/` (`_docs-page.scss`,
   `_docs-code-theme.scss`) and are imported from `projects/docs/src/styles.scss`.
-* Reusable docs-only classes: `.docs-visually-hidden`, `.docs-kbd`; z-index token
-  `--docs-z-command-palette` on `.docs-app`.
+* Reusable docs-only classes: `.docs-visually-hidden`; prefer `.plim-kbd` from library global
+  styles for keyboard hints (`.docs-kbd` remains in `_docs-page.scss` for legacy docs markup).
+  Z-index token `--docs-z-command-palette` on `.docs-app`; `--plim-command-palette-offset` in
+  `app.scss` for topbar-aware palette positioning.
 * Form preview helpers stay in `pages/form/_form-docs-preview.scss` and are `@use`d by form pages.
 * App shell chrome lives in `app.scss` next to the app component.
 * Nav link styles live in `components/docs-nav/docs-nav.scss`; the sidebar demo `@use`s that file.
@@ -696,8 +719,8 @@ When implementing new components:
 
 * Angular 21 workspace: `ui` (library) + `docs` (application).
 * Angular CDK installed; overlay components (**select, autocomplete, datepicker, timepicker,
-  menu, dialog, bottom sheet, snackbar, tooltip**) use CDK Overlay (peer dependency).
-* ESLint / angular-eslint; Vitest for unit tests (156 library tests).
+  menu, dialog, bottom sheet, snackbar, command palette, tooltip**) use CDK Overlay (peer dependency).
+* ESLint / angular-eslint; Vitest for unit tests (161 library tests, 12 docs tests).
 * Library built with ng-packagr → `dist/plim-ui`; styles at `dist/plim-ui/styles/`.
 * Design tokens: colour, typography, spacing, radius, shadow, focus, motion (`--plim-duration-spin`), component dimensions (including chat panel sizing), semantic tinted surfaces (`--plim-color-*-surface*`).
 * Light/dark themes via CSS variables; docs `ThemeService` persists choice.

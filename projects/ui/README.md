@@ -26,6 +26,8 @@ Import global tokens and theme variables once in your application styles:
 @use 'plim-ui/styles/styles';
 ```
 
+This also applies a thin page scrollbar on `html` and shared utilities such as `.plim-kbd` for keyboard hints.
+
 Toggle light mode by setting `data-theme="light"` on the document root.
 
 ## Components
@@ -62,6 +64,7 @@ Styles native `<button>` elements via the `plimButton` attribute.
 | --- | --- | --- |
 | `variant` | `'primary' \| 'secondary' \| 'text'` | `'primary'` |
 | `disabled` | `boolean` | `false` |
+| `loading` | `boolean` | `false` |
 
 Pair with `routerLink` when navigation is triggered from a button. Use `variant="text"` for
 link-like actions. The selector is `button[plimButton]` only.
@@ -217,15 +220,16 @@ Sticky positioning is applied to the component host, not the internal landmark.
 
 #### Sidebar
 
-Navigation panel with header, nav, and footer slots.
+Navigation panel with optional header, nav, and footer slots. Empty header and footer slots are not
+rendered — no border or padding appears when a slot has no projected content.
 
 ```html
 <plim-sidebar open mode="push" aria-label="Main navigation">
-  <div plimSidebarHeader>Search or branding</div>
   <nav plimSidebarNav>...</nav>
-  <div plimSidebarFooter>...</div>
 </plim-sidebar>
 ```
+
+Optional slots: `plimSidebarHeader`, `plimSidebarNav`, `plimSidebarFooter`.
 
 | Input | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -297,6 +301,38 @@ In-page action bar (not app chrome). Use `<plim-header>` for global navigation.
 Content slots: `plimToolbarStart`, `plimToolbarEnd`.
 
 ### Feedback
+
+#### Command palette
+
+Searchable command menu in a CDK overlay. The parent controls `open`, supplies filtered `items`,
+and handles `selected` / `closed`.
+
+```html
+<button type="button" plimButton (click)="open.set(true)">Open palette</button>
+
+<plim-command-palette
+  [open]="open()"
+  [items]="items()"
+  [query]="query()"
+  placeholder="Search commands…"
+  ariaLabel="Command palette"
+  (queryChange)="query.set($event)"
+  (selected)="onSelected($event)"
+  (closed)="onClosed()"
+/>
+```
+
+| Input | Type | Default |
+| --- | --- | --- |
+| `open` | `boolean` | `false` |
+| `items` | `CommandPaletteItem[]` | `[]` |
+| `query` | `string` | `''` |
+| `placeholder` | `string` | `'Search…'` |
+| `ariaLabel` | `string` | `'Command palette'` |
+| `emptyMessage` | `string` | `'No results found.'` |
+
+Outputs: `queryChange`, `selected`, `closed`. Set `--plim-command-palette-offset` on a parent to
+position the panel below a sticky header.
 
 #### Dialog
 
@@ -467,6 +503,7 @@ import {
   Checkbox,
   Chip,
   ChipSet,
+  CommandPalette,
   Datepicker,
   Dialog,
   ExpansionPanel,
@@ -515,7 +552,7 @@ import {
 
 ## Design tokens
 
-Tokens cover colour, typography, spacing, radius, shadows, focus rings, motion, and component dimensions under the `--plim-*` namespace. See the [tokens reference](https://plim-ui.fexost.dev/foundations/tokens) for the full list.
+Tokens cover colour, typography, spacing, radius, shadows, focus rings, motion, and component dimensions under the `--plim-*` namespace. Global `styles.scss` also ships a thin scrollbar mixin (`_scrollbar.scss`) and `.plim-kbd`. See the [tokens reference](https://plim-ui.fexost.dev/foundations/tokens) for the full list.
 
 ## Links
 
