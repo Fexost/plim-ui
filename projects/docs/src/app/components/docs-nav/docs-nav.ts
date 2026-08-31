@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Button } from 'plim-ui';
 
@@ -17,19 +17,4 @@ export class DocsNav {
 	protected readonly sections = DOCS_NAV;
 	protected readonly externalLinks = DOCS_EXTERNAL_LINKS;
 	protected openExternal = openExternal;
-
-	private readonly expandedSections = signal<Record<string, boolean>>(
-		Object.fromEntries(DOCS_NAV.map((section) => [section.label, true])),
-	);
-
-	protected isSectionExpanded(sectionLabel: string): boolean {
-		return this.expandedSections()[sectionLabel] ?? true;
-	}
-
-	protected toggleSection(sectionLabel: string): void {
-		this.expandedSections.update((state) => ({
-			...state,
-			[sectionLabel]: !(state[sectionLabel] ?? true),
-		}));
-	}
 }
