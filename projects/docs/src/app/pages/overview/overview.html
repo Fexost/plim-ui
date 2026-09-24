@@ -1,191 +1,99 @@
-<section class="docs-hero">
-	<div class="docs-hero__content">
-		<p class="docs-hero__eyebrow">Angular component library</p>
-		<h1>Interfaces that welcome everyone.</h1>
-		<p class="docs-lead">
-			plim-ui is an accessibility-first UI library for Angular — composable primitives, semantic
-			tokens, and interaction patterns that work for keyboard, pointer, and assistive technology
-			users.
+<section class="folio" aria-labelledby="folio-title">
+	<div class="folio__copy">
+		<p class="folio__kicker">Angular component library</p>
+		<h1 id="folio-title">plim-ui</h1>
+		<p class="folio__dek">
+			Components, tokens, and keyboard behaviour for Angular. They implement
+			<a [routerLink]="'/' + DOCS_PATHS.design">Plim Design</a>, which does not prescribe a look.
 		</p>
-		<div class="docs-hero-actions">
+		<div class="folio__actions">
 			<button type="button" plimButton [routerLink]="'/' + DOCS_PATHS.installation">
-				Get started
+				Install the library
 			</button>
-			<button type="button" plimButton variant="secondary" [routerLink]="'/' + DOCS_PATHS.tokens">
-				View foundations
+			<button type="button" plimButton variant="secondary" [routerLink]="'/' + DOCS_PATHS.design">
+				Plim Design
 			</button>
 		</div>
-	</div>
-
-	<div class="docs-hero__preview" aria-hidden="true">
-		<div class="docs-hero__preview-window">
-			<div class="docs-hero__preview-toolbar">
-				<span class="docs-hero__preview-dot"></span>
-				<span class="docs-hero__preview-dot"></span>
-				<span class="docs-hero__preview-dot"></span>
-			</div>
-			<div class="docs-hero__preview-body">
-				<div class="docs-hero__preview-row">
-					<span class="docs-hero__preview-button docs-hero__preview-button--primary">Primary</span>
-					<span class="docs-hero__preview-button docs-hero__preview-button--secondary"
-						>Secondary</span
-					>
-				</div>
-				<div class="docs-hero__preview-row">
-					<span class="docs-hero__preview-badge docs-hero__preview-badge--primary">Accessible</span>
-					<span class="docs-hero__preview-badge docs-hero__preview-badge--success">Composable</span>
-				</div>
-				<div class="docs-hero__preview-card">
-					<strong>Semantic tokens</strong>
-					<p>Consistent surfaces, type, and motion across light and dark themes.</p>
-					<div class="docs-hero__preview-progress" role="presentation">
-						<span></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="docs-grid docs-grid--2">
-	<plim-card fill class="overview-card">
-		<div plimCardHeader class="overview-card__header">
-			<h2>Start in minutes</h2>
-			<plim-badge variant="primary">Angular 21+</plim-badge>
-		</div>
-		<pre class="docs-code"><code>npm install plim-ui</code></pre>
-		<p class="overview-card__copy">
-			Install from npm, import standalone components, and add the global stylesheet.
+		<p class="folio__command">
+			<code>npm install plim-ui</code>
 		</p>
-		<div plimCardFooter>
-			<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.installation">
-				Installation guide
-			</button>
+	</div>
+
+	<div class="specimen" aria-label="Live plim-ui components">
+		<div class="specimen__group">
+			<p class="specimen__label">Actions</p>
+			<div class="specimen__row">
+				<button type="button" plimButton>Primary</button>
+				<button type="button" plimButton variant="secondary">Secondary</button>
+				<button type="button" plimButton variant="text">Text</button>
+			</div>
 		</div>
-	</plim-card>
-
-	<plim-card fill class="overview-card">
-		<span
-			class="material-symbols-outlined overview-card__icon overview-card__icon--success"
-			aria-hidden="true"
-			>check_circle</span
-		>
-		<h2>Accessibility is the baseline</h2>
-		<p class="overview-card__copy">
-			Semantic HTML, keyboard support, and visible focus are built in from the start.
-		</p>
-		<div plimCardFooter>
-			<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.accessibility">
-				Accessibility principles
-			</button>
+		<div class="specimen__group">
+			<p class="specimen__label">Status</p>
+			<div class="specimen__row">
+				<plim-badge>Default</plim-badge>
+				<plim-badge variant="primary">Primary</plim-badge>
+				<plim-badge variant="success">Success</plim-badge>
+				<plim-badge variant="warning">Warning</plim-badge>
+			</div>
 		</div>
-	</plim-card>
-</section>
-
-<section class="docs-section">
-	<div class="docs-section-header">
-		<h2>Foundations</h2>
-		<p>Design tokens, theming, and conventions that components build on</p>
-	</div>
-
-	<div class="docs-grid docs-grid--categories">
-		<plim-card fill class="overview-card overview-card--category">
-			<h3>Tokens</h3>
-			<p>CSS variables for colour, spacing, radius, shadow, and motion.</p>
-			<div plimCardFooter>
-				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.tokens">
-					View tokens
-				</button>
-			</div>
-		</plim-card>
-
-		<plim-card fill class="overview-card overview-card--category">
-			<h3>Theme</h3>
-			<p>Dark and light palettes via <code>data-theme</code>.</p>
-			<div plimCardFooter>
-				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.theme">
-					View theme
-				</button>
-			</div>
-		</plim-card>
-
-		<plim-card fill class="overview-card overview-card--category">
-			<h3>Typography</h3>
-			<p>Font scale, weights, and line heights.</p>
-			<div plimCardFooter>
-				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.typography">
-					View typography
-				</button>
-			</div>
-		</plim-card>
+		<div class="specimen__group">
+			<p class="specimen__label">Setting</p>
+			<label class="specimen__switch">
+				<input type="checkbox" plimSwitch checked />
+				<span>Same controls in light and dark</span>
+			</label>
+		</div>
 	</div>
 </section>
 
-<section class="docs-section">
-	<div class="docs-section-header">
-		<h2>Components</h2>
-		<p>Composable building blocks organised by category</p>
+<section class="folio-index" aria-labelledby="folio-index-title">
+	<div class="folio-index__heading">
+		<h2 id="folio-index-title">Where to go next</h2>
+		<p>Build with the library, or read the philosophy it implements.</p>
 	</div>
-
-	<div class="docs-grid docs-grid--categories">
-		<plim-card fill class="overview-card overview-card--category">
-			<h3>Basic</h3>
-			<p>Buttons, badges, cards, and other everyday UI primitives.</p>
-			<div plimCardFooter>
-				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.button">
-					View button
-				</button>
-			</div>
-		</plim-card>
-
-		<plim-card fill class="overview-card overview-card--category">
-			<h3>Form</h3>
-			<p>Inputs, selects, checkboxes, and shared field semantics.</p>
-			<div plimCardFooter>
-				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.input">
-					View input
-				</button>
-			</div>
-		</plim-card>
-
-		<plim-card fill class="overview-card overview-card--category">
-			<h3>Navigation</h3>
-			<p>Header, sidenav, tabs, menus, paginator, and toolbar patterns.</p>
-			<div plimCardFooter>
-				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.header">
-					View header
-				</button>
-			</div>
-		</plim-card>
-
-		<plim-card fill class="overview-card overview-card--category">
-			<h3>Feedback</h3>
-			<p>Bottom sheet, dialog, snackbar, tooltip, and contextual overlays.</p>
-			<div plimCardFooter>
-				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.dialog">
-					View dialog
-				</button>
-			</div>
-		</plim-card>
-
-		<plim-card fill class="overview-card overview-card--category">
-			<h3>Data</h3>
-			<p>Chips, expansion panels, tables, steppers, trees, and structured content.</p>
-			<div plimCardFooter>
-				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.table">
-					View table
-				</button>
-			</div>
-		</plim-card>
-
-		<plim-card fill class="overview-card overview-card--category">
-			<h3>Advanced</h3>
-			<p>Chat panel, widget launcher, and conversation primitives.</p>
-			<div plimCardFooter>
-				<button type="button" plimButton variant="text" [routerLink]="'/' + DOCS_PATHS.chatPanel">
-					View chat
-				</button>
-			</div>
-		</plim-card>
-	</div>
+	<ol class="folio-index__list">
+		<li>
+			<a [routerLink]="'/' + DOCS_PATHS.installation">
+				<span class="folio-index__num">01</span>
+				<span class="folio-index__body">
+					<strong>Install</strong>
+					<span>Angular 21, peers, and the global stylesheet.</span>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a [routerLink]="'/' + DOCS_PATHS.button">
+				<span class="folio-index__num">02</span>
+				<span class="folio-index__body">
+					<strong>Components</strong>
+					<span>Buttons, forms, overlays, and data. Each page is the API.</span>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a [routerLink]="'/' + DOCS_PATHS.tokens">
+				<span class="folio-index__num">03</span>
+				<span class="folio-index__body">
+					<strong>Tokens and theme</strong>
+					<span>How this library looks, and how a product changes it.</span>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a [routerLink]="'/' + DOCS_PATHS.design">
+				<span class="folio-index__num">04</span>
+				<span class="folio-index__body">
+					<strong>Plim Design</strong>
+					<span>The philosophy and skills. Canonical source, not copied here.</span>
+				</span>
+			</a>
+		</li>
+	</ol>
 </section>
+
+<p class="folio-colophon">
+	Component pages document plim-ui.
+	<a [routerLink]="'/' + DOCS_PATHS.design">Plim Design</a>
+	is the philosophy they implement.
+</p>

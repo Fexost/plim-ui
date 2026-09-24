@@ -1,6 +1,6 @@
 # plim-ui
 
-Open-source Angular component library for building accessible, composable UI with a shared design token system.
+Angular component library and reference implementation of [Plim Design](https://github.com/Fexost/plim-design). The default theme is this package's identity, not a required Plim look. Theme semantic tokens to carry the product.
 
 **Documentation:** [plim-ui.fexost.dev](https://plim-ui.fexost.dev/)
 

@@ -8,7 +8,13 @@
 	--plim-primitive-neutral-300: #c7ccd3;
 	--plim-primitive-neutral-400: #a3a9b5;
 	--plim-primitive-neutral-500: #8b919c;
+	// Identifying borders and tertiary text. Tuned for WCAG 2.2 AA against the
+	// surfaces they sit on, while staying quieter than the next text role.
+	--plim-primitive-neutral-540: #7f8591;
+	--plim-primitive-neutral-560: #7e8692;
 	--plim-primitive-neutral-600: #7a828f;
+	--plim-primitive-neutral-630: #696f7c;
+	--plim-primitive-neutral-640: #636b78;
 	--plim-primitive-neutral-650: #4f5663;
 	--plim-primitive-neutral-700: #3a414f;
 	--plim-primitive-neutral-800: #292e39;
@@ -20,6 +26,9 @@
 	// Primary (violet)
 	--plim-primitive-violet-300: #c4b5fd;
 	--plim-primitive-violet-400: #a78bfa;
+	// Accent used as text on dark neutral surfaces. The 500 step is a fill;
+	// white text on it meets AA, but the fill itself does not as body text.
+	--plim-primitive-violet-450: #946bf7;
 	--plim-primitive-violet-500: #8b5cf6;
 	--plim-primitive-violet-600: #7c3aed;
 	--plim-primitive-violet-700: #6d28d9;
@@ -30,10 +39,16 @@
 	// Semantic accents
 	--plim-primitive-green-400: #55d187;
 	--plim-primitive-green-600: #16a34a;
+	// Light-theme success as text. 600 fails 4.5:1 on light surfaces.
+	--plim-primitive-green-700: #147a3e;
 	--plim-primitive-amber-400: #e8b85c;
 	--plim-primitive-amber-600: #d97706;
+	// Light-theme warning as text. 600 fails 4.5:1 on light surfaces.
+	--plim-primitive-amber-700: #ad4f0a;
 	--plim-primitive-red-400: #ed6a7a;
 	--plim-primitive-red-600: #dc2626;
+	// Light-theme danger as text. 600 fails 4.5:1 on the light surfaces.
+	--plim-primitive-red-700: #c81e1e;
 
 	--plim-primitive-white: #ffffff;
 	--plim-primitive-scrim: rgb(0 0 0 / 0.45);

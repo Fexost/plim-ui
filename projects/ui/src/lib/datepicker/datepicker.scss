@@ -174,13 +174,13 @@
 	}
 
 	&--today:not(.plim-datepicker__day--selected) {
-		color: var(--plim-color-primary);
+		color: var(--plim-color-primary-text);
 		font-weight: var(--plim-font-weight-semibold);
 	}
 
 	&--selected {
 		box-shadow: inset 0 0 0 2px var(--plim-color-primary);
-		color: var(--plim-color-primary);
+		color: var(--plim-color-primary-text);
 		font-weight: var(--plim-font-weight-semibold);
 	}
 
@@ -222,13 +222,13 @@
 	}
 
 	&--today:not(.plim-datepicker__cell--selected) {
-		color: var(--plim-color-primary);
+		color: var(--plim-color-primary-text);
 		font-weight: var(--plim-font-weight-semibold);
 	}
 
 	&--selected {
 		box-shadow: inset 0 0 0 2px var(--plim-color-primary);
-		color: var(--plim-color-primary);
+		color: var(--plim-color-primary-text);
 		font-weight: var(--plim-font-weight-semibold);
 	}
 }
@@ -245,7 +245,7 @@
 	padding: 0;
 	border: 0;
 	background: transparent;
-	color: var(--plim-color-primary);
+	color: var(--plim-color-primary-text);
 	font: inherit;
 	font-size: var(--plim-font-size-sm);
 	font-weight: var(--plim-font-weight-semibold);

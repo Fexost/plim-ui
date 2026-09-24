@@ -12,22 +12,23 @@
 	--plim-color-surface-raised: var(--plim-primitive-white);
 
 	--plim-color-border: var(--plim-primitive-neutral-200);
-	--plim-color-border-strong: var(--plim-primitive-neutral-300);
+	--plim-color-border-strong: var(--plim-primitive-neutral-540);
 
 	--plim-color-text: var(--plim-primitive-neutral-975);
 	--plim-color-text-muted: var(--plim-primitive-neutral-650);
-	--plim-color-text-subtle: var(--plim-primitive-neutral-500);
+	--plim-color-text-subtle: var(--plim-primitive-neutral-630);
 
 	--plim-color-primary: var(--plim-primitive-violet-600);
+	--plim-color-primary-text: var(--plim-color-primary);
 	--plim-color-primary-hover: var(--plim-primitive-violet-700);
 	--plim-color-primary-strong: var(--plim-color-primary);
 	--plim-color-primary-strong-hover: var(--plim-color-primary-hover);
 	--plim-color-link: var(--plim-primitive-violet-700);
 	--plim-color-link-hover: var(--plim-primitive-violet-750);
 
-	--plim-color-success: var(--plim-primitive-green-600);
-	--plim-color-warning: var(--plim-primitive-amber-600);
-	--plim-color-danger: var(--plim-primitive-red-600);
+	--plim-color-success: var(--plim-primitive-green-700);
+	--plim-color-warning: var(--plim-primitive-amber-700);
+	--plim-color-danger: var(--plim-primitive-red-700);
 
 	--plim-color-scrim: color-mix(in srgb, var(--plim-primitive-neutral-1000) 40%, transparent);
 

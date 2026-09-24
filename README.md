@@ -1,6 +1,8 @@
 # plim-ui
 
-An open-source, accessibility-first Angular component library with composable primitives, design tokens, and light/dark theme support.
+An Angular component library: the reference implementation of [Plim Design](https://github.com/Fexost/plim-design), not the definition of it.
+
+Plim Design is a framework-agnostic philosophy. It does not prescribe a universal visual style. plim-ui shows one intentional expression of that philosophy: composable, accessible Angular components, semantic tokens, and a dark/light theme you can replace. Another product built with these components should theme the semantic roles to carry its own character. It should not aim to look like this documentation site.
 
 Install `plim-ui` in any Angular 21+ app, import standalone components, and include the global stylesheet to get tokens and theming out of the box.
 
@@ -119,9 +121,11 @@ Each component has a docs page with previews, accessibility notes, and API refer
 
 ## Theming
 
-Design tokens use the `--plim-*` CSS variable namespace. Dark theme is the default (`:root`); light theme overrides apply when `data-theme="light"` is set on the document root.
+Design tokens use the `--plim-*` CSS variable namespace. Theme at the semantic layer (`--plim-color-primary`, text roles, surfaces, radius, type). Dark theme is the default (`:root`); light theme overrides apply when `data-theme="light"` is set on the document root.
 
-See the [Tokens](https://plim-ui.fexost.dev/foundations/tokens) and [Theme](https://plim-ui.fexost.dev/foundations/theme) guides for details.
+The default palette is plim-ui's own identity. It is replaceable so a banking tool, a clinical product, and an exhibition site can share the components without sharing the look.
+
+See the [Tokens](https://plim-ui.fexost.dev/foundations/tokens) and [Theme](https://plim-ui.fexost.dev/foundations/theme) guides for details. Use each component for the job its docs describe. Variants name importance or status. They are not a menu of visual styles.
 
 ## Workspace
 

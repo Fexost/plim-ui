@@ -115,7 +115,7 @@ Where plim-ui's `DESIGN-AGENTS.md` and Plim Design pull in different directions.
 
 | Topic | plim-ui guidance | Plim Design | Status |
 | --- | --- | --- | --- |
-| Whitespace | `DESIGN-AGENTS.md` §3: "Start with too much white space", adding generous space and removing it until it feels right (it also allows deliberately dense layouts) | §9 Density ↔ Breathing room: density should match task, expertise, and frequency of use; more whitespace is not automatically better | **Open.** Reconciliation owned by the plim-ui maintainer |
-| Accent borders | `DESIGN-AGENTS.md` §8: accent colour bars on cards, nav, and alerts as a finishing touch | Law 2 and §11: a visual treatment should communicate a distinction | **Candidate.** Commit `3ca689f` removed accent borders from the docs nav and accessibility callout, which suggests alignment is under way. Confirm with the maintainer |
+| Whitespace | Previously `DESIGN-AGENTS.md` said to start with too much white space | §9 Density ↔ Breathing room: density should match task, expertise, and frequency of use | **Resolved in plim-ui.** `DESIGN-AGENTS.md` now defers density to the task. Upstream plim-design `reference.md` may still list this as open until the next skill release |
+| Accent borders | Previously `DESIGN-AGENTS.md` recommended accent colour bars as a finishing touch | Law 2 and §11: a visual treatment should communicate a distinction | **Resolved in plim-ui.** That instruction was removed. Upstream plim-design `reference.md` may still list it until the next skill release |
 
 Apply the Plim Design reasoning, mention the divergence when it affects a decision, and leave both documents unchanged unless the user asks. When plim-ui replaces or retires `DESIGN-AGENTS.md`, close the entries.

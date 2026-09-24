@@ -93,16 +93,18 @@
 	<section class="docs-component__section">
 		<h2>Loading and empty states</h2>
 		<p>
-			Set <code>aria-busy="true"</code> on a wrapper while fetching. Use skeleton rows or a
-			spinner with an accessible label. For empty data, render a single row with a
-			<code>colspan</code> and <code>role="status"</code>.
+			Set <code>aria-busy="true"</code> on a wrapper while fetching. Skeleton rows hold the
+			table's shape. They are hidden from assistive technology, so add a text status as well.
+			Use a spinner when there is no layout to preserve. Do not show both. For empty data,
+			render a single row with a <code>colspan</code> and <code>role="status"</code>.
 		</p>
 		<div class="docs-preview docs-split__preview docs-split__preview--stack">
 			<button type="button" plimButton variant="secondary" (click)="toggleLoading()">
-				{{ loading() ? 'Show data' : 'Show loading' }}
+				{{ loading() ? 'Show empty' : 'Show loading' }}
 			</button>
 			<div class="table-docs-preview" [attr.aria-busy]="loading() ? true : null">
 				@if (loading()) {
+					<p class="docs-visually-hidden" role="status">Loading table data</p>
 					<table plimTable>
 						<thead>
 							<tr>
@@ -119,7 +121,6 @@
 							}
 						</tbody>
 					</table>
-					<plim-spinner size="sm" aria-label="Loading table data" />
 				} @else {
 					<table plimTable>
 						<thead>

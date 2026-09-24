@@ -48,6 +48,11 @@ describe('FormField', () => {
 			expect(host.classList.contains('plim-form-field')).toBe(true);
 		});
 
+		it('should keep a projected error out of the alert role until invalid', () => {
+			const error = host.querySelector('.plim-form-field__error');
+			expect(error?.getAttribute('role')).toBeNull();
+		});
+
 		it('should project label, control, hint, and error slots', () => {
 			expect(host.querySelector('.plim-form-field__label label')?.textContent?.trim()).toBe(
 				'Email',
@@ -67,11 +72,12 @@ describe('FormField', () => {
 			await TestBed.configureTestingModule({ imports: [InvalidFormFieldHost] }).compileComponents();
 		});
 
-		it('should apply invalid modifier class', () => {
+		it('should apply invalid modifier class and expose the error as an alert', () => {
 			const fixture = TestBed.createComponent(InvalidFormFieldHost);
 			fixture.detectChanges();
 			const host = fixture.nativeElement.querySelector('plim-form-field')!;
 			expect(host.classList.contains('plim-form-field--invalid')).toBe(true);
+			expect(host.querySelector('.plim-form-field__error')?.getAttribute('role')).toBe('alert');
 		});
 	});
 });

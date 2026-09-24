@@ -22,25 +22,25 @@
 	&--primary {
 		background: var(--plim-color-primary-surface);
 		border-color: var(--plim-color-primary-surface-border);
-		color: var(--plim-color-primary);
+		color: var(--plim-color-primary-surface-text);
 	}
 
 	&--success {
 		background: var(--plim-color-success-surface);
 		border-color: var(--plim-color-success-surface-border);
-		color: var(--plim-color-success);
+		color: var(--plim-color-success-surface-text);
 	}
 
 	&--warning {
 		background: var(--plim-color-warning-surface);
 		border-color: var(--plim-color-warning-surface-border);
-		color: var(--plim-color-warning);
+		color: var(--plim-color-warning-surface-text);
 	}
 
 	&--danger {
 		background: var(--plim-color-danger-surface);
 		border-color: var(--plim-color-danger-surface-border);
-		color: var(--plim-color-danger);
+		color: var(--plim-color-danger-surface-text);
 	}
 
 	&--primary .plim-snackbar__dismiss,
@@ -68,7 +68,7 @@
 	border: none;
 	border-radius: var(--plim-radius-md);
 	background: transparent;
-	color: var(--plim-color-primary);
+	color: var(--plim-color-primary-text);
 	font: inherit;
 	font-weight: var(--plim-font-weight-medium);
 	cursor: pointer;

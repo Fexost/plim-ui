@@ -65,7 +65,9 @@
 }
 
 .docs-guide__intro .docs-lead a,
-.docs-section-copy a {
+.docs-section-copy a,
+.folio__dek a,
+.folio-colophon a {
 	color: var(--plim-color-link);
 	text-decoration: underline;
 	text-underline-offset: 0.15em;

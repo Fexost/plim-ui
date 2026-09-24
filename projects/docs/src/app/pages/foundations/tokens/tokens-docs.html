@@ -4,7 +4,8 @@
 		organised in three layers — <strong>primitive</strong> (raw palette),
 		<strong>semantic</strong> (purpose aliases such as <code>--plim-color-surface</code>), and
 		<strong>component</strong> (dimensions and control-specific values). Use semantic and
-		component tokens in your own styles instead of hard-coded values.
+		component tokens in your own styles instead of hard-coded values. Theme the semantic layer
+		to change character. The default values are plim-ui's identity, not a Plim requirement.
 	</p>
 
 	<section class="docs-section" id="token-layers">
@@ -76,7 +77,7 @@
 							></span>
 							<code>--plim-color-border</code>
 						</td>
-						<td>Default border</td>
+						<td>Quiet separator. Not the edge that identifies a field</td>
 					</tr>
 					<tr>
 						<td>
@@ -101,14 +102,14 @@
 							></span>
 							<code>--plim-color-text-subtle</code>
 						</td>
-						<td>Tertiary text, labels</td>
+						<td>Tertiary text. Quieter than muted, still 4.5:1</td>
 					</tr>
 					<tr>
 						<td>
 							<span class="docs-token-swatch docs-token-swatch--primary"></span>
 							<code>--plim-color-primary</code>
 						</td>
-						<td>Primary accent, links, focus</td>
+						<td>Action fill and focus. Lettering on neutral surfaces uses <code>--plim-color-primary-text</code></td>
 					</tr>
 					<tr>
 						<td>
