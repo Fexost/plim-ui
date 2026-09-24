@@ -1,0 +1,56 @@
+<app-docs-guide-layout section="Design" title="Plim Design" [toc]="toc">
+	<p docsLead>
+		Plim Design is the philosophy. plim-ui is the Angular library that implements it. This page
+		points at the canonical sources. It does not restate them.
+	</p>
+
+	<section class="docs-section" id="philosophy">
+		<h2>Philosophy</h2>
+		<p class="docs-section-copy">
+			Plim Design is framework-agnostic. It is about intentional interfaces: purpose, hierarchy,
+			states, accessibility, and identity that belongs to the product. It does not define a
+			universal look, and plim-ui's theme is not that look.
+		</p>
+		<ul class="docs-list">
+			<li><a [href]="repository" target="_blank" rel="noopener noreferrer">Repository</a></li>
+			<li>
+				<a [href]="philosophy" target="_blank" rel="noopener noreferrer">Philosophy (v1.0.0)</a>
+			</li>
+			<li><a [href]="manifesto" target="_blank" rel="noopener noreferrer">Manifesto</a></li>
+		</ul>
+	</section>
+
+	<section class="docs-section" id="skills">
+		<h2>Skills</h2>
+		<p class="docs-section-copy">
+			The skills are how agents apply the philosophy. Install them from the Plim Design
+			repository. The <code>evals/</code> directory tests those skills. It is not design guidance.
+		</p>
+		<pre class="docs-code" data-language="bash"><code>npx skills add Fexost/plim-design</code></pre>
+		<ul class="docs-list">
+			<li><code>plim-design</code> — the reasoning to load first</li>
+			<li><code>plim-review</code> — diagnosis without editing</li>
+			<li><code>plim-beautify</code> — improve an existing interface</li>
+			<li><code>plim-accessibility</code> — inclusion, including WCAG 2.2 AA</li>
+			<li><code>plim-responsive</code> — adaptation across context</li>
+			<li><code>plim-ui</code> — express those decisions with this library</li>
+		</ul>
+		<p class="docs-section-copy">
+			<a [href]="skills" target="_blank" rel="noopener noreferrer">Skill sources</a>
+		</p>
+	</section>
+
+	<section class="docs-section" id="library">
+		<h2>This library</h2>
+		<p class="docs-section-copy">
+			Component pages, tokens, and
+			<a [routerLink]="'/' + DOCS_PATHS.accessibility">accessibility</a>
+			describe plim-ui. They are implementation guidance. When they disagree with Plim Design,
+			Plim Design wins and the implementation should change.
+		</p>
+		<p class="docs-section-copy">
+			<a [routerLink]="'/' + DOCS_PATHS.installation">Install plim-ui</a>
+			to use the components. Stay on this page only when you want the philosophy.
+		</p>
+	</section>
+</app-docs-guide-layout>

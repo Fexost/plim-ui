@@ -30,6 +30,7 @@ export const DOCS_PATHS = {
 	typography: 'foundations/typography',
 	accessibility: 'foundations/accessibility',
 	icons: 'foundations/icons',
+	design: 'design',
 	button: 'basic/button',
 	buttonToggle: 'basic/button-toggle',
 	badge: 'basic/badge',
@@ -93,6 +94,16 @@ export const DOCS_NAV: DocsNavSection[] = [
 			{ path: DOCS_HOME, label: 'Overview' },
 			{ path: DOCS_PATHS.installation, label: 'Installation' },
 			{ path: DOCS_PATHS.appShell, label: 'App shell', keywords: ['layout', 'starter', 'header', 'sidebar'] },
+		],
+	},
+	{
+		label: 'Design',
+		items: [
+			{
+				path: DOCS_PATHS.design,
+				label: 'Plim Design',
+				keywords: ['philosophy', 'principles', 'skills', 'manifesto', 'agents'],
+			},
 		],
 	},
 	{

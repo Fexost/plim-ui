@@ -85,31 +85,6 @@
 	}
 }
 
-.docs-topbar__project-switch {
-	display: flex;
-	align-items: center;
-	flex-shrink: 0;
-}
-
-.docs-topbar__project-trigger {
-	display: inline-flex;
-	align-items: center;
-	gap: var(--plim-space-1);
-	color: var(--plim-color-primary);
-	font-weight: var(--plim-font-weight-medium);
-}
-
-.docs-topbar__project-chevron {
-	display: inline-block;
-	width: 0;
-	height: 0;
-	margin-top: 2px;
-	border-top: 5px solid currentColor;
-	border-right: 4px solid transparent;
-	border-left: 4px solid transparent;
-	opacity: 0.85;
-}
-
 .docs-topbar__end {
 	display: flex;
 	justify-content: flex-end;
@@ -191,8 +166,8 @@
 }
 
 .docs-topbar__brand-ui {
-	font-weight: var(--plim-font-weight-normal);
-	color: var(--plim-color-text-muted);
+	font-weight: var(--plim-font-weight-medium);
+	color: var(--plim-color-primary-text);
 }
 
 @media (max-width: 960px) {

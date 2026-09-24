@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "skills": {
+    "plim-accessibility": {
+      "source": "Fexost/plim-design",
+      "sourceType": "github",
+      "skillPath": "skills/plim-accessibility/SKILL.md",
+      "computedHash": "f991d252786e4bf6a2ee1b5181abb1542e78d2114bd76dd9a0e16deff43962e5"
+    },
+    "plim-beautify": {
+      "source": "Fexost/plim-design",
+      "sourceType": "github",
+      "skillPath": "skills/plim-beautify/SKILL.md",
+      "computedHash": "5089a209aaef54d80d32560d24770e8924b32a17884bbb939cb131e1e2ece50d"
+    },
+    "plim-design": {
+      "source": "Fexost/plim-design",
+      "sourceType": "github",
+      "skillPath": "skills/plim-design/SKILL.md",
+      "computedHash": "b48b4eed5521335976091ead1d9951511a0efcf87898974598a1d1f83710ac2c"
+    },
+    "plim-responsive": {
+      "source": "Fexost/plim-design",
+      "sourceType": "github",
+      "skillPath": "skills/plim-responsive/SKILL.md",
+      "computedHash": "ff43d1bd50df90b04e00449fd4206a29dec22846f73d3a93ed28f41e384e4c65"
+    },
+    "plim-review": {
+      "source": "Fexost/plim-design",
+      "sourceType": "github",
+      "skillPath": "skills/plim-review/SKILL.md",
+      "computedHash": "bbd683091bd68471fc77c035ef96f5a473a954163532068ca69875ad62c755f5"
+    },
+    "plim-ui": {
+      "source": "Fexost/plim-design",
+      "sourceType": "github",
+      "skillPath": "skills/plim-ui/SKILL.md",
+      "computedHash": "26e1e7a4d08e762749b77f0c052354418d73190052d7520e80bcb70c82c0ec9a"
+    }
+  }
+}

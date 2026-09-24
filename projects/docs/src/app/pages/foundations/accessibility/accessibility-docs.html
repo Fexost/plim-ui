@@ -1,7 +1,10 @@
 <app-docs-guide-layout section="Foundations" title="Accessibility" [toc]="toc">
 	<p docsLead>
-		plim-ui treats accessibility as a baseline requirement. Components use semantic HTML first,
-		keyboard support by default, and ARIA only when native semantics are not enough.
+		The working target is WCAG 2.2 Level AA. That is a constraint on how the library is built,
+		not a visual style. The reasoning lives in
+		<a [routerLink]="'/' + DOCS_PATHS.design">Plim Design</a>. This page is how plim-ui
+		implements it: semantic HTML first, keyboard support by default, and ARIA only when native
+		semantics are not enough.
 	</p>
 
 	<section class="docs-principles" id="principles">
@@ -95,8 +98,8 @@
 			Tables remain native <code>&lt;table&gt;</code> elements — use <code>th</code> for headers
 			and keep <code>thead</code> / <code>tbody</code> groups. Lists expose
 			<code>role="list"</code> and <code>role="listitem"</code>. When data is loading, set
-			<code>aria-busy="true"</code> on the container and use skeleton placeholders or a spinner
-			with an accessible name.
+			<code>aria-busy="true"</code> on the container and use one indicator: skeleton placeholders
+			when the layout should stay put, or a spinner when it should not. Do not show both.
 		</p>
 	</section>
 
@@ -113,9 +116,14 @@
 	<section class="docs-section" id="contrast">
 		<h2>High contrast and muted content</h2>
 		<p class="docs-section-copy">
+			Text roles (<code>--plim-color-text</code>, <code>-muted</code>, <code>-subtle</code>) meet
+			4.5:1 for normal text against the surfaces they are used on. Identifying control borders
+			use <code>--plim-color-border-strong</code> and meet 3:1. Accent lettering uses
+			<code>--plim-color-primary-text</code>, which is separate from the primary fill in the
+			dark theme. Status text on a tinted surface uses <code>--plim-color-*-surface-text</code>.
 			Interactive states include <code>@media (forced-colors: active)</code> rules where colour
-			carries meaning. Disabled controls use <code>--plim-opacity-disabled</code>; de-emphasized
-			UI can use <code>--plim-opacity-muted</code>.
+			carries meaning. Disabled controls use <code>--plim-opacity-disabled</code>. That opacity
+			is for unavailable controls, not for quiet content that people still need to read.
 		</p>
 	</section>
 </app-docs-guide-layout>

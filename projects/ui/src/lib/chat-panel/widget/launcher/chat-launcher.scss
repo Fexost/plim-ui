@@ -10,9 +10,9 @@
 	min-width: var(--plim-chat-launcher-size);
 	height: var(--plim-chat-launcher-size);
 	padding: 0 var(--plim-space-4);
-	border: 1px solid var(--plim-color-primary);
+	border: 1px solid var(--plim-color-primary-strong);
 	border-radius: var(--plim-radius-full);
-	background: var(--plim-color-primary);
+	background: var(--plim-color-primary-strong);
 	color: var(--plim-color-on-primary);
 	font-family: inherit;
 	font-size: var(--plim-font-size-sm);
@@ -26,8 +26,8 @@
 		box-shadow var(--plim-duration-normal) var(--plim-ease-default);
 
 	&:hover:not(:disabled) {
-		background: var(--plim-color-primary-hover);
-		border-color: var(--plim-color-primary-hover);
+		background: var(--plim-color-primary-strong-hover);
+		border-color: var(--plim-color-primary-strong-hover);
 	}
 
 	&:focus-visible {

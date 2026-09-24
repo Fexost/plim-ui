@@ -9,6 +9,10 @@ export const routes: Routes = [
 		loadComponent: () => import('./pages/overview/overview').then((m) => m.Overview),
 	},
 	{
+		path: DOCS_PATHS.design,
+		loadComponent: () => import('./pages/design/design').then((m) => m.DesignDocs),
+	},
+	{
 		path: DOCS_PATHS.installation,
 		loadComponent: () =>
 			import('./pages/installation/installation').then((m) => m.Installation),

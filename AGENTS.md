@@ -10,8 +10,9 @@ document rather than blindly following outdated information.
 Do not make broad architectural changes without first explaining why they
 are necessary.
 
-For visual design decisions (hierarchy, spacing, colour, depth, typography),
-see [`DESIGN-AGENTS.md`](./DESIGN-AGENTS.md).
+**Design authority is [Plim Design](https://github.com/Fexost/plim-design) v1.0.0**, not this file. plim-ui is the Angular implementation of that philosophy. It does not define Plim, and its default theme is not a universal Plim look. Before design work, install and use the Plim Design skills (`npx skills add Fexost/plim-design`), starting with `plim-design`. The philosophy and those skills take precedence over this file and over [`DESIGN-AGENTS.md`](./DESIGN-AGENTS.md). The `evals/` directory in plim-design tests the skills; it is not design guidance.
+
+[`DESIGN-AGENTS.md`](./DESIGN-AGENTS.md) records how Plim Design is implemented in this codebase (token roles, states, file ownership). [`DESIGN-DECISIONS.md`](./DESIGN-DECISIONS.md) records decisions a later session should not reopen. Existing conventions here are evidence. Where they conflict with Plim Design, change the convention.
 
 # Plim UI — Project Context & Development Guidelines
 
@@ -41,32 +42,20 @@ The component library will ultimately be used by the user's personal portfolio w
 
 # 2. Design Philosophy
 
-The library should feel like a modern, professional developer-facing component library.
+Plim Design decides what a change is for. This section only records how that applies to the library.
 
-The visual direction should take inspiration from:
+plim-ui is a developer-facing Angular component library. Its job is to give products accessible, composable controls and a theming surface, and to demonstrate those controls in the docs app. The default visual character (dark-first, cool neutrals, violet accent, modest radius) belongs to this library. Another Plim product can be dense, editorial, loud, or plain and still be Plim. Do not restyle plim-ui toward a generic theme, and do not treat plim-ui's theme as the correct theme for every consumer.
 
-* Modern Angular Material documentation
-* shadcn/ui
-* Modern documentation websites
-* Clean developer tooling interfaces
-* The supplied design reference/screenshot discussed previously
+When a visual or interaction choice is in question:
 
-The goal is **not** to copy any existing library.
+* Start from the task the control supports.
+* Keep a distinction only when it communicates something true (importance, status, grouping, layer, affordance, identity).
+* Prefer native semantics, then the existing component, then a token.
+* Meet WCAG 2.2 AA. Accessibility constrains implementation. It does not pick the aesthetic.
+* Density, radius, shadow, and colour are contextual. This library ships one coherent default and tokens so a product can choose otherwise.
+* Improve a component that fails its job. Do not replace a stable API to show that the philosophy was applied.
 
-Instead, the design should combine:
-
-* Minimal visual noise
-* Strong typography
-* Good spacing
-* Clear hierarchy
-* Subtle borders
-* Neutral surfaces
-* Consistent design tokens
-* Good dark/light theme support
-* Accessible interaction states
-* High-quality documentation
-
-Components should generally favour composability rather than providing extremely opinionated markup.
+Components should favour composability rather than opinionated page markup. The product decides layout, density, and brand by theming semantic roles.
 
 ---
 
